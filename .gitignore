@@ -1,0 +1,11 @@
+# Large PDF collections — stored in Google Drive, not needed in git
+PraCooking/
+PraCooking-BASE-COURSE/
+RECEPIES_PraCooking/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Mac system files
+.DS_Store

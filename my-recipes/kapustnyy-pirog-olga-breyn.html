@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Капустный пирог (Ольга Брейн)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Капустный пирог (Ольга Брейн)</h1>
+    <div class="meta">savory baking, pies, cabbage</div>
+    
+  </div>
+  
+        <div class="section">
+          
+          <ul class="ingr-list"><li>Статус: надо попробовать</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">🧂</span>Ingredients (filling)</h2>
+          <ul class="ingr-list"><li>1 маленький или половина большого кочана капусты</li><li>сливочное масло (много, не жалеть!)</li><li>соль</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">🧂</span>Ingredients (dough)</h2>
+          <ul class="ingr-list"><li><span class="qty">6 ст.л.</span> майонеза</li><li><span class="qty">6 ст.л.</span> сметаны</li><li>2 яйца</li><li><span class="qty">1/2 ч.л.</span> соды</li><li>~3/4 стакана муки (не полный стакан — тесто будет гуще)</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">👩‍🍳</span>Instructions</h2>
+          <ol class="steps"><li>Нашинковать капусту, жарить на сковороде на сливочном масле (масла не жалеть). Посолить. Помешивать.</li><li>Взбить тесто миксером: майонез + сметана + яйца + сода + мука. Тесто получается густое.</li><li>Застелить форму пергаментом. Вылить половину теста.</li><li>Сверху выложить жареную капусту.</li><li>Залить второй половиной теста.</li><li>Выпекать при 200°C 25–30 минут. Проверять готовность.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">💡</span>Tips</h2>
+          <ul class="notes-list"><li>Капусту не пересаливать — майонез в тесте уже соленый.</li><li>Муки брать 3/4 стакана, не целый — тесто очень густое.</li></ul>
+        </div>
+</body>
+</html>
