@@ -117,6 +117,21 @@ My Notes:
 
 ---
 
+## Обновить ссылки на PDF (при добавлении новых PDF)
+
+Если добавила новые PDF в папки PraCooking / PraCooking-BASE-COURSE / RECEPIES_PraCooking —
+запусти скрипт, чтобы добавить прямые ссылки Google Drive:
+
+```bash
+cd ~/Library/CloudStorage/GoogleDrive-julia.kurianova@gmail.com/My\ Drive/cooking/recipes
+
+python3 add-gdrive-ids.py
+```
+
+После этого сделай коммит и пуш в GitHub — ссылки на iPad начнут открывать каждый PDF напрямую.
+
+---
+
 ## Структура папки
 
 ```
@@ -124,6 +139,7 @@ recipes/
 ├── cookbook.html              ← открывать в браузере
 ├── catalog.json               ← база данных
 ├── update-catalog.py          ← запустить после добавления рецептов
+├── add-gdrive-ids.py          ← запустить после добавления новых PDF
 ├── generate_recipe_html.py    ← генерирует HTML из .txt
 ├── PROJECT.md                 ← инструкция для Claude
 ├── README.md                  ← этот файл
