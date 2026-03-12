@@ -79,6 +79,8 @@
   .card-footer { padding: 10px 18px; background: #faf7f4; border-top: 1px solid #f0e8e0; text-align: right; }
   .open-btn { display: inline-flex; align-items: center; gap: 6px; background: #c05f2a; color: white; border: none; padding: 7px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; cursor: pointer; transition: background 0.18s; }
   .open-btn:hover { background: #8b3a1a; }
+  .open-btn-drive { background: #1a73e8; }
+  .open-btn-drive:hover { background: #1557b0; }
 
   .no-results { text-align: center; padding: 60px 20px; color: #9a8878; font-size: 16px; }
   .no-results .emoji { font-size: 48px; margin-bottom: 12px; }
@@ -296,7 +298,7 @@ function cardHtml(entry, query, minfo) {
       '<div class="card-meta">' + entry.pages + ' p.</div>' +
     '</div>' +
     (bodyContent ? '<div class="card-body">' + bodyContent + '</div>' : '<div style="height:4px"></div>') +
-    '<div class="card-footer"><a class="open-btn" href="' + esc(entry.path) + '" target="_blank">' + (entry.type === 'my_recipe' ? 'Open recipe ↗' : 'Open PDF ↗') + '</a></div>' +
+    '<div class="card-footer">' + (ON_GITHUB && entry.type !== 'my_recipe' ? '<a class="open-btn open-btn-drive" href="' + GDRIVE_FOLDER + '" target="_blank">Open in Google Drive ↗</a>' : '<a class="open-btn" href="' + esc(entry.path) + '" target="_blank">' + (entry.type === 'my_recipe' ? 'Open recipe ↗' : 'Open PDF ↗') + '</a>') + '</div>' +
   '</div>';
 }
 
@@ -304,6 +306,9 @@ function toggleToc(uid, btn) {
   document.getElementById(uid).classList.toggle('open');
   document.getElementById('arr_' + uid).classList.toggle('open');
 }
+
+const GDRIVE_FOLDER = 'https://drive.google.com/drive/folders/1YgsIqeCKVoEsxBrKXTsiYBB7OAL4xN1f?usp=sharing';
+const ON_GITHUB = window.location.protocol === 'https:' && window.location.hostname.includes('github.io');
 
 const typeOrder = ['card','collection','theory','standalone','my_recipe'];
 const typeNames = {card:'🥩 Product Cards', collection:'📖 Recipe Collections', theory:'📐 Theory & References', standalone:'📄 Individual Recipes', my_recipe:'📝 My Recipes'};
