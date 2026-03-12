@@ -19,13 +19,15 @@ def parse_recipe(text):
         "tags": "",
         "rating": "",
         "source": "",
+        "related": "",
         "note_header": "",
         "sections": []  # [{title, items: [str]}]
     }
 
     # Extract metadata
     for field, key in [("Title:", "name"), ("Category:", "category"),
-                       ("Tags:", "tags"), ("Rating:", "rating"), ("Source:", "source")]:
+                       ("Tags:", "tags"), ("Rating:", "rating"),
+                       ("Source:", "source"), ("Related:", "related")]:
         m = re.search(field + r"\s*(.+)", text)
         if m:
             result[key] = m.group(1).strip()
@@ -36,7 +38,7 @@ def parse_recipe(text):
 
     current_section = None
     current_items = []
-    skip_meta = {"Title:", "Category:", "Tags:", "Rating:", "Source:", "Status:"}
+    skip_meta = {"Title:", "Category:", "Tags:", "Rating:", "Source:", "Related:", "Status:"}
 
     for line in lines:
         stripped = line.strip()
@@ -138,6 +140,27 @@ def generate_html(txt_path):
     source_html = ""
     if recipe["source"]:
         source_html = f'<div class="source">Source: {recipe["source"]}</div>'
+
+    # Related recipes — look up titles from other .txt files
+    related_html = ""
+    if recipe["related"]:
+        slugs = [s.strip() for s in recipe["related"].split(",") if s.strip()]
+        links = []
+        for slug in slugs:
+            related_txt = os.path.join(MY_RECIPES_DIR, slug + ".txt")
+            label = slug  # fallback: use filename
+            if os.path.exists(related_txt):
+                with open(related_txt, "r", encoding="utf-8") as rf:
+                    m = re.search(r"Title:\s*(.+)", rf.read())
+                    if m:
+                        label = m.group(1).strip()
+            links.append(f'<a class="related-link" href="{slug}.html">{label}</a>')
+        related_html = (
+            '<div class="related-section">'
+            '<span class="related-label">Part of menu:</span> '
+            + " · ".join(links)
+            + '</div>'
+        )
 
     # Category/tags
     meta_parts = []
@@ -243,6 +266,11 @@ def generate_html(txt_path):
   .my-notes-box p:last-child {{ margin-bottom: 0; }}
   .empty-note {{ color: #c0b090; font-style: italic; }}
 
+  .related-section {{ font-size: 13px; margin-top: 8px; color: #9a8a80; }}
+  .related-label {{ font-weight: 600; color: #7a4f2a; }}
+  .related-link {{ color: #c05f2a; text-decoration: none; font-weight: 500; }}
+  .related-link:hover {{ text-decoration: underline; }}
+
   .back-btn {{ display: inline-block; margin: 20px 24px 4px;
                color: #c05f2a; font-size: 14px; text-decoration: none; }}
   .back-btn:hover {{ text-decoration: underline; }}
@@ -260,6 +288,7 @@ def generate_html(txt_path):
     {rating_html}
     <h1>{name}</h1>
     {meta_html}
+    {related_html}
     {source_html}
   </div>
   {sections_html}
