@@ -304,7 +304,7 @@ function cardHtml(entry, query, minfo) {
       '<div class="card-meta">' + entry.pages + ' p.</div>' +
     '</div>' +
     (bodyContent ? '<div class="card-body">' + bodyContent + '</div>' : '<div style="height:4px"></div>') +
-    '<div class="card-footer">' + (ON_GITHUB && entry.type !== 'my_recipe' ? '<a class="open-btn open-btn-drive" href="' + (entry.gdrive_url || GDRIVE_FOLDER) + '" target="_blank">Open in Google Drive ↗</a>' : '<a class="open-btn" href="' + esc(entry.path) + '" target="_blank">' + (entry.type === 'my_recipe' ? 'Open recipe ↗' : 'Open PDF ↗') + '</a>') + '</div>' +
+    '<div class="card-footer">' + (ON_GITHUB && entry.type !== 'my_recipe' ? '<a class="open-btn open-btn-drive" href="' + (entry.gdrive_url || GDRIVE_FOLDER) + '" target="_blank">Open in Google Drive ↗</a>' : '<a class="open-btn" href="' + esc(entry.path) + '" ' + (entry.type === 'my_recipe' ? '' : 'target="_blank"') + '>' + (entry.type === 'my_recipe' ? 'Open recipe ↗' : 'Open PDF ↗') + '</a>') + '</div>' +
   '</div>';
 }
 
