@@ -52,6 +52,11 @@
   .my-notes-box p:last-child { margin-bottom: 0; }
   .empty-note { color: #c0b090; font-style: italic; }
 
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
   .back-btn { display: inline-block; margin: 20px 24px 4px;
                color: #c05f2a; font-size: 14px; text-decoration: none; }
   .back-btn:hover { text-decoration: underline; }
@@ -63,12 +68,13 @@
 </style>
 </head>
 <body>
-  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <a class="back-btn" href="../cookbook.html" onclick="if(window.history.length>1){history.back();return false;}">← Catalog</a>
   
   <div class="header">
     <span class="rating">meh</span>
     <h1>Coffee Chia Pudding</h1>
     <div class="meta">breakfast, chia pudding, no-bake</div>
+    
     
   </div>
   

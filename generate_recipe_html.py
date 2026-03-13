@@ -282,7 +282,7 @@ def generate_html(txt_path):
 </style>
 </head>
 <body>
-  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <a class="back-btn" href="../cookbook.html" onclick="if(window.history.length>1){{history.back();return false;}}">← Catalog</a>
   {photo_html}
   <div class="header">
     {rating_html}
