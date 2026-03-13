@@ -64,6 +64,9 @@ def load_txt_recipe(fpath):
     name_match = re.search(r"(?:Title|Название):\s*(.+)", text)
     name = name_match.group(1).strip() if name_match else base
 
+    tags_match = re.search(r"Tags:\s*(.+)", text)
+    tags = tags_match.group(1).strip() if tags_match else ""
+
     ingr_lines = extract_ingredient_lines(text)
 
     return {
@@ -72,6 +75,7 @@ def load_txt_recipe(fpath):
         "path": "my-recipes/" + fname,
         "type": "my_recipe",
         "category": "my-recipes",
+        "tags": tags,
         "pages": 1,
         "recipes": [],
         "preview": text[:200].replace("\n", " "),
