@@ -68,19 +68,7 @@
 </style>
 </head>
 <body>
-  <a class="back-btn" href="../cookbook.html" id="backBtn">← Catalog</a>
-  <script>
-    (function() {
-      var params = new URLSearchParams(window.location.search);
-      var back = params.get('back') || '';
-      document.getElementById('backBtn').href = '../cookbook.html' + (back ? '#q=' + encodeURIComponent(back) : '');
-      if (back) {
-        document.querySelectorAll('.related-link').forEach(function(a) {
-          a.href = a.getAttribute('href').split('?')[0] + '?back=' + encodeURIComponent(back);
-        });
-      }
-    })();
-  </script>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
   <div class="photo-wrap"><img src="photo/yagodnyy-sous.jpg" alt="Ягодный соус"></div>
   <div class="header">
     <span class="rating">new</span>

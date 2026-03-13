@@ -282,19 +282,7 @@ def generate_html(txt_path):
 </style>
 </head>
 <body>
-  <a class="back-btn" href="../cookbook.html" id="backBtn">← Catalog</a>
-  <script>
-    (function() {{
-      var params = new URLSearchParams(window.location.search);
-      var back = params.get('back') || '';
-      document.getElementById('backBtn').href = '../cookbook.html' + (back ? '#q=' + encodeURIComponent(back) : '');
-      if (back) {{
-        document.querySelectorAll('.related-link').forEach(function(a) {{
-          a.href = a.getAttribute('href').split('?')[0] + '?back=' + encodeURIComponent(back);
-        }});
-      }}
-    }})();
-  </script>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
   {photo_html}
   <div class="header">
     {rating_html}
