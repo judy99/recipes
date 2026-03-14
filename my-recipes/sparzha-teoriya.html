@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Спаржа: теория и рецепты</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Спаржа: теория и рецепты</h1>
+    <div class="meta">Теория</div>
+    
+    <div class="source">Source: ПРАвильная Пасха (PraCooking)</div>
+  </div>
+  
+        <div class="section">
+          
+          <ul class="ingr-list"><li>Original Name: Спаржа</li><li>Многие овощи можно назвать сезонными, но если говорить о приходе настоящей весны в Европе, то это, без всякого сомнения, время спаржи. В Германии прилавки со спаржей буквально повсюду. Потому что спаржа готовится быстро и просто, а вкус у неё поистине королевский.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Виды спаржи</h2>
+          <ul class="ingr-list"><li>Белая — самая распространённая в Германии. Довольно толстые побеги кремово-желтоватого цвета выращивают в земле, не давая на них попасть свету. Вкус очень нежный, чуть сладковатый и сочный.</li><li>Зелёная — самая распространённая в России. Может быть крупной (до 2 см в диаметре) или мелкой. Вкус слегка сладковатый, с ореховыми нотами.</li><li>Фиолетовая — самая редкая, итальянский сорт. На вкус практически не отличается от зелёной, может быть чуть слаще и с лёгкой горчинкой.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Выбор и хранение</h2>
+          <ul class="ingr-list"><li>В идеале готовить спаржу в тот же день или до двух дней после сбора. Выбирайте плотные, негнущиеся ростки, желательно с увлажнённым местом среза. Головки ростков должны быть компактными, плотно сомкнутыми. «Махрящиеся» головки — признак несвежести.</li><li>Хранить спаржу либо завернув неплотно в бумажное полотенце в приоткрытом пластиковом пакете, либо в банке с водой, как букет цветов, накрыв сверху пакетом.</li><li>Предупреждение: из-за содержащейся в спарже спаржевой кислоты выделения на некоторое время приобретают странноватый запах. Это совершенно безвредно.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Правила приготовления</h2>
+          <ul class="ingr-list"><li>Чистка: у ростков удалить нижнюю жёсткую часть (примерно 2 см). Зелёную спаржу можно только отрезать низ и очистить кожицу до середины стебля. Белую спаржу нужно зачистить полностью вдоль всего стебля.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Для какого блюда какой вид</h2>
+          <ul class="ingr-list"><li>• Для кремового супа — белая спаржа.</li><li>• Для жарки — любая зелёная.</li><li>• Для запекания — толстая зелёная.</li><li>• На пару или в воде — любая спаржа.</li><li>Варка белой спаржи: отварить 7 минут при очень слабом кипении в подсоленной воде, добавив немного сахара для нейтрализации природной горчинки.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Несколько идей несложных блюд</h2>
+          <ul class="ingr-list"><li>Жареная белая спаржа: нарезать мелкими кубиками луковицу шалота, ростки белой спаржи зачистить и разрезать каждый на 4 части. Обжарить спаржу одновременно с луком на 3–4 ст. л. топлёного масла, посолить, поперчить и подавать с отварным картофелем, полив маслом из сковородки.</li><li>Спаржа-мимоза: сварить вкрутую 2 яйца. Зелёную спаржу (около 500 г) отварить 3 минуты в подсоленной воде. Быстро остудить в холодной воде, выложить на блюдо и посыпать горстью каперсов. Посыпать хлопьями морской соли, полить оливковым маслом и натереть сверху на крупной тёрке варёные яйца.</li><li>Зелёная спаржа в беконе: обернуть каждый росток в тонкий ломтик подкопчённого бекона, выложить на слегка смазанный противень, запекать при 200 °С до хруста бекона.</li><li>Фриттата со спаржей: нарезать кубиками бекон, слегка обжарить с измельчённым зубчиком чеснока. Добавить 250 г нарезанной кусочками обработанной спаржи и щепотку тимьяна. Жарить 3–4 минуты. Тем временем перемешать 4 крупных яйца с 2–3 ст. л. сливок и 20 г тёртого пармезана, посолить и поперчить. Влить яичную смесь в сковородку, слегка перемешать. Посыпать 100 г раскрошенного козьего сыра и готовить на слабом огне, не перемешивая, пока яйца не начнут схватываться снизу и по краям. Поместить сковородку под горячий гриль на 1–2 минуты. Дать постоять минуту перед подачей.</li></ul>
+        </div>
+</body>
+</html>

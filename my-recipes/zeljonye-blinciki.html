@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Зелёные блинчики с рикоттой и зелёными овощами</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="photo/zeljonye-blinciki.jpg" alt="Зелёные блинчики с рикоттой и зелёными овощами"></div>
+  <div class="header">
+    
+    <h1>Зелёные блинчики с рикоттой и зелёными овощами</h1>
+    <div class="meta">Закуски</div>
+    
+    <div class="source">Source: ПРАвильная Пасха (PraCooking)</div>
+  </div>
+  
+        <div class="section">
+          
+          <ul class="ingr-list"><li>Original Name: Зелёные блинчики с рикоттой и зелёными овощами</li><li>Servings: 8 штук</li><li>Total Time: 40–50 минут</li><li>Active Time: 40–50 минут</li><li>Photo: zeljonye-blinciki.jpg</li><li>Очень нежные, эффектные как по цвету, так и по вкусу и текстуре блинчики. Для приготовления зелёных блинчиков понадобится блендер: либо погружной, либо стационарный. Если блендера нет, можно зелень очень мелко порубить ножом и перетереть в ступке с солью, затем добавить эту массу к остальным ингредиентам и взбить венчиком. Но текстура блинчиков будет не такой однородной.</li><li>Для выпекания блинчиков лучше использовать блинную сковородку.</li><li>Начинку в блинчик можно заворачивать по-разному: можно свернуть пополам кармашком, в виде треугольника или скатать в трубочку.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Для блинчиков</h2>
+          <ul class="notes-list"><li>50 г смеси зелени (шпинат, руккола, петрушка, базилик — без стеблей, только листочки)</li><li>100 г пшеничной муки</li><li>1/4 ч. л. соли</li><li>1 крупное яйцо</li><li>260 г молока</li><li>оливковое масло (для жарки)</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Для начинки</h2>
+          <ul class="notes-list"><li>1 молодой цукини</li><li>50 г зелёного горошка (свежего или замороженного)</li><li>8–16 помидоров черри</li><li>30–50 г твёрдого сыра (пармезан, грюйер)</li><li>240–250 г рикотты</li><li>2 ст. л. оливкового масла</li><li>соль, свежемолотый чёрный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">🍽️</span>Для подачи</h2>
+          <ul class="notes-list"><li>мелкая зелень</li><li>немного твёрдого сыра (по желанию)</li><li>тонкие ломтики лосося или прошутто (по желанию)</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">👩‍🍳</span>Instructions</h2>
+          <ol class="steps"><li>Для блинчиков зелень грубо порубить, сложить в чашу блендера или кухонного комбайна, добавить муку, соль, яйцо и молоко. Измельчить до однородности.</li><li>Для начинки цукини нарезать тонкими полосками. Замороженный горошек разморозить при комнатной температуре. Помидоры черри нарезать на половинки или четвертинки (если они крупные).</li><li>Разогреть сковородку, смазать небольшим количеством оливкового масла (удобно это делать кулинарной кистью). Наливать тесто тонким слоем и выпекать блинчики по 1–2 минуты с каждой стороны до лёгкого румяного оттенка, смазывая сковородку маслом перед каждым блинчиком. Не пересушить! Готовые блинчики складывать в кастрюлю, которая хорошо держит тепло, и накрывать крышкой.</li><li>Продолжить готовить начинку. Твёрдый сыр натереть. В миске смешать рикотту с оливковым маслом и сыром, посолить и поперчить.</li><li>В сковородке разогреть немного оливкового масла и в течение нескольких секунд обжарить горошек и цукини (очень быстро, чтобы они сохранили цвет и хруст, но при этом слегка размягчились). Сразу переложить в миску.</li><li>Положить блинчик на блюдо или разделочную доску, на одну половинку блинчика выложить 1,5–2 ст. л. сырной смеси, сверху — горошек, цукини и помидоры черри, слегка поперчить. Накрыть второй половиной блинчика.</li><li>При подаче украсить свежей зеленью, по желанию посыпать тёртым сыром и дополнить красиво свёрнутыми ломтиками лосося или прошутто.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Варианты</h2>
+          <ul class="ingr-list"><li>• В начинку можно также добавлять тонкую молодую спаржу или стручковую фасоль. Их необходимо припустить в оливковом масле (можно с добавлением измельчённого чеснока), как горошек и цукини, но чуть подольше, 1–2 минуты.</li><li>• К рикотте можно добавить немного лимонной цедры (прямо в сырную смесь или натереть поверх сырной массы при подаче).</li><li>• Для пикантности можно посыпать начинку кайенским перцем или хлопьями чили, или капнуть несколько капель острого перечного соуса.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>На уровень выше</h2>
+          <ul class="ingr-list"><li>• Очень хорош как украшение лимонный базилик. Он отличается от обычного по ароматике и вкусу, а также своими аккуратными мелкими листочками.</li><li>• Можно украсить блюдо лососёвой икрой или икрой палтуса и сделать блинчики ещё эффектнее.</li></ul>
+        </div>
+</body>
+</html>

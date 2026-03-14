@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бобовые: теория и рецепты</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Бобовые: теория и рецепты</h1>
+    <div class="meta">Теория</div>
+    
+    <div class="source">Source: ПРАвильная Пасха (PraCooking)</div>
+  </div>
+  
+        <div class="section">
+          
+          <ul class="ingr-list"><li>Original Name: Бобовые</li><li>Слово «бобовые» кажется каким-то скучным, но нет скучных продуктов, их просто нужно правильно готовить. Только представьте: нежное пюре из зелёного горошка с мятой к баранине, роскошный хумус из нута со специями, насыщенное чили кон карне с красной фасолью, ароматное лобио, сытный гороховый суп с копчёностями…</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Виды бобовых</h2>
+          <ul class="ingr-list"><li>Бобы (фава) — молодые сезонные бобы очень вкусны. Единственный минус — после извлечения из стручка нужно дополнительно очистить от плотной кожицы. Вкус травянистый, насыщенный.</li><li>Горох — используется в четырёх видах: свежий зелёный горошек, стручки манжту (стручковый горошек), сухой горох, а также микрозелень для украшения. Вкус молодого горошка сладкий, старый горох «мучнистее».</li><li>Фасоль — самая многочисленная по сортам группа: зелёная (стручковая), красная, белая (мелкая и крупная), пёстрая (пинто, борлотти), чёрная, «черноглазка», адзуки, флажоле.</li><li>Нут (бараний горох) — более крупные бобы с неровной поверхностью. Вкус похож на горох, но нежнее и нейтральнее.</li><li>Чечевица — бывает зелёная, коричневая, оранжевая (красная), жёлтая и чёрная:</li><li>• Зелёная — варится 40–45 минут, сохраняет форму, для гарниров и салатов.</li><li>• Жёлтая — варится 10–15 минут, не сильно разваривается.</li><li>• Оранжевая (красная) — варится 10–15 минут, хорошо разваривается, идеально для супов-пюре.</li><li>• Коричневая — варится 10–30 минут (колотая/целая), для супов и гарниров.</li><li>• Чёрная («белуга») — варится 10–15 минут, для гарниров.</li><li>Соевые бобы (эдамаме) — сохраняют нейтральный вкус при варке. В продаже чаще в замороженном виде.</li><li>Маш (бобы мунг) — меньше других вызывают вздутие живота, подходят для детского питания. Лучше других подходят для проращивания.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Выбор и хранение</h2>
+          <ul class="ingr-list"><li>Сухие бобовые выбирайте в прозрачной упаковке — бобы должны быть целыми, одинаковыми, без «трухи» и слипания. Хранятся в сухом тёмном прохладном месте более двух лет (чем старше, тем дольше варить).</li><li>Свежие стручки выбирайте плотные, упругие, без тёмных пятен. Хранятся в холодильнике до 7–10 дней.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Как бороться с метеоризмом</h2>
+          <ul class="ingr-list"><li>1. Замачивать сухие бобовые на ночь или сутки.</li><li>2. Добавлять специи: карри, куркуму, чёрный перец, кориандр, розмарин.</li><li>3. Не сочетать с молоком (с кисломолочными продуктами можно).</li><li>Правила варки сухих бобовых (после замачивания → без замачивания):</li><li>• Бобы: 50–60 мин / 1,5–2 часа</li><li>• Фасоль: 30–60 мин / 1–1,5 часа</li><li>• Горох: 40–60 мин / 2–2,5 часа</li><li>• Нут: 30 мин / 1 час</li><li>• Чечевица: 15–40 мин / 20–50 мин</li><li>• Маш: 30 мин / 40 мин</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Свежие бобовые (варить при слабом кипении)</h2>
+          <ul class="ingr-list"><li>• Бобы: 25–30 минут</li><li>• Соевые бобы (эдамаме): 5–6 минут</li><li>• Стручковая фасоль: 5–6 минут</li><li>• Зелёный горошек: 5–6 минут</li><li>Чтобы бобовые сохранили яркий цвет, сразу после варки обдать холодной водой.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Важные правила при варке</h2>
+          <ul class="ingr-list"><li>• Кислые ингредиенты (томатная паста, вино, лимонный сок) добавлять лишь после того, как бобовые стали мягкими.</li><li>• Солить в конце, за 1–2 минуты до готовности.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Несложные блюда</h2>
+          <ul class="ingr-list"><li>Хумус из нута: замочить 200 г сухого нута на 8–12 часов в воде с щепоткой соды, хорошо промыть, залить свежей водой и варить на минимальном огне до полной мягкости около 2 часов. Воду слить, сохранив около 1 стакана. Соединить в кухонном комбайне отварной нут, 150 мл оливкового масла, 50 г тхины, 1 ст. л. молотого кумина, 3–4 зубчика чеснока, сок 1/2 лимона и соль. Измельчить до однородности, влив столько воды от варки, чтобы получилась мягкая мажущаяся паста.</li><li>Лобио: порубить 2 луковицы и 3–4 зубчика чеснока, обжарить на 2 ст. л. оливкового масла. Добавить 2 ст. л. томатной пасты и слегка обжарить. Влить 250 мл бульона или воды и выпарить 5 минут. Добавить 2 банки (по 400 г) красной фасоли, слив жидкость. Всыпать 2–3 ст. л. молотых грецких орехов, хлопья чили, 1 ч. л. хмели-сунели, соль и перец. Готовить 5 минут. В конце добавить рубленую кинзу. Перед подачей остудить.</li><li>Пюре из зелёного горошка с мятой: разогреть 2 ст. л. сливочного масла, добавить щепотку сахара, 2 ст. л. воды и 500 г зелёного горошка. Готовить 5 минут. Пюрировать с листочками мяты, соком 1/2 лимона, солью, перцем.</li><li>Суп из чечевицы с копчёностями: залить 250 г оранжевой чечевицы 1 л воды и варить 10–12 минут. Обжарить 2 луковицы и 120 г нарезанного бекона до золотистого цвета. Добавить в суп, варить ещё 5 минут. Влить 100 мл сливок, снять с огня, дать постоять 10 минут.</li></ul>
+        </div>
+</body>
+</html>

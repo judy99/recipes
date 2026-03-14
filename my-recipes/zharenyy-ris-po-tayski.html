@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Жареный рис по-тайски</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Жареный рис по-тайски</h1>
+    <div class="meta">Рис</div>
+    
+    <div class="source">Source: ПРАвильная Пасха (PraCooking)</div>
+  </div>
+  
+        <div class="section">
+          
+          <ul class="ingr-list"><li>Original Name: Жареный рис по-тайски</li><li>Servings: 2 порции</li><li>Total Time: 20–25 минут</li><li>Active Time: 20–25 минут</li><li>В каждой азиатской стране есть свой вариант жареного риса и сотни разновидностей базового рецепта. В Таиланде яйца обжариваются в том же воке, что и другие ингредиенты, в заправку всегда входит рыбный соус, а вариаций белковых добавок не счесть — от крабов до говядины.</li><li>Из овощных ингредиентов в блюде обязательны лук и чеснок, дальше возможны самые разнообразные варианты: морковь, цукини, зелёный горошек, стручковая фасоль, кукуруза, грибы. Из белковых продуктов — креветки, кальмары, курица, ветчина, говяжья вырезка, тофу, крабовое мясо.</li><li>Если хотите эффектно подать жареный рис, выложите его в глубокую пиалу, слегка утрамбуйте и переверните на плоскую тарелку, украсьте зеленью, дополните ломтиками свежего огурца и долькой лайма.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">🧂</span>Ingredients</h2>
+          <ul class="notes-list"><li>300–350 г готового риса жасмин (лучше вчерашнего)</li><li>1 небольшая луковица</li><li>2 зубчика чеснока</li><li>1 небольшая морковка</li><li>150 г креветок и/или кальмаров</li><li>2 яйца</li><li>3 ст. л. оливкового масла</li><li>1 ч. л. сухих креветок (по желанию)</li><li>лайм для подачи</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">🥣</span>Для соуса</h2>
+          <ul class="notes-list"><li>1 ст. л. соевого соуса</li><li>1 ст. л. рыбного соуса</li><li>1 ст. л. устричного соуса</li><li>1 ч. л. сахара</li><li>хлопья перца чили или соус чили (по желанию)</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">👩‍🍳</span>Instructions</h2>
+          <ol class="steps"><li>Рис размять. Лук, чеснок и морковь нарезать мелкими кубиками. Креветки и/или кальмары нарезать некрупными кусочками. Яйца разбить в миску, перемешать до объединения желтка и белка.</li><li>Смешать все ингредиенты соуса.</li><li>Разогреть вок или глубокую сковородку, влить 2 ст. л. оливкового масла, всыпать нарезанные овощи, обжарить до прозрачности лука, затем добавить сухие креветки, если используете.</li><li>Добавить к овощам морепродукты, обжарить до полуготовности, пару минут. Сдвинуть содержимое сковородки в сторону, влить на свободную часть ещё 1 ст. л. масла, вылить яйца, дать им слегка схватиться и перемешать, как для яичницы-болтуньи.</li><li>Перемешать яичные хлопья с овощами и морепродуктами, выложить в сковородку рис, всё хорошо перемешать, стараясь разбивать комки риса. Влить соус, перемешать, готовить ещё 1–2 минуты.</li><li>Подавать каждую порцию с долькой лайма. Выжать сок из лайма на рис, перемешать, при желании «досолить» рыбным соусом.</li></ol>
+        </div>
+</body>
+</html>
