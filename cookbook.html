@@ -194,18 +194,17 @@ function matchEntry(entry, query) {
 function cardHtml(entry, query, minfo) {
   const words = getWords(query);
 
-  // Type badge
+  // Type badge — show Теория if type=theory OR tags include "theory"
+  const isTheory = entry.type === 'theory' || (entry.tags && entry.tags.toLowerCase().includes('theory'));
   const typeLbl = {card:'Карточка', collection:'Сборник', theory:'Теория', standalone:'Рецепт', my_recipe:'Рецепт'};
   const typeCls = {card:'badge-card', collection:'badge-collection', theory:'badge-theory', standalone:'badge-standalone', my_recipe:'badge-my_recipe'};
-  const typeBadge = '<span class="badge ' + (typeCls[entry.type]||'badge-card') + '">' + (typeLbl[entry.type]||entry.type) + '</span>';
+  const typeLabel = isTheory ? 'Теория' : (typeLbl[entry.type] || entry.type);
+  const typeClass = isTheory ? 'badge-theory' : (typeCls[entry.type] || 'badge-card');
+  const typeBadge = '<span class="badge ' + typeClass + '">' + typeLabel + '</span>';
 
   // PraCooking badge
   const pracookingBadge = (entry.tags && entry.tags.toLowerCase().includes('pracooking'))
     ? '<span class="badge badge-pracooking">PraCooking</span>' : '';
-
-  // Found-by-ingredients badge
-  const foundBadge = (query && minfo.where !== 'title' && minfo.matched)
-    ? '<span class="badge badge-found">by ingredients</span>' : '';
 
   // Source badge (book / collection name)
   const sourceBadge = entry.source
@@ -232,7 +231,7 @@ function cardHtml(entry, query, minfo) {
   return '<div class="card">' +
     photoHtml +
     '<div class="card-header">' +
-      '<div class="card-badges">' + pracookingBadge + typeBadge + foundBadge + '</div>' +
+      '<div class="card-badges">' + pracookingBadge + typeBadge + '</div>' +
       sourceBadge +
       '<a class="card-title" href="' + recipeUrl + '"' + targetAttr + '>' + hlWords(entry.name, words) + '</a>' +
     '</div>' +
