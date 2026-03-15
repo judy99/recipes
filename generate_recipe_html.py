@@ -265,7 +265,7 @@ def generate_html(txt_path):
         icons = {
             "Ingredient": "🧂", "Состав": "🧂", "Продукт": "🧂",
             "Instruction": "👩‍🍳", "Приготовление": "👩‍🍳", "Шаги": "👩‍🍳",
-            "Tips": "💡", "Примечани": "💡", "Совет": "💡",
+            "Tips": "📌", "Примечани": "📌", "Совет": "📌",
             "Соус": "🥣", "Заправк": "🥣", "Подач": "🍽️",
             "Вариаци": "✨", "Пропорци": "📐",
             "My Notes": "✏️",
@@ -342,11 +342,8 @@ def generate_html(txt_path):
                        border-radius: 50%; display: flex; align-items: center;
                        justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }}
 
-  .notes-list {{ list-style: none; display: flex; flex-direction: column; gap: 8px; }}
-  .notes-list li {{ font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
-                    background: #fffbf5; border-radius: 8px; position: relative;
-                    border: 1px solid #f0e8d8; color: #5a4a3a; }}
-  .notes-list li::before {{ content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }}
+  .notes-list {{ list-style: disc; padding-left: 20px; margin: 0; }}
+  .notes-list li {{ font-size: 15px; line-height: 1.6; color: #2d2926; }}
 
   .my-notes-section {{ margin-top: 8px; }}
   .my-notes-box {{ background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
