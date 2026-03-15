@@ -153,17 +153,26 @@ def render_section_items(items):
     html = ""
     i = 0
     while i < len(items):
+        item = items[i]
+        # Sub-header: short line ending with ":" (e.g. "для соуса:")
+        if (item.endswith(':') and len(item) <= 60
+                and not re.match(r'^\d', item)
+                and not item.startswith('|')):
+            html += f'<p class="ingr-subheader">{item}</p>'
+            i += 1
         # Collect a table block
-        if items[i].startswith('|'):
+        elif item.startswith('|'):
             block = []
             while i < len(items) and items[i].startswith('|'):
                 block.append(items[i])
                 i += 1
             html += render_markdown_table(block)
         else:
-            # Collect a non-table block
+            # Collect a non-table block (stop at sub-headers and tables)
             block = []
-            while i < len(items) and not items[i].startswith('|'):
+            while i < len(items) and not items[i].startswith('|') and not (
+                    items[i].endswith(':') and len(items[i]) <= 60
+                    and not re.match(r'^\d', items[i])):
                 block.append(items[i])
                 i += 1
             html += render_item_block(block)
@@ -306,6 +315,8 @@ def generate_html(txt_path):
                     margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }}
   .section-icon {{ font-size: 17px; }}
 
+  .ingr-subheader {{ font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }}
   .ingr-list {{ list-style: none; display: flex; flex-direction: column; gap: 8px; }}
   .ingr-list li {{ font-size: 15px; line-height: 1.5; padding: 8px 12px;
                    background: white; border-radius: 8px;
