@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Молочный кефир</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Молочный кефир</h1>
+    <div class="meta">Кисломолочные продукты</div>
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="kefirnyy-tvorog.html">Кефирный творог</a> · <a class="related-link" href="prosteyshiy-yogurt.html">Простейший йогурт или пахта</a></div>
+    <div class="source">Source: Ферментируем правильно</div>
+  </div>
+  
+        <div class="section">
+          
+          <ul class="ingr-list"><li>Молочный кефир</li><li>Для этого рецепта нужна культура молочного гриба.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>1 ст. л. кефирных зерен</li><li><span class="qty">500 мл</span> молока</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инвентарь</h2>
+          <ul class="ingr-list"><li>стеклянная банка объемом 750 мл с крышкой</li><li>пластиковое ситечко</li><li>пластиковая воронка</li><li>деревянная или пластиковая ложка</li><li>стеклянная бутылка для готового кефира</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инструкции</h2>
+          <ul class="ingr-list"><li>Первичная ферментация</li><li>1. В чистую банку налить молоко и добавить кефирные зерна.</li><li>Слегка перемешать, неплотно закрыть крышкой и оставить</li><li>при комнатной температуре на 24 часа без доступа прямых</li><li>солнечных лучей.</li><li>2. Приблизительно через 24 часа кефир будет готов. Время</li><li>ферментации во многом будет зависеть от температуры:</li><li>чем теплее в помещении, тем быстрее пойдет процесс.</li><li>На вкус кефир будет кисловатый, похожий по консистенции</li><li>на простоквашу. При этом он может быть как жидким, так</li><li>и густым. Если кефир расслоился на сыворотку</li><li>и творожистую массу, это значит, что либо температура</li><li>слишком высокая и кефир сквасился слишком быстро, либо</li><li>на данное количество молока вы использовали слишком</li><li>много зерен культуры. В этом случае слегка перемешайте</li><li>кефир ложкой и приступайте к следующему шагу.</li><li>3. Чтобы отделить кефир от кефирных зерен, нужно взять</li><li>стеклянную бутылку, вставить в горлышко пластиковую</li><li>воронку, положить на нее ситечко и осторожно перелить</li><li>содержимое банки в бутылку, слегка помешивая ложкой.</li><li>4. Жидкость, оставшаяся в бутылке, и есть кефир – ее можно</li><li>закрыть крышкой, поставить в холодильник и пить.</li><li>5. С оставшимися в ситечке кефирными зернами можно</li><li>сделать следующую порцию кефира. Если зерна подросли</li><li>и размножились, нужно отсадить дополнительные зерна</li><li>на хранение (см. ниже параграф «Краткосрочное хранение»).</li><li>Вторичная ферментация</li><li>Также можно оставить кефир на вторичную ферментацию,</li><li>со вкусовыми добавками. В бутылку с готовым кефиром добавить</li><li>кусочки фруктов, специи или другую добавку на ваш вкус</li><li>(около 10% от общей массы кефира), плотно закрыть крышку</li><li>и оставить ферментироваться при комнатной температуре</li><li>на 1-24 часа или дольше по вашему вкусу. Хранить</li><li>в холодильнике.</li><li>Помните, что чем дольше стоит кефир, тем кислее он становится</li><li>и тем больше в нем газа.</li><li>Краткосрочное хранение – 1 неделя</li><li>Если вы хотите отдохнуть от кефира или вам нужно уехать</li><li>на неделю, можно ферментировать кефир в холодильнике.</li><li>Для этого нужно смешать свежее молоко с кефирными зернами,</li><li>плотно закрыть и сразу поставить в холодильник, не оставляя его</li><li>при комнатной температуре. В холодильнике кефир будет готов</li><li>примерно за 7-8 дней. После этого нужно отделить готовый</li><li>напиток от кефирных зерен, как описано выше.</li><li>Кефирные зерна постепенно размножаются и растут,</li><li>увеличиваясь в объеме, так что со временем вам понадобится</li><li>куда-то девать излишки. Это можно сделать, как описано выше:</li><li>поместить дополнительные зерна в банку с молоком и хранить</li><li>в холодильнике с закрытой крышкой, меняя молоко по мере</li><li>необходимости, как только оно превратится в кефир.</li><li>Долгосрочное хранение – 3 недели и дольше</li><li>Если вам нужно уехать на 3-4 недели, налейте молока в самую</li><li>большую банку, которая помещается в холодильник, и опустите</li><li>в нее все кефирные зерна. Плотно закройте банку и оставьте</li><li>в холодильнике на 3-4 недели. Так как еды, то есть молока, очень</li><li>много, на его сквашивание у кефирных зерен уйдет больше</li><li>времени.</li><li>Для более долгого хранения кефирные зерна можно заморозить.</li><li>Для этого промокните их бумажным полотенцем, если есть –</li><li>присыпьте сухим молоком в порошке, если нет, оставьте так.</li><li>Положите в пластиковый пакет с застежкой зип-лок и заморозьте</li><li>на 2-3 месяца. Чтобы оживить, положите замороженные зерна</li><li>в молоко и следуйте инструкциям выше. Первую порцию</li><li>выкиньте, из второй уже получится вкусный кефир.</li></ul>
+        </div>
+</body>
+</html>

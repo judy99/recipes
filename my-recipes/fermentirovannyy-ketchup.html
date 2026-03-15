@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ферментированный кетчуп</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Ферментированный кетчуп</h1>
+    <div class="meta">Ферментированные соусы</div>
+    
+    <div class="source">Source: Ферментируем правильно</div>
+  </div>
+  
+        <div class="section">
+          
+          <ul class="ingr-list"><li>Ферментированный кетчуп</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li><span class="qty">200 г</span> томатной пасты (в ингредиентах должны быть только</li><li>помидоры!!!)</li><li>1 ст. л. яблочного уксуса</li><li>1 ст. л. пробиотика (см. ниже)</li><li><span class="qty">40 г</span> чистой питьевой воды</li><li><span class="qty">20 г</span> подсластителя, хорошо подходит сахар мусковадо и кокосовый</li><li>(по желанию)</li><li>1/4 ч. л. молотой корицы</li><li>молотая гвоздика на кончике ножа</li><li>молотый кайенский перец на кончике ножа</li><li>1/8 ч. л. молотого душистого перца</li><li>1/8 ч. л. молотого черного перца</li><li>1/2 ч. л. соли</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Варианты пробиотика</h2>
+          <ul class="ingr-list"><li>непастеризованный рассол из-под овощей/капусты/чатни/сальсы</li><li>непастеризованная комбуча</li><li>непастеризованный водный кефир</li><li>непастеризованный фруктовый/свекольный квас</li><li>непастеризованная сыворотка живого йогурта или кефира</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инвентарь</h2>
+          <ul class="ingr-list"><li>бутылка или банка объемом 250 мл с крышкой</li><li>миска</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инструкции</h2>
+          <ul class="ingr-list"><li>1. Если вы используете подсластитель, развести его в воде</li><li>(40 г из ингредиентов) до полного растворения. Смешать</li><li>все ингредиенты в миске, добавив 1/2 ч. л. соли. Будьте</li><li>осторожны с молотой гвоздикой! Она очень пряная, и если</li><li>ее переложить, исправить это можно будет, только увеличив</li><li>количество всех остальных ингредиентов.</li><li>2. Хорошенько все перемешать, попробовать, при необ-</li><li>ходимости добавить еще соли и отрегулировать специи.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Не добавляйте слишком много кислоты (уксуса, пробиотика)</h2>
+          <ul class="ingr-list"><li>дополнительная кислота образуется в кетчупе в процессе</li><li>ферментации.</li><li>3. Дать постоять 5 минут, еще раз попробовать и переложить</li><li>в банку, не доходя 1 см от края (не больше). Немного</li><li>постучать банкой о стол, чтобы вышли пузырьки воздуха,</li><li>очистить изнутри стенки банки и плотно закрыть.</li><li>4. Оставить при комнатной температуре вдали от прямых</li><li>солнечных лучей на 1-3 дня, в зависимости от температуры.</li><li>Чем теплее в помещении, тем быстрее пойдет процесс,</li><li>и наоборот. Когда в смеси появятся маленькие воздушные</li><li>пузырьки, убрать банку в холодильник. Если спустя 3 дня</li><li>пузырьки не появятся или вы не уверены, есть ли они, все</li><li>равно ставьте кетчуп в холодильник.</li><li>5. Кетчуп можно хранить в холодильнике несколько месяцев.</li></ul>
+        </div>
+</body>
+</html>

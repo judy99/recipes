@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тайский острый соус сирача</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Тайский острый соус сирача</h1>
+    <div class="meta">Ферментированные соусы</div>
+    
+    <div class="source">Source: Ферментируем правильно</div>
+  </div>
+  
+        <div class="section">
+          
+          <ul class="ingr-list"><li>Тайский острый соус сирача</li><li>Сирача – это острый соус, который широко используется в тайской</li><li>и вьетнамской кухне.</li><li>Вариантов этого соуса огромное множество, мой фирменный</li><li>рецепт состоит из 2 отдельных ферментированных продуктов,</li><li>которые я держу отдельно целый месяц, потом соединяю и получаю</li><li>готовый к употреблению соус.</li><li>Рекомендую сначала прочитать весь рецепт до конца, а потом уже</li><li>приступать к приготовлению. Обе заготовки для сирачи нужно</li><li>сделать в один день.</li><li>1. Перцы в рассоле</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>около 400 г свежих перцев чили (если вы не любите острое, возьмите</li><li>болгарский перец или 50 на 50)</li><li>фильтрованная вода</li><li>соль (8-10% от количества воды)</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инвентарь</h2>
+          <ul class="ingr-list"><li>700-граммовая стеклянная банка с крышкой</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инструкции</h2>
+          <ul class="ingr-list"><li>1. При желании очистить перцы от семян. Произвольно</li><li>нарезать.</li><li>2. Наполнить банку перцами на 2/3 высоты.</li><li>3. Подготовить рассол: наполнить банку с перцами</li><li>фильтрованной водой так, чтобы она покрывала перцы,</li><li>но не доходила до края банки 3-4 см. Поставить на весы</li><li>среднюю миску или кастрюлю, обнулить и вылить туда всю</li><li>воду без перцев. Отдельно отмерить 10% соли от количества</li><li>воды (например, на 1000 мл воды нужно 100 г соли,</li><li>1000 x 10 ÷ 100 = 100). Хорошенько перемешать, чтобы соль</li><li>растворилась.</li><li>4. Налить рассол в банку с перцами, плотно закрыть крышкой</li><li>и оставить ферментироваться при комнатной температуре</li><li>вдали от прямых солнечных лучей на 1 месяц.</li><li>5. В течение первой недели на поверхности рассола будет</li><li>много пузырьков, это признак активности бактерий, т. е.</li><li>ферментации. Пока появляются пузырьки, 1 раз в день нужно</li><li>открывать банку и ложкой придавливать всплывшие перцы,</li><li>чтобы они были целиком покрыты жидкостью. При желании,</li><li>чтобы удерживать перцы под рассолом, можно использовать</li><li>груз – банку меньшего диаметра, грузики, гидрозатвор,</li><li>перекрещенные зубочистки и т. д. Это нужно, чтобы избежать</li><li>контакта с кислородом, иначе на перцах может образоваться</li><li>плесень или дрожжи кахм. Напомню, что для успешной</li><li>лактоферментации требуется анаэробная (бескислородная)</li><li>среда. Обычно через неделю-две перцы тонут сами,</li><li>и необходимость их ежедневно проверять отпадает.</li><li>Чеснок в меду</li><li>2. Чеснок в меду</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>несколько головок чеснока</li><li>около 350 г непастеризованного меда</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инвентарь</h2>
+          <ul class="ingr-list"><li>стеклянная банка с крышкой объемом 0,5 л</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инструкции</h2>
+          <ul class="ingr-list"><li>1. Очистить весь чеснок. Можно использовать целые зубчики,</li><li>а можно их слегка раздавить, чтобы чеснок выделил полезные</li><li>ферменты.</li><li>2. Положить весь чеснок в чистую банку, не доходя 5 см</li><li>до верха, и заполнить медом, тоже не доходя до верха банки</li><li>5 см. Чеснок должен был полностью покрыт медом. Если</li><li>мед очень густой, добавляйте его порциями, давая ему осесть</li><li>на дно. Это может занять несколько часов. Плотно закрыть</li><li>банку и поставить рядом с перцами при тех же условиях</li><li>на 1 месяц.</li><li>3. В непастеризованном меде содержатся полезные питательные</li><li>вещества, ферменты и полезные бактерии, а смесь меда</li><li>с чесноком имеет свойства природного антисептика</li><li>и антибиотика. Выделяемый чесноком сок постепенно сделает</li><li>мед очень жидким, и через несколько дней появится первый</li><li>признак ферментации, пузырьки на поверхности.</li><li>4. Несколько раз в неделю нужно слегка приоткрывать банку,</li><li>чтобы выпустить скопившиеся газы, и чистой ложкой</li><li>перемешивать чеснок, окуная его в мед, для равномерной</li><li>ферментации. Через какое-то время чеснок станет</li><li>коричневого цвета, это нормальная часть процесса.</li><li>5. Такая заготовка может стоять при комнатной температуре</li><li>очень долго, как минимум год.</li><li>3. Соус сирача – через месяц</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>острые перцы в рассоле</li><li>чеснок в меду</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инвентарь</h2>
+          <ul class="ingr-list"><li>600-граммовая стеклянная банка с крышкой (или несколько банок</li><li>поменьше)</li><li>блендер (можно погружной)</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инструкции</h2>
+          <ul class="ingr-list"><li>1. Слить рассол из-под ферментированных перцев в отдельную</li><li>чистую банку/бутылку, закрыть крышкой и отставить пока</li><li>в сторону. На дне банки с перцами останется белый осадок,</li><li>это нормально.</li><li>2. Положить перцы в чашу блендера, чистой ложкой выловить</li><li>1/3 чеснока из второй банки, оставляя пока мед на месте.</li><li>3. Блендером взбить перцы с чесноком в однородную массу,</li><li>попробовать. При необходимости добавить понемногу</li><li>ферментированного чеснока и меда; чтобы соус получился</li><li>пожиже и поострее, можно добавить чуть рассола из-под</li><li>перцев. Это ваш соус, и только вы можете определить,</li><li>вкусный он для вас или нет и какая у него должна быть</li><li>консистенция! Так что доверяем собственным ощущениям!!</li><li>4. Перелить или переложить соус в чистые маленькие баночки,</li><li>закрыть крышками, подписать, что это и когда сделано,</li><li>и поставить в холодильник. Соус готов к употреблению.</li><li>5. В холодильнике соус хранится около года.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Рекомендация</h2>
+          <ul class="ingr-list"><li>Оставшийся чеснок и мед можно закрыть и оставить</li><li>при комнатной температуре. При желании можно добавить</li><li>новую порцию чеснока и меда и продолжать ферментировать.</li><li>Этот продукт помогает при простуде, гриппе и других</li><li>респираторных и сезонных заболеваниях.</li><li>Оставшийся рассол из-под перцев рекомендую подписать,</li><li>указав название и дату, и поставить в холодильник. Его можно</li><li>использовать как пробиотик для ферментации или</li><li>как маринад для мяса и рыбы.</li></ul>
+        </div>
+</body>
+</html>

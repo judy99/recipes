@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ферментированная «Фанта»</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Ферментированная «Фанта»</h1>
+    <div class="meta">Ферментированные напитки</div>
+    
+    <div class="source">Source: Ферментируем правильно</div>
+  </div>
+  
+        <div class="section">
+          
+          <ul class="ingr-list"><li>Ферментированная «Фанта»</li><li>Белая часть кожуры цитрусовых горчит, и эта горечь слегка</li><li>чувствуется в напитке. Если вам это не нравится, можно</li><li>использовать только мякоть апельсинов и оранжевую часть</li><li>кожуры.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li><span class="qty">0,5 кг</span> апельсинов</li><li>2 бутона гвоздики (по желанию)</li><li>70-90 г подсластителя (сахара, меда)</li><li>фильтрованная вода</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инвентарь</h2>
+          <ul class="ingr-list"><li>стеклянная банка объемом 1-1,5 л с крышкой (бугельной</li><li>или закручивающейся)</li><li>стеклянная бутылка с плотной крышкой</li><li>разделочная доска</li><li>нож</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инструкции</h2>
+          <ul class="ingr-list"><li>1. Нарезать апельсины вместе с кожурой на кусочки по 3-4 см</li><li>и уложить в чистую банку так, чтобы они занимали не более</li><li>1/3-1/2 объема. Можно немного размять их</li><li>картофелемялкой. Добавить гвоздику и подсластитель,</li><li>хорошенько перемешать до полного растворения</li><li>подсластителя и неплотно закрыть крышкой. Оставить</li><li>при комнатной температуре вдали от прямых солнечных</li><li>лучей на 3-7 дней. Время ферментации будет зависеть</li><li>от температуры в помещении: чем теплее, тем быстрее пойдет</li><li>процесс.</li><li>2. Ежедневно перемешивать, чтобы ускорить ферментацию</li><li>и опустить всплывающие кусочки апельсинов в жидкость.</li><li>На 3-4-й день, в зависимости от температуры, на поверхности</li><li>появятся пузырьки. В этот момент нужно попробовать</li><li>напиток: если он еще сладковат, оставить при комнатной</li><li>температуре еще на 1-3 дня, пробуя каждый день, чтобы</li><li>определить, когда будет готово. Готовый напиток перелить</li><li>в бутылку, плотно закупорить и оставить на вторичную</li><li>ферментацию и газацию на 1-2 дня.</li><li>3. Будьте осторожны при открывании бутылки! В бутылке</li><li>накопились газы, и прежде чем снимать крышку, нужно</li><li>немного их выпустить, чтобы напиток вас не забрызгал.</li><li>4. Готовый напиток можно хранить в холодильнике несколько</li><li>недель.</li></ul>
+        </div>
+</body>
+</html>

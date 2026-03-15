@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пикантный салат из огурцов</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Пикантный салат из огурцов</h1>
+    <div class="meta">Ферментированные овощи</div>
+    
+    <div class="source">Source: Ферментируем правильно</div>
+  </div>
+  
+        <div class="section">
+          
+          <ul class="ingr-list"><li>Пикантный салат из огурцов</li><li>Из-за того, что в огурцах очень много воды, этот салат готовится</li><li>очень быстро, за 2-3 дня.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li><span class="qty">450 г</span> огурцов (любых)</li><li><span class="qty">1 л</span> уковица</li><li>1 маленький красный болгарский перец</li><li>4 зубчика чеснока</li><li>1/2 ч. л. семян горчицы</li><li>1/2 ч. л. семян сельдерея</li><li>1/2 ч. л. семян фенхеля</li><li>1/2 ч. л. перца горошком</li><li>3-4 веточки сельдерея или укропа</li><li>соль (3,5-5% от веса воды)</li><li>1 ст. л. подсластителя (в идеале непастеризованного меда, можно</li><li>взять нерафинированный тростниковый сахар)</li><li>Если вы делаете этот салат повторно, можно добавить 2 ст. л.</li><li>рассола от предыдущего раза.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инвентарь</h2>
+          <ul class="ingr-list"><li>стеклянная банка с крышкой (около 0,8 л)</li><li>мерные ложки</li><li>кухонные весы</li><li>глубокая миска</li><li>доска для нарезки овощей</li><li>острый нож</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ul class="ingr-list"><li>1. Тщательно помыть банку, можно простерилизовать. Отмерить</li><li>все специи и зелень, положить в отдельную миску и отставить</li><li>в сторону.</li><li>2. Нарезать огурцы кружочками толщиной 0,5 см, перец</li><li>кубиками, лук крупными кубиками, чеснок пластинками</li><li>и уложить в банку вместе с травами. Слегка прижать рукой,</li><li>залить фильтрованной водой, не доходя 4-5 см до краев банки</li><li>(на фото банки полные просто для красоты, это неправильно).</li><li>Если вы используете рассол из предыдущей порции салата, не</li><li>забудьте оставить немного места, чтобы долить его после.</li><li>3. Придерживая овощи руками, вылить воду в миску, стоящую</li><li>на весах. Отсчитать 3,5-5% от веса воды, чтобы получить</li><li>необходимое количество соли. Добавить в воду соль и под-</li><li>сластитель, размешать до полного растворения. Уложить</li><li>в банку специи и зелень и залить раствором. Долить рассол</li><li>из предыдущей порции салата.</li><li>4. Плотно закрутить крышку и оставить ферментироваться</li><li>при комнатной температуре вдали от прямых солнечных</li><li>лучей на 2-3 дня. Чем выше температура, тем быстрее пойдет</li><li>процесс ферментации, и наоборот.</li><li>5. Примерно на второй день в банке появятся маленькие</li><li>пузырьки. Это значит, что процесс ферментации пошел.</li><li>Обязательно попробуйте – если вам уже вкусно, уберите</li><li>в холодильник еще на день, после этого можно есть. Салат</li><li>будет кисло-сладко-соленым на вкус, а огурчики будут</li><li>хрустеть.</li><li>Такой салат хранится в холодильнике пару недель.</li></ul>
+        </div>
+</body>
+</html>
