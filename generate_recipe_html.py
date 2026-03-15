@@ -54,16 +54,22 @@ def parse_recipe(text):
             continue
 
         # Detect section header: short line ending in : (not a numbered step)
-        is_header = (
+        # OR == ... == style header
+        is_eq_header = bool(re.match(r'^==\s*.+\s*==$', stripped))
+        is_colon_header = (
             re.match(r'^[А-ЯЁA-Za-z].{0,60}:$', stripped) and
             not re.match(r'^\d+\.', stripped) and
             len(stripped) < 80
         )
+        is_header = is_eq_header or is_colon_header
 
         if is_header:
             if current_section is not None and current_items:
                 result["sections"].append({"title": current_section, "items": current_items})
-            current_section = stripped.rstrip(":")
+            if is_eq_header:
+                current_section = re.sub(r'^==\s*|\s*==$', '', stripped)
+            else:
+                current_section = stripped.rstrip(":")
             current_items = []
         else:
             if current_section is None:
@@ -80,37 +86,81 @@ def is_step(line):
     return bool(re.match(r'^\d+[.)]\s', line) or re.match(r'^[-*]\s', line))
 
 
-def render_section_items(items):
-    """Рендерит список строк — нумерованные шаги или маркированный список."""
+def render_markdown_table(rows):
+    """Рендерит блок строк вида | a | b | c | как HTML-таблицу."""
+    html = '<table class="recipe-table">'
+    header_done = False
+    for row in rows:
+        # Skip separator rows like |---|---|---|
+        if re.match(r'^\|[-| :]+\|$', row.strip()):
+            continue
+        cells = [c.strip() for c in row.strip().strip('|').split('|')]
+        if not header_done:
+            html += '<thead><tr>' + ''.join(f'<th>{c}</th>' for c in cells) + '</tr></thead><tbody>'
+            header_done = True
+        else:
+            html += '<tr>' + ''.join(f'<td>{c}</td>' for c in cells) + '</tr>'
+    html += '</tbody></table>'
+    return html
+
+
+def render_item_block(items):
+    """Рендерит однородный блок строк (без таблиц)."""
     if not items:
         return ""
-    html = ""
-    # Check if most items are numbered steps
     steps = [i for i in items if re.match(r'^\d+[.)]\s', i)]
-    bullets = [i for i in items if re.match(r'^[-*]\s', i)]
+    bullets = [i for i in items if re.match(r'^[-•*]\s', i)]
 
     if len(steps) >= len(items) * 0.5:
-        html += '<ol class="steps">'
+        html = '<ol class="steps">'
         for item in items:
             clean = re.sub(r'^\d+[.)]\s*', '', item)
             html += f'<li>{clean}</li>'
         html += '</ol>'
     elif len(bullets) >= len(items) * 0.5:
-        html += '<ul class="notes-list">'
+        html = '<ul class="notes-list">'
         for item in items:
-            clean = re.sub(r'^[-*]\s*', '', item)
+            clean = re.sub(r'^[-•*]\s*', '', item)
             html += f'<li>{clean}</li>'
         html += '</ul>'
     else:
-        html += '<ul class="ingr-list">'
-        for item in items:
-            # Bold the quantity if present at start
-            m = re.match(r'^([\d½¼¾.,/]+\s*(?:г|кг|мл|л|шт|ст\.л\.|ч\.л\.|стакан|cup|tbsp|tsp|lb|oz|ml|g)[^—]*?)\s*[—-]?\s*(.*)$', item)
-            if m:
-                html += f'<li><span class="qty">{m.group(1)}</span> {m.group(2)}</li>'
-            else:
-                html += f'<li>{item}</li>'
-        html += '</ul>'
+        # Long text lines → render as paragraphs
+        avg_len = sum(len(i) for i in items) / len(items) if items else 0
+        if avg_len > 60:
+            html = ''.join(f'<p class="para">{item}</p>' for item in items)
+        else:
+            html = '<ul class="ingr-list">'
+            for item in items:
+                m = re.match(r'^([\d½¼¾.,/]+\s*(?:г|кг|мл|л|шт|ст\.л\.|ч\.л\.|стакан|cup|tbsp|tsp|lb|oz|ml|g)[^—]*?)\s*[—-]?\s*(.*)$', item)
+                if m:
+                    html += f'<li><span class="qty">{m.group(1)}</span> {m.group(2)}</li>'
+                else:
+                    html += f'<li>{item}</li>'
+            html += '</ul>'
+    return html
+
+
+def render_section_items(items):
+    """Рендерит список строк, разбивая на блоки: таблицы, шаги, списки, параграфы."""
+    if not items:
+        return ""
+    html = ""
+    i = 0
+    while i < len(items):
+        # Collect a table block
+        if items[i].startswith('|'):
+            block = []
+            while i < len(items) and items[i].startswith('|'):
+                block.append(items[i])
+                i += 1
+            html += render_markdown_table(block)
+        else:
+            # Collect a non-table block
+            block = []
+            while i < len(items) and not items[i].startswith('|'):
+                block.append(items[i])
+                i += 1
+            html += render_item_block(block)
     return html
 
 
@@ -265,6 +315,16 @@ def generate_html(txt_path):
   .my-notes-box p {{ margin-bottom: 6px; }}
   .my-notes-box p:last-child {{ margin-bottom: 0; }}
   .empty-note {{ color: #c0b090; font-style: italic; }}
+
+  .recipe-table {{ width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }}
+  .recipe-table th {{ background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }}
+  .recipe-table td {{ padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }}
+  .recipe-table tr:nth-child(even) td {{ background: #fdf8f5; }}
+
+  p.para {{ font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }}
+  p.para:last-child {{ margin-bottom: 0; }}
 
   .related-section {{ font-size: 13px; margin-top: 8px; color: #9a8a80; }}
   .related-label {{ font-weight: 600; color: #7a4f2a; }}
