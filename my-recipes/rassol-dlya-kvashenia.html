@@ -52,6 +52,16 @@
   .my-notes-box p:last-child { margin-bottom: 0; }
   .empty-note { color: #c0b090; font-style: italic; }
 
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
   .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
   .related-label { font-weight: 600; color: #7a4f2a; }
   .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
@@ -80,7 +90,15 @@
   
         <div class="section">
           
-          <ul class="ingr-list"><li>Рецепт рассола для квашения</li><li>Если капуста дала недостаточно сока, нужно добавить в банку рассол,</li><li>чтобы все кусочки капусты были покрыты жидкостью.</li><li><span class="qty">250 мл</span> 500 мл 750 мл 1 л</li><li>2% 5 г 10 г 15 г 25 г</li><li>3,5% 9 г 18 г 26 г 35 г</li><li>5% 13 г 25 г 38 г 50 г</li><li>10% 25 г 50 г 75 г 100 г</li><li>2% – лук, чеснок, имбирь, хрен, зеленая фасоль, брокколи,</li><li>капуста, кольраби, цветная капуста, свекла, спаржа, цукини,</li><li>свежая зелень</li><li>3,5-5% – огурцы, перцы (сладкие, острые)</li><li>10% – соус из острого перца, оливки</li></ul>
+          <p class="para">Если капуста дала недостаточно сока, нужно добавить в банку рассол, чтобы все кусочки капусты были покрыты жидкостью.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Количество соли для рассола</h2>
+          <table class="recipe-table"><thead><tr><th>Концентрация</th><th>250 мл</th><th>500 мл</th><th>750 мл</th><th>1 л</th></tr></thead><tbody><tr><td>2%</td><td>5 г</td><td>10 г</td><td>15 г</td><td>25 г</td></tr><tr><td>3,5%</td><td>9 г</td><td>18 г</td><td>26 г</td><td>35 г</td></tr><tr><td>5%</td><td>13 г</td><td>25 г</td><td>38 г</td><td>50 г</td></tr><tr><td>10%</td><td>25 г</td><td>50 г</td><td>75 г</td><td>100 г</td></tr></tbody></table>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">🧂</span>Рекомендуемая концентрация по видам продуктов</h2>
+          <p class="para">2% – лук, чеснок, имбирь, хрен, зеленая фасоль, брокколи, капуста, кольраби, цветная капуста, свекла, спаржа, цукини, свежая зелень</p><p class="para">3,5-5% – огурцы, перцы (сладкие, острые)</p><p class="para">10% – соус из острого перца, оливки</p>
         </div>
 </body>
 </html>
