@@ -20,6 +20,9 @@ def parse_recipe(text):
         "rating": "",
         "source": "",
         "related": "",
+        "servings": "",
+        "total_time": "",
+        "active_time": "",
         "note_header": "",
         "sections": []  # [{title, items: [str]}]
     }
@@ -27,7 +30,9 @@ def parse_recipe(text):
     # Extract metadata
     for field, key in [("Title:", "name"), ("Category:", "category"),
                        ("Tags:", "tags"), ("Rating:", "rating"),
-                       ("Source:", "source"), ("Related:", "related")]:
+                       ("Source:", "source"), ("Related:", "related"),
+                       ("Servings:", "servings"), ("Total Time:", "total_time"),
+                       ("Active Time:", "active_time")]:
         m = re.search(field + r"\s*(.+)", text)
         if m:
             result[key] = m.group(1).strip()
@@ -38,7 +43,8 @@ def parse_recipe(text):
 
     current_section = None
     current_items = []
-    skip_meta = {"Title:", "Category:", "Tags:", "Rating:", "Source:", "Related:", "Status:"}
+    skip_meta = {"Title:", "Category:", "Tags:", "Rating:", "Source:", "Related:", "Status:",
+                 "Servings:", "Total Time:", "Active Time:"}
 
     for line in lines:
         stripped = line.strip()
@@ -218,6 +224,16 @@ def generate_html(txt_path):
         meta_parts.append(recipe["category"])
     meta_html = f'<div class="meta">{" · ".join(meta_parts)}</div>' if meta_parts else ""
 
+    # Time/servings info
+    info_lines = []
+    if recipe["servings"]:
+        info_lines.append(f'<span><b>Servings:</b> {recipe["servings"]}</span>')
+    if recipe["total_time"]:
+        info_lines.append(f'<span><b>Total Time:</b> {recipe["total_time"]}</span>')
+    if recipe["active_time"]:
+        info_lines.append(f'<span><b>Active Time:</b> {recipe["active_time"]}</span>')
+    info_bar_html = f'<div class="info-bar">{"  ·  ".join(info_lines)}</div>' if info_lines else ""
+
     # Build sections
     sections_html = ""
     for sec in recipe["sections"]:
@@ -281,6 +297,8 @@ def generate_html(txt_path):
   .rating {{ display: inline-block; background: #fff3e6; color: #c05f2a;
              font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }}
   .source {{ font-size: 12px; color: #b0a09a; margin-top: 4px; }}
+
+  .info-bar {{ font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }}
 
   .section {{ padding: 0 24px; margin-bottom: 24px; }}
   .section-title {{ font-size: 15px; font-weight: 700; color: #7a4f2a;
@@ -348,6 +366,7 @@ def generate_html(txt_path):
     {rating_html}
     <h1>{name}</h1>
     {meta_html}
+    {info_bar_html}
     {related_html}
     {source_html}
   </div>
