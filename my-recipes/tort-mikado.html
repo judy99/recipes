@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Торт «Микадо»</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="photo/tort-mikado.jpg" alt="Торт «Микадо»"></div>
+  <div class="header">
+    
+    <h1>Торт «Микадо»</h1>
+    <div class="meta">Кухни нашего детства</div>
+    <div class="info-bar"><span><b>Servings:</b> на 6–8 порций (на 1 торт диаметром 20 см)</span></div>
+    
+    <div class="source">Source: Кухни нашего детства</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Традиционный армянский торт на Новый год и праздники. В основном этот торт для тех, кто не любит много крема, он суховат, даже после пропитки. Но в этом и есть его прелесть. Впрочем, для тех, кто любит более влажные торты, можно приготовить заварной крем и затем его смешать с размягчённым маслом и варёной сгущёнкой. Для заварной основы надо взять 1 яйцо (или только желток), смешать с 200 мл молока, 100 г сахара и 2 ст. л. кукурузного крахмала. Можно добавить 2–3 ст. л. какао-порошка. Поставить на слабый огонь и довести до кипения, постоянно помешивая, затем снять с огня (можно взбить блендером или миксером, если вдруг образовались комочки). Накрыть крем плёнкой в контакт и остудить до комнатной температуры и смешать с масляным кремом. Такой крем наносят на горячие коржи для лучшей пропитки. Другой вариант: на 250 мл сливок взять 70 г сахарной пудры, взбить до устойчивых пиков и смешать с масляным кремом. Обычно готовят двойную норму теста и крема, и пекут во весь противень, поэтому традиционно торт квадратной или прямоугольной формы, невысокий, максимум 10–12 коржей, но чаще 7–8. Перед подачей торт нарезается ромбами. После такой нарезки остаётся много кусочков произвольной формы, поэтому будет удобнее его готовить круглым и нарезать как обычно, сегментами. Готовый торт посыпают тёртым шоколадом. Желательно взять горький или тёмный шоколад, он будет отлично оттенять сладость крема.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>для теста:</li><li><span class="qty">100 г</span> сливочного масла</li><li><span class="qty">100 г</span> сахара</li><li>1 крупное яйцо</li><li><span class="qty">100 г</span> сметаны</li><li>1/2 ч. л. пищевой соды щепотка соли</li><li><span class="qty">300 г</span> муки для крема:</li><li><span class="qty">200 г</span> сливочного масла</li><li>1 банка (380 г) варёной сгущёнки</li><li>1/2 плитки тёмного шоколада</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Масло для теста и крема заранее достать из холодильника, желательно за 1,5–2 часа.</li><li>Для теста размягчённое сливочное масло взбить с сахаром, добавить яйцо, сметану с содой и щепотку соли. Порциями ввести муку. Замешивать недолго. Собрать тесто в шар, накрыть крышкой или пищевой плёнкой, на полчаса поместить в холодильник.</li><li>Разогреть духовку до 200 °С. 129 Содержание</li><li>Достать тесто из холодильника, разделить на 7–8 частей. Проще всего раскатывать тесто на той поверхности, на которой затем оно будет выпекаться в духовке: на силиконовом коврике или бумаге для выпечки. Поочередно раскатать коржи толщиной 2–3 мм, вырезать форму по шаблону или печь в кольце. Обрезки теста соединить с оставшимся тестом и снова раскатать или испечь, чтобы измельчить в крошку и обсыпать бока торта.</li><li>Каждый корж наколоть вилкой и поместить в разогретую духовку на 8–10 минут. Готовые коржи остудить на решётке.</li><li>Для крема размягчённое сливочное масло взбить миксером в течение нескольких минут, затем порциями ввести варёную сгущёнку.</li><li>Собрать торт. Промазать все коржи, кроме верхнего, кремом. По завершении сборки положить на верхний корж небольшой груз и оставить на 1–2 часа при комнатной температуре. Затем нанести оставшийся крем на верхний корж и бока торта. Натереть шоколад и посыпать верх и бока торта.</li><li>Можно оставить торт на несколько часов при комнатной температуре, а затем поместить в холодильник. Перед подачей и нарезанием желательно за несколько часов достать его из холодильника. 130 Содержание Дорогие ПРАкукеры, спасибо за покупку! Обращаем ваше внимание, что этот конспект является интеллектуальной собственностью и никакая часть этого конспекта не может быть воспроизведена в какой бы то ни было форме и какими бы то ни было средствами, включая размещение в сети Интернет и в корпоративных сетях, для частного и публичного использования без нашего письменного разрешения. Пожалуйста, помните, что этот конспект создан специально для вас, и не делитесь им с другими. Надеемся, вам понравился наш конспект. Если у вас возникли вопросы и пожелания – свяжитесь с нами: info@pra.cooking Наши конспекты ПРАнаборы ПРАктика ПРАвильные пироги мира ПРАвильные салаты ПРАвильные летние десерты ПРАвильные горячие супы — теория и практика Легкие десерты Ферментируем ПРАвильно Любимые десерты ПРАвильные блюда из фарша Рождественские десерты Все о сырой рыбе ПРАвильные блины и оладьи мира Стейки ПРАвильные блины без глютена Почти все о курице ПРАвильная и простая выпечка Почти все о соусах Легкие и ПРАвильные рецепты Легкие и ПРАвильные вегетарианские рецепты ПРАвильная диета 15 самых ПРАвильных рецептов Очень ПРАвильные рецепты из тыквы ПРАвильные завтраки ПРАвильные завтраки из яиц ПРАвильные и простые блюда в одной посуде ПРАвильные и простые рецепты на каждый день ПРАвильный год Гусь и Ко Рыба моя Праздничный стол с английским акцентом ПРАвильный фуршет Национальные кухни: Грузия с нами Ой-вей, как вкусно (книга еврейской и израильской кухни) Марокканские истории Много украинской и немного одесской кухни ПРАвильные итальянские истории ПРАвильная Азия Кухни нашего детства</li></ol>
+        </div>
+</body>
+</html>

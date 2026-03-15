@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Цыплёнок тапака</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="photo/tsyplyonok-tapaka.jpg" alt="Цыплёнок тапака"></div>
+  <div class="header">
+    
+    <h1>Цыплёнок тапака</h1>
+    <div class="meta">Кухни нашего детства</div>
+    <div class="info-bar"><span><b>Servings:</b> на 2–4 порции</span></div>
+    
+    <div class="source">Source: Кухни нашего детства</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">«Цыплёнок жареный, цыплёнок пареный…» Была такая песенка. И эти слова можно отнести к цыплёнку тапака, которого ещё называют «табака». Не будем углубляться в дебри этимологии, только отметим, что тапа — это глиняная сковорода, а почему русские стали называть блюдо «табака» — скорее всего, из- за привычности звучания и «табачного» золотистого цвета готового цыплёнка. В этом известном всем грузинском блюде цыплёнка надо максимально расплющить, а затем он жарится и парится под гнётом. И секрет его даже не в необычной манере приготовления, главное — аромат чеснока и специй, которым он пропитан. Каким бы простым ни казалось блюдо, есть много нюансов, вызывающих споры: как разрезать цыплёнка — по грудке или по спинке, солить его до жарки или в процессе, когда добавлять чеснок и зелень — в маринад или смазывать соусом уже почти готового цыплёнка, отбивать молотком до плоского состояния или щадящим методом надрезать сухожилия? Нужна ли специальная сковородка с гнётом или можно использовать подручные средства? И на каком масле жарить: растительном, сливочном или топлёном? Для начала надо правильно выбрать цыплёнка. Конечно, лучше, чтобы он был домашний. Весом не больше килограмма, чтобы уместился на сковородке. Оптимальный вариант: небольшие цыплята-корнишоны весом не более 500 г, по одному на порцию. Или на две порции, но получается так вкусно, что на половинке сложно остановиться. Что касается посуды, то подойдёт чугунная или толстостенная сковородка с высокими бортиками, можно сотейник, диаметром 26–28 см. Теперь по пунктам: как разрезать цыплёнка, не имеет особого значения. Можно вдоль килевой кости грудки, можно по позвоночнику. В последнем случае грудка окажется посередине и будет сочнее. Птицу удобнее всего разрезать острым ножом или кулинарными ножницами. Готовят цыплёнка обычно на смеси сливочного и растительного масла. Мы же рекомендуем вместо этой смеси использовать топлёное масло. У него высокая точка дымления, с ним мясо меньше пристает к сковородке, да и получается вкуснее. Что касается специй, то обычно цыплёнку хватает перца и чеснока. Можно взять традиционную аджику (смесь жгучего перца с солью) или использовать свежий перчик чили. По желанию добавьте хмели-сунели или паприку, но это необязательные специи.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>1 небольшой цыплёнок (до 1 кг или 2 по 500 г)</li><li>50–70 г топлёного масла</li><li>3–4 зубчика чеснока</li><li>1 небольшой острый перчик или 1/2 менее острого и более крупного небольшой пучок зелени (кинза, петрушка, укроп, базилик)</li><li>1–2 ст. л. винного уксуса или сухого белого вина соль, свежемолотый чёрный перец</li><li>62</li><li>Содержание</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>За несколько часов до жарки разрезать цыплёнка по спинке ножом или ножницами для птицы, распластать на доске, накрыть пищевой плёнкой, чтобы избежать брызг, ладонью с силой надавить в области тазобедренных суставов и крыльев, а потом отбить молотком для мяса или скалкой по тем же суставам, ножкам и вдоль грудки, не прикладывая чрезмерных усилий, просто чтобы цыплёнок весь стал примерно равным по толщине.</li><li>Обсушить цыплёнка бумажными полотенцами, натереть со всех сторон солью, положить на тарелку кожей вверх, накрыть не в контакт пищевой плёнкой и поместить в холодильник на несколько часов или на ночь.</li><li>За полчаса до жарки достать цыплёнка, плёнку убрать, чтобы кожа слегка подсохла, тогда корочка после станет хрустящей и золотистой.</li><li>Поставить сковородку или сотейник на средний огонь, растопить масло, выложить цыплёнка кожей вниз, сверху поместить гнёт. Можно использовать специальный чугунный гнёт или накрыть плоской тарелкой, а на неё поставить кастрюлю с тёплой водой.</li><li>Готовить с одной стороны около 15 минут, затем проверить, хорошо ли цыплёнок поджарился снизу, цвет должен быть насыщенно-золотистым. Перевернуть цыплёнка и жарить под гнётом 15 минут.</li><li>Приготовить соус. Порубить чеснок, острый перец, зелень. Чеснок растереть с 1 ч. л. соли, добавить горячее масло со сковороды (1 ст. л.), смешать с перцем, зеленью и уксусом. Разбавить 50 мл горячей кипячёной воды.</li><li>Снять с цыплёнка гнёт, кисточкой слегка смазать соусом одну сторону, перевернуть, смазать другую сторону, готовить без гнёта ещё 5 минут.</li><li>Переложить цыплёнка на тарелку кожей вверх, смазать оставшимся соусом и подавать к столу горячим.</li></ol>
+        </div>
+</body>
+</html>

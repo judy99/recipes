@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кибины</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="photo/kibiny.jpg" alt="Кибины"></div>
+  <div class="header">
+    
+    <h1>Кибины</h1>
+    <div class="meta">Кухни нашего детства</div>
+    <div class="info-bar"><span><b>Servings:</b> на 8 пирожков</span></div>
+    
+    <div class="source">Source: Кухни нашего детства</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Караимские пирожки с мясом, настолько популярные в Литве, что стали неотъемлемой частью национальной кухни (их ещё называют кибинай). Хрустящее тесто и сочная начинка — пирожки хороши и сами по себе, но можно подавать их с овощами, томатным соком или кефиром, чаще всего их дополняют насыщенным куриным бульоном. Нередко их готовят к праздничному столу, например на второй день свадьбы, но при этом почти в любом ресторане или столовой можно заказать сытный и вкусный обед — кибины с бульоном. Для начинки чаще используют баранину, но можно выбрать говядину или телятину, иногда пирожки делают и с курицей. Чтобы начинка была сочнее, обязательно добавляют много лука (иногда картошку) и жир, если само мясо не очень жирное. В пирожки с начинкой из курицы кладут кусочек сливочного масла. Одна из отличительных особенностей кибинай — рубленое мясо. Можно использовать и мясорубку, если есть крупная решётка, как для приготовления колбас, но чаще мясо мелко рубят ножом или топориком, а лучше двумя. Можно порубить мясо вместе с луком и в кухонном комбайне или в чаше блендера в пульсирующем режиме, но кусочки получатся неодинаковыми по размеру.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li><span class="qty">200 г</span> сливочного масла 82,5% жирности</li><li><span class="qty">320 г</span> муки</li><li>1/2 ч. л. соли</li><li>1 ч. л. разрыхлителя теста</li><li><span class="qty">70 г</span> сметаны</li><li>1 яйцо для начинки:</li><li><span class="qty">200 г</span> говядины или телятины (лопатка, окорок или шея)</li><li><span class="qty">50 г</span> сала или жира</li><li><span class="qty">100 г</span> лука</li><li><span class="qty">50 г</span> ледяной воды соль, свежемолотый чёрный перец для смазывания:</li><li>1 перепелиное яйцо или 1 желток куриного яйца</li><li>2 ст. л. молока</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Масло должно быть хорошо охлаждённым. Необходимо заранее положить его в морозилку на 1 час или нарезать крупными кубиками и также убрать в морозилку, но на 15 минут.</li><li>Для удобства тесто можно замесить в кухонном комбайне или в миксере с насадкой в виде лопатки. Муку смешать с солью и разрыхлителем, перетереть с маслом до состояния крошки. Добавить холодные сметану и яйцо, замесить тесто, которое будет отставать от стенок и легко соберётся в шар. Долго замешивать не надо, лишь до объединения всех компонентов, буквально 1–2 минуты. Завернуть тесто в пищевую плёнку и поместить в холодильник минимум на полчаса. Тесто хорошо хранится в холодильнике до двух дней. 89 Содержание</li><li>Для начинки мясо и жир нарезать тонкими полосками, затем порубить ножом или топориком (или двумя топориками) поперёк на мелкие кусочки. Лук нарезать мелкими кубиками и порубить с мясом, смешав их вместе. (Можно перемолоть мясо в мясорубке, но только с крупной решёткой, как для колбас.) Переложить фарш в миску. Посолить, поперчить, добавить ледяную воду, перемешать.</li><li>Разогреть духовку до 190 °С.</li><li>Тесто разделить на 8 равных частей (примерно по 80 г), скатать каждую в шарик. Поочередно слепить пирожки: кусочек теста расплющить рукой, затем раскатать скалкой в круг диаметром около 14 см. В середину выложить ложку с горкой фарша (45–50 г). Соединить и защипнуть края теста «веревочкой», как вареники.</li><li>Противень застелить бумагой для выпечки, выложить пирожки. Смешать перепелиное яйцо или желток с молоком, кисточкой смазать пирожки яичной смесью (льезоном). Выпекать в разогретой духовке 30–40 минут.</li><li>Подавать пирожки горячими, с куриным бульоном и зеленью.</li></ol>
+        </div>
+</body>
+</html>

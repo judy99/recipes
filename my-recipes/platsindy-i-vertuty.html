@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Плацинды и вертуты</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="photo/platsindy-i-vertuty.jpg" alt="Плацинды и вертуты"></div>
+  <div class="header">
+    
+    <h1>Плацинды и вертуты</h1>
+    <div class="meta">Кухни нашего детства</div>
+    <div class="info-bar"><span><b>Servings:</b> на 30 минут. Затем разделить тесто на три части. Пока</span></div>
+    
+    <div class="source">Source: Кухни нашего детства</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Плацинды — молдавские лепёшки с разнообразными начинками, вертуты же ближе к пирогам, и хотя их часто тоже называют плациндами, и готовятся они из идентичных ингредиентов, но, благодаря разной технике приготовления, получается совершенно иной продукт: что-то среднее между несладким штруделем и баницей. Хотя есть и промежуточный вариант: вертуты жарятся на сковородке, как лепёшки. Начинки могут быть разнообразными: с картошкой и жареным луком, с капустой, с творогом или рассольным сыром и зеленью. А ещё сладкие, например с тыквой. Основной секрет вертут — в тонкой раскатке теста. Лучше использовать длинную тонкую скалку с зауженными концами. Мастерицы могут раскатывать сразу по несколько лепёшек за раз, так что умение приходит с практикой. Если раскатать тонко сразу не получается, можно слегка растягивать тесто руками, и нестрашно, если где-то порвётся, небольшая прореха не будет заметна, когда станете скручивать тесто с начинкой в рулет. Но нужно помнить, что для вертут тесто должно быть раскатано максимально тонко, до полупрозрачности. Для плацинд его не обязательно раскатывать толщиной с лист бумаги, достаточно 1–2 мм. После того как выложили начинку, края теста можно завернуть несколькими способами. Чаще всего заворачивают «звездой»: для этого нужно подогнуть края лепёшки к центру с пяти сторон, потом слегка растянуть углы и тоже собрать к середине. Можно собрать края теста складочками, как на хинкали, или завернуть края к центру волнами, по часовой стрелке, в 7–8 подворотов, соединить и защипнуть концы в середине.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>для теста:</li><li><span class="qty">400 г</span> муки</li><li>1/2 ч. л. соли</li><li><span class="qty">220 мл</span> воды</li><li><span class="qty">30 мл</span> растительного масла</li><li>50–70 г топлёного или сливочного масла для картофельной начинки:</li><li><span class="qty">300 г</span> картофеля</li><li><span class="qty">100 г</span> лука</li><li>30–50 г сливочного или топлёного масла соль, свежемолотый чёрный или белый перец для творожной начинки:</li><li><span class="qty">100 г</span> твёрдого сыра</li><li><span class="qty">50 г</span> сезонной зелени (укроп, петрушка, зелёный лук, черемша)</li><li><span class="qty">200 г</span> творога</li><li>1 яйцо соль, свежемолотый чёрный перец</li><li>95</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Содержание для капустной начинки</h2>
+          <ul class="ingr-list"><li>350–400 г белокочанной капусты</li><li>1 морковь</li><li><span class="qty">1 л</span> уковица</li><li>30–50 г сливочного или топлёного масла соль, свежемолотый чёрный перец для тыквенной начинки:</li><li><span class="qty">400 г</span> тыквы щепотка соли</li><li>50–70 г сахара щепотка молотой корицы (по желанию) для вертут: растительное масло для смазывания</li><li>1 яичный желток или 1 перепелиное яйцо</li><li>2 ст. л. молока кунжут для посыпки (по желанию) работаете с одной частью, оставшиеся накрыть полотенцем или плёнкой, чтобы тесто не подсыхало.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Муку просеять, соль растворить в воде, влить в муку вместе с растительным маслом и замесить эластичное тесто в течение 7–10 минут, миксером или вручную. Накрыть пищевой плёнкой или крышкой, оставить минимум</li><li>Для плацинд: присыпать мукой рабочую поверхность, скалку и слегка тесто. Раскатать тесто в тонкую лепёшку диаметром около 25 см, стараясь двигаться от середины к краям так, чтобы они были тоньше, чем центр.</li><li>В середину раскатанной лепёшки выложить треть начинки, слегка приплюснуть. Завернуть края к середине, слегка растягивая тесто: «звездой», мелкими складками, как на хинкали, или в 7–8 подворотов, соединить и защипнуть края. Приплюснуть лепёшку до толщины 0,7–1 см, равномерно распределяя начинку внутри.</li><li>Разогреть сухую сковородку и жарить лепёшки на среднем огне по 4–5 минут с каждой стороны. На второй стороне можно готовить под крышкой. Ещё горячие плацинды смазать маслом, сложить стопкой.</li><li>Для вертут рабочую поверхность и скалку смазать растительным маслом. Разогреть духовку до 200 °С. Взять одну часть теста, максимально расплющить его ладонями или скалкой, а затем раскатать в тонкий полупрозрачный лист размером около 40–50 см, слегка растягивая края руками. Тесто очень эластичное, но если чуть порвётся при растягивании — не страшно.</li><li>Растопить масло, рукой или кулинарной кистью тонким слоем смазать маслом всю поверхность теста. Распределить треть начинки широкой линией по одной стороне пласта, отступив от края пару сантиметров, и с этой стороны начать скручивать тесто в рулет, а рулет свернуть спиралью в улитку. 96 Содержание</li><li>Переложить на противень, застеленный бумагой для выпечки. Таким же образом сделать вертуты из оставшегося теста и начинки.</li><li>Желток или перепелиное яйцо смешать с молоком, смазать вертуты, при желании посыпать кунжутом. Поместить в духовку и выпекать 15–20 минут, до золотистого цвета. Начинки Картофельная Очистить картофель, нарезать средними кубиками, отварить в слегка подсоленной воде на среднем огне 20 минут. Лук очистить, нарезать кубиками. Разогреть сковородку на среднем огне, растопить масло и спассеровать лук до мягкости. Слить воду с картофеля, растолочь в пюре, добавить лук, поперчить и слегка посолить. Остудить. Творожная Сыр натереть на тёрке, порубить зелень. Смешать творог с сыром, яйцом и зеленью, посолить и поперчить. Капустная Капусту нашинковать и помять руками, морковь натереть на тёрке, лук нарезать мелкими кубиками. Разогреть сковородку на среднем огне, растопить масло, добавить лук и морковь, пассеровать 5 минут до полупрозрачности. Добавить капусту, посолить, поперчить и готовить, периодически помешивая, 7–10 минут, до мягкости. Остудить. Тыквенная Тыкву очистить от кожуры и семян, натереть на тёрке, добавить щепотку соли, перемешать, накрыть и оставить на полчаса. Затем слить выделившийся сок, слегка отжать руками. Добавить сахар и корицу, перемешать.</li></ol>
+        </div>
+</body>
+</html>

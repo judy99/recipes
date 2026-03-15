@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Драники с грудинкой и луком</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="photo/draniki-s-grudinkoy-i-lukom.jpg" alt="Драники с грудинкой и луком"></div>
+  <div class="header">
+    
+    <h1>Драники с грудинкой и луком</h1>
+    <div class="meta">Кухни нашего детства</div>
+    <div class="info-bar"><span><b>Servings:</b> на 15–20 штук</span></div>
+    
+    <div class="source">Source: Кухни нашего детства</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Традиционные белорусские драники готовятся без муки и яиц, только картошка и, может быть, лук, только хардкор. Почти хашбраун или латкес, но немного по-другому. Вариант с небольшим количеством муки и яйца тоже имеет право на существование, но больше напоминает украинские деруны. Хотя для тех, кто первый раз решил приготовить драники, этот рецепт даже больше подойдёт: мука и яйца дают смеси стабилизацию, а вкус порадует в любом случае. На то же количество ингредиентов нужно добавить 1 яйцо и 50 г муки. Есть несколько важных нюансов приготовления драников: горячая сковородка, желательно с антипригарным покрытием или блинная, раскалённое масло в достаточном количестве и немного терпения. Не стоит переворачивать драники, едва они подрумянятся снизу, нужно дать ещё немного времени картошке приготовиться внутри и образоваться прочной корочке, которая позволит легко перевернуть драник, не нарушив его форму. А по сути, всё что нужно — это картофель, щепотка соли и масло. Лук в смесь кладётся для аромата и чтобы картошка не темнела. Добавление чеснока — дело вкуса. Подавать драники можно просто со сметаной, но блюдо получится гораздо вкуснее, если дополнить их соусом из жареной свинины и лука.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>для драников:</li><li><span class="qty">800 г</span> – 1 кг картофеля</li><li>1 средняя луковица</li><li>1 неполная ч. л. соли свежемолотый чёрный перец</li><li>100–150 мл растительного или топлёного масла сметана для подачи для соуса:</li><li>1 средняя луковица</li><li><span class="qty">150 г</span> грудинки и 250 г свинины (или 400 г сала с мясными прожилками) соль, свежемолотый чёрный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Для драников очистить картофель и лук, натереть на крупной тёрке или нарезать кубиками и измельчить в кухонном комбайне. Посолить, поперчить, перемешать.</li><li>Разогреть на среднем огне сковородку с 2 ст. л. масла. Выложить порции картофельной смеси по 1 ст. л. с горкой (осторожно, масло может сильно брызгаться), спустя минуту слегка подровнять драники, ложкой подбирая края к середине. Жарить по 5–7 минут с каждой стороны.</li><li>Для соуса лук очистить и нарезать полукольцами, с грудинки и мяса срезать сало. Сало нарезать небольшими кубиками, мясо — кусочками по 2–3 см. 22 Содержание</li><li>Разогреть сковородку на среднем огне, выложить сало и в течение нескольких минут вытопить из него жир (по желанию можно жарить кусочки сала подольше, до золотистого цвета, затем переложить шкварки шумовкой на тарелку и посыпать ими готовые драники). Добавить лук, пассеровать до полупрозрачности около 5 минут.</li><li>Выложить в сковородку с луком мясо. Посолить, поперчить и обжаривать, помешивая, 7–10 минут, до готовности свинины (если используете только сало, пропустить этот шаг).</li><li>Подавать драники горячими, дополнив приготовленным соусом, со сметаной.</li></ol>
+        </div>
+</body>
+</html>

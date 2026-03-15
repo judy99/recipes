@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Полтавский борщ с галушками</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="photo/poltavskiy-borshch-s-galushkami.jpg" alt="Полтавский борщ с галушками"></div>
+  <div class="header">
+    
+    <h1>Полтавский борщ с галушками</h1>
+    <div class="meta">Кухни нашего детства</div>
+    <div class="info-bar"><span><b>Servings:</b> на 4 порции</span></div>
+    
+    <div class="source">Source: Кухни нашего детства</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Его чаще всего готовят на бульоне из птицы: утки, гуся, можно взять и курицу. Ничто не мешает вам приготовить борщ на свинине или говядине, используя рецепт как базу. Мало того, не обязательно готовить к нему галушки, можно воспользоваться замечательным рецептом пампушек с чесноком, он есть в открытом доступе группы. Но тут вы получаете два в одном: галушки хороши сами по себе, со сливочным маслом или с поджаркой из лука, сала и кусочков свинины. А борщ в сочетании с ними откроется по-новому. По сути галушки — это клёцки, можно сказать, вареники без начинки, их отваривают отдельно и добавляют в тарелку борща непосредственно перед подачей. И ещё одна особенность у борща по-полтавски: капусту для него чаще всего нарезают квадратиками, а не шинкуют, как обычно. Всё остальное — довольно традиционно.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>для бульона:</li><li>700–800 г мяса птицы на кости</li><li>1 морковь</li><li><span class="qty">100 г</span> корня сельдерея</li><li><span class="qty">1 л</span> уковица</li><li>2 ч. л. соли лавровый лист по вкусу</li><li>8–10 горошин чёрного перца для пассеровки:</li><li>6–8 картофелин</li><li>2 средние свёклы</li><li><span class="qty">1 л</span> уковица</li><li>1 морковь</li><li>350–400 г белокочанной капусты</li><li>1–2 стебля сельдерея</li><li>1/2 среднего стручка или 1 небольшой стручок острого перца</li><li>1–2 болгарских перца</li><li>2 спелых помидора (и/или 1–2 ст. л. томатной пасты)</li><li><span class="qty">50 г</span> сала (или 50 мл куриного жира с бульона)</li><li>1 ст. л. яблочного уксуса</li><li>1 ст. л. сахара</li><li>1–2 зубчика чеснока зелень, сметана и галушки для подачи</li><li><span class="qty">100 мл</span> кипятка</li><li><span class="qty">30 мл</span> растительного масла</li><li><span class="qty">120 г</span> муки</li><li>1 яйцо</li><li>20–30 г сливочного масла соль</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Птицу разделить на части, морковь и сельдерей очистить, луковицу промыть и очистить от верхнего слоя шелухи. Поместить птицу и овощи в кастрюлю объёмом около 6 л, залить 3 л холодной питьевой воды, добавить соль, лавровый лист и горошины перца. Довести почти до кипения (не допуская бурления воды) и сразу убавить огонь до минимума. Снять пену, если она появится. Варить 1,5–2 часа на слабом огне, не накрывая крышкой. Ложкой в отдельную ёмкость снять с бульона жир, чтобы потом использовать для пассеровки. 35 Содержание</li><li>Достать из бульона овощи и выбросить. Мясо снять с кости и разобрать на крупные куски. Бульон при необходимости процедить, вернуть в него мясо. Поставить на средний огонь и вновь довести до кипения.</li><li>Очистить картофель, свёклу, лук и морковь. Картофель нарезать крупными кубиками, капусту — квадратами (сначала крупными полосками, а затем поперёк). Порубить лук, сельдерей и острый перец. Нарезать тонкими брусочками или натереть на тёрке морковь и свёклу, болгарский перец и помидоры нарезать небольшими кубиками. Мелко нарезать сало, если используете.</li><li>Бульон довести почти до кипения, выложить картофель, поставить на небольшой огонь.</li><li>Разогреть сковородку на среднем огне, добавить снятый с бульона жир или сало, если используете его, вытопить из него жир и удалить шкварки.</li><li>Выложить в горячий жир лук, обжарить 3–4 минуты, до мягкости и золотистого цвета. Добавить морковь, готовить, помешивая, ещё 5 минут, затем положить свёклу и слегка обжарить. Добавить сельдерей, болгарский и острый перец, помидоры и/или томатную пасту, уксус и сахар, посолить и поперчить. Убавить огонь и тушить 10–15 минут.</li><li>Добавить пассерованные овощи и капусту в бульон. Готовить на слабом огне 15–20 минут.</li><li>Нарубить чеснок и зелень. Добавить чеснок в борщ за минуту до окончания варки.</li><li>Посыпать каждую порцию борща рубленой зеленью. Отдельно подать сметану и галушки. Галушки</li><li>В кипяток добавить масло и щепотку соли, перемешать. Всыпать муку, перемешать лопаткой или ложкой до полного увлажнения муки, затем влить яйцо и замесить однородное тесто (для удобства можно использовать миксер). Тесто получается мягкое, консистенции очень густой сметаны. Накрыть его полотенцем, крышкой или пищевой плёнкой и оставить на 15 минут.</li><li>В трёхлитровой кастрюле довести до кипения 1,5 л воды, добавить 1 ч. л. соли. 36 Содержание</li><li>Десертной или небольшой столовой ложкой быстро зачерпывать тесто, выкладывать в кипящую воду и варить галушки, пока они не всплывут. Для удобства и аккуратного вида галушек тесто лучше формировать с помощью двух ложек, в виде кнелей.</li><li>Готовые галушки откинуть в дуршлаг, затем переложить в миску и добавить сливочное масло.</li></ol>
+        </div>
+</body>
+</html>

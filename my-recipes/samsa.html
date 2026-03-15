@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Самса</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="photo/samsa.jpg" alt="Самса"></div>
+  <div class="header">
+    
+    <h1>Самса</h1>
+    <div class="meta">Кухни нашего детства</div>
+    <div class="info-bar"><span><b>Servings:</b> на 15–20 минут в морозильник.</span></div>
+    
+    <div class="source">Source: Кухни нашего детства</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Самса — порционные пирожки с мясом, распространённые во многих азиатских и восточных странах. Они популярны не только в Узбекистане, Таджикистане и Татарстане, но и на территории всех бывших советских республик. Чаще всего самсу делают треугольной, но она бывает и круглой, и квадратной. Для пирожков используют пресное или слоёное тесто, начинка из баранины или говядины (самый популярный вариант), курицы, иногда с добавлением картофеля или тыквы. Реже встречается самса с овощной или грибной начинкой. Фарш для самсы лучше порубить самостоятельно или пропустить через мясорубку с крупной решёткой. Для сочности в фарш добавляют много лука. Из специй чаще используют чёрный и острый перец, зиру. Можно добавить сушёный чеснок, любимую зелень и другие приправы.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>мука или крахмал на подпыл</li><li>1 яйцо для смазывания кунжут или заатар для посыпки для теста:</li><li><span class="qty">4 г</span> соли</li><li><span class="qty">200 мл</span> воды</li><li><span class="qty">150 г</span> размягчённого сливочного масла</li><li>1 яйцо</li><li><span class="qty">450 г</span> муки для начинки:</li><li><span class="qty">500 г</span> жирной бескостной баранины или 400 г баранины (мякоти) и 100 г бараньего жира</li><li>2–3 луковицы</li><li>1/2 ч. л. зиры (кумина) соль, свежемолотый чёрный перец на доску или тарелку, накрыть пищевой плёнкой и поместить в холодильник на 2 часа или, чтобы ускорить процесс,</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Для теста соль растворить в воде, 50 г сливочного масла смешать с яйцом, затем с мукой и водой с солью, замесить эластичное тесто. Сформовать из теста шар, накрыть и оставить на 30 минут.</li><li>Отдохнувшее тесто разделить на две части. Выложить одну на присыпанную мукой или крахмалом рабочую поверхность и раскатать максимально тонко, до полупрозрачности, в прямоугольный пласт. Смазать всю поверхность теста половиной оставшегося размягчённого масла (50 г). Сложить раскатанное тесто вчетверо и отложить, накрыв полотенцем или пищевой плёнкой. Раскатать и смазать маслом вторую часть теста, выложить сверху первый лист теста с маслом, скрутить в тугой рулет. 92 Содержание</li><li>Ножом разметить рулет на 8 частей: сначала наметить середину, затем разделить каждую половину пополам, а после каждую часть ещё пополам. Разрезать рулет поперёк</li><li>Мясо нарезать небольшими кусочками, лук — мелкими кубиками. Порубить мясо двумя ножами или топориком до консистенции фарша, но не слишком мелко (или пропустить через мясорубку с крупной решёткой). Смешать фарш с луком, посолить, поперчить, растереть ладонями и добавить зиру, перемешать до однородности. Разделить на 8 частей, скатать в шарики (они получатся немного крупнее шарика для пинг-понга).</li><li>Разогреть духовку до 180 °C.</li><li>Рулетики теста по одному достать из холодильника, положить срезом вверх на рабочую поверхность, расплющить руками и раскатать в лепёшку диаметром около 15 см. В середину положить шарик начинки.</li><li>Края теста с трёх сторон поднять и соединить над шариком начинки, сформовать треугольный пирожок, защипнуть края. Немного придавить, перевернуть и слегка подвернуть кончики внутрь. Повторить с остальными заготовками и начинкой.</li><li>Застелить противень бумагой для выпечки, выложить на него самсу, каждую смазать взболтанным до однородности яйцом и посыпать кунжутом или заатаром.</li><li>Выпекать в разогретой духовке около 25 минут, до золотистого цвета теста и готовности начинки.</li></ol>
+        </div>
+</body>
+</html>

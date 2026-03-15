@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Чебуреки</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="photo/chebureki.jpg" alt="Чебуреки"></div>
+  <div class="header">
+    
+    <h1>Чебуреки</h1>
+    <div class="meta">Кухни нашего детства</div>
+    <div class="info-bar"><span><b>Servings:</b> на 8–10 штук</span></div>
+    
+    <div class="source">Source: Кухни нашего детства</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Чебуреки — вещь очень «советская». Их любили во всей стране, хотя относятся они к крымско-татарской кухне и традиционно готовятся на Северном Кавказе, у тюркских и монгольских народов. Секрет идеальных чебуреков подобен поиску Святого Грааля, но по этому рецепту получится практически эталонный вариант. Обычно для чебуреков делают простое пресное тесто, как на пельмени. После замеса оно довольно тугое, поэтому, чтобы развилась клейковина, ему обязательно надо дать полежать минимум полчаса, а можно и дольше. Раскатывать следует максимально тонко, до полупрозрачности, в пласт толщиной буквально 1 мм. Можно делать это на смазанной растительным маслом или присыпанной мукой поверхности. Тугое тесто немного сжимается при раскатке, и на масле будет скользить. Сцепление с мукой лучше, но её остатки перед жаркой не забудьте смахнуть кисточкой, иначе мелкие частицы сгорят в масле, оставляя чёрные следы на чебуреке. Для начинки чаще всего используют баранину и большое количество лука. Можно добавить зелень кинзы или петрушки по вкусу и обязательно немного воды, чтобы из готового чебурека лился сок — в этом самый смак. Перед тем как выкладывать начинку на тесто, фарш надо каждый раз перемешивать. А после обязательно выпустить лишний воздух и тщательнейшим образом защипнуть, иначе под воздействием внутреннего пара чебурек раскроется во фритюре, и масло будет сильно брызгаться. Если края теста немного подсохли после раскатывания, слегка смажьте их водой для лучшего скрепления. Можно прижать тесто вилкой по контуру с обеих сторон. Чтобы чебурек был аккуратным, край можно обрезать фигурным или обычным ножом. В качестве трафарета для вырезания ровного полумесяца сверху прикладывают тарелку. Кроме баранины в начинке используют говядину, бывает и свинину. Есть чебуреки с сырной начинкой, и это очень вкусно. Есть с сыром и помидорами, или помидоры добавляют к мясному фаршу для сочности. Бывают даже с грибами или со всем сразу: мясо, сыр, грибы, помидоры… Вариаций много. Полёт фантазии и поле для экспериментов. Готовое тесто получается хрустящим и воздушным, но при этом нежным. Одним из важных нюансов достижения этого эффекта служит добавление в тесто небольшого количества водки. Алкоголь при готовке абсолютно выпаривается и не чувствуется. Добавлять или нет — выбор за вами, особенно если дома не водится алкоголь, но стоит знать, что этот ингредиент здесь совсем не лишний. Готовить лучше в фартуке — бывает, что масло брызгается, несмотря на все приложенные усилия. И помните, что результат компенсирует все старания.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>для теста:</li><li><span class="qty">300 г</span> пшеничной муки + на подпыл</li><li><span class="qty">150 мл</span> кипятка щепотка соли</li><li>1 ст. л. растительного масла</li><li>1 ст. л. водки</li><li>83</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Содержание для начинки</h2>
+          <ul class="ingr-list"><li><span class="qty">300 г</span> мякоти баранины или говядины (или покупного фарша)</li><li><span class="qty">100 г</span> лука</li><li><span class="qty">50 мл</span> холодной воды соль, свежемолотый чёрный перец</li><li><span class="qty">300 мл</span> растительного масла для фритюра</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Сделать тесто. Муку просеять. Кипящую воду смешать с солью, растительным маслом и водкой, влить в муку, перемешать ложкой или лопаткой до равномерного увлажнения муки. Вымесить вручную или с помощью миксера с насадкой-крюком до полной однородности. Накрыть тесто полотенцем, крышкой или пищевой плёнкой и оставить на 20–30 минут.</li><li>Сделать начинку. Мясо нарезать кусочками, лук очистить и разрезать на четыре части вдоль, затем каждую часть пополам поперёк. Пропустить мясо с луком через мясорубку. (Можно порубить мясо с помощью двух топориков, но это работа для сильных мужчин.) Если используется готовый фарш, лук измельчить с помощью блендера в кашицу. Фарш с луком посолить, поперчить, влить воду и тщательно перемешать.</li><li>Разделить тесто на 10 частей примерно по 50 г, скатать каждую в шарик и держать под полотенцем или пищевой плёнкой, пока тесто не в работе.</li><li>Рабочую поверхность и скалку присыпать мукой, раскатать каждый шарик теста в лепёшку диаметром около 20 см и толщиной 1–1,5 мм. Выложить ложку фарша на одну половину, размазать по тесту, не доходя 1,5–2 см до края, накрыть второй половиной лепёшки, слегка придавить, чтобы вышел воздух, соединить и защипнуть края теста. При желании можно подровнять края чебурека, обрезав несколько миллиметров по защипнутому краю фигурным ножом, или пройтись зубцами вилки, прижимая края полоской шириной 1 см. Отряхнуть чебурек от лишней муки.</li><li>Разогреть масло для фритюра в сотейнике или кастрюле диаметром около 26 см до 170–180 °С. Температуру масла лучше измерять термометром, но если его нет, достаточно опустить во фритюр деревянную шпажку — если по ней будут подниматься пузырьки, можно готовить.</li><li>Опускать в кипящее масло чебуреки парами или по одному и готовить по 2 минуты с каждой стороны. В процессе обжарки можно притапливать чебурек или поливать маслом сверху. Переворачивать удобно тонкими кулинарными щипцами за уголок чебурека, стараясь не повредить тесто с необжаренной стороны (из проколов в тесте может вытечь сок, и масло будет брызгаться). Чтобы избежать горячих брызг, лучше накрыть кастрюлю специальным сетчатым экраном.</li><li>Выложить готовые чебуреки на бумажное полотенце, чтобы удалить излишки масла. Подавать горячими.</li></ol>
+        </div>
+</body>
+</html>

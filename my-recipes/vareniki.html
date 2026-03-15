@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вареники</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="photo/vareniki.jpg" alt="Вареники"></div>
+  <div class="header">
+    
+    <h1>Вареники</h1>
+    <div class="meta">Кухни нашего детства</div>
+    <div class="info-bar"><span><b>Servings:</b> на 4–6 порций вареников</span></div>
+    
+    <div class="source">Source: Кухни нашего детства</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Вареники — один из главных символов украинской кухни. Существует большое количество рецептов этого блюда, с разными начинками и видами теста. Наиболее традиционные — с вишней, творогом, капустой, картошкой и луком, но есть и множество других вариаций. Предлагаем вам три разных рецепта теста и ниже — три самые популярные начинки.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>Заварное тесто</li><li><span class="qty">500 г</span> муки</li><li>1 ч. л. мелкой соли</li><li>1 яйцо</li><li><span class="qty">20 мл</span> растительного масла</li><li><span class="qty">220 мл</span> кипятка</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Муку просеять с солью.</li><li>Яйцо слегка взбить венчиком, чтобы смешать желток с белком. Добавить растительное масло, перемешать.</li><li>Влить жидкую смесь в муку, перемешать до состояния крупной крошки, затем влить кипяток и замесить однородное эластичное тесто. Пощупайте мочку уха — тесто должно быть примерно такой же мягкости.</li><li>Накрыть тесто крышкой или пищевой плёнкой и дать ему отдохнуть 30 минут. Затем можно приступить к лепке вареников. Тесто на молоке для любых вареников 350 г муки щепотка соли 110 мл молока 1 яйцо 60 мл воды 10 мл растительного масла Тесто для несладких вареников 350 г муки 1 ч. л. соли 2 яйца 110 мл тёплой воды 30 мл растительного масла</li><li>Муку просеять с солью.</li><li>Смешать жидкие ингредиенты.</li><li>Сделать в муке углубление, влить туда жидкую смесь и замесить однородное эластичное тесто. Пощупайте мочку уха — тесто должно быть примерно такой же мягкости.</li><li>Накрыть тесто крышкой или пищевой плёнкой и дать ему отдохнуть 30 минут. Затем можно приступить к лепке вареников. 105 Содержание Лепка</li><li>Выложить тесто на присыпанную мукой рабочую поверхность. Разделить на 2–3 части, каждую раскатать в пласт толщиной несколько миллиметров и вырезать стаканом круги. Обрезки добавить к оставшемуся тесту и снова раскатать. Есть и другой вариант: скатать тесто в длинные колбаски, нарезать на кусочки размером с перепелиное яйцо и каждый кусочек раскатать в тонкий круг диаметром 6–8 см.</li><li>На каждый кружочек теста выложить начинку (1,5–2 ч. л.) и защипнуть края. Как защипнуть вареники косичкой, можно посмотреть в этом видео. А здесь вы найдёте 12 способов лепки пельменей, вареников, мантов и клёцок. 106 Содержание 107 Содержание Картофельная начинка 300 г картофеля 1 луковица 500 мл воды 1/2 ч. л. соли 50 г топлёного масла свежемолотый чёрный перец для подачи: 100 г сала или грудинки 1 луковица</li><li>Овощи очистить, картофель нарезать кубиками по 2 см, лук нарубить небольшими кубиками.</li><li>Картофель отварить в подсоленной воде в течение 15–20 минут. Растолочь в однородное пюре.</li><li>Нагреть на среднем огне сковородку, растопить масло, слегка подрумянить лук. Добавить его в картофельное пюре, слегка посолить, поперчить, перемешать. Остудить начинку и использовать её для вареников.</li><li>Для подачи сало или грудинку нарезать небольшими кубиками, лук очистить и нарезать полукольцами или нарезать кубиками. На разогретой сковородке обжарить сало или грудинку в течение 5 минут, вытопив жир. Добавить лук и жарить до его светло-золотистого цвета, около 5 минут на среднем огне.</li><li>Вареники с картошкой варят в подсоленной воде небольшими партиями. После того как они всплывут на поверхность, их нужно варить ещё 4–5 минут. Творожная начинка 300 г жирного плотного творога 50–70 г сахара</li><li>Творог размять вилкой или протереть через сито, смешать с сахаром.</li><li>Тесто для вареников раскатать в тонкие круги диаметром 8–10 см, выложить в середину по столовой ложке творога, соединить и защипнуть края.</li><li>Вареники с творогом можно готовить на пару около 10 минут или в слегка подсоленной воде — варить 4 минуты после того, как они всплывут на поверхность. 108 Содержание Вишнёвая начинка 300 г вишни без косточек (замороженной или свежей) 70 г сахара 15 г кукурузного или картофельного крахмала</li><li>Вишню положить в дуршлаг и дать стечь соку, замороженную разморозить.</li><li>Смешать сахар с крахмалом.</li><li>На кружочки из теста выложить по 1 ч. л. сахарной смеси, положить 3–4 ягоды вишни, соединить и защипнуть края теста.</li><li>Вареники с влажной начинкой в воде могут легко порваться, поэтому их обычно готовят на пару в течение 7–9 минут.</li></ol>
+        </div>
+</body>
+</html>

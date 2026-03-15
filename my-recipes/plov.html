@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Плов</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .notes-list li { font-size: 14px; line-height: 1.5; padding: 8px 12px 8px 32px;
+                    background: #fffbf5; border-radius: 8px; position: relative;
+                    border: 1px solid #f0e8d8; color: #5a4a3a; }
+  .notes-list li::before { content: '💡'; position: absolute; left: 8px; top: 8px; font-size: 13px; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="photo/plov.jpg" alt="Плов"></div>
+  <div class="header">
+    
+    <h1>Плов</h1>
+    <div class="meta">Кухни нашего детства</div>
+    <div class="info-bar"><span><b>Servings:</b> на 8 порций</span></div>
+    
+    <div class="source">Source: Кухни нашего детства</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Разнообразию рецептов плова можно поразиться, их великое множество, и у каждого свой неповторимый нюанс. Существует и сладкий плов, версии с добавлением разнообразных фруктов, сушёных ягод или грибов и овощей, и с разными видами мяса. На лаваше, без него, томлённый на костре, в печи или в казане, шах- плов, который запекается в хлебном тесте… Сложно описать все варианты рецептов, поэтому остановимся на одном. В приготовлении плова есть несколько главных секретов: правильно подобранный рис, хорошее мясо, курдючный жир и специи. Практически всё необходимое можно купить на рынке и тут же проконсультироваться по поводу подходящего куска баранины, который могут нарубить по вашему желанию, взять у мясника курдючный жир. Там же часто продают готовые наборы специй, и часто неплохие, но можно сделать собственный набор, в состав обязательных пряностей для него входят молотый чёрный и красный перец, молотая паприка, куркума, кориандр, иногда пажитник и чабер, непременно барбарис и зира (кумин). Для придания блюду небольшой кислинки можно добавить сумах. С рисом сложнее. Можно использовать тот, на упаковке которого значится «рис для плова». Классическим сортом считается девзира или другой узбекский рис для плова (чунгара, лазер, аланга, хорезмский). Их можно найти на рынке и в интернет-магазинах, но оптимально выбирать на рынке. Обращайте внимание, чтобы рисинки были цельные, немного вытянутые, довольно плотные и визуально не припылённые слоем крахмала. Хотя рис девзира покрыт характерной красной пылью, это одна из особенностей сорта, поэтому его стоит дольше промывать. По моему личному опыту, вкусный плов получается из длиннозёрного пропаренного риса, басмати, иногда можно использовать рис жасмин, но учитывая, что у него есть собственный фруктово-цветочный аромат. В целом, к любому сорту надо приноровиться. И если вы нашли хороший рис, но с первого раза идеального результата не достигли, лучше продолжить с этим сортом, учитывая предыдущий опыт. Еще один немаловажный аспект — посуда для приготовления плова. Казан не обязателен, хотя это идеальный вариант, но можно использовать также толстостенную чугунную кастрюлю, которая хорошо держит тепло. Для количества ингредиентов в данном рецепте лучше взять казан или кастрюлю объёмом не менее 4 литров. Есть мнение, что плов — это, скорее, про рис, а не мясо с рисом, но кто станет осуждать, если мяса захочется добавить больше? В этом случае, после того как вытопили жир из курдюка, нужно двумя партиями обжарить мясо до золотистой корочки, переложить в миску, обжарить лук, затем вернуть мясо в казан, потушить с луком 5–7 минут, добавить морковь и далее готовить по рецепту.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li><span class="qty">700 г</span> риса для плова</li><li>800–900 г баранины (мякоти с ноги или лопатки)</li><li>3–4 луковицы</li><li>3–4 небольшие моркови</li><li>120–150 г курдючного жира (или другого бараньего жира)</li><li>2–3 головки чеснока</li><li>1 крупный или 3 небольших острых перчика</li><li>1–2 ч. л. молотой куркумы</li><li>1 ст. л. зиры (кумина), в идеале чёрной</li><li>77</li><li>Содержание щепотка молотого кориандра</li><li>1–2 ч. л. молотого сумаха</li><li>1 ст. л. сушёного барбариса соль, свежемолотый чёрный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Рис залить водой, оставить на 30–40 минут, затем хорошенько промыть под проточной тёплой водой, можно перетереть в ладонях, тщательно вымывая остатки рисового крахмала.</li><li>Мясо нарезать кусочками примерно по 5 см. Лук и морковь очистить. Лук нарезать кубиками, морковь — тонкой соломкой. Курдючный жир порубить или нарезать небольшими кубиками.</li><li>Казан поставить на средний огонь, выложить и вытопить курдючный жир в течение 7–10 минут, удалить шкварки. Всыпать лук, пассеровать 5–7 минут, до полупрозрачности и золотистого оттенка. Добавить мясо, обжарить до уверенной корочки, периодически перемешивая, 15–20 минут. Посолить, поперчить, добавить куркуму, зиру, кориандр и сумах (или готовую смесь специй для плова). Добавить морковь, немного убавить огонь, перемешать и готовить 15 минут. Положить острые перчики и очищенную головку чеснока, убавить огонь до слабого и тушить 10 минут.</li><li>К мясу влить 1,5 л кипящей воды с 1,5 ч. л. соли, всыпать промытый рис и добавить барбарис. Рис разровнять, вставить в него оставшиеся 1–2 головки чеснока целиком (сняв только верхний слой шелухи). Довести воду до кипения и готовить на среднем огне 10–15 минут.</li><li>Когда рис впитает всю жидкость, снизить огонь до минимального, ложкой или шумовкой собрать рис горкой от стенок к центру. Накрыть крышкой и томить 20–25 минут. Затем аккуратно перемешать.</li><li>Готовый плов выложить на блюдо горкой, сверху положить головки чеснока и острый перец.</li></ol>
+        </div>
+</body>
+</html>
