@@ -168,14 +168,24 @@ def render_section_items(items):
                 i += 1
             html += render_markdown_table(block)
         else:
-            # Collect a non-table block (stop at sub-headers and tables)
+            # Collect a non-table block (stop at sub-headers and tables),
+            # but also split at bullet-list boundaries so paragraphs and
+            # bullet lists within the same section render separately.
+            is_bullet = lambda s: bool(re.match(r'^[-•*]\s', s))
             block = []
+            cur_bullet = is_bullet(item)
             while i < len(items) and not items[i].startswith('|') and not (
                     items[i].endswith(':') and len(items[i]) <= 60
                     and not re.match(r'^\d', items[i])):
+                line_bullet = is_bullet(items[i])
+                if line_bullet != cur_bullet and block:
+                    html += render_item_block(block)
+                    block = []
+                    cur_bullet = line_bullet
                 block.append(items[i])
                 i += 1
-            html += render_item_block(block)
+            if block:
+                html += render_item_block(block)
     return html
 
 
