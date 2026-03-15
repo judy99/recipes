@@ -1,6 +1,6 @@
 Title: Домашний творог
 Category: Кисломолочные продукты
-Tags: PraCooking, fermented, dairy
+Tags: PraCooking, fermented
 Source: Ферментируем правильно
 Related: prosteyshiy-yogurt, kefirnyy-tvorog
 

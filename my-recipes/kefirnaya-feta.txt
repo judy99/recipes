@@ -1,6 +1,6 @@
 Title: Кефирная фета
 Category: Кисломолочные продукты
-Tags: PraCooking, fermented, dairy, cheese
+Tags: PraCooking, fermented
 Source: Ферментируем правильно
 Related: kefirnyy-tvorog, molochnyy-kefir
 

@@ -1,6 +1,6 @@
 Title: Молочный кефир
 Category: Кисломолочные продукты
-Tags: PraCooking, fermented, dairy, kefir
+Tags: PraCooking, fermented
 Source: Ферментируем правильно
 Related: kefirnyy-tvorog, prosteyshiy-yogurt
 

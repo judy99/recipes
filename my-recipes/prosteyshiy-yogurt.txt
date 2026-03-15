@@ -1,6 +1,6 @@
 Title: Простейший йогурт или пахта
 Category: Кисломолочные продукты
-Tags: PraCooking, fermented, dairy, yogurt
+Tags: PraCooking, fermented
 Source: Ферментируем правильно
 Related: molochnyy-kefir, domashniy-tvorog
 
