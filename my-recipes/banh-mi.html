@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вьетнамский сэндвич Бань Ми со свининой</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Вьетнамский сэндвич Бань Ми со свининой</h1>
+    <div class="meta">Правильный бутерброд</div>
+    <div class="info-bar"><span><b>Servings:</b> на 4–8 порций</span></div>
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="domashniy-mayonez.html">Домашний майонез</a></div>
+    <div class="source">Source: ПРАвильный бутерброд</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Бань ми — представитель вьетнамского стритфуда — история о том, как вьетнамцы адаптировали под себя французский багет с начинками. Разнообразие вариантов Бань Ми потрясает. Но всё же есть и основа — это воздушная пшеничная булочка, мясо в ароматных азиатских специях, смесь из хрустящих маринованных и свежих овощей.</p><p class="para">Мясо может быть практически любым. Самый быстрый вариант — с вырезкой, причём как свиной, так и говяжьей. Она очень нежная, быстро готовится, к тому же нежирная. Маринованные морковь и дайкон — классика, но можно добавить овощи и в свежем виде, нарезав максимально тонко.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li><span class="qty">500 г</span> свиной вырезки</li><li><span class="qty">1 л</span> уковица шалота или 1/2 небольшой красной луковицы</li><li>1 зубчик чеснока</li><li>1 стебель лемонграсса (белая часть)</li><li>1/2–1 ч. л. хлопьев перца чили</li><li>небольшая горсть кунжута</li><li>2 ст. л. рыбного соуса</li><li>2 ч. л. тёмного кунжутного масла (или масла из авокадо)</li><li>1–2 ч. л. жидкого нейтрального мёда или сиропа</li><li>1 среднеплодный огурец</li><li>1 небольшой зелёный или красный острый перец (халапеньо или чили)</li><li>4 пшеничных багета или 8 булочек вытянутой формы</li><li>майонез</li><li>соевый соус</li><li>листья кинзы</li><li>зелёный лук (по желанию)</li></ul><p class="ingr-subheader">для маринованных овощей:</p><ul class="ingr-list"><li><span class="qty">100 г</span> дайкона</li><li><span class="qty">100 г</span> моркови</li><li><span class="qty">100 мл</span> рисового уксуса</li><li><span class="qty">100 г</span> воды</li><li><span class="qty">30 г</span> сахара</li><li><span class="qty">2 г</span> соли</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Накануне замариновать овощи: дайкон и морковь очистить и нарезать тонкой соломкой (1–2 мм). Переложить в большую стеклянную банку. В кастрюле соединить рисовый уксус, воду, сахар и соль, прогреть, помешивая, до полного растворения сахара и соли, снять с огня и залить маринадом овощи. Примять ложкой, чтобы овощи были погружены в жидкость. Закрыть крышкой, дать полностью остыть и убрать на ночь в холодильник.</li><li>При необходимости очистив от плёнок, нарезать вырезку на ломтики-медальоны толщиной 5 мм. Положить в миску.</li><li>Лук и чеснок мелко порубить. Лемонграсс разрезать вдоль пополам, затем мелко порубить, добавить к луку. Всыпать хлопья чили и кунжут, влить рыбный соус, кунжутное масло, мёд и перемешать.</li><li>Добавить маринад к мясу, аккуратно перемешать и оставить мариноваться при комнатной температуре на 30 минут (можно оставить на ночь в холодильнике).</li><li>Разогреть сковородку, обжарить свинину порциями на огне чуть выше среднего до золотистого цвета, по 1 минуте с каждой стороны. Переложить в миску и накрыть крышкой, чтобы мясо не остывало.</li><li>Огурец нарезать соломкой толщиной 2–3 мм. Острый перец нарезать кружочками. Булочки (или части багета) разрезать вдоль, не прорезая до конца, раскрыть половинки в стороны, смазать внутреннюю поверхность булки небольшим количеством майонеза, выложить медальоны свинины, затем маринованные овощи и огурец, несколько кружочков острого перца, капнуть немного соевого соуса, добавить листочки кинзы и, по желанию, нарезанный зелёный лук. Ножом или палочкой слегка надавить на начинку, сжать обе половинки булочки.</li></ol>
+        </div>
+</body>
+</html>

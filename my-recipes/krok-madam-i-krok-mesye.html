@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Крок-мадам и крок-месье</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Крок-мадам и крок-месье</h1>
+    <div class="meta">Правильный бутерброд</div>
+    <div class="info-bar"><span><b>Servings:</b> на 2 порции</span></div>
+    
+    <div class="source">Source: ПРАвильный бутерброд</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Французская версия сэндвичей с сыром и ветчиной или ломтиками окорока, имеющая несколько вариантов приготовления. Чаще всего в качестве основы используют бриошь в виде тостового хлеба, лучше подойдёт для этого вчерашний, чуть подсохший хлеб.</p><p class="para">Существуют варианты приготовления с классическим соусом морнэ на яичных желтках и с сыром, с соусом бешамель, с горчичным соусом или в виде сэндвичей, обжаренных в смеси сливок и яиц.</p><p class="para">Чем отличается крок-мадам от крок-месье? Лишь тем, что «мадам» подают со «шляпкой» из поджаренного яйца, а крок-месье — без.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li><span class="qty">4 л</span> омтика бриоши</li><li>20–30 г размягчённого сливочного масла</li><li>1 ст. л. сладкой горчицы</li><li><span class="qty">4 л</span> омтика сыра (эмменталь, грюйер)</li><li><span class="qty">2 л</span> омтика ветчины или варёного, сырокопчёного или вяленого окорока</li><li>2 (для крок-месье) или 4 (для крок-мадам) яйца</li><li>80–100 мл сливок</li><li>30–40 г топлёного и/или оливкового масла</li><li>соль, свежемолотый чёрный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Ломтики бриоши смазать сливочным маслом и горчицей. Выложить на каждый ломтик сыра, ломтик ветчины, накрыть вторым ломтиком сыра и оставшимися ломтиками хлеба, маслом с горчицей вниз, к начинке.</li><li>Венчиком смешать до однородного состояния 2 яйца со сливками, посолить, поперчить.</li><li>Положить в яичную смесь бутерброды и оставить на 30 секунд, потом перевернуть, чтобы хлеб впитал всю влагу, можно ещё раз перевернуть.</li><li>Разогреть на среднем огне сковородку, разогреть топлёное масло, выложить сэндвичи, слегка прижать, готовить по 4–5 минут с каждой стороны, до золотистой корочки.</li><li>Для крок-мадам поставить на средний огонь чистую сковородку, разогреть, добавить немного масла, аккуратно разбить оставшиеся 2 яйца, снять с огня, накрыть крышкой и оставить на 3 минуты. Яйца приготовятся на остаточном тепле, белок схватится, а желток останется жидким. Посолить, поперчить, выложить яичницы поверх горячих сэндвичей и подавать к столу.</li></ol>
+        </div>
+</body>
+</html>

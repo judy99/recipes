@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Панини с ветчиной и моцареллой</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin: 20px 24px 4px;
+               color: #c05f2a; font-size: 14px; text-decoration: none; }
+  .back-btn:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Панини с ветчиной и моцареллой</h1>
+    <div class="meta">Правильный бутерброд</div>
+    <div class="info-bar"><span><b>Servings:</b> на 4 порции</span></div>
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="ranch.html">Соус ранч</a> · <a class="related-link" href="sous-1000-ostrovov.html">Соус «1000 островов»</a></div>
+    <div class="source">Source: ПРАвильный бутерброд</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Этот известный итальянский бутерброд приобрёл популярность во всём мире, и не зря, ведь он очень удобный, его можно брать с собой в ланчбоксе для перекуса.</p><p class="para">Можно взять цельнозерновую или обычную чиабатту, но подойдёт и любой другой хлеб, например булочки или мини-багеты. Желательно использовать свежую и мягкую чиабатту.</p><p class="para">Соус в этом бутерброде можно использовать любой на ваш вкус, например ранч, «1000 островов» или даже гуакамоле.</p><p class="para">В сезон лучше использовать свежие листья базилика, а зимой можно взять соус песто.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>2 чиабатты</li><li><span class="qty">20 г</span> сливочного масла (по желанию)</li><li>2 помидора</li><li><span class="qty">100 г</span> моцареллы или чеддера</li><li>пучок салатных листьев (латук, руккола)</li><li>4 ст. л. соуса (например, крем из авокадо и сливочный сыр с зеленью)</li><li><span class="qty">4 л</span> омтика ветчины</li><li>2 ст. л. соуса песто или пучок свежего базилика</li><li>3–4 ст. л. маринованного перца</li><li><span class="qty">15 г</span> тёртого пармезана</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Чиабатты разрезать вдоль пополам. По желанию смазать разрезы тонким слоем сливочного масла и поджарить на сковородке в течение 2 минут.</li><li>Помидоры и моцареллу или чеддер нарезать тонкими ломтиками. Промыть и хорошо обсушить салатные листья, при желании произвольно порвать руками.</li><li>Смазать разрезы чиабатты соусом. На нижнюю часть выложить ломтики ветчины, сыр, помидоры, листики базилика или соус песто, маринованный перец, салатную зелень. Посыпать пармезаном, накрыть второй половиной.</li><li>При желании поместить под гриль на 3 минуты, чтобы сыр внутри прогрелся. Разрезать на порции.</li></ol>
+        </div>
+</body>
+</html>
