@@ -1,6 +1,7 @@
 Title: Бутерброд с рикоттой, грибами и скрэмблом
 Category: Правильный бутерброд
 Tags: PraCooking, Правильный бутерброд
+Image: images/buterbrod-s-rikottoy-gribami.jpg
 Source: ПРАвильный бутерброд
 Servings: на 4 порции
 

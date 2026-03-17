@@ -1,6 +1,7 @@
 Title: Бутерброд с гуакамоле, яйцом пашот и солёной рыбой
 Category: Правильный бутерброд
 Tags: PraCooking, Правильный бутерброд
+Image: images/buterbrod-s-guakamole-i-yaytsom-pasho.jpg
 Source: ПРАвильный бутерброд
 Servings: на 2 порции
 

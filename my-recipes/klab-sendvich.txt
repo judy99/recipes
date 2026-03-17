@@ -1,6 +1,7 @@
 Title: Клаб-сэндвич
 Category: Правильный бутерброд
 Tags: PraCooking, Правильный бутерброд
+Image: images/klab-sendvich.jpg
 Source: ПРАвильный бутерброд
 Servings: на 4 порции
 Related: domashniy-mayonez, marinovanye-ogurchiki

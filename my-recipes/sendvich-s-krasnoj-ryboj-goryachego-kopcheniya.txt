@@ -1,6 +1,7 @@
 Title: Сэндвич с красной рыбой горячего копчения, апельсином и горчицей
 Category: Правильный бутерброд
 Tags: PraCooking, Правильный бутерброд
+Image: images/sendvich-s-krasnoj-ryboj-goryachego-kopcheniya.jpg
 Source: ПРАвильный бутерброд
 Servings: на 2 сэндвича
 Related: domashniy-mayonez

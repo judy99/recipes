@@ -1,6 +1,7 @@
 Title: Бутерброд с козьим сыром, свёклой и каперсами
 Category: Правильный бутерброд
 Tags: PraCooking, Правильный бутерброд
+Image: images/buterbrod-s-kozim-syrom.jpg
 Source: ПРАвильный бутерброд
 Servings: на 2 порции
 Related: zapechennyy-konfichesonok

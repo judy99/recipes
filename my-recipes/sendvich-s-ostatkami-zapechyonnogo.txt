@@ -1,6 +1,7 @@
 Title: Сэндвич с остатками запечённого чего угодно
 Category: Правильный бутерброд
 Tags: PraCooking, Правильный бутерброд
+Image: images/sendvich-s-ostatkami-zapechyonnogo.jpg
 Source: ПРАвильный бутерброд
 Servings: на 4 порции
 Related: valyonye-pomidory, valyonye-slivy, zapechennyy-sladkiy-perec, domashniy-mayonez, aioli, yablochno-gorchichnyy-sous, marinovanye-ogurchiki, ogurechniy-relish

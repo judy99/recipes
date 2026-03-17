@@ -1,6 +1,7 @@
 Title: Лобстер-ролл с крабом
 Category: Правильный бутерброд
 Tags: PraCooking, Правильный бутерброд
+Image: images/lobster-roll-s-krabom.jpg
 Source: ПРАвильный бутерброд
 Servings: на 1 порцию
 Related: domashniy-mayonez

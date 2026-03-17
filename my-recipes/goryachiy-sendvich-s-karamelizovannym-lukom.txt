@@ -1,6 +1,7 @@
 Title: Горячий сэндвич с карамелизованным луком, беконом и сыром
 Category: Правильный бутерброд
 Tags: PraCooking, Правильный бутерброд
+Image: images/goryachiy-sendvich-s-karamelizovannym-lukom.jpg
 Source: ПРАвильный бутерброд
 Servings: на 4 порции
 Related: sous-1000-ostrovov

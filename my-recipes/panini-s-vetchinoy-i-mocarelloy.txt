@@ -1,6 +1,7 @@
 Title: Панини с ветчиной и моцареллой
 Category: Правильный бутерброд
 Tags: PraCooking, Правильный бутерброд
+Image: images/panini-s-vetchinoy-i-mocarelloy.jpg
 Source: ПРАвильный бутерброд
 Servings: на 4 порции
 Related: ranch, sous-1000-ostrovov

@@ -1,6 +1,7 @@
 Title: Бутерброд с сельёдкой, маринованным луком и яблоком
 Category: Правильный бутерброд
 Tags: PraCooking, Правильный бутерброд
+Image: images/buterbrod-s-seledkoy.jpg
 Source: ПРАвильный бутерброд
 Servings: на 4 порции
 Related: kruassan-so-slabossolyonoy-rybboy

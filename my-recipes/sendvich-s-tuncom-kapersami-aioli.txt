@@ -1,6 +1,7 @@
 Title: Сэндвич с тунцом, каперсами, айоли и пармезаном
 Category: Правильный бутерброд
 Tags: PraCooking, Правильный бутерброд
+Image: images/sendvich-s-tuncom-kapersami-aioli.jpg
 Source: ПРАвильный бутерброд
 Servings: на 4 порции
 Related: aioli, valyonye-pomidory

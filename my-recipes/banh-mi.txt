@@ -1,6 +1,7 @@
 Title: Вьетнамский сэндвич Бань Ми со свининой
 Category: Правильный бутерброд
 Tags: PraCooking, Правильный бутерброд
+Image: images/banh-mi.jpg
 Source: ПРАвильный бутерброд
 Servings: на 4–8 порций
 Related: domashniy-mayonez

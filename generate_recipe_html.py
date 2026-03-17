@@ -23,6 +23,7 @@ def parse_recipe(text):
         "servings": "",
         "total_time": "",
         "active_time": "",
+        "image": "",
         "note_header": "",
         "sections": []  # [{title, items: [str]}]
     }
@@ -32,7 +33,7 @@ def parse_recipe(text):
                        ("Tags:", "tags"), ("Rating:", "rating"),
                        ("Source:", "source"), ("Related:", "related"),
                        ("Servings:", "servings"), ("Total Time:", "total_time"),
-                       ("Active Time:", "active_time")]:
+                       ("Active Time:", "active_time"), ("Image:", "image")]:
         m = re.search(field + r"\s*(.+)", text)
         if m:
             result[key] = m.group(1).strip()
@@ -44,7 +45,7 @@ def parse_recipe(text):
     current_section = None
     current_items = []
     skip_meta = {"Title:", "Category:", "Tags:", "Rating:", "Source:", "Related:", "Status:",
-                 "Servings:", "Total Time:", "Active Time:"}
+                 "Servings:", "Total Time:", "Active Time:", "Image:"}
 
     for line in lines:
         stripped = line.strip()
@@ -198,13 +199,16 @@ def generate_html(txt_path):
 
     name = recipe["name"] or base
 
-    # Check for photo
+    # Check for photo: first try Image: field, then legacy photo/ directory
     photo_html = ""
-    for ext in [".jpg", ".jpeg", ".png", ".webp"]:
-        photo_path = os.path.join(PHOTO_DIR, base + ext)
-        if os.path.exists(photo_path):
-            photo_html = f'<div class="photo-wrap"><img src="photo/{base}{ext}" alt="{name}"></div>'
-            break
+    if recipe["image"]:
+        photo_html = f'<div class="photo-wrap"><img src="{recipe["image"]}" alt="{name}"></div>'
+    else:
+        for ext in [".jpg", ".jpeg", ".png", ".webp"]:
+            photo_path = os.path.join(PHOTO_DIR, base + ext)
+            if os.path.exists(photo_path):
+                photo_html = f'<div class="photo-wrap"><img src="photo/{base}{ext}" alt="{name}"></div>'
+                break
 
     # Rating badge
     rating_html = ""
