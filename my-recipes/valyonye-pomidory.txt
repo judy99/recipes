@@ -1,6 +1,6 @@
 Title: Вяленые помидоры
 Category: Правильный бутерброд
-Tags: PraCooking, Правильный бутерброд, Добавки
+Tags: PraCooking, Правильный бутерброд, Дополнение
 Image: images/valyonye-pomidory.jpg
 Source: ПРАвильный бутерброд
 

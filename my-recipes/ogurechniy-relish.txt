@@ -1,6 +1,6 @@
 Title: Огуречный релиш
 Category: Правильный бутерброд
-Tags: PraCooking, Правильный бутерброд, Sauces
+Tags: PraCooking, Правильный бутерброд, Соус
 Image: images/ogurechniy-relish.jpg
 Source: ПРАвильный бутерброд
 

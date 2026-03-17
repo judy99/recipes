@@ -1,6 +1,6 @@
 Title: Вяленые сливы
 Category: Правильный бутерброд
-Tags: PraCooking, Правильный бутерброд, Добавки
+Tags: PraCooking, Правильный бутерброд, Дополнение
 Image: images/valyonye-slivy.jpg
 Source: ПРАвильный бутерброд
 

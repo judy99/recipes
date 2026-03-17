@@ -1,6 +1,6 @@
 Title: Яблочная мостарда
 Category: Правильный бутерброд
-Tags: PraCooking, Правильный бутерброд, Sauces
+Tags: PraCooking, Правильный бутерброд, Соус
 Image: images/yablochnaya-mostarda.jpg
 Source: ПРАвильный бутерброд
 
