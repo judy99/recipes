@@ -138,7 +138,7 @@ def render_item_block(items):
         else:
             html = '<ul class="ingr-list">'
             for item in items:
-                m = re.match(r'^([\d½¼¾.,/]+\s*(?:г|кг|мл|л|шт|ст\.л\.|ч\.л\.|стакан|cup|tbsp|tsp|lb|oz|ml|g)[^—]*?)\s*[—-]?\s*(.*)$', item)
+                m = re.match(r'^([\d½¼¾.,/]+\s*(?:кг|мл|ст\.\s?л\.?|ч\.\s?л\.?|стакан|cup|tbsp|tsp|lb|oz|ml|г(?=[^а-яёА-ЯЁa-z]|$)|л(?=[^а-яёА-ЯЁa-z]|$)|шт\.?(?=[^а-яёА-ЯЁa-z]|$)|g(?=[^a-z]|$))[^—]*?)\s*[—-]?\s*(.*)$', item)
                 if m:
                     html += f'<li><span class="qty">{m.group(1)}</span> {m.group(2)}</li>'
                 else:
