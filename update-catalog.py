@@ -73,6 +73,9 @@ def load_txt_recipe(fpath):
     category_match = re.search(r"Category:\s*(.+)", text)
     display_category = category_match.group(1).strip() if category_match else ""
 
+    image_match = re.search(r"Image:\s*(.+)", text)
+    image = image_match.group(1).strip() if image_match else ""
+
     ingr_lines = extract_ingredient_lines(text)
 
     return {
@@ -84,6 +87,7 @@ def load_txt_recipe(fpath):
         "tags": tags,
         "source": source,
         "display_category": display_category,
+        "image": "my-recipes/" + image if image else "",
         "pages": 1,
         "recipes": [],
         "preview": text[:200].replace("\n", " "),
