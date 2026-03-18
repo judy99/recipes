@@ -1,5 +1,5 @@
 Title: Шоколадное мороженое с пивом
-Category: Десерт
+Category: Dessert
 Tags: PraCooking, Правильное домашнее мороженое
 Related: karamelizovannye-banany, pravilnoe-domashnee-morozhenoe-teoriya
 Image: images/moro-004.jpg

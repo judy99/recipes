@@ -1,5 +1,5 @@
 Title: Крок-мадам и крок-месье
-Category: Бутерброд
+Category: Sandwich
 Tags: PraCooking, Правильный бутерброд
 Image: images/krok-madam-i-krok-mesye.jpg
 Source: ПРАвильный бутерброд

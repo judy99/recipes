@@ -1,5 +1,5 @@
 Title: Бутерброд с козьим сыром, свеклой и каперсами
-Category: Бутерброд
+Category: Sandwich
 Tags: PraCooking, Правильный бутерброд
 Image: images/buterbrod-s-kozim-syrom.jpg
 Source: ПРАвильный бутерброд

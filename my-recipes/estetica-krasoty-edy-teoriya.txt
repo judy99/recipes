@@ -1,7 +1,7 @@
 Title: Эссе на тему красоты в приготовлении и оформлении блюд
-Category: Техника
-Tags: PraCooking, Теория
-Related: karpachcho-iz-lososa-so-svekloy, grebeshki-v-slivochnom-souse-s-vasabi, idealnaya-utka-s-yablokami, krem-bryule-s-imbirem-i-limonom
+Category: Theory
+Tags: PraCooking
+Related: karpachcho-iz-lososa-so-svekloy, grebeshki-v-slivochnom-souse-s-vasabi, idealnaya-utka-s-yablokami, krem-bryule-s-imbirem-i-limonom, plan-novogodnego-uzhina
 Image: images/novyy-000.jpg
 Source: ПРАвильный Новый год
 

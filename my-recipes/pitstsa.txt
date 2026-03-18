@@ -1,6 +1,6 @@
 Title: Пицца
-Category: Выпечка
-Tags: #pizza #savory #baking
+Category: Baked goods
+Tags: 
 
 == МЯСНАЯ ПИЦЦА С ТОМАТНЫМ СОУСОМ (Ø 35 см) ==
 

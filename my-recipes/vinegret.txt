@@ -1,5 +1,5 @@
 Title: Винегрет
-Category: Салат
+Category: Salad
 Rating: new
 
 Ingredients:

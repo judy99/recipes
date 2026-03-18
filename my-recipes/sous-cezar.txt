@@ -1,6 +1,6 @@
 Title: Соус «Цезарь»
-Category: Соус
-Tags: PraCooking, Правильный бутерброд, Соус
+Category: Sauce
+Tags: PraCooking, Правильный бутерброд
 Source: ПРАвильный бутерброд
 Related: domashniy-mayonez, sendvich-roll-cezar
 

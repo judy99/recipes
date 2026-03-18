@@ -1,5 +1,5 @@
 Title: Простой ржаной хлеб с семечками
-Category: Хлеб
+Category: Bread
 Tags: PraCooking, ПРАвильный и простой хлеб
 Related: pravilnyj-i-prostoj-hleb-teoriya, rzhanye-solodovye-krayushki
 Image: images/hleb-016.jpg

@@ -1,5 +1,5 @@
 Title: Оливковое мороженое
-Category: Десерт
+Category: Dessert
 Tags: PraCooking, Правильное домашнее мороженое
 Related: zapechennye-abrikosy-s-medom, pravilnoe-domashnee-morozhenoe-teoriya
 Image: images/moro-003.jpg

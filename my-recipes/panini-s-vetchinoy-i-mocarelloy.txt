@@ -1,5 +1,5 @@
 Title: Панини с ветчиной и моцареллой
-Category: Бутерброд
+Category: Sandwich
 Tags: PraCooking, Правильный бутерброд
 Image: images/panini-s-vetchinoy-i-mocarelloy.jpg
 Source: ПРАвильный бутерброд

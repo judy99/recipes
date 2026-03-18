@@ -1,5 +1,5 @@
 Title: Ржаные солодовые краюшки
-Category: Хлеб
+Category: Bread
 Tags: PraCooking, ПРАвильный и простой хлеб
 Related: pravilnyj-i-prostoj-hleb-teoriya, prostoy-rzhanoy-hleb-s-semechkami
 Image: images/hleb-017.jpg

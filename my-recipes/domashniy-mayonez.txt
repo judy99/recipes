@@ -1,6 +1,6 @@
 Title: Домашний майонез
-Category: Соус
-Tags: PraCooking, Правильный бутерброд, Соус
+Category: Sauce
+Tags: PraCooking, Правильный бутерброд
 Image: images/domashniy-mayonez.jpg
 Source: ПРАвильный бутерброд
 

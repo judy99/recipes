@@ -1,5 +1,5 @@
 Title: Хлеб без замеса в чугунной кастрюле
-Category: Хлеб
+Category: Bread
 Tags: PraCooking, ПРАвильный и простой хлеб
 Related: pravilnyj-i-prostoj-hleb-teoriya, pryanyy-skandinavskiy-hleb
 Image: images/hleb-013.jpg

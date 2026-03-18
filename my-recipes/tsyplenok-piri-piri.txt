@@ -1,6 +1,6 @@
 Title: Цыпленок пири-пири
-Category: Горячее
-Tags: PraCooking, Рецепт
+Category: Main
+Tags: PraCooking
 Image: images/tsyplenok-piri-piri.jpg
 Servings: на 2–4 порции
 

@@ -1,5 +1,5 @@
 Title: ПРАвильный бутерброд — теория
-Category: Теория
+Category: Theory
 Tags: PraCooking, Правильный бутерброд
 Image: images/pravilnyy-buterbrod-teoriya.jpg
 Source: ПРАвильный бутерброд

@@ -1,7 +1,7 @@
 Title: Кисло-сладкая свинина
-Category: Горячее
+Category: Main
 Rating: new
-Tags: PraCooking, march, pork, asian, Dinner Party, multi-course
+Tags: PraCooking, pork, Asian, Dinner Party, multi-course
 Source: March-8
 Related: rassypchatyy-basmati
 

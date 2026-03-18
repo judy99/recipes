@@ -1,5 +1,5 @@
 Title: ПРАвильный и простой хлеб: теория
-Category: Теория
+Category: Theory
 Tags: PraCooking, ПРАвильный и простой хлеб
 Related: italyanskie-hleby-panini, bystryy-celnozernovoy-hleb-na-syvorotke, fugas-s-aromatnymi-travami, doktorskie-hlebcy, indiyskie-lepeshki-s-yogurtom, hleb-bez-zamesa-v-chugunnoy-kastryule, pryanyy-skandinavskiy-hleb, ovsyanyy-hleb, prostoy-rzhanoy-hleb-s-semechkami, rzhanye-solodovye-krayushki, pshenichnye-tortilii, bystroe-testo-dlya-pirozhkov
 Image: images/hleb-003.jpg

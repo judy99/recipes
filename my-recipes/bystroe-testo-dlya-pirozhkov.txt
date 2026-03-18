@@ -1,5 +1,5 @@
 Title: Быстрое тесто для пирожков
-Category: Хлеб
+Category: Bread
 Tags: PraCooking, ПРАвильный и простой хлеб
 Related: pravilnyj-i-prostoj-hleb-teoriya
 Image: images/hleb-019.jpg

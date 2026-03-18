@@ -1,5 +1,5 @@
 Title: Вьетнамский сэндвич Бань Ми со свининой
-Category: Бутерброд
+Category: Sandwich
 Tags: PraCooking, Правильный бутерброд
 Image: images/banh-mi.jpg
 Source: ПРАвильный бутерброд

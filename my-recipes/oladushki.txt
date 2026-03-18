@@ -1,6 +1,6 @@
 Title: Оладушки
-Category: Завтрак
-Tags: #оладьи #завтрак #кефир #выпечка
+Category: Breakfast
+Tags: 
 Rating: new
 
 Ingredients:

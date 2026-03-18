@@ -1,7 +1,7 @@
 Title: Ягодное / фруктовое желе
-Category: Десерт
+Category: Dessert
 Rating: new
-Tags: PraCooking, march, dessert, jelly, topping, Dinner Party, multi-course
+Tags: PraCooking, Dinner Party, multi-course
 Source: March-8
 Related: panna-kotta, yagodnyy-sous
 

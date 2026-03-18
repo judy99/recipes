@@ -1,5 +1,5 @@
 Title: Лобстер-ролл с крабом
-Category: Бутерброд
+Category: Sandwich
 Tags: PraCooking, Правильный бутерброд
 Image: images/lobster-roll-s-krabom.jpg
 Source: ПРАвильный бутерброд

@@ -1,6 +1,6 @@
 Title: Топленое масло
-Category: Молочное
-Tags: PraCooking, Рецепты
+Category: Dairy
+Tags: PraCooking
 Image: images/toplenoe-maslo.jpg
 Source: Ода топленому маслу
 Servings: из 500 г масла

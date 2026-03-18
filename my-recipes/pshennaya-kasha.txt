@@ -1,6 +1,6 @@
 Title: Пшенная каша
-Category: Завтрак
-Tags: #каша #пшено #завтрак #молочное
+Category: Breakfast
+Tags: 
 
 Ingredients:
 1 стакан пшена (проса)

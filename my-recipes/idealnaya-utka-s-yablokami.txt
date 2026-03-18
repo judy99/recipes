@@ -1,7 +1,7 @@
 Title: Идеальная запеченая утка с двумя видами яблок
-Category: Горячее
+Category: Main
 Tags: PraCooking, Dinner Party, multi-course
-Related: estetica-krasoty-edy-teoriya, karpachcho-iz-lososa-so-svekloy, grebeshki-v-slivochnom-souse-s-vasabi, krem-bryule-s-imbirem-i-limonom
+Related: estetica-krasoty-edy-teoriya, karpachcho-iz-lososa-so-svekloy, grebeshki-v-slivochnom-souse-s-vasabi, krem-bryule-s-imbirem-i-limonom, plan-novogodnego-uzhina
 Image: images/novyy-002.jpg
 Servings: на 6 порций
 Source: ПРАвильный Новый год

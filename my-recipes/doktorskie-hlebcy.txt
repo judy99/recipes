@@ -1,5 +1,5 @@
 Title: Докторские хлебцы
-Category: Хлеб
+Category: Bread
 Tags: PraCooking, ПРАвильный и простой хлеб
 Related: pravilnyj-i-prostoj-hleb-teoriya
 Image: images/hleb-011.jpg

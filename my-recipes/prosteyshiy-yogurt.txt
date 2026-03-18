@@ -1,5 +1,5 @@
 Title: Простейший йогурт или пахта
-Category: Молочное
+Category: Dairy
 Tags: PraCooking, fermented
 Source: Ферментируем правильно
 Related: molochnyy-kefir, domashniy-tvorog

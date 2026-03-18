@@ -1,7 +1,7 @@
 Title: Ягодный соус
-Category: Соус
+Category: Sauce
 Rating: new
-Tags: PraCooking, march, dessert, sauce, topping, Dinner Party, multi-course
+Tags: PraCooking, Dinner Party, multi-course
 Source: March-8
 Related: panna-kotta, yagodnoe-zhele, lenivye-vareniki-s-yagodnym-sousom
 

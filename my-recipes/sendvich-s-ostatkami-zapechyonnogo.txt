@@ -1,5 +1,5 @@
 Title: Сэндвич с остатками запеченного чего угодно
-Category: Бутерброд
+Category: Sandwich
 Tags: PraCooking, Правильный бутерброд
 Image: images/sendvich-s-ostatkami-zapechyonnogo.jpg
 Source: ПРАвильный бутерброд

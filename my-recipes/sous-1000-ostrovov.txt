@@ -1,6 +1,6 @@
 Title: Соус «1000 островов»
-Category: Соус
-Tags: PraCooking, Правильный бутерброд, Соус
+Category: Sauce
+Tags: PraCooking, Правильный бутерброд
 Source: ПРАвильный бутерброд
 Related: domashniy-mayonez, ogurechniy-relish
 
