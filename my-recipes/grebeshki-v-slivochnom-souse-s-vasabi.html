@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Гребешки в сливочном соусе с васаби и пюре из зеленого горошка</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/novyy-003.jpg" alt="Гребешки в сливочном соусе с васаби и пюре из зеленого горошка"></div>
+  <div class="header">
+    
+    <h1>Гребешки в сливочном соусе с васаби и пюре из зеленого горошка</h1>
+    <div class="meta">Горячее</div>
+    <div class="info-bar"><span><b>Servings:</b> на 2 порции</span></div>
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="estetica-krasoty-edy-teoriya.html">Эссе на тему красоты в приготовлении и оформлении блюд</a> · <a class="related-link" href="karpachcho-iz-lososa-so-svekloy.html">Карпаччо из копченого лосося со свеклой</a> · <a class="related-link" href="idealnaya-utka-s-yablokami.html">Идеальная запеченая утка с двумя видами яблок</a> · <a class="related-link" href="krem-bryule-s-imbirem-i-limonom.html">Крем-брюле с имбирем и лимоном</a></div>
+    <div class="source">Source: ПРАвильный Новый год</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Гребешки очень нежные. Их можно есть сырыми. Когда они жарятся, они часто становятся резиновыми и теряют до половины объема. Для их приготовления идеально подходит метод сувид, но не у всех есть специальное оборудование. Но так как гребешки готовятся быстро, можно сделать эрзац-сувид. Второй секрет — топленое масло. Жир не даст гребешкам стать резиновыми и придаст слегка карамельный вкус.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>12 гребешков</li><li>100 г топленого масла</li></ul><p class="ingr-subheader">для соуса:</p><ul class="notes-list"><li>200 мл жирных сливок (33%)</li><li>1 см корня имбиря</li><li>1 ч.л. с горкой готовой васаби пасты (может больше или меньше по вкусу)</li><li>несколько капель лимонного сока</li><li>соль, перец</li></ul><p class="ingr-subheader">для пюре:</p><ul class="notes-list"><li>300 г замороженного зеленого горошка</li><li>примерно 70 мл жирных сливок</li><li>маленький пучок кинзы</li><li>соль, перец</li></ul><p class="ingr-subheader">для метода сувид:</p><ul class="notes-list"><li>пакет с зип-локом (2 шт.)</li><li>50 г сливочного масла</li><li>50 г топленого масла</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Гребешки на сковородке</h2>
+          <ol class="steps"><li>Ко времени готовности гребешков должны быть готовы соус и пюре.</li><li>Гребешки хорошо просушить на бумажных полотенцах.</li><li>Растопить масло в толстодонной сковородке.</li><li>Положить в масло гребешки и жарить 1 минуту, наклоняя сковородку и постоянно поливая гребешки жиром при помощи ложки.</li><li>Перевернуть, готовить еще минуту. Все время поливать.</li><li>Гребешки таким образом нужно готовить перед самой подачей. Если вы готовите соус и пюре одновременно, приготовьте их и оставьте на минимальном огне на подогреве.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Гребешки методом сувид</h2>
+          <ol class="steps"><li>В два зип-лок пакета положить по 6 гребешков и по 25 г сливочного масла.</li><li>В среднюю кастрюлю налить воду чуть выше середины, довести воду примерно до <strong>80 °С</strong> (176 °F) на огне. Снять с плиты.</li><li>Опустить пакеты в воду, параллельно выдавливая из пакетов воздух: когда они погрузятся, закрыть замки. Это называется «метод замещения»: вода выталкивает воздух, и пакет погружается в воду. Оставить на 10 минут без крышки.</li><li>В таком виде гребешки можно хранить в холодильнике 1-2 дня прямо в пакетах.</li><li>Разогрев: Достать из холодильника, опустить в горячую воду на пару минут. Разогреть топленое масло в толстодонной сковородке, извлечь гребешки из пакета и обжарить с каждой стороны по 30 секунд на очень высоком огне.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">🥣</span>Соус</h2>
+          <ol class="steps"><li>Имбирь нарезать тонкими ломтиками.</li><li>В сотейник влить сливки, добавить васаби, имбирь, соль, перемешать хорошо венчиком.</li><li>Варить соус на медленном огне, помешивая, пока он не загустеет до консистенции кефира. Примерно 7-10 минут.</li><li>Добавить лимонный сок, перемешать. Проверить на соль и при необходимости досолить.</li><li>Соус можно разогревать на маленьком огне. Его можно приготовить за 1 день.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Пюре из горошка</h2>
+          <ol class="steps"><li>Горошек залить кипятком, оставить на 5 минут, слить воду. Так он разморозится.</li><li>Пересыпать горошек в сотейник, добавить сливки, прогреть почти до кипения.</li><li>Добавить соль и кинзу, взбить блендером до однородности. Если используется погружной блендер, стоит перелить смесь в стакан для блендера. Так будет проще пробить пюре до однородности. Результат зависит от мощности блендера. Если пюре очень густое, добавить еще нагретых сливок.</li><li>Пюре можно разогревать на маленьком огне, добавив еще немного сливок. Его можно приготовить за 1 день.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Сборка</h2>
+          <p class="para">Выложить пюре в пиалу, поверх гребешки (по 6 шт. на порцию), полить соусом.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Секреты оформления</h2>
+          <p class="para">В этом блюде довольно жидкое пюре и соус. Поэтому в пиале оно будет смотреться выигрышнее. Соус лучше поливать не поверх гребешков, а вокруг на пюре. И украсить блюдо нежными маленькими листиками кинзы, а сами гребешки цветной солью в хлопьях и свежемолотым перцем. Если же сделать пюре погуще, его можно красиво выложить при помощи кондитерского мешка с рифленой насадкой.</p>
+        </div>
+</body>
+</html>

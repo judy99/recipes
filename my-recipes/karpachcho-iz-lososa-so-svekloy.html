@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Карпаччо из копченого лосося со свеклой</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/novyy-001.jpg" alt="Карпаччо из копченого лосося со свеклой"></div>
+  <div class="header">
+    
+    <h1>Карпаччо из копченого лосося со свеклой</h1>
+    <div class="meta">Закуска</div>
+    <div class="info-bar"><span><b>Servings:</b> на 4 порции</span></div>
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="estetica-krasoty-edy-teoriya.html">Эссе на тему красоты в приготовлении и оформлении блюд</a> · <a class="related-link" href="grebeshki-v-slivochnom-souse-s-vasabi.html">Гребешки в сливочном соусе с васаби и пюре из зеленого горошка</a> · <a class="related-link" href="idealnaya-utka-s-yablokami.html">Идеальная запеченая утка с двумя видами яблок</a> · <a class="related-link" href="krem-bryule-s-imbirem-i-limonom.html">Крем-брюле с имбирем и лимоном</a></div>
+    <div class="source">Source: ПРАвильный Новый год</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Довольно простой рецепт; важно подобрать качественную рыбу. Конечно, рыбы может быть больше, чем указано в рецепте. Решать вам. В этом рецепте очень важна красивая подача. Если вы любите сырую рыбу, попробуйте с ней. А можно смешать две текстуры и использовать и копченую, и сырую маринованную рыбу.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>350 г лосося холодного копчения (или свежего сырого)</li><li>2 маленькие свеклы</li><li>проростки для украшения (мелкая зелень)</li><li>100 мл хорошей сметаны</li><li>1 большой апельсин</li><li>1 ч.л. хрена</li><li>50 мл бальзамического уксуса</li><li>хорошее оливковое масло</li><li>соль в хлопьях, свежемолотый черный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Подготовить свеклу. Проще всего сделать это заранее. Свеклу можно сварить, но лучше всего она получается, если ее запечь. Для этого каждую свеклу, не очищая, завернуть в фольгу, положить на тяжелую сковородку (например, чугунную) и запекать примерно 40-60 минут при <strong>200 °С</strong> (392 °F). Если у вас нет времени, можно купить уже отваренную свеклу. Хотя предпочтительнее испечь самим. Это можно сделать за день-два до праздника. А чтобы свекла получилась просто идеальной, попробуйте запечь ее на соли. Для этого просыпьте дно сковородки крупной морской солью (примерно 1 см толщиной). Сверху выложите свеклу, можно добавить пару веточек розмарина и тимьяна, плотно накрыть сковородку фольгой и запекать до готовности. Соль равномерно распределяет тепло, и свекла получается идеально мягкой и упругой одновременно.</li><li>Постараться очистить свеклу пока она горячая или теплая, нарезать тонкими ломтиками, обвалять их в уксусе.</li><li>Выложить на блюдо рыбу в 1 слой.</li><li>Поверх выложить ломтики свеклы.</li><li>Снять с апельсина цедру при помощи специальной терки.</li><li>Сегментировать апельсин. Для этого срезать попки с обеих сторон. Удерживая апельсин на доске, маленьким ножом сверху вниз срезать цедру, стараясь срезать белую часть, оголяя мякоть.</li><li>Держа апельсин над блюдом с рыбой, маленьким ножом отделить дольки апельсина от перегородок. Таким образом, сок будет стекать на рыбу и придаст ей приятный вкус.</li><li>Аккуратно разложить дольки на рыбе.</li><li>Смешать сметану с хреном.</li><li>Выложить чайной ложкой поверх карпаччо.</li><li>Сбрызнуть все маслом.</li><li>Поперчить свежемолотым перцем и слегка приправить солью в хлопьях.</li><li>Украсить цедрой и проростками.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Секреты оформления</h2>
+          <p class="para">Если просто выложить все поверх рыбы, получится вкусная кучка. Советую представить, что ваш карпаччо — это цветок, а рыба, свекла и дольки апельсина — его лепестки. Не нужно выкладывать свеклу и апельсины плоско поверх рыбы, постарайтесь подложить их под нее, но так, чтобы они были хорошо видны. Сложно красиво выложить сметану, именно поэтому пригодится цедра и мелкая зелень. А также свежемолотый перец. Такие нюансы делают подобные маловыразительные продукты без формы красивыми. Выложите чайной ложкой «кнедлики» в разных местах, посыпьте каждый перцем, цедрой и выложите сверху пару зеленых листиков. Вместо проростков в этом рецепте можно использовать листики мяты, стараясь выбирать наиболее мелкие.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">✨</span>Вариация с сырой рыбой</h2>
+          <p class="para">Сырую рыбу нужно тонко нарезать и замариновать (буквально 5 минут). Для этого смешать:</p><ul class="notes-list"><li>4 ч.л. соевого соуса (проверить на соленость: если очень соленый, разбавить водой)</li><li>сок половины апельсина</li><li>1 см натертого имбиря</li><li>1 см пасты васаби</li></ul><ul class="ingr-list"><li>Далее готовить по рецепту выше.</li></ul>
+        </div>
+</body>
+</html>
