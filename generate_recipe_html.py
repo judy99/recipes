@@ -34,7 +34,7 @@ def parse_recipe(text):
                        ("Source:", "source"), ("Related:", "related"),
                        ("Servings:", "servings"), ("Total Time:", "total_time"),
                        ("Active Time:", "active_time"), ("Image:", "image")]:
-        m = re.search(field + r"\s*(.+)", text)
+        m = re.search(field + r"[ \t]*([^\n]+)", text)
         if m:
             result[key] = m.group(1).strip()
 
