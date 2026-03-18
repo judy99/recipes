@@ -1,6 +1,7 @@
 Title: Карамельное мороженое с солью
 Category: Мороженое
 Tags: PraCooking, Правильное домашнее мороженое
+Related: zapechennye-abrikosy-s-medom, pravilnoe-domashnee-morozhenoe-teoriya
 Image: images/moro-006.jpg
 Servings: на 10 порций
 Source: Правильное домашнее мороженое

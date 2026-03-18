@@ -4,6 +4,7 @@ Tags: PraCooking, Правильный бутерброд
 Image: images/kruassan-so-slabossolyonoy-rybboy.jpg
 Source: ПРАвильный бутерброд
 Servings: на 4 порции
+Related: buterbrod-s-seledkoy
 
 Для крема из авокадо подойдет любой мягкий сливочный/творожный сыр без добавок, например рикотта, каймак или «Филадельфия».
 

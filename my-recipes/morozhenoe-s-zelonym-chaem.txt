@@ -1,6 +1,7 @@
 Title: Мороженое с зеленым чаем
 Category: Мороженое
 Tags: PraCooking, Правильное домашнее мороженое
+Related: pravilnoe-domashnee-morozhenoe-teoriya
 Image: images/moro-007.jpg
 Servings: на 10 порций
 Source: Правильное домашнее мороженое

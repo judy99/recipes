@@ -1,6 +1,7 @@
 Title: Замороженный йогурт с лимоном и имбирем
 Category: Мороженое
 Tags: PraCooking, Правильное домашнее мороженое
+Related: pravilnoe-domashnee-morozhenoe-teoriya
 Image: images/moro-005.jpg
 Servings: на 10 порций
 Source: Правильное домашнее мороженое
