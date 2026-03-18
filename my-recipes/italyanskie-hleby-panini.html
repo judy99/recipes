@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Итальянские хлебцы панини</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/hleb-008.jpg" alt="Итальянские хлебцы панини"></div>
+  <div class="header">
+    
+    <h1>Итальянские хлебцы панини</h1>
+    <div class="meta">Хлеб</div>
+    <div class="info-bar"><span><b>Servings:</b> на 8 булочек</span></div>
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="pravilnyj-i-prostoj-hleb-teoriya.html">ПРАвильный и простой хлеб: теория</a></div>
+    <div class="source">Source: ПРАвильный и простой хлеб</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Рецептов панини множество. По сути, этот хлеб напоминает чиабатту, но проще и быстрее в приготовлении. А как его вкусно макать в оливковое масло с бальзамическим уксусом! Мне нравится вариант на спелом тесте. Спелое тесто — это порция теста, очень похожая по составу на основное тесто для хлеба. Спелое тесто медленно бродит и добавление его в основное тесто дает эффект, похожий на введение опары. Вкус, аромат и текстура улучшаются, хлеб дольше хранится. Впрочем, если времени на спелое тесто нет, вы можете приготовить первую порцию панини и без него, а после расстойки, в процессе формовки булочек, обрезать неровные края (у вас получится 80–100 г обрезков) и оставить их в качестве спелого теста для следующей партии. Хранится такое тесто в холодильнике 2–3 дня. Чаще всего я выбираю именно такой вариант. Перед добавлением в основное тесто спелое тесто нужно достать из холодильника хотя бы за 30 минут, чтобы дать ему согреться.</p><p class="para">Для этого хлеба я рекомендую выбирать муку с высоким содержанием белка (11 и выше). В России в обычных супермаркетах с такими показателями мука бренда «Макфа» и пшеничная мука высшего сорта из шугуровского зерна (продается во «ВкусВилле»). Если такой муки нет, можно к обычной муке добавить муку 1 сорта.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <p class="ingr-subheader">для спелого теста:</p><ul class="notes-list"><li>60 г пшеничной муки + на подпыл</li><li>щепотка быстродействующих дрожжей</li><li>40 г воды</li><li>1 г соли</li></ul><p class="ingr-subheader">для булочек:</p><ul class="notes-list"><li>300–320 г пшеничной муки</li><li>3 г сухих быстродействующих дрожжей</li><li>220 г воды</li><li>8 г соли</li><li>80–100 г спелого теста (по желанию)</li><li>20 г оливкового масла + для смазывания</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Для спелого теста смешать муку с дрожжами, влить воду, добавить соль, вымесить гладкое тесто. Собрать в шар, положить в миску, накрыть и оставить на 30 минут, затем убрать в холодильник на ночь или дольше. Перед добавлением в основное тесто спелое тесто нужно согреть до комнатной температуры (достать примерно за 30 минут до замеса).</li><li>Для булочек в чаше миксера смешать муку и дрожжи, добавить воду. Вымесить тесто на медленной скорости до увлажнения муки и оставить на 10–15 минут, накрыв пакетом. Затем добавить соль и спелое тесто (если используется), увеличить скорость до средней и вымешивать до хорошего развития клейковины — тесто станет более пластичным и будет хорошо отставать от стенок чаши. Добавить масло, вымешивать еще 2–3 минуты, до полного объединения масла с тестом. Если замешиваете вручную: в глубокой широкой миске смешать муку и дрожжи, влить воду, вымесить венчиком или руками до объединения компонентов, продолжить вымешивание, чередуя растягивание теста руками и складывание скребком (лопаткой), добавить соль и спелое тесто, вмешать их в тесто, продолжить вымешивание, применяя технику «растягивание-складывание». Работать таким образом примерно 8–10 минут: тесто постепенно начнет приобретать упругость и меньше липнуть к рукам, в итоге станет пластичным и послушным. В конце порциями вмешать оливковое масло: подливая или смазывая руки, продолжить складывать тесто до тех пор, пока все масло не окажется в тесте.</li><li>Миску смазать оливковым маслом, переложить тесто и оставить для расстойки на 2 часа. Тесто должно увеличиться в 2,5 раза и стать очень воздушным. В процессе расстойки тесто нужно через 1 час сложить 1 раз. Если тесто вымешивалось руками, складывание лучше сделать 2 раза, через 30 минут и через 1 час.</li><li>Рабочую поверхность слегка посыпать мукой, выложить тесто, разделить его на 2 части, оставить на 10–15 минут под полотенцем. Взять один кусочек теста, руками расплющить его в прямоугольник. Обрезать неровные края, разрезать на 4 прямоугольника. Переместить булочки на противень, повторить со вторым кусочком теста. Противень убрать в большой пакет или накрыть влажным полотенцем и оставить при комнатной температуре на 40–50 минут для повторной расстойки.</li><li>Тем временем разогреть духовку до <strong>240 °С</strong> (464 °F).</li><li>Поместить противень с булочками в духовку, снизить температуру до <strong>230 °С</strong> (446 °F), выпекать на среднем уровне 15–20 минут, до золотистого цвета.</li></ol>
+        </div>
+</body>
+</html>

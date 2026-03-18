@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пряный скандинавский хлеб с цедрой, фенхелем и тмином</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/hleb-014.jpg" alt="Пряный скандинавский хлеб с цедрой, фенхелем и тмином"></div>
+  <div class="header">
+    
+    <h1>Пряный скандинавский хлеб с цедрой, фенхелем и тмином</h1>
+    <div class="meta">Хлеб</div>
+    <div class="info-bar"><span><b>Servings:</b> на 1 хлеб</span></div>
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="pravilnyj-i-prostoj-hleb-teoriya.html">ПРАвильный и простой хлеб: теория</a> · <a class="related-link" href="hleb-bez-zamesa-v-chugunnoy-kastryule.html">Хлеб без замеса в чугунной кастрюле</a> · <a class="related-link" href="bystryy-celnozernovoy-hleb-na-syvorotke.html">Быстрый цельнозерновой хлеб на сыворотке</a></div>
+    <div class="source">Source: ПРАвильный и простой хлеб</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Этот невероятный ароматный хлеб — моя интерпретация известного шведского хлеба «лимпа». Его также можно печь на сыворотке — используйте ее вместо сока и воды. Хлеб очень вкусен с творожным сыром и просто с маслом на завтрак.</p><p class="para">Для этого хлеба я использую удлиненную расстоечную корзину, если ее нет, можно оставить тесто для расстойки просто на полотенце из натуральной грубой ткани (льна), собрав складки по бокам и прикрыв другим полотенцем, а перед выпечкой аккуратно «перекатить» тесто с полотенца на противень.</p><p class="para">Я пеку этот хлеб на камне, но если его нет, можно выпекать просто на противне или в чугунной кастрюле с невысокими бортиками, или сковородке. Кастрюлю, как и камень, нужно разогреть вместе с духовкой, а когда придет время выпечки, аккуратно перевернуть хлеб сначала на лопату или большую разделочную доску (обязательно присыпав ее немного мукой, чтобы хлеб не прилип), затем аккуратно скатить на горячий камень или в кастрюлю.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>30 г апельсинового сока</li><li>цедра 1/2 небольшого апельсина</li><li>30 г темной патоки или меда</li><li>100 г цельнозерновой ржаной муки</li><li>110 г пшеничной муки высшего сорта + на подпыл</li><li>6 г быстрорастворимых дрожжей</li><li>1 ч. л. семян фенхеля или аниса</li><li>1/2 ч. л. тмина</li><li>4 г соли</li><li>120 г воды</li><li>1 ч. л. растительного масла + для смазывания</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Смешать апельсиновый сок с цедрой и патокой или медом.</li><li>В чаше миксера смешать оба вида муки и дрожжи. Всыпать специи и соль. Влить воду и сок с добавками, начать вымешивать тесто на медленной скорости. Как только вся мука увлажнится, увеличить скорость до средней и продолжить вымешивать до однородности 5–6 минут. Поначалу тесто будет очень липким, затем оно постепенно начнет отставать от стенок. Когда это произойдет, добавить растительное масло, вымешивать еще 2–3 минуты. Для замеса руками: в миске смешать муку и дрожжи, сделать углубление, всыпать специи и соль, влить смесь апельсинового сока с цедрой и патокой, воду. Начать вымешивать тесто в центре, постепенно подмешивая все больше муки. Вымешивать липкое тесто несколько минут, до тех пор, пока все ингредиенты не объединятся, затем смазать руки маслом и несколько раз сложить тесто, применяя метод растягивания и складывания. Для этого взять один край теста, слегка оттянуть вверх, сложить внутрь к центру, повернуть миску на 180 градусов и повторить то же самое с другой стороной, затем повернуть на 45 градусов, растянуть и сложить еще две противоположные стороны. Делать это, периодически смазывая руки растительным маслом — в процессе вымешивания нужно добавить 1 ч. л. масла.</li><li>Тесто округлить и положить в смазанную маслом миску швом вниз. Накрыть влажным полотенцем или пакетом и оставить для первой расстойки на 1–1,5 часа при комнатной температуре, до увеличения в объеме в 2 раза (чем дома жарче, тем быстрее это произойдет).</li><li>Присыпать рабочую поверхность мукой, выложить тесто, оставить под влажным полотенцем на 10 минут. Посыпать мукой корзину для расстойки. Тесто расплющить руками в прямоугольник, избавляясь от больших пузырей, увлажнить поверхность теста мокрой рукой или с помощью пульверизатора, сложить одну сторону теста внутрь, повернуть хлеб на 180 градусов, сложить противоположную сторону внутрь, слегка внахлест, поверх первой. Должен получиться батон. Положить его швом вниз на посыпанную мукой поверхность, слегка покатать, перенести в корзину швом вверх. Накрыть влажным полотенцем или пакетом и оставить для второй расстойки на 45–60 минут. Если используется миска вместо корзины, тесто нужно расплющить в прямоугольник и сложить по коротким сторонам, затем придать ему форму шара и выложить швом вверх.</li><li>Пока хлеб расстаивается, разогреть духовку до <strong>230 °С</strong> (446 °F). Если используется камень или чугунная посуда — разогреть вместе с ними, если будете выпекать на противне — застелить бумагой для выпечки. В нижнюю часть духовки поставить второй противень. Подготовить полстакана воды.</li><li>Готовый хлеб перевернуть швом вниз на противень, лопату или разделочную доску. Сделать надрезы ножом или ножницами. Поместить хлеб в духовку, в нижний противень влить воду, закрыть духовку и выпекать 35–40 минут, сразу снизив температуру до <strong>215 °С</strong> (419 °F).</li></ol>
+        </div>
+</body>
+</html>

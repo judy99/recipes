@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Быстрый цельнозерновой хлеб на сыворотке</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/hleb-009.jpg" alt="Быстрый цельнозерновой хлеб на сыворотке"></div>
+  <div class="header">
+    
+    <h1>Быстрый цельнозерновой хлеб на сыворотке</h1>
+    <div class="meta">Хлеб</div>
+    <div class="info-bar"><span><b>Servings:</b> на 2 буханки</span></div>
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="pravilnyj-i-prostoj-hleb-teoriya.html">ПРАвильный и простой хлеб: теория</a> · <a class="related-link" href="pryanyy-skandinavskiy-hleb.html">Пряный скандинавский хлеб с цедрой, фенхелем и тмином</a></div>
+    <div class="source">Source: ПРАвильный и простой хлеб</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Когда я готовлю дома творог или простой домашний сыр (типа адыгейского), у меня остается кисломолочная сыворотка. Ее можно добавлять в смузи, а еще на ней отлично получаются блинчики и хлеб. Обращаю ваше внимание, что речь идет именно о кисломолочной сыворотке из-под сыра или творога, при производстве которого не использовался сычужный фермент и не добавлялась соль. Как получить сыворотку, если вы не готовите дома творог и сыр? Можно сделать густой греческий йогурт, просто отвесив обычный йогурт, и использовать оставшуюся сыворотку. Можно также использовать пахту, но ее нужно разбавить водой по крайней мере наполовину.</p><p class="para">Для этого хлеба можно использовать цельнозерновую пшеничную муку или муку из полбы. Я очень люблю полбяную — хлеб с ней получается ароматным, с ореховой ноткой. Пропорции цельнозерновой и белой муки можно варьировать. Можно печь только из цельнозерновой муки, но с добавлением пшеничной муки высшего или 1 сорта, хлеб получается более воздушным. Если решите печь только из цельнозерновой, воды потребуется чуть больше.</p><p class="para">Хлеб можно выпекать как в форме, так и без нее, в виде небольших батонов. Мне нравится формовать как римские чириолы — пухлые булочки с длинными сужающимися кончиками.</p><p class="para">Тесто можно вымесить накануне, а формовать и выпекать на следующий день, дав ему согреться в течение 1 часа при комнатной температуре. В этом случае тесто нужно убрать в холодильник через 45–60 минут после первой расстойки.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>100 г цельнозерновой пшеничной муки</li><li>140 г пшеничной муки + на подпыл</li><li>3 г сухих быстродействующих дрожжей</li><li>4–5 г соли</li><li>170–180 г сыворотки</li><li>растительное масло для смазывания</li><li>кунжут и мак для посыпки</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>В чаше миксера смешать всю муку с дрожжами. Добавить соль и сыворотку. Установить насадку в виде крюка для теста. Начать вымешивать тесто на медленной скорости. Как только оно соберется в комок, увеличить скорость до средней, вымешивать 3–4 минуты, затем увеличить до средне-высокой. Когда тесто начнет отходить от стенок, вымешивать еще 2–3 минуты. Тесто станет менее липким и более пластичным. С помощью лопатки или скребка переложить тесто на слегка подпыленную мукой рабочую поверхность, слегка расплющить, загнуть внутрь края, перевернуть, подкатать в шар.</li><li>Смазать миску растительным маслом, выложить в нее тесто, накрыть крышкой, влажным полотенцем или пакетом. Оставить для брожения на 1–1,5 часа при комнатной температуре (чем прохладнее, тем дольше), до увеличения теста в объеме в 2–2,5 раза.</li><li>Противень выстелить бумагой для выпечки или силиконовым ковриком.</li><li>Рабочую поверхность подпылить мукой. Выложить тесто, накрыть полотенцем, оставить на 10 минут отдохнуть. Разрезать на 2 части. Взять один кусочек теста, расплющить руками в прямоугольник, свернуть с одной короткой стороны внутрь так, чтобы край теста оказался в середине прямоугольника, затем свернуть противоположную сторону внахлест, поверх первой сложенной стороны. Защипнуть углы и шов. Перевернуть батончик, покатать шов, чтобы не разошелся, и боковые края, сделав их тоньше.</li><li>С одной стороны (сверху) присыпать батон небольшим количеством кунжута или мака, с другой (снизу) — небольшим количеством муки. Сверху слегка сбрызнуть или смазать с помощью кулинарной кисти водой. Перевернуть батон семенами вниз, слегка покатать, чтобы они лучше прилипли, затем покатать по муке. Выложить на противень швом вниз. Повторить со вторым куском теста. Оставить для повторной расстойки на 50–60 минут.</li><li>Духовку разогреть до <strong>230 °С</strong> (446 °F).</li><li>Сделать на хлебе насечки. Выпекать при <strong>230 °С</strong> (446 °F) на среднем уровне духовки примерно 15 минут, сбрызнув духовку водой из пульверизатора (или поставив на самый нижний ее уровень еще один противень, куда бросить 4–5 кубиков льда).</li><li>Перед подачей дать остыть на решетке как минимум 1 час.</li></ol>
+        </div>
+</body>
+</html>
