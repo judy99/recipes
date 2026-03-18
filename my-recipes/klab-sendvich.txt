@@ -1,5 +1,5 @@
 Title: Клаб-сэндвич
-Category: Правильный бутерброд
+Category: Бутерброд
 Tags: PraCooking, Правильный бутерброд
 Image: images/klab-sendvich.jpg
 Source: ПРАвильный бутерброд

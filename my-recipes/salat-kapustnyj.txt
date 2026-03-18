@@ -1,5 +1,5 @@
 Title: Салат капустный
-Category: salads, cabbage
+Category: Салат
 Rating: meh
 
 Ingredients:

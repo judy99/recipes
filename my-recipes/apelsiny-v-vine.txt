@@ -1,7 +1,7 @@
 Title: Апельсины в вине
-Category: Dinner Party, multi-course
+Category: Гарнир
 Rating: new
-Tags: PraCooking, dinner party, citrus, side dish
+Tags: PraCooking, dinner party, citrus, side dish, multi-course
 Related: baryanya-noga, iranskiy-ris
 
 Ingredients:

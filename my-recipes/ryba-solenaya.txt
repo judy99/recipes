@@ -1,5 +1,5 @@
 Title: Рыба соленая
-Category: fish, salting
+Category: Заготовка
 Rating: new
 
 Ingredients:

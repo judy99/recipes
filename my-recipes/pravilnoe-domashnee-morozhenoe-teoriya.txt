@@ -1,5 +1,5 @@
 Title: ПРАвильное домашнее мороженое: теория
-Category: Техника
+Category: Теория
 Tags: PraCooking, Правильное домашнее мороженое
 Related: olivkovoe-morozhenoe, shokoladnoe-morozhenoe-s-pivom, zamorozhennyy-yogurt-s-limonom-i-imbirem, karamelynoe-morozhenoe-s-solyu, morozhenoe-s-zelonym-chaem, sorbet-iz-chernoy-smorodiny-s-myatoy
 Image: images/moro-002.jpg

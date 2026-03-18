@@ -1,5 +1,5 @@
 Title: Шоколадный кекс с чечевицей
-Category: baking
+Category: Выпечка
 Rating: new
 
 Ingredients:

@@ -1,5 +1,5 @@
 Title: Пшенная каша
-Category: breakfast, porridge, dairy
+Category: Завтрак
 Tags: #каша #пшено #завтрак #молочное
 
 Ingredients:

@@ -1,5 +1,5 @@
 Title: Сэндвич-ролл «Цезарь»
-Category: Правильный бутерброд
+Category: Бутерброд
 Tags: PraCooking, Правильный бутерброд
 Image: images/sendvich-roll-cezar.jpg
 Source: ПРАвильный бутерброд

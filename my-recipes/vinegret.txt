@@ -1,5 +1,5 @@
 Title: Винегрет
-Category: salads, classic, beets
+Category: Салат
 Rating: new
 
 Ingredients:

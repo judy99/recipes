@@ -1,5 +1,5 @@
 Title: Кефирный творог
-Category: Кисломолочные продукты
+Category: Молочное
 Tags: PraCooking, fermented
 Source: Ферментируем правильно
 Related: molochnyy-kefir, kefirnaya-feta

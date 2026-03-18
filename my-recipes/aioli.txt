@@ -1,5 +1,5 @@
 Title: Айоли
-Category: Правильный бутерброд
+Category: Соус
 Tags: PraCooking, Правильный бутерброд, Соус
 Image: images/aioli.jpg
 Source: ПРАвильный бутерброд
