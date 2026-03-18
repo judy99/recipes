@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ПРАвильное домашнее мороженое: теория</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/moro-002.jpg" alt="ПРАвильное домашнее мороженое: теория"></div>
+  <div class="header">
+    
+    <h1>ПРАвильное домашнее мороженое: теория</h1>
+    <div class="meta">Техника</div>
+    
+    
+    <div class="source">Source: Правильное домашнее мороженое</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Нет ничего лучше домашнего мороженого! Во-первых, дома можно взять самые лучшие ингредиенты, а это очень влияет на вкус. Как-то раз я вела мастер-класс в фермерском магазине, и мы приготовили мороженое полностью на фермерских продуктах. Тот вкус я помню до сих пор! Во-вторых, дома вы можете составлять вкусовые комбинации, которые можно встретить только в очень хороших кафе с ремесленным мороженым. Это вам не стандартные ванильное-шоколадное-клубничное...</p><p class="para">Домашнее мороженое не может не получиться. Это настолько просто, что справится даже ребенок, а результат поразит самого искушенного гурмана. В этом конспекте вы найдете рецепты, которые помогут вам понять основные принципы приготовления мороженого. Очень скоро вы войдете во вкус и будете придумывать рецепты сами! Главное, помните — чем качественнее исходные продукты, тем лучше результат.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Необходимый инвентарь</h2>
+          <p class="para">Мороженица</p><p class="para">Для приготовления домашнего мороженого прежде всего нужна мороженица. Она одновременно замораживает и перемешивает смесь для мороженого, так что оно получается однородным и бархатистым. Конечно, можно попробовать обойтись и без специального устройства, замораживая мороженое в морозилке и перемешивая его вручную, но на выходе оно может получиться с мелкими кристалликами льда.</p><p class="para">Сейчас можно купить полуавтоматическую или автоматическую мороженицу. Полуавтоматические модели состоят из съемной чаши с двойными стенками, между которыми находится хладагент, и корпуса с устройством для перемешивания. Чашу нужно предварительно охладить в морозильнике (обычно этот процесс занимает 12-24 часа при температуре <strong>-18 °С</strong> (0 °F)), затем наполнить ее смесью для мороженого и установить на базу для перемешивания. Обычно процесс приготовления занимает около 40 минут. Такие мороженицы стоят недорого, но после использования их нужно несколько часов размораживать, прежде чем помыть, и снова замораживать, чтобы приготовить следующую порцию мороженого.</p><p class="para">Есть более удобные, но и более дорогие автоматические мороженицы со встроенным охлаждающим компрессором. Все просто: заливаете смесь в чашу, нажимаете кнопку и через 30-45 минут получаете готовое мороженое! Такой прибор стоит покупать, если вы планируете делать мороженое часто.</p><p class="para">Для некоторых моделей планетарных миксеров, например, KitchenAid, можно докупить съемную чашу для мороженого. Ее тоже нужно заранее охладить в морозилке.</p><p class="para">Блендер</p><p class="para">Обязательно нужен для приготовления сорбета и измельчения некоторых ингредиентов.</p><p class="para">Кастрюля из нержавейки с толстым дном или сотейник</p><p class="para">Нужна для приготовления кремовой основы для мороженого и сиропов для сорбета.</p><ul class="notes-list"><li>Миски</li><li>Венчик</li><li>Силиконовая кулинарная лопатка</li></ul><p class="para">Сито для процеживания</p><p class="para">Сито нужно для того, чтобы процедить кастард, основу для многих видов мороженого, и удалить комочки желтка, который мог свернуться в процессе приготовления. Кроме того, сито пригодится для процеживания фруктовых и ягодных пюре.</p><p class="para">Электронные кухонные весы</p><p class="para">Кондитерские рецепты — дело точное, поэтому без весов не обойтись.</p><p class="para">Термометр</p><p class="para">Кастард мы увариваем до определенной температуры. Термометр как раз поможет нам узнать, готов ли он.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>О технике приготовления</h2>
+          <p class="para">Мир мороженого богат и разнообразен. Кроме привычного нам мороженого на основе молока и сливок есть еще сорбет, приготовленный из фруктов, ягод и даже овощей, замороженный йогурт и колотый фруктовый лед — гранита. Отдельным видом считается также итальянское джелато, которое отличается от обычного сливочного мороженого более медленной техникой охлаждения.</p><p class="para">Кастард — основа для мороженого</p><p class="para">Давайте подробнее остановимся на технике приготовления основы для сливочного мороженого, так называемого кастарда, или крем-англез.</p><p class="para">Чтобы получить кастард, желтки заваривают горячим молоком или сливками и нагревают до температуры <strong>76–82 °С</strong> (169–180 °F). При контакте с горячей жидкостью желтки могут свернуться, поэтому нужно соблюдать несколько условий:</p><p class="para">1. Не стоит доводить молоко или сливки до кипения и вливать их в желтки слишком быстро.</p><p class="para">2. При заваривании обязательно нужно постоянно мешать смесь венчиком.</p><p class="para">3. Если варить кастард на сильном огне, желтки тоже могут свернуться, поэтому в первый раз лучше делать это на медленном огне и иногда снимать сотейник с плиты.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Способ приготовления кастарда</h2>
+          <ol class="steps"><li>Налить желтки в миску, перемешать венчиком, не взбивая.</li><li>Часть сливок, молоко и другие ингредиенты по рецепту нагреть почти до кипения, примерно до <strong>90 °С</strong> (194 °F).</li><li>В другую миску налить оставшиеся сливки, сверху установить сито, чтобы процедить готовый кастард, если часть желтков все же свернется.</li><li>Помешивая желтки венчиком, постепенно влить 3 половника горячих сливок.</li><li>Перелить смесь из миски обратно в кастрюлю, сразу перемешать, поставить на огонь и, помешивая, довести до готовности.</li><li>Как понять, что кастард готов? Проще всего использовать кулинарный термометр: если смесь достигла <strong>82 °С</strong> (180 °F), ее можно снимать с плиты.</li><li>За неимением термометра можно определить готовность кастарда по консистенции: он должен быть густоты жидкой сметаны. Можно провести простой тест: опустить в емкость с кастардом деревянную лопатку и провести пальцем по ее обратной стороне. Если след от пальца сохранится, кастард готов.</li><li>Сразу же процедить смесь в миску с холодными сливками, перемешать, чтобы остановить приготовление. В горячей кастрюле смесь продолжит вариться, а холодные сливки помогут ей скорее остыть. Чтобы кастард остыл еще быстрее, можно поставить миску со сливками на лед.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Охлаждение</h2>
+          <p class="para">В мороженице смесь для мороженого обычно охлаждается около 30-45 минут. Дальше у вас два варианта: сразу подать на стол мягкое мороженое или, если вы любите мороженое потверже, отправить его на несколько часов в морозилку.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>О некоторых ингредиентах</h2>
+          <p class="para">Сахар</p><p class="para">Сахар не только придает мороженому сладкий вкус, но и отвечает за его кремовую текстуру. Очень важно соблюсти баланс: добавите слишком мало сахара — мороженое будет зернистым и твердым, слишком много — мороженое может не застыть. В рецептах в этом конспекте используется минимально возможное количество сахара.</p><p class="para">Алкоголь</p><p class="para">В некоторые рецепты мороженого входит алкоголь. Он не только придает мороженому вкус и аромат, но и предотвращает образование крупных кристаллов льда, поэтому мороженое становится более мягким. Однако во всем нужна мера: если алкоголя будет слишком много, мороженое может не замерзнуть вовсе. На 1 литр смеси для мороженого рекомендуется добавлять не более 45 мл (3 ст. л.) алкоголя крепостью 40°, такого как ром или виски.</p>
+        </div>
+</body>
+</html>
