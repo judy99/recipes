@@ -111,6 +111,11 @@ def render_markdown_table(rows):
     return html
 
 
+def apply_inline(text):
+    """Convert **bold** markdown to <strong> tags."""
+    return re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
+
+
 def render_item_block(items):
     """Рендерит однородный блок строк (без таблиц)."""
     if not items:
@@ -122,27 +127,27 @@ def render_item_block(items):
         html = '<ol class="steps">'
         for item in items:
             clean = re.sub(r'^\d+[.)]\s*', '', item)
-            html += f'<li>{clean}</li>'
+            html += f'<li>{apply_inline(clean)}</li>'
         html += '</ol>'
     elif len(bullets) >= len(items) * 0.5:
         html = '<ul class="notes-list">'
         for item in items:
             clean = re.sub(r'^[-•*]\s*', '', item)
-            html += f'<li>{clean}</li>'
+            html += f'<li>{apply_inline(clean)}</li>'
         html += '</ul>'
     else:
         # Long text lines → render as paragraphs
         avg_len = sum(len(i) for i in items) / len(items) if items else 0
         if avg_len > 60:
-            html = ''.join(f'<p class="para">{item}</p>' for item in items)
+            html = ''.join(f'<p class="para">{apply_inline(item)}</p>' for item in items)
         else:
             html = '<ul class="ingr-list">'
             for item in items:
                 m = re.match(r'^([\d½¼¾.,/]+\s*(?:кг|мл|ст\.\s?л\.?|ч\.\s?л\.?|стакан|cup|tbsp|tsp|lb|oz|ml|г(?=[^а-яёА-ЯЁa-z]|$)|л(?=[^а-яёА-ЯЁa-z]|$)|шт\.?(?=[^а-яёА-ЯЁa-z]|$)|g(?=[^a-z]|$))[^—]*?)\s*[—-]?\s*(.*)$', item)
                 if m:
-                    html += f'<li><span class="qty">{m.group(1)}</span> {m.group(2)}</li>'
+                    html += f'<li><span class="qty">{m.group(1)}</span> {apply_inline(m.group(2))}</li>'
                 else:
-                    html += f'<li>{item}</li>'
+                    html += f'<li>{apply_inline(item)}</li>'
             html += '</ul>'
     return html
 
