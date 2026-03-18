@@ -377,7 +377,7 @@ def generate_html(txt_path):
   .related-link:hover {{ text-decoration: underline; }}
 
   .back-btn {{ display: inline-flex; align-items: center; gap: 6px;
-               margin: 20px 24px 4px;
+               margin: 28px 24px 20px;
                background: #c05f2a; color: white;
                font-size: 14px; font-weight: 600;
                padding: 8px 16px; border-radius: 20px;
