@@ -116,7 +116,7 @@ def apply_inline(text):
     return re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
 
 
-def render_item_block(items):
+def render_item_block(items, start_step=1):
     """Рендерит однородный блок строк (без таблиц)."""
     if not items:
         return ""
@@ -124,7 +124,10 @@ def render_item_block(items):
     bullets = [i for i in items if re.match(r'^[-•*]\s', i)]
 
     if len(steps) >= len(items) * 0.5:
-        html = '<ol class="steps">'
+        # Use counter-reset to continue numbering after image breaks
+        reset_val = start_step - 1
+        style_attr = f' style="counter-reset: steps {reset_val}"' if reset_val != 0 else ''
+        html = f'<ol class="steps"{style_attr}>'
         for item in items:
             clean = re.sub(r'^\d+[.)]\s*', '', item)
             html += f'<li>{apply_inline(clean)}</li>'
@@ -158,13 +161,29 @@ def render_section_items(items):
         return ""
     html = ""
     i = 0
+    step_counter = 1  # maintains step numbering across inline image breaks
+
+    def count_steps(block):
+        return sum(1 for x in block if re.match(r'^\d+[.)]\s', x))
+
     while i < len(items):
         item = items[i]
+        # Inline image: ![caption](path)
+        m_img = re.match(r'^\!\[([^\]]*)\]\(([^)]+)\)$', item)
+        if m_img:
+            caption, src = m_img.group(1), m_img.group(2)
+            fig = f'<figure class="inline-photo"><img src="{src}" alt="{caption}">'
+            if caption:
+                fig += f'<figcaption>{caption}</figcaption>'
+            fig += '</figure>'
+            html += fig
+            i += 1
         # Sub-header: short line ending with ":" (e.g. "для соуса:")
-        if (item.endswith(':') and len(item) <= 60
+        elif (item.endswith(':') and len(item) <= 60
                 and not re.match(r'^\d', item)
                 and not item.startswith('|')):
             html += f'<p class="ingr-subheader">{item}</p>'
+            step_counter = 1  # new sub-section resets step numbering
             i += 1
         # Collect a table block
         elif item.startswith('|'):
@@ -174,24 +193,36 @@ def render_section_items(items):
                 i += 1
             html += render_markdown_table(block)
         else:
-            # Collect a non-table block (stop at sub-headers and tables),
+            # Collect a non-table block (stop at sub-headers, tables, and inline images),
             # but also split at bullet-list boundaries so paragraphs and
             # bullet lists within the same section render separately.
             is_bullet = lambda s: bool(re.match(r'^[-•*]\s', s))
+            is_inline_img = lambda s: bool(re.match(r'^\!\[([^\]]*)\]\(([^)]+)\)$', s))
             block = []
             cur_bullet = is_bullet(item)
             while i < len(items) and not items[i].startswith('|') and not (
                     items[i].endswith(':') and len(items[i]) <= 60
                     and not re.match(r'^\d', items[i])):
+                # Stop block at inline images so they render as figures, not list items
+                if is_inline_img(items[i]):
+                    break
                 line_bullet = is_bullet(items[i])
                 if line_bullet != cur_bullet and block:
-                    html += render_item_block(block)
+                    n = count_steps(block)
+                    is_steps = n >= len(block) * 0.5
+                    html += render_item_block(block, start_step=step_counter if is_steps else 1)
+                    if is_steps:
+                        step_counter += n
                     block = []
                     cur_bullet = line_bullet
                 block.append(items[i])
                 i += 1
             if block:
-                html += render_item_block(block)
+                n = count_steps(block)
+                is_steps = n >= len(block) * 0.5
+                html += render_item_block(block, start_step=step_counter if is_steps else 1)
+                if is_steps:
+                    step_counter += n
     return html
 
 
@@ -370,6 +401,11 @@ def generate_html(txt_path):
 
   p.para {{ font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }}
   p.para:last-child {{ margin-bottom: 0; }}
+
+  .inline-photo {{ margin: 16px 0; border-radius: 10px; overflow: hidden; }}
+  .inline-photo img {{ width: 100%; max-height: 320px; object-fit: cover; display: block; }}
+  .inline-photo figcaption {{ font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }}
 
   .related-section {{ font-size: 13px; margin-top: 8px; color: #9a8a80; }}
   .related-label {{ font-weight: 600; color: #7a4f2a; }}
