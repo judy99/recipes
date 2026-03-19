@@ -87,6 +87,7 @@ Occasion:
   Dinner Party            — праздничное меню с гостями
   multi-course            — часть многокурсового меню
   everyday                — простое блюдо на каждый день
+  Новый Год               — рецепты из новогодних конспектов (серия)
 
 Cuisine (только когда очевидно):
   Georgian, Armenian, Azerbaijani, Uzbek, Tajik, Kazakh,

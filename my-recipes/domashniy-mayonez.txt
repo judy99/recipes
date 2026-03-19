@@ -1,6 +1,6 @@
 Title: Домашний майонез
 Category: Sauce
-Tags: PraCooking, Правильный бутерброд, Гусь и Ко
+Tags: PraCooking, Правильный бутерброд, Гусь и Ко, Новый Год
 Image: images/domashniy-mayonez.jpg
 Source: ПРАвильный бутерброд, Гусь и Ко
 Related: mayonez-za-30-sekund, gus-ledenec, kholodec-iz-petuha, vinegret-v-aziatskom-stile, ogurtsy-v-bystrom-marinade, olive-s-semgoy, kuskus-s-izyumom-i-tsedroy, medovik-s-khurmoy, raspisanie-gus-i-ko
