@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Белый шоколад с ягодами и «Ягермейстером»</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; display: block; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Белый шоколад с ягодами и «Ягермейстером»</h1>
+    <div class="meta">Dessert</div>
+    <div class="info-bar"><span><b>Servings:</b> на 6–8 порций</span></div>
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="bombochki-iz-lososya-so-slivochnym-syrom.html">«Бомбочки» из лосося со сливочным сыром</a> · <a class="related-link" href="marinovannyy-rostbif-v-stile-tataki.html">Маринованный ростбиф в стиле татаки</a> · <a class="related-link" href="kokil-iz-moreproduktov.html">Кокиль из морепродуктов</a> · <a class="related-link" href="rulety-iz-kurinykh-okorochkov.html">Рулеты из куриных окорочков с тремя начинками</a> · <a class="related-link" href="ovoshchi-gril-s-medovo-gorchichnoy-zapravkoy.html">Овощи гриль с медово-горчичной заправкой</a> · <a class="related-link" href="kartofel-anna.html">Картофель «Анна»</a> · <a class="related-link" href="raspisanie-izyskanno-i-prosto.html">Расписание: Изысканно и просто</a></div>
+    <div class="source">Source: Изысканно и просто</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Этот крем с ягодами — адаптация десерта Йотама Оттоленги — удивительный по сочетанию ингредиентов и в то же время невероятно простой. Часть сливок заменена йогуртом. Очень удобный десерт, состоящий из минимума ингредиентов с минимумом телодвижений. И гарантированный успех, так как не требует никаких особых кулинарных навыков!</p><p class="para">Десерт не хранится, но и готовится он на раз-два-три! Для Нового года он удобен тем, что основную часть — ганаш — можно приготовить заранее, а сборка десерта занимает считаные минуты.</p><p class="para">Вместо «Ягермейстера» можно использовать любой травяной ликёр, в России также подойдут ликёры Tundra Bitter, сибирский бальзам «Пять озёр», ликёр Hunting бренда «Белуга».</p><p class="para">Вместо алкоголя можно использовать сироп гренадин и апельсиновый сок, смешанные в равных пропорциях. Этот десерт удобен тем, что можно легко разделить ягоды на две порции, одну сделать с алкоголем, другую — без него (для детей или тех, кто алкоголь не употребляет). Чтобы различить разные составы, алкогольные можно украсить мятой, а с гренадином — цедрой апельсина или хлопьями миндаля.</p><p class="para">Мы указали не 4 порции, а 6–8, потому что десерт, как торт, готовится сразу в довольно большом количестве. Во-первых, возможно, кто-то захочет добавки. Во-вторых, десерт отлично постоит 1–2 дня в холодильнике и порадует вас в следующие дни, хотя крем и станет плотнее. В-третьих, если за столом будет больше гостей, вам не придётся пересчитывать ингредиенты десерта.</p><p class="para">Приготовление заранее: крем-ганаш можно приготовить накануне или за сутки и хранить в холодильнике.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>90 г белого шоколада</li><li>300 мл жирных сливок</li><li>100 мл густого натурального йогурта</li><li>300–350 г замороженных ягод (малина, черника, вишня, смородина)</li><li>40 мл горького травяного ликёра (например, «Ягермейстер»)</li><li>1 ст. л. сахарной пудры</li><li>листочки мяты или апельсиновая цедра/хлопья миндаля для подачи</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Шоколад мелко порубить, положить в термостойкую миску.</li><li>Налить в кастрюльку 200 мл сливок, довести почти до кипения, вылить на шоколад и перемешивать, пока шоколад не растает. Если шоколад не разошёлся полностью, поместить смесь на паровую баню (на кастрюлю со слабо кипящей водой, чтобы дно миски её не касалось) и прогреть до растворения шоколада. Дать остыть, накрыть пищевой плёнкой и поставить на 5 часов или на ночь в холодильник.</li><li>Перед подачей выложить замороженные ягоды в миску, добавить ликёр (или гренадин и апельсиновый сок) и посыпать сахарной пудрой, перемешать и оставить на 5 минут, чтобы ягоды наполовину разморозились, а пудра растворилась.</li><li>В миску с охлаждённой сливочной смесью добавить оставшиеся сливки и йогурт, взбить миксером до мягких пиков.</li><li>Разложить крем по креманкам или пиалам, сверху выложить ягоды, украсить мятой или апельсиновой цедрой/хлопьями миндаля.</li></ol>
+        </div>
+</body>
+</html>

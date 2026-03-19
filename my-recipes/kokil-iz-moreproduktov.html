@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кокиль из морепродуктов</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; display: block; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Кокиль из морепродуктов</h1>
+    <div class="meta">Appetizer</div>
+    <div class="info-bar"><span><b>Servings:</b> на 4 порции</span></div>
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="bombochki-iz-lososya-so-slivochnym-syrom.html">«Бомбочки» из лосося со сливочным сыром</a> · <a class="related-link" href="marinovannyy-rostbif-v-stile-tataki.html">Маринованный ростбиф в стиле татаки</a> · <a class="related-link" href="rulety-iz-kurinykh-okorochkov.html">Рулеты из куриных окорочков с тремя начинками</a> · <a class="related-link" href="ovoshchi-gril-s-medovo-gorchichnoy-zapravkoy.html">Овощи гриль с медово-горчичной заправкой</a> · <a class="related-link" href="kartofel-anna.html">Картофель «Анна»</a> · <a class="related-link" href="belyy-shokolad-s-yagodami.html">Белый шоколад с ягодами и «Ягермейстером»</a> · <a class="related-link" href="raspisanie-izyskanno-i-prosto.html">Расписание: Изысканно и просто</a></div>
+    <div class="source">Source: Изысканно и просто</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Кокиль — это элегантная французская горячая закуска, которая традиционно подаётся в эффектных раковинах морских гребешков (по-французски coquille — раковина). Смотрится блюдо в таких раковинах потрясающе и идеально подойдёт для праздничного стола. Но, если у вас их нет, не беда, подойдут рамекины или другие неглубокие порционные формочки для запекания.</p><p class="para">Классический выбор для кокиля — гребешки, но можно приготовить блюдо с мидиями или креветками, и даже с кусочками рыбы (например, лосося). Можно сделать кокиль с ассорти морепродуктов, использовать готовую их смесь — не поленитесь выбрать лучшую, с натуральными креветками, а не сурими, в упаковке не должно быть льда, цвет продуктов должен быть ярким, они не должны казаться сухими. Смесь, как и креветки, следует заранее медленно разморозить. Если есть возможность и желание, можно взять свежие мидии, но для скорости и удобства рекомендуем использовать замороженное мясо мидий (готовый продукт) или даже качественные пресервы.</p><p class="para">Из-за своей выпуклой формы раковины морских гребешков могут качаться на противне, и это грозит тем, что соус прольётся и подгорит. Выход очень простой: возьмите большой лист фольги (или два листа, если у вас большой противень или узкая фольга), скомкайте его и слегка расправьте. На такой подложке раковины будут держаться устойчиво.</p><p class="para">Вместо грюйера можно использовать пармезан, дюрр (российский аналог альпийских сыров) или другие твёрдые сыры.</p><p class="para">Приготовление заранее: переложить морепродукты из морозильной камеры в холодильную, также можно заранее натереть сыр.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>200 г готового мяса мидий (варёно-мороженых)</li><li>200 г крупных очищенных сырых креветок</li><li>60–70 г лука-шалота или белой части лука-порея</li><li>3 веточки петрушки</li><li>70 г твёрдого сыра (в идеале грюйера)</li><li>50–60 г свежих крошек пшеничного хлеба или панировочных сухарей панко</li><li>1,5–2 ст. л. оливкового масла</li><li>1 ст. л. сливочного или топлёного масла</li><li>2 ст. л. качественного вермута или сухого белого вина (по желанию)</li><li>200 мл овощного или рыбного бульона</li><li>100 мл жирных сливок</li><li>1 яичный желток</li><li>щепотка молотой паприки</li><li>цедра ¼ лимона (по желанию)</li><li>соль, свежемолотый чёрный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>У мидий удалить жёсткие волокна, если есть, у креветок — кишечную вену. Если креветки крупные, разрезать их пополам вдоль. Шалот (или порей) мелко порубить.</li><li>Отрезать стебли у петрушки, листочки очень мелко порубить. Сыр натереть на мелкой тёрке, перемешать с крошками, петрушкой и оливковым маслом до увлажнения крошек.</li><li>В сотейнике разогреть сливочное или топлёное масло, выложить лук и пассеровать на среднем огне до мягкости и прозрачности. Если используется алкоголь, влить его и выпарить. Влить бульон, варить 5 минут на среднем огне, чтобы жидкость немного выпарилась. Добавить в сотейник морепродукты, чуть посолить, поперчить и готовить, помешивая, 1–2 минуты.</li><li>Процедить жидкость из сотейника в отдельную миску через сито, жидкость вернуть в сотейник, морепродукты с луком отставить. Влить к жидкости сливки и уварить, периодически помешивая, примерно 5 минут на среднем огне, до лёгкого загустения. Снять соус с огня, дать постоять пару минут.</li><li>Влить к желтку чуть соуса и сразу перемешать — это «закалит» желток и не даст ему свернуться. Постепенно влить желток к соусу, помешивая, вернуть на огонь, добавить паприку, цедру, поперчить, перемешать, варить на среднем огне, помешивая 1 минуту, до лёгкого загустения, снять с огня.</li><li>Разогреть верхний гриль в духовке до <strong>210 °С</strong>.</li><li>Распределить морепродукты с луком по ракушкам или формочкам, полить соусом, посыпать сырной крошкой.</li><li>Поместить ракушки или формочки на противень, поставить его в верхнюю часть духовки и запекать около 3 минут, до золотистого оттенка. Следить, чтобы не сгорело, так как духовки у всех разные! Сразу подавать.</li></ol>
+        </div>
+</body>
+</html>

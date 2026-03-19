@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Расписание: Изысканно и просто</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; display: block; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Расписание: Изысканно и просто</h1>
+    <div class="meta">Theory</div>
+    
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="bombochki-iz-lososya-so-slivochnym-syrom.html">«Бомбочки» из лосося со сливочным сыром</a> · <a class="related-link" href="marinovannyy-rostbif-v-stile-tataki.html">Маринованный ростбиф в стиле татаки</a> · <a class="related-link" href="kokil-iz-moreproduktov.html">Кокиль из морепродуктов</a> · <a class="related-link" href="rulety-iz-kurinykh-okorochkov.html">Рулеты из куриных окорочков с тремя начинками</a> · <a class="related-link" href="ovoshchi-gril-s-medovo-gorchichnoy-zapravkoy.html">Овощи гриль с медово-горчичной заправкой</a> · <a class="related-link" href="kartofel-anna.html">Картофель «Анна»</a> · <a class="related-link" href="belyy-shokolad-s-yagodami.html">Белый шоколад с ягодами и «Ягермейстером»</a></div>
+    <div class="source">Source: Изысканно и просто</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Примерное расписание с учётом того, что готовят 1–2 человека, будут готовиться все блюда из меню, закуски вы подадите заранее, а горячее — к 23:30. Можно приготовить оба гарнира, картофель и овощи, или выбрать один. Можно исключить из меню ростбиф и куриные рулеты, оставив только морепродукты и рыбу, сделав кокиль основным горячим блюдом, но тогда рекомендуется увеличить его порцию в 1,5–2 раза.</p><p class="para">«Бомбочки» из лосося могут быть поданы как аппетайзеры, за 30–60 минут до подачи всех остальных блюд.</p><p class="para">Десерт можно приготовить маленькими порциями, но в большем количестве, чтобы каждый смог решить, сколько хочет съесть.</p><p class="para">Все заготовки нужно хранить в плотно закрытых контейнерах в холодильнике.</p><p class="para">29 декабря:</p><p class="para">Приготовить крем-ганаш для десерта из белого шоколада и убрать в холодильник. Время приготовления: 10 минут.</p><p class="para">Приготовить ростбиф. Время приготовления: примерно 1 час (подготовка, запекание, охлаждение, погружение в маринад). Как только полностью охладится в маринаде, убрать в холодильник.</p><p class="para">Подготовить филе окорочков: удалить кости, посолить и поперчить, свернуть пополам, уложить в контейнер и убрать в холодильник. Время подготовки: 20 минут.</p><p class="para">30 декабря:</p><p class="para">Переложить морепродукты из морозильной камеры в холодильную.</p><p class="para">Отмерить и смешать замороженные ягоды для десерта в одном контейнере, чтобы осталось только добавить сахарную пудру и ликёр. Время подготовки: 5 минут.</p><p class="para">Приготовить начинку для куриных рулетов. Время приготовления: 35–45 минут.</p><p class="para">Приготовить «бомбочки» из лосося и убрать в холодильник. Время приготовления: 25–30 минут.</p><p class="para">31 декабря (утром/днём):</p><p class="para">Собрать куриные рулеты (выложить начинку, скрутить рулеты, связать нитью), накрыть плёнкой или положить в контейнер и убрать в холодильник (достать за 30–40 минут до запекания, чтобы мясо согрелось). Время подготовки: 15–20 минут.</p><p class="para">Подготовить морепродукты для кокиля (удалить кишечную вену у креветок, жёсткие волокна у мидий), а также натереть сыр (можно смешать сразу с крошкой и убрать в холодильник, а перед запеканием добавить рубленую зелень и масло). Время подготовки: 15–20 минут.</p><p class="para">Приготовить картофель «Анна», убрать в холодильник. Время приготовления: 40–50 минут.</p><p class="para">Подготовить овощи. Нарезать, посолить и оставить баклажаны на 15–20 минут. Нарезать остальные овощи, просушить баклажаны, всё смешать с маслом. Время подготовки: 20–25 минут.</p><p class="para">Запечь овощи. Время приготовления: 30–40 минут.</p><p class="para">31 декабря (вечером):</p><ul class="notes-list"><li>19:00–20:00 — Подготовить кокиль к запеканию. Время подготовки: 10–15 минут.</li><li>21:00 — Достать «бомбочки» из лосося. Достать ростбиф из холодильника, нарезать, выложить, украсить.</li><li>21:40 — Разогреть верхний гриль до 210 °С, запечь кокиль. Эту горячую закуску подают сразу.</li><li>22:00 — Достать куриные рулеты из холодильника, чтобы согрелись.</li><li>22:30 — Запечь куриные рулеты. После приготовления накрыть фольгой и дать отдохнуть 5 минут, затем снять кулинарную нить.</li><li>23:15 — Приготовить соус-заправку для овощей. Подогреть в духовке картофель «Анна» и запечённые овощи. Заправить овощи. Время приготовления: 25 минут.</li><li>00:20–1:00 — Подготовить ягоды для десерта, взбить шоколадный крем-ганаш с оставшимися сливками и йогуртом. Выложить в креманки, украсить.</li></ul>
+        </div>
+</body>
+</html>

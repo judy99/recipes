@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Рулеты из куриных окорочков с тремя начинками</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; display: block; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Рулеты из куриных окорочков с тремя начинками</h1>
+    <div class="meta">Main</div>
+    <div class="info-bar"><span><b>Servings:</b> на 4 порции (2 рулета)</span></div>
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="bombochki-iz-lososya-so-slivochnym-syrom.html">«Бомбочки» из лосося со сливочным сыром</a> · <a class="related-link" href="marinovannyy-rostbif-v-stile-tataki.html">Маринованный ростбиф в стиле татаки</a> · <a class="related-link" href="kokil-iz-moreproduktov.html">Кокиль из морепродуктов</a> · <a class="related-link" href="ovoshchi-gril-s-medovo-gorchichnoy-zapravkoy.html">Овощи гриль с медово-горчичной заправкой</a> · <a class="related-link" href="kartofel-anna.html">Картофель «Анна»</a> · <a class="related-link" href="belyy-shokolad-s-yagodami.html">Белый шоколад с ягодами и «Ягермейстером»</a> · <a class="related-link" href="raspisanie-izyskanno-i-prosto.html">Расписание: Изысканно и просто</a></div>
+    <div class="source">Source: Изысканно и просто</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Рулет из мяса птицы — традиционная холодная закуска. Мы же предлагаем вам рулеты из филе окорочков в качестве горячего блюда, хотя всегда можно превратить его в часть мясной нарезки, правда, для этого следует приготовить рулеты заранее, остудить и хорошо охладить в холодильнике, тогда их будет легче нарезать.</p><p class="para">Часто рулет готовят из целой птицы, но удаление костей из целой курицы требует довольно большой сноровки и опыта. К тому же, в этом случае мы получим в одном рулете и белое мясо грудки, и тёмное мясо с бёдер и голеней, а у них разная температура готовности, и грудка может получиться сухой.</p><p class="para">Мы предлагаем вам три начинки на выбор, хотя вы можете сделать ассорти рулетов и приготовить все три, сам рецепт при этом используется один и тот же.</p><p class="para">Начинка из орехов и чернослива — одна из самых классических, но ей можно придать лёгкий грузинский акцент, добавив щепотку грузинских специй (хмели-сунели или уцхо-сунели с молотым кориандром). Постарайтесь найти чернослив, не обработанный сульфитами, в России обычно это армянский чернослив.</p><p class="para">Начинка из вяленых помидоров с оливками, по сути, вариация на тему песто. Остатки (возможно, потребуется не всё) могут храниться в холодильнике 7–10 дней. Песто отлично сочетается с нежной моцареллой, можно сделать брускетты с этим сочетанием или превратить песто в соус для пасты, разбавив водой, в которой она варилась.</p><p class="para">Грибная начинка тоже очень подходит курице, из всех трёх она, пожалуй, самая нейтральная по вкусу, поэтому должна угодить любому привереде (при условии, что он ест грибы).</p><p class="para">Из инвентаря вам понадобятся: сковородка с жаропрочной или съёмной ручкой, молоток для мяса, блендер и кулинарный шпагат.</p><p class="para">Приготовление заранее: все начинки можно сделать заранее за 1–2 дня и хранить в плотно закрытых контейнерах в холодильнике. В том случае, если вы решили подавать куриные рулеты как холодную закуску, их можно приготовить заранее за сутки и также хранить в плотно завёрнутом виде в холодильнике.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>2 больших окорочка весом 500 г каждый</li><li>½ ч. л. соли</li><li>2 ст. л. оливкового масла для жарки</li></ul><p class="ingr-subheader">для начинки из чернослива и грецких орехов (выход 300 г):</p><ul class="notes-list"><li>100 г чернослива без косточек</li><li>100 г грецких орехов</li><li>3 зубчика чеснока</li><li>2 ст. л. оливкового масла</li><li>щепотка хмели-сунели</li><li>соль, свежемолотый чёрный перец</li></ul><p class="ingr-subheader">для начинки из вяленых помидоров и оливок (выход 250 мл):</p><ul class="notes-list"><li>70 г кедровых орешков</li><li>40 г оливок с косточкой (например, халкидики)</li><li>40 г тёмных оливок с косточкой (например, каламата)</li><li>70 г вяленых помидоров</li><li>2 крупных зубчика чеснока</li><li>3 ст. л. оливкового масла</li><li>соль, свежемолотый чёрный перец</li></ul><p class="ingr-subheader">для начинки из грибов (выход 200–240 г):</p><ul class="notes-list"><li>400 г грибов (белые, шампиньоны)</li><li>1 луковица</li><li>2 ст. л. топлёного масла</li><li>соль, свежемолотый чёрный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">👩‍🍳</span>Приготовление начинок</h2>
+          <ol class="steps"><li>Для начинки из чернослива с грецкими орехами чернослив промыть, замочить в тёплой воде на 1–2 часа, грецкие орехи слегка подсушить на сухой сковородке. Порубить орехи в крупную крошку, набухший чернослив мелко нарезать, чеснок измельчить. Перемешать начинку, добавить оливковое масло, посолить, поперчить, при желании добавить щепотку хмели-сунели.</li><li>Для начинки из вяленых помидоров обжарить кедровые орешки на сухой сковородке до слегка золотистого цвета, быстро пересыпать на тарелку, иначе они сгорят. Удалить из оливок косточки — положить оливку на доску, раздавить плоской стороной ножа и убрать косточку. В чаше блендера смешать вяленые помидоры, оба вида оливок, жареные орешки, чеснок и оливковое масло. Измельчить до однородности.</li><li>Для грибной начинки мелко порубить грибы, лук нарезать максимально мелкими кубиками. Выложить грибы на сухую сковородку, постоянно помешивая, дождаться, когда они дадут жидкость. Выпарить почти всю влагу, переложить грибы в миску. На той же сковородке обжарить лук на топлёном масле до золотистого цвета, добавить к луку грибы, посолить, обжаривать ещё 1–2 минуты. Поперчить.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">👩‍🍳</span>Приготовление рулетов</h2>
+          <ol class="steps"><li>Подготовить филе окорочков. Уложить окорочок внешней стороной на разделочную доску и сделать продольный разрез вдоль бедренной кости по внутренней стороне бедра, обойти кость тонким ножом со всех сторон. Сделать круговой надрез вокруг нижней части голени, а затем продольный разрез вдоль кости, двигаясь в сторону сустава. Кончиком ножа зачистить кость голени. Надрезать связки вдоль сустава, зачистить его и вынуть сразу две косточки — бедренную и голени, соединённые суставом.</li><li>Развернуть получившееся филе, уложить на разделочную доску кожей вниз, накрыть пищевой плёнкой и отбить, чтобы получился тонкий пласт. Выступающие и неровные части подвернуть внутрь, чтобы форма была ближе к прямоугольнику. Равномерно посыпать получившийся пласт ¼ ч. л. соли, поперчить, свернуть пополам, уложить в контейнер. Повторить со вторым окорочком, уложить в тот же контейнер, неплотно накрыть и оставить на 30 минут при комнатной температуре или на ночь в холодильнике.</li><li>Разогреть духовку до <strong>180 °С</strong> в режиме «верх-низ», установить решётку чуть ниже центра.</li><li>Развернуть отбитое филе на доске, уложить широкой стороной к себе, с помощью силиконовой лопатки смазать выбранной начинкой слоем 3–5 мм, не доходя до противоположного широкого края 1 см. Свернуть плотный рулет (по длинной стороне) и обвязать его кулинарным шпагатом (перевязывая на расстоянии 3–4 см).</li><li>Разогреть масло в сковородке, уложить рулеты швом вниз, обжарить со всех сторон до золотистой корочки, завершив в том же положении, швом вниз. Поместить в духовку в этой же сковородке, готовить, периодически смазывая вытапливающимся жиром, до внутренней температуры <strong>75 °С</strong> (на это потребуется около 30 минут).</li><li>Достать готовые рулеты из духовки, переложить на деревянную доску или подогретую тарелку, дать отдохнуть 10 минут, удалить шпагат перед тем, как нарезать.</li><li>Если рулет планируется для подачи как холодная закуска, дать полностью остыть, удалить шпагат, плотно завернуть в пищевую плёнку и убрать в холодильник минимум на 8–12 часов.</li></ol>
+        </div>
+</body>
+</html>
