@@ -1,8 +1,9 @@
 Title: Домашний майонез
 Category: Sauce
-Tags: PraCooking, Правильный бутерброд
+Tags: PraCooking, Правильный бутерброд, Гусь и Ко
 Image: images/domashniy-mayonez.jpg
-Source: ПРАвильный бутерброд
+Source: ПРАвильный бутерброд, Гусь и Ко
+Related: mayonez-za-30-sekund, gus-ledenec, kholodec-iz-petuha, vinegret-v-aziatskom-stile, ogurtsy-v-bystrom-marinade, olive-s-semgoy, kuskus-s-izyumom-i-tsedroy, medovik-s-khurmoy, raspisanie-gus-i-ko
 
 Поверьте, приготовить майонез вручную совсем не сложно. Главное — понять принцип и не добавлять масло слишком быстро. У меня весь процесс занимает несколько минут.
 
