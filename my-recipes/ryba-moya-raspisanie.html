@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Расписание новогоднего меню «Рыба моя»</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Расписание новогоднего меню «Рыба моя»</h1>
+    <div class="meta">Theory</div>
+    
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="seviche-iz-krevetok-s-kremom-iz-avokado.html">Севиче из креветок с кремом из авокадо</a> · <a class="related-link" href="karpachcho-iz-osminoga-s-citrusovym-salatom.html">Карпаччо из осьминога с цитрусовым салатом</a> · <a class="related-link" href="smerrebrod-s-pechenyu-treski-i-ikroy.html">Смерребред с печенью трески и икрой</a> · <a class="related-link" href="tartar-iz-svyokly-s-avokado.html">Тартар из свеклы с авокадо</a> · <a class="related-link" href="salat-mimoza.html">Салат «Мимоза» с форелью и сырным кремом</a> · <a class="related-link" href="losos-v-teste-s-yogurtovym-sousom.html">Лосось в тесте с йогуртовым соусом</a> · <a class="related-link" href="kartofel-konfi.html">Картофель конфи</a> · <a class="related-link" href="fasol-s-chesnokom-orekhami-i-parmezan.html">Фасоль с чесноком, орехами и пармезаном</a> · <a class="related-link" href="kokosovyy-puding-s-mango-i-marakuyey.html">Кокосовый пудинг с манго и маракуйей</a></div>
+    <div class="source">Source: Рыба моя</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Примерное расписание с учетом того, что готовят 1–2 человека, будут готовиться все блюда из меню и горячее будет подано к 23.30.</p><p class="para">Севиче из креветок и карпаччо из осьминога могут быть поданы как аппетайзеры, за 30/60/90 минут до подачи всех остальных блюд.</p><p class="para">## 29 декабря</p><p class="para">Переложить осьминогов из морозильной камеры в холодильник.</p><p class="para">## 30 декабря</p><p class="para">Переложить креветки из морозильной камеры в холодильник.</p><p class="para">Приготовить кокосовый пудинг. Время приготовления: 10 минут.</p><p class="para">Приготовить картофель конфи — 2–2,5 часа.</p><p class="para">Переложить рыбу из морозильной камеры в холодильник (если она заморожена).</p><p class="para">Приготовить шпинат для лосося — 15–20 минут.</p><p class="para">Запечь свеклу для тартара из свеклы — 40–60 минут.</p><p class="para">Отварить перепелиные яйца для смерребреда — 5 минут.</p><p class="para">Отварить морковь, картофель и куриные яйца для салата «Мимоза» — 30 минут.</p><p class="para">Подготовить филе лосося (снять кожу, удалить кости) — 15–20 минут.</p><p class="para">Очистить осьминога, сварить, остудить и утрамбовать — 1–1,5 часа (в зависимости от размера, с учетом остывания).</p><p class="para">## 31 декабря</p><p class="para">### Утром/днем</p><p class="para">Приготовить салат «Мимоза» и убрать в холодильник настаиваться.</p><p class="para">Приготовить крем из сливочного сыра для смерребреда — 10 минут. Накрыть пленкой в контакт и убрать в холодильник!</p><p class="para">Подготовить крем из авокадо для тартара и севиче (можно один общий, см. рецепты) — 20 минут. Накрыть пленкой в контакт и убрать в холодильник!</p><p class="para">### Вечером</p><p class="para"><strong>19.00</strong> У креветок удалить кишечную вену (черную полоску, проходящую вдоль спинки), замариновать (в идеале за 1–3 часа до подачи) — 20–30 минут.</p><p class="para"><strong>20.00</strong> Нарезать овощи для тартара, смешать с авокадо. Выложить и украсить лучше за 30 минут до подачи, до этого держать в холодильнике.</p><p class="para"><strong>20.20</strong> Обжарить орешки для тартара и фасоли (если она выбрана на гарнир).</p><p class="para"><strong>20.30</strong> Нарезать овощи для севиче, смешать с маринованными креветками, разложить по бокалам вместе с кремом из авокадо.</p><p class="para"><strong>21.00</strong> Приготовить салат для карпаччо, нарезать прессованного осьминога. Выложить за 30 минут до подачи (до этого держать в холодильнике) — 20 минут.</p><p class="para"><strong>21.30</strong> Подготовить манго для десерта. Если подача в бокалах — сразу выложить на пудинг вместе с маракуйей. Если пудинг будет извлекаться из форм, сервировать после горячего, до этого пудинг и фрукты держать в холодильнике.</p><p class="para"><strong>22.00</strong> Достать слоеное тесто и фасоль (если выбрали ее на гарнир) из морозильной камеры. Время разморозки — 20–30 минут.</p><p class="para"><strong>22.10</strong> Приготовить йогуртовый соус для рыбы. Время приготовления — 10 минут.</p><p class="para"><strong>22.15</strong> Сварить сироп для десерта — 5–7 минут. Если он застынет, перед подачей слегка прогреть. Либо сварить после подачи горячего.</p><p class="para"><strong>22.20</strong> Разогреть духовку до <strong>220 °С (428 °F)</strong>.</p><p class="para"><strong>22.30</strong> Раскатать слоеное тесто, выложить шпинат и рыбу.</p><p class="para"><strong>23.00</strong> Отправить лосося запекаться в духовку на 25–30 минут.</p><p class="para"><strong>23.20</strong> Подогреть картофель конфи — 10 минут. Либо приготовить фасоль (если она была выбрана на гарнир). Пока фасоль обжаривается, натереть сыр для подачи.</p><p class="para"><strong>23.30</strong> Достать лосося из духовки, подать в течение 5–10 минут.</p>
+        </div>
+</body>
+</html>
