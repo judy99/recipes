@@ -5,6 +5,23 @@
 import os
 import re
 import json
+try:
+    from PIL import Image as _PILImage
+    _PIL_OK = True
+except ImportError:
+    _PIL_OK = False
+
+
+def _is_portrait(img_path):
+    """Возвращает True если изображение портретной ориентации."""
+    if not _PIL_OK:
+        return False
+    try:
+        with _PILImage.open(img_path) as im:
+            w, h = im.size
+            return h > w
+    except Exception:
+        return False
 
 RECIPES_DIR = os.path.dirname(os.path.abspath(__file__))
 MY_RECIPES_DIR = os.path.join(RECIPES_DIR, "my-recipes")
@@ -155,7 +172,7 @@ def render_item_block(items, start_step=1):
     return html
 
 
-def render_section_items(items):
+def render_section_items(items, base_dir=None):
     """Рендерит список строк, разбивая на блоки: таблицы, шаги, списки, параграфы."""
     if not items:
         return ""
@@ -172,7 +189,12 @@ def render_section_items(items):
         m_img = re.match(r'^\!\[([^\]]*)\]\(([^)]+)\)$', item)
         if m_img:
             caption, src = m_img.group(1), m_img.group(2)
-            fig = f'<figure class="inline-photo"><img src="{src}" alt="{caption}">'
+            portrait = False
+            if base_dir:
+                abs_src = os.path.join(base_dir, src)
+                portrait = _is_portrait(abs_src)
+            cls = 'inline-photo portrait' if portrait else 'inline-photo'
+            fig = f'<figure class="{cls}"><img src="{src}" alt="{caption}">'
             if caption:
                 fig += f'<figcaption>{caption}</figcaption>'
             fig += '</figure>'
@@ -334,7 +356,7 @@ def generate_html(txt_path):
         sections_html += f"""
         <div class="section">
           {'<h2 class="section-title"><span class="section-icon">' + icon + '</span>' + title_disp + '</h2>' if title_disp else ''}
-          {render_section_items(items)}
+          {render_section_items(items, base_dir=os.path.dirname(txt_path))}
         </div>"""
 
     html = f"""<!DOCTYPE html>
@@ -404,6 +426,9 @@ def generate_html(txt_path):
 
   .inline-photo {{ margin: 16px 0; border-radius: 10px; overflow: hidden; }}
   .inline-photo img {{ width: 100%; max-height: 320px; object-fit: cover; display: block; }}
+  .inline-photo.portrait {{ display: flex; flex-direction: column; align-items: center; background: transparent; }}
+  .inline-photo.portrait img {{ width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }}
+  .inline-photo.portrait figcaption {{ width: 55%; text-align: center; }}
   .inline-photo figcaption {{ font-size: 12px; color: #9a8a80; padding: 6px 10px;
                                background: #f5f0eb; font-style: italic; }}
 
