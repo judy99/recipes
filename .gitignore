@@ -11,3 +11,8 @@ __pycache__/
 .DS_Store
 
 .how-to-update
+
+# Temp rendered PDF pages and scratch images
+my-recipes/images/izy-rendered/
+my-recipes/images/shak-rendered/
+my-recipes/images/shak-tmp/
