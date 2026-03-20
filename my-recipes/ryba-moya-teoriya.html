@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Рыба: как выбирать, хранить и готовить</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Рыба: как выбирать, хранить и готовить</h1>
+    <div class="meta">Theory</div>
+    
+    
+    <div class="source">Source: Рыба моя</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Вступление к конспекту «Рыба моя» — всё, что нужно знать о выборе, хранении, разморозке, разделке и приготовлении рыбы и морепродуктов.</p><p class="para">## Как выбрать качественную рыбу</p><p class="para">Рыба — очень сложная и обширная тема. Когда мы говорим о птице и мясе, слово «фермерский» несёт положительную коннотацию, а вот когда мы говорим «фермерская рыба», речь на самом деле идёт о «птицефабриках», только относительно рыбы. В рыбном мире аналог фермерской птицы — дикая рыба.</p><p class="para"><strong>Фермерская или дикая рыба?</strong> Кто-то считает, что лучше есть дикую, так как она полезнее, а фермерская выращивается в ужасных условиях, загрязняет моря и океаны, нарушает их экосистему. Кто-то скажет, что нужно есть меньше дикой рыбы, чтобы дать ей возможность восстановить популяцию. Правда, как это часто бывает, где-то посередине.</p><p class="para"><strong>Свежая или замороженная рыба?</strong> Для рыбы первична свежесть. Чем она свежее, тем лучше. Рыба, которую заморозили сразу, на корабле, может быть отличного качества. Чтобы максимально сохранить качество, рыбу нужно заморозить до температуры ниже <strong>−18 °С</strong> как можно быстрее (техника шоковой заморозки). В рыбе содержится до 80% воды и мало соединительной ткани. Если заморозка происходит быстро, образуются небольшие кристаллы льда, и рыбная плоть почти не разрушается. Если медленно — крупные кристаллы буквально разрывают плоть. После разморозки такая рыба будет «ватной» и сухой.</p><p class="para"><strong>Как понять, свежая ли рыба?</strong> В первую очередь стоит позаботиться о выборе надёжного поставщика. В магазине должно пахнуть приятной морской свежестью — не кислым и не «слишком» рыбным. Свежая рыба не должна особо чем-то пахнуть. Лёгкий рыбный запах говорит о том, что рыба, возможно, не самой первой свежести, но волноваться не стоит. Если учуяли хоть малейший неприятный запах — от покупки стоит отказаться. Филе должно быть упругим и блестящим, а не рыхлым. Рыба должна обязательно лежать на льду.</p><p class="para">## Морепродукты</p><p class="para">Признаки свежести морепродуктов такие же, как у рыбы. Когда вы покупаете замороженные морепродукты, обратите внимание на вес: производители указывают общий вес с глазурью и без неё (нетто). Если в упаковке присутствует колотый лёд или снег, такой продукт лучше не покупать — скорее всего, были нарушены правила хранения.</p><p class="para"><strong>Как понять, свежие ли морепродукты?</strong> Свежие креветки должны быть серыми или прозрачно-розовыми. Покупайте в панцире и с хвостиком — очистка ускоряет порчу. Свежие креветки не должны быть хрупкими, разваливаться или быть покрытыми слизью. Раковины двустворчатых моллюсков должны быть без трещин и сколов. Лучше всего покупать живых моллюсков: если постучать по раковине, она должна закрыться.</p><p class="para"><strong>Как выбрать осьминога.</strong> Осьминога проще и выгоднее покупать замороженного. Заморозка ничуть ему не навредит, а наоборот, сделает его мягче. Для разморозки накануне переложите из морозильной камеры в холодильник — на полную разморозку может уйти 12–30 часов.</p><p class="para">## Хранение свежей рыбы и морепродуктов</p><p class="para">В идеале рыбу лучше не хранить, а сразу готовить и есть. Лучше всего держать в холодильнике на колотом льду в пенопластовом контейнере. При нулевой температуре рыба сохранится 3–5 дней, при более высокой — 1–2 дня. Рыбу, как и мясо, и птицу, <strong>не рекомендуется мыть</strong> — это перенесёт бактерии на другие поверхности.</p><p class="para">## Как правильно размораживать рыбу и морепродукты</p><p class="para">Держать при комнатной температуре — совершенно неверный способ: на уже размороженной поверхности бактерии размножаются гораздо быстрее, чем оттаивает остальная часть. Два правильных способа:</p><p class="para">1. <strong>В холодильнике</strong> — лучший вариант, но требует времени (планировать заранее).</p><p class="para">2. <strong>В ледяной воде</strong> — хорошо упакованный продукт (вакуумный пакет или зиплок) погрузить в максимально холодную воду. Рыба оттаивает за 30–60 минут.</p><p class="para">## Разделка рыбы</p><p class="para">Рыба должна быть охлаждённой всё время обработки. Кухня, инструменты и руки должны быть чистыми. Разделка состоит из нескольких операций: очистка от чешуи, удаление плавников, потрошение, филетирование. На праздник можно купить готовое филе или попросить разделать в магазине.</p><p class="para"><strong>Как подготовить филе к запеканию в тесте.</strong> Положите филе на доску кожей вниз. Срезайте мякоть, держа нож так, чтобы его лезвие было прижато к коже под минимальным углом к доске. Прорезая филе вдоль кожи, туго натягивайте её.</p><p class="para">## Правила приготовления рыбы</p><p class="para">Температура хорошо приготовленной рыбы существенно ниже 100 °С. Миозин начинает коагулировать при <strong>40 °С</strong>, и текстура рыбы начинает меняться. При <strong>55 °С</strong> рыба уже готова. Выше <strong>60 °С</strong> — рыба пересушена. Поэтому рыбу следует готовить очень недолго: либо на высоких температурах и быстро (жарка), либо нежно и чуть дольше (припускание).</p><p class="para">Готовность проще всего проверять термометром. Когда рыба готова, она становится матовой, мякоть легко отходит от кости. Без термометра — проткните толстой иголкой: если остаётся холодной, не готова; если горячей — снимайте; если обжигает — пересушена.</p><p class="para">## Правила приготовления осьминога</p><p class="para">Хороший взрослый осьминог дойдёт до готовности за 40–60 минут. Молодые (до 500–600 г) — за 20–30 минут. Все приёмы «смягчения» (отбивание о камни, добавление пробки, три опускания в кипяток) для замороженного осьминога не нужны. Если варите долго, а он всё ещё жёсткий — попался плохой осьминог.</p><p class="para">## Солёная рыба и рыбные консервы</p><p class="para">Качественная рыба не должна быть слишком солёной. Хорошая солёная рыба должна иметь красивый цвет. Покупая рыбные консервы, обращайте внимание на общий вес (брутто) и вес продукта (нетто). Желательно, чтобы рыба была в оливковом масле первого холодного отжима или в рассоле.</p><p class="para">## Необходимое оборудование</p><p class="para">Блюда из рыбы не требуют сложных приспособлений. Важнее всего — острый нож и удобная разделочная доска. Также будут полезны:</p><ul class="notes-list"><li>филейный нож с тонким, длинным и гибким лезвием;</li><li>пинцет для удаления костей;</li><li>нож для очистки от чешуи (для целой рыбы);</li><li>кулинарное кольцо (для выкладки тартара и не только);</li><li>миски разного размера и маленькие пиалы;</li><li>тёрка Microplane для цедры и чеснока.</li></ul>
+        </div>
+</body>
+</html>
