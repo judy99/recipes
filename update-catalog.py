@@ -76,6 +76,14 @@ def load_txt_recipe(fpath):
     image_match = re.search(r"Image:\s*(.+)", text)
     image = image_match.group(1).strip() if image_match else ""
 
+    # Fallback: check legacy photo/ directory if no Image: field
+    if not image:
+        for ext in [".jpg", ".jpeg", ".png"]:
+            photo_path = os.path.join(MY_RECIPES_DIR, "photo", base + ext)
+            if os.path.exists(photo_path):
+                image = f"photo/{base}{ext}"
+                break
+
     ingr_lines = extract_ingredient_lines(text)
 
     return {
