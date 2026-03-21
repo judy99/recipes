@@ -1,8 +1,8 @@
 Title: Финский блин pannukakku
 Category: Breakfast
 Tags: PraCooking, Правильные блины и оладьи мира
-Related: Servings:, yablochnyy-sous, bystroe-yagodnoe-varene, karamelnyy-sous, karamelnye-slivy-zwetschkenroester, shokoladnyy-sous, vanilnyy-sous, vishnevyy-sous
-Servings: 
+Related: yablochnyy-sous, bystroe-yagodnoe-varene, karamelnyy-sous, karamelnye-slivy-zwetschkenroester, shokoladnyy-sous, vanilnyy-sous, vishnevyy-sous
+Servings: противень 20 х 35 см
 Active Time: 
 Total Time: 
 Source: Правильные блины и оладьи мира

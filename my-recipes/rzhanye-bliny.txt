@@ -1,7 +1,7 @@
 Title: Ржаные блины
 Category: Bread
 Tags: PraCooking, Правильные блины и оладьи мира
-Related: Servings: 16-20 шт., yablochnyy-sous, bystroe-yagodnoe-varene, karamelnyy-sous, karamelnye-slivy-zwetschkenroester, shokoladnyy-sous, vanilnyy-sous, vishnevyy-sous
+Related: yablochnyy-sous, bystroe-yagodnoe-varene, karamelnyy-sous, karamelnye-slivy-zwetschkenroester, shokoladnyy-sous, vanilnyy-sous, vishnevyy-sous
 Servings: 16-20 шт.
 Active Time: 
 Total Time: 

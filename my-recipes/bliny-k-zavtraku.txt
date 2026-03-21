@@ -1,7 +1,7 @@
 Title: Блины к завтраку
 Category: Breakfast
 Tags: PraCooking, Правильные блины и оладьи мира
-Related: Servings: 15 блинов диаметром 21 см, yablochnyy-sous, bystroe-yagodnoe-varene, karamelnyy-sous, karamelnye-slivy-zwetschkenroester, shokoladnyy-sous, vanilnyy-sous, vishnevyy-sous
+Related: yablochnyy-sous, bystroe-yagodnoe-varene, karamelnyy-sous, karamelnye-slivy-zwetschkenroester, shokoladnyy-sous, vanilnyy-sous, vishnevyy-sous
 Servings: 15 блинов диаметром 21 см
 Active Time: 
 Total Time: 
