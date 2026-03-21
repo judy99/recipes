@@ -1,7 +1,7 @@
 Title: Кайзершмаррн
 Category: Dessert
 Tags: PraCooking, Правильные блины и оладьи мира
-Related: 
+Related: karamelnye-slivy-zwetschkenroester
 Servings: 4-6 порций
 Active Time: 
 Total Time: 
@@ -13,8 +13,7 @@ Image: images/bliny-kayzershmarrn-001.jpg
 Ингредиенты:
 50 г изюма
 1 ст. л. рома
-150 г пшеничной муки (если вы в Германии и Австрии, то типа
-405)
+150 г пшеничной муки (если вы в Германии и Австрии, то типа 405)
 220 мл молока
 4 яйца
 30 г сливочного масла (но лучше больше)
