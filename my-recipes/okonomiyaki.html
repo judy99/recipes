@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Окономияки</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/bliny-okonomiyaki-001.jpg" alt="Окономияки"></div>
+  <div class="header">
+    
+    <h1>Окономияки</h1>
+    <div class="meta">Main</div>
+    
+    
+    <div class="source">Source: Правильные блины и оладьи мира</div>
+  </div>
+  
+        <div class="section">
+          
+          <ul class="ingr-list"><li>Окономияки – очень необычное японское блюдо. Оно существует</li><li>в двух вариантах: окономияки из Хиросимы или из Осаки.</li><li>В Осаке начинку кладут прямо в блинное тесто, запекают,</li><li>а потом посыпают дополнительными ингредиентами и поливают</li><li>соусами. В Хиросиме начинку запекают между двух блинчиков,</li><li>пшеничного и яичного, а помимо капусты добавляют еще и лапшу.</li><li>Такую громадину не каждый осилит, поэтому в нашем конспекте мы</li><li>решили познакомить вас с более легкой версией из Осаки. Помимо</li><li>капусты в блинчик добавляют свинину, причем одни повара мелко</li><li>рубят ее и кладут в тесто, а другие выкладывают ломтики</li><li>мяса сверху, в виде припека. Есть версии и с одной капустой,</li><li>и с морепродуктами, на любой вкус. А вот что делает этот блинчик</li><li>особенным, по-настоящему японским, так это маринованный имбирь</li><li>и стружка тунца (бонито, кацуобуси). Конечно, если вы ее не найдете</li><li>или вам не нравится рыбный аромат в подобных блюдах, можете</li><li>приготовить и без нее, но, честно скажем, что-то есть в этом</li><li>бонито особенное – откусишь, и ты уже как будто в Японии. Есть</li><li>и еще один специфический ингредиент – порошок из сушеных</li><li>водорослей нори. Им можно посыпать блинчик при подаче. А если</li><li>порошка не нашлось, попробуйте измельчить листья нори для суши.</li><li>Есть рецепты окономияки, где тесту придают пышность с помощью</li><li>разрыхлителя или муки для темпуры (в идеале – тенкасу, то есть</li><li>хлопьев теста для темпуры). Иногда тесту с разрыхлителем</li><li>еще дают время постоять. Мы вместо разрыхлителя решили</li><li>использовать минеральную воду, которая помогает достичь того же</li><li>эффекта воздушности. Можно сделать тесто и на обычной воде,</li><li>но блинчик будет несколько плотнее.</li><li>Соуса окономияки у вас получится больше, чем нужно по рецепту,</li><li>но, во-первых, порцию всегда можно уменьшить, а во-вторых, этот</li><li>соус прекрасно хранится и может дождаться следующей порции</li><li>окономияки – заодно и работы будет меньше.</li><li>Отдельно хотим упомянуть про майонез. Когда видишь окономияки,</li><li>кажется, что майонеза очень много. Но японский майонез намного</li><li>мягче европейского, это стоит учесть, если вы будете использовать</li><li>классический европейский. Впрочем, зачем покупать японский майонез,</li><li>когда можно приготовить отличный лаймовый майонез, которым мы</li><li>уже однажды делились в конспекте про фуршет?</li><li>Если вы хотите подать оба блинчика одновременно, используйте</li><li>2 сковородки.</li><li>на 2 порции</li><li><span class="qty">100 г</span> пшеничной муки</li><li><span class="qty">1/4 ч. л.</span> соли</li><li><span class="qty">1/4 ч. л.</span> сахара</li><li><span class="qty">80 мл</span> минеральной воды</li><li>120-140 г китайской или молодой капусты</li><li><span class="qty">1 ч. л.</span> маринованного имбиря</li><li>2-4 ломтика грудинки или бекона</li><li>2-3 пера лука</li><li>2 яйца</li><li><span class="qty">2 ст. л.</span> темпуры (если есть)</li><li><span class="qty">2 ст. л.</span> соуса окономияки (см. ниже)</li><li>несколько щепоток порошка из водорослей нори (если есть)</li><li>2-3 ч. л. японского майонеза (или лаймового майонеза, см. ниже)</li><li><span class="qty">2 ст. л.</span> бонито</li><li>топленое или растительное масло для жарки</li></ul><p class="ingr-subheader">для соуса окономияки:</p><ul class="ingr-list"><li><span class="qty">2 ст. л.</span> кетчупа</li><li><span class="qty">1 ст. л.</span> вустерского соуса</li><li><span class="qty">1 ст. л.</span> устричного соуса</li><li><span class="qty">1 ч. л.</span> нейтрального жидкого меда или сахара</li></ul><p class="ingr-subheader">для лаймового майонеза:</p><ul class="ingr-list"><li><span class="qty">2 ст. л.</span> майонеза</li><li>1-2 ч. л. сока лайма</li><li><span class="qty">1 ч. л.</span> питьевой воды (если майонез очень густой)</li><li>1. К муке добавить соль, сахар, влить воду и перемешать. У вас</li><li>получится тесто как на оладьи. Накрыть и дать постоять,</li><li>пока вы занимаетесь начинкой.</li><li>2. Капусту нашинковать. Маринованный имбирь нарезать</li><li>соломкой. Большие ломтики грудинки разрезать пополам.</li><li>Лук измельчить.</li><li>3. К тесту добавить яйцо, темпуру, имбирь, капусту</li><li>и перемешать лопаткой.</li><li>4. Нагреть сковородку с маслом. Выложить в нее горкой</li><li>половину смеси, распределить в блинчик толщиной</li><li>1-1,5 см, подровнять края. Уложить сверху 1-2 ломтика</li><li>грудинки и прижать лопаткой. Накрыть сковородку и печь</li><li>блинчик на умеренном огне 6-8 минут. Затем перевернуть</li><li>широкой лопаткой и выпекать еще 5 минут под крышкой.</li><li>5. Приготовить соус окономияки, смешав все ингредиенты.</li><li>6. Приготовить лаймовый майонез: смешать майонез с соком</li><li>лайма, при необходимости разбавить водой (кремовый</li><li>майонез будет легче намазать на блинчик).</li><li>7. Готовый блинчик выложить на тарелку. Смазать</li><li>приблизительно половиной соуса окономияки (или по вкусу),</li><li>посыпать бонито, измельченным луком, полить майонезом,</li><li>посыпать порошком из водорослей.</li></ul>
+        </div>
+</body>
+</html>

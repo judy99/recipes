@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Овсяные бездрожжевые блины</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/bliny-ovsyanye-bezdrozhzhevye-bliny-001.jpg" alt="Овсяные бездрожжевые блины"></div>
+  <div class="header">
+    
+    <h1>Овсяные бездрожжевые блины</h1>
+    <div class="meta">Bread</div>
+    
+    
+    <div class="source">Source: Правильные блины и оладьи мира</div>
+  </div>
+  
+        <div class="section">
+          
+          <ul class="ingr-list"><li>Очень вкусные, нежные и ароматные блины с аппетитными</li><li>дырочками. И очень простые в приготовлении. В овсяной муке нет</li><li>глютена, поэтому обязательно нужно понимать, как обращаться</li><li>с тестом из нее. Овсяные блины нужно жарить на сильном огне</li><li>и обязательно наливать в сковородку масло. У всех разные плиты</li><li>и сковородки, поэтому точную температуру я вам сказать</li><li>не могу, но на своей индукционной плите я готовлю такие</li><li>блины на отметке 11 или 12 из 14. Если вы жарите блины</li><li>на антипригарной сковородке, можно просто смазать ее маслом,</li><li>а можно добавить на каждый блин по половине чайной ложки</li><li>масла. Чем больше масла, тем волнистее и румянее поверхность</li><li>блинов, но и тем сложнее распределить их равномерно</li><li>по сковородке. Это дело вкуса, пробуйте по-разному, и уже</li><li>третий блин будет у вас ровно такой, какой вы хотите! Тесто</li><li>для этих блинов можно приготовить с вечера и убрать</li><li>в холодильник на ночь. В этом случае не добавляйте сразу соду –</li><li>достаньте утром тесто из холодильника, дайте ему согреться</li><li>минут сорок, добавьте соду, перемешайте и выпекайте через</li><li>15 минут.</li><li>на 10-12 шт.</li><li><span class="qty">130 г</span> овсяной муки</li><li><span class="qty">2 ст. л.</span> сахара (40 г)</li><li><span class="qty">1/2 ч. л.</span> соли</li><li><span class="qty">1/2 ч. л.</span> соды</li><li>450-500 мл нежирного кефира</li><li>3 яйца</li><li>топленое масло для выпекания</li><li>1. Смешать в миске муку с сахаром, солью и содой.</li><li>2. Начать вливать кефир, перемешивая венчиком. Когда</li><li>в смеси не останется сухих комочков муки, разбить в тесто</li><li>по одному яйца и хорошо перемешать.</li><li>3. Влить оставшийся кефир. Тесто должно быть консистенции</li><li>густого кефира, достаточно текучим, но не совсем жидким.</li><li>Оставить тесто на 10-15 минут. Больше не перемешивать.</li><li>4. Хорошо разогреть сковородку с тяжелым дном, смазать</li><li>ее маслом, налить в середину маленький половник теста</li><li>и распределить его по дну. Печь примерно 2 минуты – блин</li><li>должен подняться и стать матовым сверху. Перевернуть</li><li>и печь еще примерно минуту на другой стороне.</li><li>5. Выложить на тарелку, при желании смазать сливочным</li><li>маслом. Таким же образом выпечь блины из оставшегося</li><li>теста.</li></ul>
+        </div>
+</body>
+</html>
