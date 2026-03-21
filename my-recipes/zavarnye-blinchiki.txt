@@ -1,7 +1,7 @@
 Title: Заварные блинчики
 Category: Bread
 Tags: PraCooking, Правильные блины и оладьи мира
-Related: 
+Related: Servings: 12 шт., yablochnyy-sous, bystroe-yagodnoe-varene, karamelnyy-sous, karamelnye-slivy-zwetschkenroester, shokoladnyy-sous, vanilnyy-sous, vishnevyy-sous
 Servings: 12 шт.
 Active Time: 
 Total Time: 
