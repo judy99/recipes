@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ризотто с тыквой</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center bottom; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center bottom; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/tykva-rizotto-s-tykvoy-001.jpg" alt="Ризотто с тыквой"></div>
+  <div class="header">
+    
+    <h1>Ризотто с тыквой</h1>
+    <div class="meta">Main</div>
+    <div class="info-bar"><span><b>Servings:</b> 4 порции</span></div>
+    
+    <div class="source">Source: Очень ПРАвильные рецепты из тыквы</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Тыква, как и морковь, довольно сладкая, поэтому ее используют в десертах. Но если эту сладость сбалансировать соленостью, пряностью и по желанию остротой, получается очень вкусно. Здесь ризотто готовится по классической схеме. Обязательно нужно купить правильный рис и ни в коем случае не мыть его: крахмал в ризотто очень важен. В этом рецепте использовалась тыква сорта Хоккайдо – она менее крахмалистая, чем другие сорта. При желании ее можно карамелизовать, добавляя в ризотто не сразу, а минут через десять после того, как вольете первый половник бульона. Кожица у тыквы довольно жесткая, поэтому удобно сначала резать ее на дольки, а затем счищать кожу при помощи овощечистки.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>1/2 луковицы</li><li>светло-зеленая часть стеблей от порея (4 шт.)</li><li>1/2 перца чили</li><li>1 л овощного или куриного бульона</li><li>200 г очищенной тыквы (300 г неочищенной)</li><li>100 г риса для ризотто (арборио, карнароли, виалоне нано)</li><li>100 мл белого сухого вина или 50 мл хереса или вермута</li><li>по щедрой щепотке корицы и кориандра</li><li>50 г натертого пармезана</li><li>50 г сыра с плесенью</li><li>30 мл оливкового масла</li><li>30 г сливочного масла</li><li>соль, свежемолотый перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Лук порубить, листья порея нарезать тонкими полосками. Перец чили мелко порубить, тыкву очистить от кожуры и нарезать кубиком 1,5 × 1,5 см. Сыр с плесенью нарезать кубиками.</li><li>Бульон разогреть и добавить в него 3/4 чайной ложки соли.</li><li>Разогреть в глубоком сотейнике оливковое масло, всыпать лук и порей, посолить и пассеровать 5–7 минут, пока лук не станет мягким и прозрачным.</li><li>Добавить специи, перемешать, прогреть 1 минуту.</li><li>Всыпать рис, готовить помешивая 3 минуты. Он должен стать более прозрачным.</li><li>Влить вино, немного посолить, перемешать и дать жидкости почти полностью выпариться.</li><li>Добавить тыкву, немного посолить, перемешать.</li><li>Сразу начать вливать бульон по одному половнику. Рис нужно помешивать и подливать бульон, когда предыдущая порция впитается. Продолжать до готовности риса. Рис должен дойти до готовности, но не превратиться в кашу – нам нужна готовность «аль денте», с небольшой упругостью. Сколько точно понадобится бульона, сказать сложно – может меньше, может больше. Если бульона не хватит, можно добавить горячую воду.</li><li>Снять с огня, добавить сливочное масло и хорошо перемешать. Всыпать пармезан и снова перемешать. Проверить на соль. Приправить перцем.</li><li>Добавить сыр с плесенью, перемешать и сразу подавать.</li></ol>
+        </div>
+</body>
+</html>
