@@ -6,7 +6,7 @@ Servings:
 Active Time:
 Total Time:
 Source: Правильные блины и оладьи мира
-Image:
+Image: images/bliny-teoriya-blinov-i-oladiy-001.jpg
 
 Терминология:
 **Блины** – это пышные, пористые лепешки из жидкого, обычно дрожжевого теста. Тонкие блины принято называть **блинчиками**.
