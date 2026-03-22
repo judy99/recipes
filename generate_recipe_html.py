@@ -370,7 +370,7 @@ def generate_html(txt_path):
   body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
          background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }}
 
-  .photo-wrap img {{ width: 100%; max-height: 380px; object-fit: cover; display: block; }}
+  .photo-wrap img {{ width: 100%; max-height: 380px; object-fit: cover; object-position: center bottom; display: block; }}
 
   .header {{ padding: 24px 24px 16px; }}
   h1 {{ font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }}
@@ -425,7 +425,7 @@ def generate_html(txt_path):
   p.para:last-child {{ margin-bottom: 0; }}
 
   .inline-photo {{ margin: 16px 0; border-radius: 10px; overflow: hidden; }}
-  .inline-photo img {{ width: 100%; max-height: 320px; object-fit: cover; display: block; }}
+  .inline-photo img {{ width: 100%; max-height: 320px; object-fit: cover; object-position: center bottom; display: block; }}
   .inline-photo.portrait {{ display: flex; flex-direction: column; align-items: center; background: transparent; }}
   .inline-photo.portrait img {{ width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }}
   .inline-photo.portrait figcaption {{ width: 55%; text-align: center; }}
