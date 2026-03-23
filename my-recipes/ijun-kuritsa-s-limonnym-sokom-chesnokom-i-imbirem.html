@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Курица с лимонным соком, чесноком и имбирём</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/ijun-kuritsa-s-limonnym-sokom-chesnokom-i-imbirem-001.jpg" alt="Курица с лимонным соком, чесноком и имбирём"></div>
+  <div class="header">
+    
+    <h1>Курица с лимонным соком, чесноком и имбирём</h1>
+    <div class="meta">Main</div>
+    <div class="info-bar"><span><b>Servings:</b> 2–4 порции</span>  ·  <span><b>Total Time:</b> 50–60 минут</span>  ·  <span><b>Active Time:</b> 20–25 минут</span></div>
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (июнь)</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Это очень простое, но эффектное блюдо. За счет того, что куски курицы обваливаются в муке, а также того, что в процессе томления курица и лимон отдают соки, в результате получается очень ароматный соус, который лучше всего будет сочетаться с гарниром из отварного рассыпчатого риса (белого или коричневого) или кускуса, киноа.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>2 ст. л. пшеничной муки</li><li>4 куриных бедра</li><li>1 ст. л. оливкового масла</li><li>1 головка чеснока (или больше)</li><li>2 см свежего корня имбиря</li><li>1 лимон</li><li>2 ст. л. сухого вермута или хереса</li><li>5 веточек тимьяна</li><li>5–7 горошин душистого перца</li><li>1 ч. л. семян кориандра</li><li>несколько веточек петрушки</li><li>соль, свежемолотый черный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Всыпать муку в широкую миску, добавить соль и перец, перемешать. Обвалять куски курицы в муке и стряхнуть излишки.</li><li>Разогреть на средне-сильном огне глубокий сотейник с оливковым маслом. Выложить куски курицы и обжаривать в течение 6–8 минут, время от времени переворачивая, до золотистого цвета с обеих сторон.</li><li>Пока курица жарится, разобрать на зубчики чеснок, не очищая от шелухи. Имбирь очистить и нарезать пластинками. Половину лимона нарезать дольками.</li><li>Перевернув куриные бедра кожей вверх, влить в сотейник алкоголь и выпарить в течение пары минут. Добавить зубчики чеснока, имбирь, лимон, тимьян и специи, влить около 50 мл воды. Убавить огонь, слегка досолить курицу, накрыть крышкой и томить до готовности, 30–40 минут.</li><li>По желанию достать из готового соуса зубчики чеснока и выдавить мякоть из шелухи в соус, а сам соус процедить, чтобы удалить целые специи.</li><li>Мелко порубить петрушку и посыпать курицу с соусом при подаче, а также полить соком, выжатым из оставшейся половинки лимона.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Варианты</h2>
+          <ul class="notes-list"><li>Я не использую для этого рецепта голени, так как их сложнее равномерно обжарить до золотистой корочки, но при желании можно заменить куриные бедра ими или крылышками.</li><li>Вместо тимьяна можно добавить розмарин, но в меньшем количестве, всего 1 веточку.</li><li>Если под рукой не оказалось вермута или хереса, можно использовать 4 ст. л. сухого белого вина, а если блюдо будет подаваться детям, алкоголь вообще исключить из рецепта.</li><li>Вместо воды к обжаренной курице можно влить куриный или овощной бульон для более насыщенного вкуса.</li><li>По этому рецепту можно приготовить и любую плотную белую рыбу, но немного изменив технологию: сначала потомить все элементы соуса в течение примерно 20 минут, чтобы чеснок стал мягким, затем добавить обвалянную в муке и обжаренную на отдельной сковородке рыбу и готовить не дольше 10 минут на слабом огне.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>На уровень выше</h2>
+          <ul class="notes-list"><li>В готовый соус вмешать горсть каперсов.</li><li>Отдельно обжарить на оливковом масле до золотистого цвета нарезанный тонкими полукольцами лук и вмешать в готовый соус — он станет гуще и ароматнее.</li></ul>
+        </div>
+</body>
+</html>

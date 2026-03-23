@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ревень</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/ijun-reven-001.jpg" alt="Ревень"></div>
+  <div class="header">
+    
+    <h1>Ревень</h1>
+    <div class="meta">Theory</div>
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (июнь)</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">У ревеня две стороны — сладкая и кислая. Повернется он к нам той стороной, какой захотим. В дуэте с сахаром ревень великолепно играет в десертах, а стоит добавить немного соли, остроты и исключить сахар — и уже совсем другая история.</p><p class="para">Вообще, ревень уверенно входит в моду. Удивительно, что эти красивые розовые стебли, похожие на лакричные конфеты, оценили у нас только сейчас. Возможно, это связано с несколько недемократичной ценой. И это притом, что вырастить ревень у себя на даче ничего не стоит. А вот с гастрономической точки зрения оно очень даже стоит того! Ревень даже красуется на обложке книги Дэб Перельман, одной из самых популярных кулинарных блогеров (The Smitten Kitchen). Она готовит с ним очаровательные треугольнички из песочного теста по мотивам «ушей Амана» (гоменташи). Оторваться от них невозможно!</p><p class="para">Сезон ревеня начинается в начале июня и длится до конца месяца, позже наступает «вторая волна», которая длится с середины августа и до конца сентября.</p><p class="para"><strong>Как хранить</strong></p><p class="para">Ревень лучше готовить свежим, но он довольно долго хранится в отделении для овощей холодильника, до двух недель. Даже если он немного смягчится, не страшно. Вы все равно подвергнете его тепловой обработке.</p><p class="para">Учитывая сезонность ревеня и его цену, если вам удастся заполучить недорого или вырастить много ревеня, заморозьте его. Он прекрасно для этого подходит. Помойте и обсушите стебли, нарежьте кусочками по 2–4 см, уложите в пакеты для заморозки и отправьте в морозилку.</p><p class="para"><strong>Как чистить</strong></p><p class="para">Чистить ревень очень просто. Если он с листьями, удалите их. Обрежьте сухие кончики, помойте стебли и высушите. Готово!</p><p class="para"><strong>Важно</strong></p><p class="para">Помните, в ревене содержится щавелевая кислота, которая опасна для людей с заболеваниями ЖКТ и почек. В этом случае сырым его есть не рекомендуется, но в термически обработанном виде и в умеренных количествах — можно. Наибольшая концентрация кислоты — в листьях, поэтому их в пищу употребляют крайне редко, а в продаже встречаются только черешки.</p><p class="para"><strong>Идеи повседневных блюд с ревенём</strong></p><p class="para">Ревень — прекрасный гарнир к птице или свинине. Попробуйте обжарить курицу с тимьяном, острым перчиком, солью и паприкой, а затем добавить к ней ревень с луком и потушить до готовности. Или распластать курицу «бабочкой» и запечь на подушке из ревеня и лука. К свиным ребрам приготовьте соус из красного лука, ревеня, вяленой вишни, бальзамического уксуса и меда. Лук обжарьте до мягкости, а потом тушите все вместе, пока ревень не превратится в соус.</p><p class="para">Лето — пора легкости, поэтому ревень — отличный ингредиент для салата. В некоторых случаях он может остаться сырым для кислинки, а еще он прекрасно выступит карамелизованным. Представьте: листья корна или другого листового салата, поджаренные грецкие орехи, сладковатая горгонзола и кусочки ревеня, обжаренные в меду со сливочным маслом. В таком же виде ревень будет прекрасно сочетаться с обжаренной куриной печенью. Салатные листья, печень, ревень, сладкий красный лук, кедровые орешки.</p><p class="para">Ревень — гениальный гарнир к жирной рыбе! Подайте макрель (скумбрию), обжаренную в панировке из овсянки, с соусом из ревеня: просто тушите кусочки ревеня с тимьяном, капелькой сахара и воды под крышкой. Или запеките скумбрию и подайте к ней пряный соус из ревеня с имбирем, бадьяном, апельсиновым соком и цедрой.</p><p class="para">Сладкоежкам ревень тоже придется по вкусу, потому что с ним получаются просто гениальные сладкие блюда. Абсолютно не приторные, за счет естественной кислинки ревеня. Первый в списке — крем-брюле с ревенем. Все по классике, но перед тем как залить в формочку яично-сливочную смесь, нужно выложить туда по столовой ложке соуса, сваренного из ревеня с добавлением розмарина, сахара и лимонной цедры. Сами сливки можно тоже настоять на стебле розмарина.</p><p class="para">«Павлова» с соусом из ревеня и свежей клубникой. Кстати, клубника и ревень — прекрасная пара, очень гармоничная. Их часто сводят вместе в кексах, вареньях, мороженом и пирожных. А еще в коблере с имбирем, который лучше всего подавать теплым с ванильным мороженым. Если вы еще не приобщились к домашнему мороженому, можно начать с сорбета из ревеня и клубники. Или хотя бы подать к обычному ванильному мороженому соус из ревеня с красным вином, корицей и гвоздикой. Тарт-татен с ревенем и клубникой — волшебен.</p>
+        </div>
+</body>
+</html>
