@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Рыба в томатном соусе в стиле провансаль</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/iyul-ryba-v-tomatnom-souse-provansal-001.jpg" alt="Рыба в томатном соусе в стиле провансаль"></div>
+  <div class="header">
+    
+    <h1>Рыба в томатном соусе в стиле провансаль</h1>
+    <div class="meta">Main</div>
+    <div class="info-bar"><span><b>Servings:</b> 4 порции</span>  ·  <span><b>Total Time:</b> 1 час</span>  ·  <span><b>Active Time:</b> 20–25 минут</span></div>
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (июль)</div>
+  </div>
+  
+        <div class="section">
+          
+          <p class="para">Летнее и яркое блюдо, которое также можно приготовить и зимой, используя пассату.</p><p class="para">Лучше выбирать очень спелые помидоры; для более насыщенного вкуса можно добавить в соус дополнительно 1 ст. л. томатной пасты. А если используется пассата, наоборот, влить немного воды, чтобы соус не был слишком густым.</p><p class="para">Оливки с косточками, которые продаются в гурмэ-отделах магазинов на развес, гораздо вкуснее консервированных без косточки. Очистить их от косточек несложно: нужно надавить на оливку плоской стороной большого ножа, она треснет, и останется только удалить косточку.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>600 г филе трески</li><li>1 луковица</li><li>2–3 зубчика чеснока</li><li>1–2 см свежего корня имбиря</li><li>3–4 нити шафрана</li><li>1 кг помидоров или 600 мл пассаты</li><li>50 мл оливкового масла</li><li>цедра 1/2 лимона</li><li>цедра 1/2 апельсина</li><li>1 ст. л. жидкого меда</li><li>1/2–1 ч. л. хлопьев перца чили</li><li>соль, свежемолотый черный перец</li></ul><p class="ingr-subheader">для подачи:</p><ul class="notes-list"><li>небольшой пучок петрушки</li><li>12 оливок с косточкой</li><li>сок 1/2 лимона</li><li>3–5 ст. л. каперсов</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Замороженную рыбу заранее достать и разморозить на полке холодильника (около 6 часов). Нарезать на порционные кусочки шириной 5–7 см, посолить, поперчить.</li><li>Лук и чеснок порубить. Имбирь натереть на терке. Шафран залить 1–2 ст. л. горячей воды. Помидоры нарезать кусочками и измельчить в блендере до состояния неоднородного пюре.</li><li>Разогреть сковородку на среднем огне, влить масло, выложить лук, готовить до мягкости 5–7 минут, затем добавить чеснок и готовить еще 30 секунд.</li><li>Влить в сковородку измельченные помидоры или пассату, добавить имбирь, цедру лимона и апельсина, мед, воду с шафраном, хлопья чили, посолить и поперчить. Готовить 20–30 минут, до загустения соуса, периодически помешивая.</li><li>Выложить в соус рыбу, готовить по 2 минуты с каждой стороны.</li><li>Для подачи порубить листочки петрушки, оливки разрезать на 4 части, удалив косточки.</li><li>Выложить рыбу с соусом на тарелки для подачи, сбрызнуть лимонным соком, посыпать каперсами, оливками и зеленью.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Варианты</h2>
+          <ul class="notes-list"><li>Вместо трески можно использовать филе минтая, сибаса или другой белой рыбы.</li><li>Рыбу можно отдельно обжарить в панировке из пшеничной муки, по 2–3 минуты с каждой стороны, а затем потомить в соусе несколько минут или просто подать, красиво выложив поверх соуса.</li><li>Можно дополнить рыбу при подаче ломтиками лимона и/или украсить готовое блюдо листочками зеленого базилика.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>На уровень выше</h2>
+          <ul class="notes-list"><li>Можно влить соус в форму для запекания, выложить рыбу, посыпать оливками, каперсами и тертым пармезаном. Запечь в разогретой до 180 °C (356 °F) духовке в течение 10–15 минут, посыпать зеленью и подавать.</li><li>При приготовлении соуса можно добавить в него 100–120 мл сухого белого вина.</li><li>При желании можно надрезать помидоры крестообразно, залить кипятком, оставить на 1 минуту, остудить в холодной воде, затем снять кожицу.</li></ul>
+        </div>
+</body>
+</html>
