@@ -514,11 +514,14 @@ loadList();
 # ─── run ──────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
+    import sys
+    open_browser = "--no-browser" not in sys.argv
     server = HTTPServer(("", PORT), Handler)
     url = f"http://localhost:{PORT}"
     print(f"✓ Редактор запущен: {url}")
     print("  Ctrl+C для остановки")
-    webbrowser.open(url)
+    if open_browser:
+        webbrowser.open(url)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
