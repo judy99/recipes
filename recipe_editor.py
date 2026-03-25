@@ -3,14 +3,18 @@
 Редактор личных заметок к рецептам.
 Запуск: python3 recipe_editor.py
 Затем открыть: http://localhost:5050
+
+Только стандартная библиотека Python — никаких зависимостей.
 """
 import os
 import re
 import json
-import subprocess
+import base64
 import mimetypes
-import tornado.ioloop
-import tornado.web
+import subprocess
+import webbrowser
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from urllib.parse import urlparse
 
 RECIPES_DIR = os.path.dirname(os.path.abspath(__file__))
 MY_RECIPES_DIR = os.path.join(RECIPES_DIR, "my-recipes")
@@ -79,7 +83,7 @@ def write_personal_data(slug, rating, cooked_entries, my_notes, my_photo):
                 )
                 break
 
-    # My Notes: remove existing section, append at end
+    # My Notes: remove existing, append at end
     content = re.sub(r"\n\nMy Notes:[\s\S]*$", "", content)
     content = re.sub(r"\nMy Notes:[\s\S]*$", "", content)
     if my_notes.strip():
@@ -106,69 +110,94 @@ def list_recipes():
     return sorted(result, key=lambda r: r["title"].lower())
 
 
-# ─── handlers ────────────────────────────────────────────────────────────────
+# ─── HTTP handler ─────────────────────────────────────────────────────────────
 
-class RecipesHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.set_header("Content-Type", "application/json")
-        self.write(json.dumps(list_recipes(), ensure_ascii=False))
+class Handler(BaseHTTPRequestHandler):
 
+    def log_message(self, *args):
+        pass  # silence request log
 
-class RecipeHandler(tornado.web.RequestHandler):
-    def get(self, slug):
-        data = read_personal_data(slug)
-        if data is None:
-            self.set_status(404)
-            return
-        self.set_header("Content-Type", "application/json")
-        self.write(json.dumps(data, ensure_ascii=False))
+    def send_json(self, data, status=200):
+        body = json.dumps(data, ensure_ascii=False).encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
 
+    def read_json(self):
+        length = int(self.headers.get("Content-Length", 0))
+        return json.loads(self.rfile.read(length))
 
-class UpdateHandler(tornado.web.RequestHandler):
-    def post(self, slug):
-        body = json.loads(self.request.body)
-        write_personal_data(
-            slug,
-            rating=body.get("rating", ""),
-            cooked_entries=body.get("cooked", []),
-            my_notes=body.get("my_notes", ""),
-            my_photo=body.get("my_photo", ""),
-        )
-        self.set_header("Content-Type", "application/json")
-        self.write(json.dumps({"ok": True}))
+    def send_html(self, html):
+        body = html.encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
 
+    def do_GET(self):
+        path = urlparse(self.path).path
 
-class PhotoHandler(tornado.web.RequestHandler):
-    def post(self, slug):
-        if not self.request.files.get("photo"):
-            self.set_status(400)
-            return
-        file_info = self.request.files["photo"][0]
-        ext = os.path.splitext(file_info["filename"])[1].lower() or ".jpg"
-        filename = f"my-{slug}{ext}"
-        filepath = os.path.join(IMAGES_DIR, filename)
-        with open(filepath, "wb") as f:
-            f.write(file_info["body"])
-        self.set_header("Content-Type", "application/json")
-        self.write(json.dumps({"path": f"images/{filename}"}))
+        if path == "/":
+            self.send_html(HTML_PAGE)
 
+        elif path == "/api/recipes":
+            self.send_json(list_recipes())
 
-class ImageHandler(tornado.web.RequestHandler):
-    def get(self, filename):
-        filepath = os.path.join(IMAGES_DIR, filename)
-        if not os.path.exists(filepath):
-            self.set_status(404)
-            return
-        mime = mimetypes.guess_type(filepath)[0] or "image/jpeg"
-        self.set_header("Content-Type", mime)
-        with open(filepath, "rb") as f:
-            self.write(f.read())
+        elif path.startswith("/api/recipe/"):
+            slug = path[len("/api/recipe/"):]
+            data = read_personal_data(slug)
+            if data is None:
+                self.send_json({"error": "not found"}, 404)
+            else:
+                self.send_json(data)
 
+        elif path.startswith("/img/"):
+            filename = path[len("/img/"):]
+            filepath = os.path.join(IMAGES_DIR, filename)
+            if not os.path.exists(filepath):
+                self.send_response(404); self.end_headers(); return
+            mime = mimetypes.guess_type(filepath)[0] or "image/jpeg"
+            with open(filepath, "rb") as f:
+                body = f.read()
+            self.send_response(200)
+            self.send_header("Content-Type", mime)
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
 
-class MainHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.set_header("Content-Type", "text/html; charset=utf-8")
-        self.write(HTML_PAGE)
+        else:
+            self.send_response(404); self.end_headers()
+
+    def do_POST(self):
+        path = urlparse(self.path).path
+
+        if path.startswith("/api/update/"):
+            slug = path[len("/api/update/"):]
+            body = self.read_json()
+            write_personal_data(
+                slug,
+                rating=body.get("rating", ""),
+                cooked_entries=body.get("cooked", []),
+                my_notes=body.get("my_notes", ""),
+                my_photo=body.get("my_photo", ""),
+            )
+            self.send_json({"ok": True})
+
+        elif path.startswith("/api/photo/"):
+            slug = path[len("/api/photo/"):]
+            body = self.read_json()
+            ext = os.path.splitext(body.get("filename", "photo.jpg"))[1].lower() or ".jpg"
+            filename = f"my-{slug}{ext}"
+            filepath = os.path.join(IMAGES_DIR, filename)
+            with open(filepath, "wb") as f:
+                f.write(base64.b64decode(body["data"]))
+            self.send_json({"path": f"images/{filename}"})
+
+        else:
+            self.send_response(404); self.end_headers()
 
 
 # ─── HTML ─────────────────────────────────────────────────────────────────────
@@ -199,14 +228,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
                transition: background 0.1s; }
 .recipe-item:hover { background: #fdf5ee; }
 .recipe-item.active { background: #fff3e6; font-weight: 600; color: #c05f2a; }
-.recipe-count { font-size: 12px; color: #b0a090; margin-top: 4px; }
 
 /* ── Main panel ── */
 .main { flex: 1; overflow-y: auto; padding: 32px; }
 .empty-state { display: flex; flex-direction: column; align-items: center;
                justify-content: center; height: 60%; color: #c0a898; }
 .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
-.empty-state p { font-size: 15px; }
 
 .form-wrap { max-width: 600px; }
 .form-title { font-size: 22px; font-weight: 700; color: #1a1714; margin-bottom: 24px;
@@ -218,26 +245,29 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
                color: #7a4f2a; margin-bottom: 8px; }
 
 /* Stars */
-.stars { display: flex; gap: 6px; }
-.star { font-size: 28px; cursor: pointer; color: #d8cfc4; transition: color 0.1s; line-height: 1; }
+.stars { display: flex; gap: 6px; align-items: center; }
+.star { font-size: 30px; cursor: pointer; color: #d8cfc4; transition: color 0.1s; line-height: 1;
+        user-select: none; }
 .star.on { color: #f0a020; }
 .star:hover { color: #f0a020; }
+.clear-rating { font-size: 12px; color: #b0a090; cursor: pointer; margin-left: 8px;
+                text-decoration: underline; }
 
-/* Cooked list */
+/* Cooked */
 .cooked-list { display: flex; flex-direction: column; gap: 6px; }
 .cooked-row { display: flex; gap: 8px; align-items: center; }
 .cooked-input { flex: 1; padding: 8px 12px; border: 1.5px solid #e0cfc0;
                 border-radius: 8px; font-size: 14px; outline: none; background: white; }
 .cooked-input:focus { border-color: #c05f2a; }
 .btn-del { background: none; border: none; cursor: pointer; color: #c0a0a0;
-           font-size: 18px; padding: 4px; line-height: 1; }
+           font-size: 20px; padding: 2px 6px; line-height: 1; }
 .btn-del:hover { color: #c03030; }
 .btn-add { margin-top: 6px; background: none; border: 1.5px dashed #d0c0b0;
            color: #8a6a4a; font-size: 13px; padding: 6px 14px;
            border-radius: 20px; cursor: pointer; }
 .btn-add:hover { border-color: #c05f2a; color: #c05f2a; }
 
-/* Notes textarea */
+/* Notes */
 textarea { width: 100%; min-height: 120px; padding: 12px; border: 1.5px solid #e0cfc0;
            border-radius: 10px; font-size: 14px; line-height: 1.6;
            font-family: inherit; outline: none; resize: vertical; background: #fffef5; }
@@ -250,26 +280,25 @@ textarea:focus { border-color: #c05f2a; }
                  justify-content: center; overflow: hidden; flex-shrink: 0;
                  border: 2px solid #e8d8c8; }
 .photo-preview img { width: 100%; height: 100%; object-fit: cover; }
-.photo-preview .no-photo { font-size: 28px; }
+.no-photo { font-size: 28px; }
 .photo-btns { display: flex; flex-direction: column; gap: 8px; }
-.btn-upload { background: #f5ede4; color: #7a4f2a; border: none; font-size: 13px;
-              font-weight: 600; padding: 8px 16px; border-radius: 20px;
-              cursor: pointer; }
+.btn-upload { background: #f5ede4; color: #7a4f2a; border: 1.5px solid #e0cfc0;
+              font-size: 13px; font-weight: 600; padding: 8px 16px;
+              border-radius: 20px; cursor: pointer; }
 .btn-upload:hover { background: #f0dfd0; }
 .btn-clear-photo { background: none; border: none; color: #b09080; font-size: 13px;
                    cursor: pointer; padding: 4px 0; text-decoration: underline; }
-.photo-filename { font-size: 12px; color: #a09080; margin-top: 4px; }
+.photo-name { font-size: 12px; color: #a09080; margin-top: 2px; }
 #photo-file { display: none; }
 
 /* Save */
-.save-row { display: flex; align-items: center; gap: 14px; margin-top: 8px; }
+.save-row { display: flex; align-items: center; gap: 14px; margin-top: 8px; padding-top: 8px; }
 .btn-save { background: #c05f2a; color: white; border: none; font-size: 15px;
-            font-weight: 700; padding: 12px 32px; border-radius: 24px;
-            cursor: pointer; }
+            font-weight: 700; padding: 12px 32px; border-radius: 24px; cursor: pointer; }
 .btn-save:hover { background: #a04e22; }
 .btn-save:disabled { background: #c0a090; cursor: default; }
-.save-ok { color: #5a9a5a; font-size: 14px; font-weight: 600; opacity: 0;
-           transition: opacity 0.4s; }
+.save-ok { color: #5a9a5a; font-size: 14px; font-weight: 600;
+           opacity: 0; transition: opacity 0.3s; }
 .save-ok.show { opacity: 1; }
 </style>
 </head>
@@ -283,22 +312,24 @@ textarea:focus { border-color: #c05f2a; }
   <div class="recipe-list" id="recipe-list"></div>
 </div>
 
-<div class="main" id="main">
+<div class="main">
   <div class="empty-state" id="empty-state">
     <div class="icon">🥘</div>
     <p>Выбери рецепт слева</p>
   </div>
+
   <div class="form-wrap" id="form-wrap" style="display:none">
     <div class="form-title" id="form-title"></div>
 
     <div class="field">
       <label>Оценка</label>
-      <div class="stars" id="stars">
-        <span class="star" data-n="1" onclick="setRating(1)">★</span>
-        <span class="star" data-n="2" onclick="setRating(2)">★</span>
-        <span class="star" data-n="3" onclick="setRating(3)">★</span>
-        <span class="star" data-n="4" onclick="setRating(4)">★</span>
-        <span class="star" data-n="5" onclick="setRating(5)">★</span>
+      <div class="stars">
+        <span class="star" onclick="setRating(1)">★</span>
+        <span class="star" onclick="setRating(2)">★</span>
+        <span class="star" onclick="setRating(3)">★</span>
+        <span class="star" onclick="setRating(4)">★</span>
+        <span class="star" onclick="setRating(5)">★</span>
+        <span class="clear-rating" onclick="setRating(0)">убрать</span>
       </div>
     </div>
 
@@ -323,10 +354,9 @@ textarea:focus { border-color: #c05f2a; }
           <button class="btn-upload" onclick="document.getElementById('photo-file').click()">
             Загрузить фото
           </button>
-          <button class="btn-clear-photo" id="btn-clear-photo" onclick="clearPhoto()" style="display:none">
-            Удалить фото
-          </button>
-          <div class="photo-filename" id="photo-filename"></div>
+          <button class="btn-clear-photo" id="btn-clear-photo" onclick="clearPhoto()"
+                  style="display:none">Удалить фото</button>
+          <div class="photo-name" id="photo-name"></div>
         </div>
       </div>
       <input type="file" id="photo-file" accept="image/*" onchange="uploadPhoto(this)">
@@ -345,7 +375,6 @@ let currentSlug = null;
 let currentRating = 0;
 let currentMyPhoto = "";
 
-// ── load recipe list ──────────────────────────────────────────────────────
 async function loadList() {
   const r = await fetch('/api/recipes');
   allRecipes = await r.json();
@@ -353,10 +382,9 @@ async function loadList() {
 }
 
 function renderList(items) {
-  const el = document.getElementById('recipe-list');
-  el.innerHTML = items.map(r =>
+  document.getElementById('recipe-list').innerHTML = items.map(r =>
     `<div class="recipe-item${r.slug === currentSlug ? ' active' : ''}"
-          onclick="selectRecipe('${r.slug}', ${JSON.stringify(r.title)})">${r.title}</div>`
+          onclick="selectRecipe('${r.slug}')">${esc(r.title)}</div>`
   ).join('');
 }
 
@@ -365,8 +393,7 @@ function filterList(q) {
   renderList(allRecipes.filter(r => r.title.toLowerCase().includes(lq)));
 }
 
-// ── select recipe ─────────────────────────────────────────────────────────
-async function selectRecipe(slug, title) {
+async function selectRecipe(slug) {
   currentSlug = slug;
   renderList(allRecipes.filter(r =>
     r.title.toLowerCase().includes(document.querySelector('.search').value.toLowerCase())
@@ -382,47 +409,49 @@ async function selectRecipe(slug, title) {
   document.getElementById('notes-input').value = data.my_notes || '';
   currentMyPhoto = data.my_photo || '';
   renderPhotoPreview();
-  hideSaveOk();
+  document.getElementById('save-ok').classList.remove('show');
 }
 
 // ── rating ────────────────────────────────────────────────────────────────
 function setRating(n) {
   currentRating = n;
-  document.querySelectorAll('.star').forEach(s => {
-    s.classList.toggle('on', parseInt(s.dataset.n) <= n);
+  document.querySelectorAll('.star').forEach((s, i) => {
+    s.classList.toggle('on', i < n);
   });
 }
+function starsToNum(s) { return (s || '').split('').filter(c => c === '★').length; }
+function numToStars(n) { return '★'.repeat(n); }
 
-function starsToNum(rating) {
-  return (rating || '').split('').filter(c => c === '★').length;
-}
-
-function numToStars(n) {
-  return '★'.repeat(n);
-}
-
-// ── cooked list ───────────────────────────────────────────────────────────
+// ── cooked ─────────────────────────────────────────────────────────────────
 function addCookedRow(value) {
   const list = document.getElementById('cooked-list');
   const row = document.createElement('div');
   row.className = 'cooked-row';
-  row.innerHTML = `
-    <input class="cooked-input" type="text" value="${escHtml(value)}"
-           placeholder="напр. 15.03.2026 — очень вкусно!">
-    <button class="btn-del" onclick="this.parentElement.remove()">✕</button>`;
+  row.innerHTML =
+    `<input class="cooked-input" type="text" value="${esc(value)}"
+            placeholder="напр. 15.03.2026 — очень вкусно!">
+     <button class="btn-del" onclick="this.parentElement.remove()" title="Удалить">×</button>`;
   list.appendChild(row);
-  row.querySelector('input').focus();
+  if (!value) row.querySelector('input').focus();
 }
 
-// ── photo ─────────────────────────────────────────────────────────────────
-async function uploadPhoto(input) {
-  if (!input.files[0] || !currentSlug) return;
-  const fd = new FormData();
-  fd.append('photo', input.files[0]);
-  const r = await fetch('/api/photo/' + currentSlug, {method: 'POST', body: fd});
-  const data = await r.json();
-  currentMyPhoto = data.path;
-  renderPhotoPreview();
+// ── photo ──────────────────────────────────────────────────────────────────
+function uploadPhoto(input) {
+  const file = input.files[0];
+  if (!file || !currentSlug) return;
+  const reader = new FileReader();
+  reader.onload = async (e) => {
+    const b64 = e.target.result.split(',')[1];
+    const r = await fetch('/api/photo/' + currentSlug, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({filename: file.name, data: b64})
+    });
+    const data = await r.json();
+    currentMyPhoto = data.path;
+    renderPhotoPreview();
+  };
+  reader.readAsDataURL(file);
   input.value = '';
 }
 
@@ -434,19 +463,20 @@ function clearPhoto() {
 function renderPhotoPreview() {
   const preview = document.getElementById('photo-preview');
   const btn = document.getElementById('btn-clear-photo');
-  const fname = document.getElementById('photo-filename');
+  const name = document.getElementById('photo-name');
   if (currentMyPhoto) {
-    preview.innerHTML = `<img src="/img/${currentMyPhoto.replace('images/', '')}" onerror="this.style.display='none'">`;
+    const src = '/img/' + currentMyPhoto.replace('images/', '');
+    preview.innerHTML = `<img src="${src}" onerror="this.parentElement.innerHTML='<span class=\\'no-photo\\'>📷</span>'">`;
     btn.style.display = '';
-    fname.textContent = currentMyPhoto.split('/').pop();
+    name.textContent = currentMyPhoto.split('/').pop();
   } else {
     preview.innerHTML = '<span class="no-photo">📷</span>';
     btn.style.display = 'none';
-    fname.textContent = '';
+    name.textContent = '';
   }
 }
 
-// ── save ──────────────────────────────────────────────────────────────────
+// ── save ───────────────────────────────────────────────────────────────────
 async function saveRecipe() {
   if (!currentSlug) return;
   const btn = document.getElementById('btn-save');
@@ -454,33 +484,25 @@ async function saveRecipe() {
   btn.textContent = 'Сохраняю...';
   const cooked = [...document.querySelectorAll('.cooked-input')]
     .map(i => i.value.trim()).filter(Boolean);
-  const body = {
-    rating: numToStars(currentRating),
-    cooked,
-    my_notes: document.getElementById('notes-input').value,
-    my_photo: currentMyPhoto,
-  };
   await fetch('/api/update/' + currentSlug, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(body),
+    body: JSON.stringify({
+      rating: numToStars(currentRating),
+      cooked,
+      my_notes: document.getElementById('notes-input').value,
+      my_photo: currentMyPhoto,
+    }),
   });
   btn.disabled = false;
   btn.textContent = 'Сохранить';
-  showSaveOk();
+  const ok = document.getElementById('save-ok');
+  ok.classList.add('show');
+  setTimeout(() => ok.classList.remove('show'), 2500);
 }
 
-function showSaveOk() {
-  const el = document.getElementById('save-ok');
-  el.classList.add('show');
-  setTimeout(() => el.classList.remove('show'), 2500);
-}
-function hideSaveOk() {
-  document.getElementById('save-ok').classList.remove('show');
-}
-
-function escHtml(s) {
-  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function esc(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 loadList();
@@ -489,22 +511,15 @@ loadList();
 </html>"""
 
 
-# ─── app ──────────────────────────────────────────────────────────────────────
-
-def make_app():
-    return tornado.web.Application([
-        (r"/", MainHandler),
-        (r"/api/recipes", RecipesHandler),
-        (r"/api/recipe/(.+)", RecipeHandler),
-        (r"/api/update/(.+)", UpdateHandler),
-        (r"/api/photo/(.+)", PhotoHandler),
-        (r"/img/(.+)", ImageHandler),
-    ])
-
+# ─── run ──────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    app = make_app()
-    app.listen(PORT)
-    print(f"✓ Редактор запущен: http://localhost:{PORT}")
+    server = HTTPServer(("", PORT), Handler)
+    url = f"http://localhost:{PORT}"
+    print(f"✓ Редактор запущен: {url}")
     print("  Ctrl+C для остановки")
-    tornado.ioloop.IOLoop.current().start()
+    webbrowser.open(url)
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\nОстановлен.")
