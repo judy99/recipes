@@ -41,6 +41,8 @@ def parse_recipe(text):
         "total_time": "",
         "active_time": "",
         "image": "",
+        "my_photo": "",
+        "cooked": [],
         "note_header": "",
         "sections": []  # [{title, items: [str]}]
     }
@@ -50,10 +52,14 @@ def parse_recipe(text):
                        ("Tags:", "tags"), ("Rating:", "rating"),
                        ("Source:", "source"), ("Related:", "related"),
                        ("Servings:", "servings"), ("Total Time:", "total_time"),
-                       ("Active Time:", "active_time"), ("Image:", "image")]:
+                       ("Active Time:", "active_time"), ("Image:", "image"),
+                       ("My Photo:", "my_photo")]:
         m = re.search(field + r"[ \t]*([^\n]+)", text)
         if m:
             result[key] = m.group(1).strip()
+
+    # Multiple Cooked: entries
+    result["cooked"] = [m.strip() for m in re.findall(r"Cooked:[ \t]*([^\n]+)", text)]
 
     # Split into sections by blank lines + capitalized headers
     # Headers: lines that end with : and are short, or ALL CAPS words
@@ -62,7 +68,7 @@ def parse_recipe(text):
     current_section = None
     current_items = []
     skip_meta = {"Title:", "Category:", "Tags:", "Rating:", "Source:", "Related:", "Status:",
-                 "Servings:", "Total Time:", "Active Time:", "Image:"}
+                 "Servings:", "Total Time:", "Active Time:", "Image:", "My Photo:", "Cooked:"}
 
     for line in lines:
         stripped = line.strip()
@@ -315,6 +321,21 @@ def generate_html(txt_path):
         info_lines.append(f'<span><b>Active Time:</b> {recipe["active_time"]}</span>')
     info_bar_html = f'<div class="info-bar">{"  ·  ".join(info_lines)}</div>' if info_lines else ""
 
+    # Cooked dates
+    cooked_html = ""
+    if recipe["cooked"]:
+        chips = "".join(f'<span class="cooked-chip">{c}</span>' for c in recipe["cooked"])
+        cooked_html = f'<div class="cooked-bar"><span class="cooked-label">Готовила:</span> {chips}</div>'
+
+    # My Photo
+    my_photo_html = ""
+    if recipe["my_photo"]:
+        my_photo_html = f'''
+    <div class="my-photo-wrap">
+      <div class="my-photo-label">📸 Моё фото</div>
+      <img src="{recipe["my_photo"]}" alt="Моё фото — {name}">
+    </div>'''
+
     # Build sections
     sections_html = ""
     for sec in recipe["sections"]:
@@ -437,6 +458,18 @@ def generate_html(txt_path):
   .related-link {{ color: #c05f2a; text-decoration: none; font-weight: 500; }}
   .related-link:hover {{ text-decoration: underline; }}
 
+  .cooked-bar {{ font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }}
+  .cooked-label {{ font-weight: 600; color: #7a4f2a; }}
+  .cooked-chip {{ background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }}
+
+  .my-photo-wrap {{ margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }}
+  .my-photo-label {{ background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }}
+  .my-photo-wrap img {{ width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }}
+
   .back-btn {{ display: inline-flex; align-items: center; gap: 6px;
                margin: 28px 24px 20px;
                background: #c05f2a; color: white;
@@ -459,9 +492,11 @@ def generate_html(txt_path):
     <h1>{name}</h1>
     {meta_html}
     {info_bar_html}
+    {cooked_html}
     {related_html}
     {source_html}
   </div>
+  {my_photo_html}
   {sections_html}
 </body>
 </html>"""
