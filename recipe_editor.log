@@ -1,0 +1,2 @@
+/Users/lia/Library/CloudStorage/GoogleDrive-julia.kurianova@gmail.com/My Drive/cooking/recipes/recipe_editor.py:363: SyntaxWarning: invalid escape sequence '\w'
+  HTML_PAGE = """<!DOCTYPE html>
