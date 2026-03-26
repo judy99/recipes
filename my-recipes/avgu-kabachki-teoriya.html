@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Что делать с кабачками: идеи и рецепты</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Что делать с кабачками: идеи и рецепты</h1>
+    <div class="meta">Theory</div>
+    
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (август)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">В августе буквально на каждой даче начинается «кабачковое безумие». Вроде и посадили-то всего пару-тройку семян, откуда такое огромное количество плодов, так и норовящих вымахать до размеров дирижабля, если их вовремя не сорвать?</p><p class="para">Кабачки и цукини — не только полезный, но и поистине универсальный овощ, способный засиять во множестве ролей и ипостасей.</p><p class="para"><strong>Идеи блюд с кабачками:</strong></p><p class="para">Кабачковые «спагетти»: молодые кабачки или цукини натереть на терке для корейской моркови, спиралайзере или нарезать очень тонкими ломтиками вдоль, затем тонкими брусочками поперек, слегка посолить и оставить на 30 минут, затем обсушить, поперчить и подавать как гарнир. Вариант: приготовить любой горячий соус для пасты (например, болоньезе), но вместо обычной пасты добавить в сковородку с соусом «лапшу» из кабачка и прогреть пару минут.</p><p class="para">Кабачки, фаршированные мясом и рисом: разрезать небольшие кабачки пополам вдоль, выскрести сердцевину, чтобы получились «лодочки», посолить, оставить на 30 минут, затем отжать влагу и обсушить бумажными полотенцами. Слегка смазать снаружи оливковым маслом, выложить на противень или в форму для запекания. Наполнить фаршем (говяжьим или домашним, из говядины и свинины), смешанным с отварным рисом и специями. По желанию для сочности выложить поверх фарша тонкие кружочки помидора. Запекать при 180 °С до подрумянивания фарша, около 25 минут. По желанию посыпать сверху тертым твердым сыром и запекать еще 5–7 минут под верхним грилем, чтобы сыр расплавился.</p><p class="para">Кабачки в хрустящей панировке с пармезаном: разрезать цукини или кабачок на крупные брусочки, посолить, оставить на 30 минут, затем обсушить. Обвалять в смеси сухарей панко и тертого пармезана, выложить на выстеленный пергаментом противень и запечь при 180 °С до золотистой корочки. Подавать с айоли (домашним майонезом, смешанным с измельченным чесноком и щепоткой сладкой паприки).</p><p class="para">Фриттата с кабачком: нарезать молодой кабачок и красный сладкий перец кубиками примерно по 5 мм, порубить небольшой пучок любой зелени, натереть 40–50 г твердого сыра (лучше пармезана). Обжарить овощи на оливковом масле в термостойкой сковородке до светло-золотистого цвета. Взболтать 4 яйца с солью и перцем, перемешать с тертым сыром и зеленью, залить овощи. Готовить, пока фриттата слегка не схватится снизу, затем переставить в духовку, нагретую до 180 °С, на 5–7 минут, чтобы она пропеклась, но осталась нежной.</p><p class="para">Добавка в любой суп: добавить в самом конце, когда суп уже готов, тонкую «лапшу» из сырого цукини или кабачка (натереть на терке для корейской моркови, спиралайзере или нарезать очень тонкими ломтиками вдоль, затем тонкими брусочками поперек). В горячем супе кабачок слегка смягчится, но останется хрустящим и придаст супу приятную текстуру.</p><p class="para">Кабачки или цукини на зиму в томатном соке: нарезать кабачки или цукини брусочками размером с картошку фри. Выложить на дно стерилизованных банок по листочку базилика и нарезанному ломтиками зубчику чеснока, плотно уложить кабачки. Влить томатный сок в кастрюлю, довести почти до кипения, залить кабачки в банках по горлышко и дать постоять минут 10, чтобы кабачки прогрелись. Затем слить сок (так вы отмерите точное его количество, которое требуется), приправить солью, сахаром и яблочным уксусом так, чтобы вкус был насыщенным и приятным сладко-соленым (по желанию можно также добавить перец чили для остроты), довести до кипения. Залить кабачки кипящим соком, закрыть стерилизованными крышками, перевернуть, укутать и остудить.</p><p class="para"><strong>Другие рецепты с кабачками в конспектах ПРА:</strong></p><ul class="notes-list"><li>Икра из цукини или кабачков («Легкие и ПРАвильные рецепты»)</li><li>Кабачковая икра («ПРАвильные и простые рецепты на каждый день» и «ПРАвильные завтраки»)</li><li>Овощная икра в одном противне («ПРАвильные и простые блюда в одной посуде»)</li><li>Салат из печеных молодых кабачков с айвой и апельсинами («Марокканские истории»)</li><li>Запеченные кабачки, которые вас поразят (Кулинарный клуб «Готовим ПРАвильно», июнь)</li><li>Оладьи из кабачков («Много украинской и немного одесской кухни» и «ПРАвильные завтраки»)</li><li>Тарт с кабачками («ПРАвильные пироги мира»)</li><li>Овощные маффины («ПРАвильные семейные рецепты»)</li></ul>
+        </div>
+</body>
+</html>

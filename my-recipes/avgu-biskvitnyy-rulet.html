@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бисквитный рулет со сливочным сыром и фруктами</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Бисквитный рулет со сливочным сыром и фруктами</h1>
+    <div class="meta">Dessert</div>
+    <div class="info-bar"><span><b>Servings:</b> 6 порций</span>  ·  <span><b>Total Time:</b> 50–60 минут (плюс охлаждение 3–4 часа)</span>  ·  <span><b>Active Time:</b> 25–30 минут</span></div>
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (август)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Рецептов бисквитных рулетов множество, мы хотим предложить вам самый несложный вариант с минимальным набором ингредиентов.</p><p class="para">Бисквитное тесто здесь — самое простое, в нем даже нет разрыхлителя. Очень удобный рецепт для дачи, где частенько в нужный момент не оказывается пакетика разрыхлителя. По сути, это то же самое тесто, что используется для итальянского печенья савоярди. Так что берите рецепт на заметку, только для печенья лучше увеличить количество крахмала до 1 ст. л. и отсаживать тесто с помощью кондитерского мешка либо нарезать на полоски, если планируется использовать печенье в тирамису.</p><p class="para">Если у вас нет небольшого противня, можно сделать его из двойного слоя фольги, поместив на большой противень и сформировав бортики, и выстелить бумагой для выпечки.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li><strong>Для бисквита:</strong></li></ul><ul class="notes-list"><li>3 яйца</li><li>90 г сахара</li><li>щепотка соли</li><li>1/2 ч. л. ванильного экстракта</li><li>90 г пшеничной муки</li><li>1 ч. л. кукурузного крахмала</li><li>сахарная пудра для посыпки</li></ul><ul class="ingr-list"><li><strong>Для начинки:</strong></li></ul><ul class="notes-list"><li>250–300 г фруктов или ягод (например, малины, клубники, голубики, персиков)</li><li>150 г сливочного сыра</li><li>20–30 г сахарной пудры</li><li>1/2 ч. л. ванильного экстракта</li><li>150 г холодных сливок 30–35% жирности</li><li>цедра 1/4 маленького лимона или лайма (по желанию)</li><li>несколько листочков мяты</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Разогреть духовку до 175 °С. Небольшой противень размером примерно 22 х 32 см выстелить куском бумаги для выпечки на 1–2 см больше размера противня. Подготовить полотенце или второй кусок бумаги для выпечки такого же размера.</li><li>Для бисквита отделить яичные белки от желтков. Начать взбивать белки венчиком (или миксером с насадкой «венчик»), взбить до мягких пиков (при извлечении венчика образуются пики, которые при легком встряхивании меняют форму), затем всыпать половину сахара, подсыпая частями, и продолжить взбивать до плотных пиков.</li><li>В отдельной миске взбить желтки со щепоткой соли, оставшимся сахаром и ванильным экстрактом до пышной и светлой кремообразной массы.</li><li>Вмешать аккуратно лопаткой в желтковую массу взбитые белки в 3–4 этапа, двигаясь от стенок к центру, чтобы сохранить воздушность (не страшно, если останутся единичные мелкие белые вкрапления, это лучше, чем слишком сильно вымешать массу).</li><li>К воздушной яичной смеси просеять муку с крахмалом, еще раз аккуратно перемешать лопаткой до однородности. Тесто должно получиться пористым, легким, практически не текучим.</li><li>Выложить тесто лопаткой на противень и аккуратно распределить ровным слоем по всей поверхности. Выпекать на среднем уровне духовки 10–12 минут.</li><li>Готовый бисквит извлечь из духовки, накрыть сверху полотенцем или вторым куском бумаги для выпечки и решеткой. Затем аккуратно перевернуть бисквит на решетку бумагой, на которой он выпекался, вверх. Снять бумагу и скатать рулет вместе с полотенцем или нижним слоем бумаги, чтобы бисквит не слипся. Дать полностью остыть.</li><li>Для начинки подготовить фрукты или ягоды; если используете персики, нарезать их некрупными ломтиками.</li><li>Сливочный сыр взбить с сахарной пудрой и ванильным экстрактом, влить сливки и еще раз взбить до плотных пиков.</li><li>Аккуратно раскрыть рулет, удалив полотенце или бумагу, по желанию сверху слегка посыпать цедрой и сбрызнуть соком лимона или лайма, смазать 2/3 сливочной смеси, распределить 2/3 фруктов и ягод, аккуратно скатать рулет, слегка надавливая, чтобы не оставалось пустот.</li><li>Завернуть рулет в бумагу для выпечки или пищевую пленку, убрать в холодильник на 3–4 часа, а лучше на ночь для стабилизации. Оставшийся крем и фрукты или ягоды накрыть и также убрать в холодильник.</li><li>Перед подачей покрыть рулет оставшимся кремом, украсить ягодами и листочками мяты, присыпать сахарной пудрой.</li><li><strong>Варианты:</strong></li></ol><ul class="notes-list"><li>В начинке можно использовать любые сезонные фрукты и ягоды.</li><li>В зимнее время вместо свежих ягод можно использовать ягодное варенье и консервированные фрукты (персики, клубнику). Вареньем или джемом тонко покрыть бисквит перед нанесением крема либо добавить в крем и аккуратно перемешать лопаткой.</li><li>Можно менять пропорции сливочного сыра и сливок на свой вкус (например, 1:2 или 1:3) или сделать рулет только со взбитыми сливками — тогда рекомендуем пропитать бисквит вареньем.</li><li>Сливочный сыр можно заменить маскарпоне.</li></ul><ul class="ingr-list"><li><strong>На уровень выше:</strong></li></ul><ul class="notes-list"><li>Бисквит можно не просто смазать кремом снаружи, а красиво отсадить оставшийся крем с помощью кондитерского мешка, затем эффектно распределить ягоды или фрукты.</li></ul>
+        </div>
+</body>
+</html>

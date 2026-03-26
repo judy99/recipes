@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Запеченная форель с сальсой из помидоров черри</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Запеченная форель с сальсой из помидоров черри</h1>
+    <div class="meta">Main</div>
+    <div class="info-bar"><span><b>Servings:</b> 4 порции</span>  ·  <span><b>Total Time:</b> 50–60 минут</span>  ·  <span><b>Active Time:</b> 15–20 минут</span></div>
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (август)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Фишка этого рыбного блюда в слегка карамелизованных в процессе запекания помидорах с цитрусами и ароматными специями.</p><p class="para">Можно запечь одну большую форель, а можно приготовить две рыбки тем же общим весом, тогда время запекания нужно уменьшить до 15–18 минут.</p><p class="para">Для запекания вам понадобится большая чугунная сковородка или металлический противень с бортиками, или несколько листов фольги размером чуть больше рыбы. Стеклянная или керамическая форма не годится, потому что в ней рыба будет тушиться, а не запекаться.</p><p class="para">В соус, который остается после запекания рыбы, очень вкусно макать хлеб, так что имеет смысл запастись лепешками.</p><p class="para">Не бойтесь приготовить большую рыбу и не съесть ее за раз. В холодном виде она тоже вкусна: на завтрак с яйцом пашот и авокадо, на тостах или вафлях, также ее можно подать со спагетти на обед (обязательно сохраните для этого блюда оставшийся соус-маринад).</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>150–200 г помидоров черри</li><li>1 маленький апельсин</li><li>1 небольшой лимон</li><li>1 маленький зубчик чеснока или 1/2 ч. л. гранулированного чеснока (по желанию)</li><li>1 ч. л. каперсов (по желанию)</li><li>1–2 ст. л. оливкового масла</li><li>1 ч. л. меда или натурального сиропа</li><li>1 ч. л. семян фенхеля</li><li>1 форель весом 800–1000 г</li><li>2–3 веточки тимьяна</li><li>2–3 веточки орегано</li><li>соль, свежемолотый черный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Помидоры черри разрезать на половинки или четвертинки (если они крупные). Натереть цедру 1/2 апельсина, разрезать пополам, выжать сок из одной половины, вторую половину нарезать дольками. Натереть цедру 1/2 лимона, выжать сок из половины лимона, вторую половину нарезать дольками. Чеснок натереть на мелкой терке или порубить. Каперсы промыть, если они были в соли.</li><li>Разогреть духовку до 200 °С.</li><li>В миске смешать сок апельсина, сок лимона, оливковое масло, добавить мед, цедру, семена фенхеля, чеснок и каперсы.</li><li>Подготовить рыбу: выпотрошить, если она не потрошеная, очистить от чешуи, промыть, вытереть насухо бумажными полотенцами. Сделать несколько насечек на коже.</li><li>Выложить рыбу в форму для запекания подходящего размера, специальный противень или на несколько листов фольги. Посолить и поперчить. Положить внутрь рыбы травы и дольки апельсина и лимона, выложить на рыбу половинки помидоров, полить маринадом.</li><li>Запекать 20–25 минут на среднем или немного ниже среднего уровне духовки, до легкой румяной корочки. Если рыба начинает слишком сильно подрумяниваться в процессе, прикрыть в последние 5–10 минут фольгой. Готовая рыба должна внутри прогреться до 60 °С.</li><li>Подавать рыбу с соусом с помидорами из формы, дополнив по желанию гарниром (см. ниже).</li><li><strong>Варианты:</strong></li></ol><ul class="notes-list"><li>Если вам не нравятся каперсы, можете их исключить или добавить несколько оливок (без косточек, разрезанных пополам). Но каперсы здесь очень уместны и деликатны, после приготовления практически не ощущаются, а лишь дают важный вкусовой нюанс.</li></ul><ul class="ingr-list"><li><strong>На уровень выше:</strong></li></ul><ul class="notes-list"><li>С большой рыбой удобно одновременно запечь картофель в мундире, разрезав на половинки или четвертинки и перемешав с небольшим количеством оливкового масла, солью и перцем (мелкий беби-картофель можно запекать целиком).</li><li>Вместо картофеля на гарнир можно подать приготовленный кускус — соус также с ним будет превосходен.</li></ul>
+        </div>
+</body>
+</html>
