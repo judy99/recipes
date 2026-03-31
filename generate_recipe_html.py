@@ -67,16 +67,17 @@ def parse_recipe(text):
 
     current_section = None
     current_items = []
+    next_is_new_para = False  # blank line seen → next line starts a new item
     skip_meta = {"Title:", "Category:", "Tags:", "Rating:", "Source:", "Related:", "Status:",
                  "Servings:", "Total Time:", "Active Time:", "Image:", "My Photo:", "Cooked:"}
 
     for line in lines:
         stripped = line.strip()
 
-        # Skip empty lines between sections
+        # Blank line: paragraph break in description/method sections
         if not stripped:
             if current_items and current_section is not None:
-                pass  # keep going
+                next_is_new_para = True
             continue
 
         # Skip metadata lines
@@ -104,7 +105,18 @@ def parse_recipe(text):
         else:
             if current_section is None:
                 current_section = ""
-            current_items.append(stripped)
+            # Join wrapped PDF lines: in description ("") and method sections,
+            # a line that doesn't start a new step/bullet is a continuation
+            # of the previous item. Ingredients sections are left as-is.
+            is_ingredient_section = bool(re.search(r'Ингредиент', current_section or ""))
+            is_step_start = bool(re.match(r'^\d+[.)]\s', stripped))
+            is_bullet_start = bool(re.match(r'^[-•*]\s', stripped))
+            is_new_item = is_step_start or is_bullet_start or is_ingredient_section or next_is_new_para
+            next_is_new_para = False
+            if not is_new_item and current_items:
+                current_items[-1] = current_items[-1] + " " + stripped
+            else:
+                current_items.append(stripped)
 
     if current_section is not None and current_items:
         result["sections"].append({"title": current_section, "items": current_items})
