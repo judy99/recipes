@@ -90,7 +90,8 @@ def parse_recipe(text):
         is_colon_header = (
             re.match(r'^[А-ЯЁA-Za-z].{0,60}:$', stripped) and
             not re.match(r'^\d+\.', stripped) and
-            len(stripped) < 80
+            len(stripped) < 80 and
+            '. ' not in stripped  # exclude sentences ("Джоан Поттер. Это...:")
         )
         is_header = is_eq_header or is_colon_header
 
