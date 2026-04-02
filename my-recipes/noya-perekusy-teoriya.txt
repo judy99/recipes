@@ -5,7 +5,7 @@ Servings:
 Active Time:
 Total Time:
 Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)
-Image:
+Image: images/noya-perekusy-teoriya-001.jpg
 Rating:
 My Photo:
 Cooked:

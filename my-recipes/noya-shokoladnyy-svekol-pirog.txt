@@ -5,7 +5,7 @@ Servings: форма диаметром 20 см
 Active Time: 30 минут
 Total Time: 2,5 часа (включая охлаждение)
 Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)
-Image:
+Image: images/noya-shokoladnyy-svekol-pirog-001.jpg
 Rating:
 My Photo:
 Cooked:

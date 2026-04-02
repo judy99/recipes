@@ -5,7 +5,7 @@ Servings: 8 штук
 Active Time: 30 минут
 Total Time: 3 часа (с расстойкой)
 Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)
-Image:
+Image: images/noya-bulochki-dlya-burgerov-001.jpg
 Rating:
 My Photo:
 Cooked:

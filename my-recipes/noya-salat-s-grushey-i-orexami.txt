@@ -5,7 +5,7 @@ Servings: 4 порции
 Active Time: 20 минут
 Total Time: 20 минут
 Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)
-Image:
+Image: images/noya-salat-s-grushey-i-orexami-001.jpg
 Rating:
 My Photo:
 Cooked:

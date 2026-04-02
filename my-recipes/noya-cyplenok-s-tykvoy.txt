@@ -5,7 +5,7 @@ Servings: 4 порции
 Active Time: 20 минут
 Total Time: 1 час 10 минут
 Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)
-Image:
+Image: images/noya-cyplenok-s-tykvoy-001.jpg
 Rating:
 My Photo:
 Cooked:

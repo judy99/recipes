@@ -5,7 +5,7 @@ Servings: 6 порций
 Active Time: 30 минут
 Total Time: 1 час
 Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)
-Image:
+Image: images/noya-buttered-chicken-001.jpg
 Rating:
 My Photo:
 Cooked:

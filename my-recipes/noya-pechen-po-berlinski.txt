@@ -5,7 +5,7 @@ Servings: 2 порции
 Active Time: 30 минут
 Total Time: 1,5 часа
 Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)
-Image:
+Image: images/noya-pechen-po-berlinski-001.jpg
 Rating:
 My Photo:
 Cooked:

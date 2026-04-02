@@ -5,7 +5,7 @@ Servings: 5 бургеров
 Active Time: 45 минут
 Total Time: 1 час 20 минут
 Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)
-Image:
+Image: images/noya-burgery-s-chechevicey-001.jpg
 Rating:
 My Photo:
 Cooked:
