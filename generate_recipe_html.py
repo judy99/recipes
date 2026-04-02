@@ -86,7 +86,9 @@ def parse_recipe(text):
 
         # Detect section header: short line ending in : (not a numbered step)
         # OR == ... == style header
-        is_eq_header = bool(re.match(r'^==\s*.+\s*==$', stripped))
+        # OR === ... === style sub-header (rendered as h3 within a section)
+        is_sub_header = bool(re.match(r'^===\s*.+\s*===$', stripped))
+        is_eq_header = bool(re.match(r'^==\s*.+\s*==$', stripped)) and not is_sub_header
         is_colon_header = (
             re.match(r'^[А-ЯЁA-Za-z].{0,60}:$', stripped) and
             not re.match(r'^\d+\.', stripped) and
@@ -95,7 +97,13 @@ def parse_recipe(text):
         )
         is_header = is_eq_header or is_colon_header
 
-        if is_header:
+        if is_sub_header:
+            # Sub-header stays inside the current section as a special marker
+            if current_section is None:
+                current_section = ""
+            sub_title = re.sub(r'^===\s*|\s*===$', '', stripped)
+            current_items.append(f'[[SUBHEAD]]{sub_title}')
+        elif is_header:
             if current_section is not None and current_items:
                 result["sections"].append({"title": current_section, "items": current_items})
             if is_eq_header:
@@ -204,6 +212,13 @@ def render_section_items(items, base_dir=None):
 
     while i < len(items):
         item = items[i]
+        # Sub-header: === ... === rendered as h3
+        if item.startswith('[[SUBHEAD]]'):
+            sub_title = item[len('[[SUBHEAD]]'):]
+            html += f'<h3 class="subsection-title">{sub_title}</h3>'
+            step_counter = 1
+            i += 1
+            continue
         # Inline image: ![caption](path)
         m_img = re.match(r'^\!\[([^\]]*)\]\(([^)]+)\)$', item)
         if m_img:
@@ -246,6 +261,9 @@ def render_section_items(items, base_dir=None):
                     and not re.match(r'^\d', items[i])):
                 # Stop block at inline images so they render as figures, not list items
                 if is_inline_img(items[i]):
+                    break
+                # Stop block at sub-headers
+                if items[i].startswith('[[SUBHEAD]]'):
                     break
                 line_bullet = is_bullet(items[i])
                 if line_bullet != cur_bullet and block:
@@ -421,6 +439,9 @@ def generate_html(txt_path):
                     margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }}
   .section-icon {{ font-size: 17px; }}
 
+  .subsection-title {{ font-size: 15px; font-weight: 700; color: #3a2a1a;
+                       margin: 24px 0 10px; padding-bottom: 5px;
+                       border-bottom: 2px solid #e8d5b8; }}
   .ingr-subheader {{ font-size: 13px; font-weight: 700; text-transform: uppercase;
                      letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }}
   .ingr-list {{ list-style: none; display: flex; flex-direction: column; gap: 8px; }}
