@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бирьяни</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Бирьяни</h1>
+    <div class="meta">Main</div>
+    <div class="info-bar"><span><b>Servings:</b> 4–6 порций</span>  ·  <span><b>Total Time:</b> 2 часа + маринование</span>  ·  <span><b>Active Time:</b> 45 минут</span></div>
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Бирьяни — блюдо, с которым придется немного повозиться, но сложным оно вам покажется только первый раз. Когда вы поймете систему, что с чем мариновать, что в какой момент добавлять, сможете готовить его практически с закрытыми глазами. Блюдо чем-то напоминает плов, но техника приготовления совсем другая.</p><p class="para">Я использовала части цыплят с костью (крылышки, ножки, грудку), но обычно берут мякоть, например с бедер, нарезанную на кусочки по 3 см. Блюдо также можно приготовить из баранины, взяв мякоть ноги или лопатки.</p><p class="para">Вам может показаться необычным, что в воду для варки риса добавляются масло и лимонный сок. Масло, в любом случае, не повредит, а лимонный сок гарантированно сделает рис рассыпчатым.</p><p class="para">Еще один тонкий момент: точное количество добавляемой жидкости рассчитать сложно, потому что мясо (или птица) тоже даст сок. В готовом блюде снизу рис будет более влажным, а в верхнем — более рассыпчатым. Приготовив первый раз, вы поймете, устраивает ли вас текстура риса, и если захотите более рассыпчатый, просто сократите количество жидкости на 50 мл в следующий раз.</p><p class="para">По желанию бирьяни можно подать с натуральным йогуртом.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>на 4–6 порций</li><li>800–900 г мякоти курицы или баранины</li><li>3–4 крупные луковицы (500 г)</li><li><span class="qty">2 ст. л.</span> топленого или оливкового масла</li><li>2 коробочки кардамона</li><li>1 палочка корицы</li><li>4 бутончика гвоздики</li><li>2 небольших лавровых листа</li><li><span class="qty">1 ч. л.</span> смеси гарам-масала</li><li><span class="qty">1/2 ч. л.</span> молотого острого красного перца (лучше кашмирского)</li><li><span class="qty">1/3 ч. л.</span> тертого мациса или мускатного ореха</li><li><span class="qty">1/2 ч. л.</span> молотой куркумы</li><li>1 небольшой пучок кинзы</li><li>1/2 свежего красного или зеленого перца чили</li><li><span class="qty">150 мл</span> воды или бульона (куриного или овощного)</li><li>соль</li></ul><p class="ingr-subheader">для маринада:</p><ul class="ingr-list"><li>6 зубчиков чеснока</li><li>3 см свежего корня имбиря</li><li><span class="qty">250 мл</span> натурального греческого йогурта 3,5% жирности</li><li><span class="qty">1 ч. л.</span> соли</li></ul><p class="ingr-subheader">для риса:</p><ul class="ingr-list"><li><span class="qty">250 г</span> риса басмати</li><li><span class="qty">50 мл</span> цельного молока</li><li>большая щепотка шафрана</li><li>2 коробочки кардамона</li><li><span class="qty">2 ч. л.</span> топленого масла</li><li>сок 1/2 лимона</li><li><span class="qty">1/2 ч. л.</span> соли</li><li><span class="qty">1 ст. л.</span> розовой воды (по желанию)</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Нарезать куриное мясо небольшими кусочками. Чеснок и имбирь для маринада натереть на мелкой терке, смешать с йогуртом и солью. Выложить кусочки курицы в маринад, перемешать, переложить в плотно закрывающийся контейнер или пакет с зиплоком и убрать на несколько часов или на ночь в холодильник.</li><li>Лук нарезать тонкими полукольцами. В толстостенном сотейнике, в идеале чугунном (с крышкой, низком и широком), растопить топленое масло, всыпать лук, слегка посолить и готовить, время от времени помешивая, 20–25 минут, до хорошей карамелизации. Половину лука отложить в миску.</li><li>Добавить к луку все специи и прогреть в течение примерно 40 секунд. Выложить курицу или баранину вместе с маринадом.</li><li>Кинзу порубить вместе со стеблями. Порубить перец чили. Добавить кинзу и чили в сотейник, влить воду или бульон.</li><li>Перемешать и готовить на среднем огне 30–40 минут, до готовности мяса и выпаривания соуса — он должен загустеть.</li><li>Одновременно приготовить рис на гарнир. Всыпать его в сито и промыть под проточной холодной водой. Затем поместить сито с рисом на миску с холодной водой так, чтобы рис был полностью ею покрыт, и оставить на 30 минут.</li><li>Минут за 7 до варки риса прогреть в отдельной кастрюльке молоко почти до кипения и растереть в него пальцами шафран. Оставить настояться на 7–10 минут.</li><li>Влить в кастрюлю 1 л воды, всыпать промытый и замоченный рис, добавить кардамон, топленое масло, лимонный сок и соль. Довести до кипения на среднем огне, варить 2 минуты, затем откинуть в сито и дать воде как следует стечь.</li><li>Разогреть духовку до 180 °С.</li><li>Выложить рис ровным слоем поверх карри в сотейнике. Влить ложкой, стараясь распределять равномерно, молоко с шафраном. Полить, если используете, розовой водой и выложить отложенный ранее жареный лук. Выложить сверху плотно два листа фольги, накрыть крышкой.</li><li>Поместить сотейник в духовку на среднюю решетку и готовить 20 минут.</li><li>Достать сотейник из духовки и дать постоять, не снимая крышку, 5 минут. Затем снять крышку, слегка взрыхлить рис вилкой и сразу подавать. Бирьяни — это то блюдо, которое в идеале нужно есть сразу.</li></ol>
+        </div>
+</body>
+</html>

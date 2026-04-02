@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ризотто с курицей и зеленым горошком</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Ризотто с курицей и зеленым горошком</h1>
+    <div class="meta">Main</div>
+    <div class="info-bar"><span><b>Servings:</b> 2 порции</span>  ·  <span><b>Total Time:</b> 40 минут</span>  ·  <span><b>Active Time:</b> 40 минут</span></div>
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Что такое ризотто? Вроде все просто, что-то типа рисовой каши, но сколько нюансов нужно знать, чтобы приготовить его по-настоящему хорошо! Правильное ризотто похоже на горячую лаву, оно не должно быть сухим или слишком жидким. Кремовое — вот слово, лучше всего характеризующее ризотто. Но с характером, аль денте. Рис в ризотто кремовый снаружи, при этом слегка упругий внутри.</p><p class="para">Секрет ризотто, прежде всего, в правильном рисе. Самые известные сорта риса для этого блюда — арборио, карнароли и виалоне нано. Рис содержит два вещества, которые отвечают за содержание крахмала, — амилозу и амилопектин. Рис, в котором амилопектина больше, чем амилозы, будет более кремовым. Рис для ризотто не промывают, так как крахмал, содержащийся на его поверхности, при соединении с жидкостью как раз и создает ту самую кремовую текстуру.</p><p class="para">Есть что-то медитативное в приготовлении ризотто. Говорят, что после правильного риса перемешивание — еще один секрет. Но многие современные кулинары утверждают, что это миф, и вполне можно сразу влить весь бульон и особо не помешивать. Главное, чтобы сотейник был толстостенный, достаточно широкий и не слишком глубокий. Сохраните один половник бульона на всякий случай, не вливайте все сразу.</p><p class="para">Давать в рецепте точное время до минуты — глупость. Ведь даже рис одного сорта от разных производителей поведет себя немного по-разному. Но знаете, что важнее всего, чтобы получилось вкусно? Не заморачиваться слишком сильно. Ризотто, приготовленное с любовью и из качественных ингредиентов, не подведет, даже если текстура будет чуть-чуть неидеальной.</p><p class="para">Что еще делает ризотто кремовым? Добавление в конце приготовления сливочного масла и, конечно, пармезана. Качество сыра тоже важно: не любой сыр с названием «пармезан» подойдет для ризотто. Это должен быть достаточно зрелый твердый сыр, который хорошо крошится.</p><p class="para">Добавив в ризотто курицу, из первого мы превращаем его во вполне самостоятельное и полноценное блюдо. В ризотто нам больше нравится использовать мясо грудки, оно нейтральнее по вкусу и лучше сочетается с сыром. Главное — не пересушить, для этого мы его предварительно обжариваем и добавляем на последнем этапе приготовления ризотто.</p><p class="para">Еще один очень важный момент: подавать ризотто следует на подогретых тарелках. Их можно поставить в духовку, разогретую до 50–60 °С, и держать там до подачи.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>на 2 порции</li><li>150–200 г куриных грудок</li><li>2 ломтика панчетты, прошутто или коппы (по желанию)</li><li>1 зубчик чеснока</li><li>1 луковица шалота или 1/2 маленькой репчатой луковицы</li><li>30–50 г замороженного молодого зеленого горошка</li><li>30–40 г пармезана</li><li><span class="qty">500 мл</span> куриного или овощного бульона</li><li><span class="qty">1 ст. л.</span> оливкового масла</li><li>1 веточка тимьяна</li><li><span class="qty">130 г</span> риса арборио, карнароли или виалоне нано</li><li><span class="qty">50 мл</span> сухого белого вина</li><li><span class="qty">20 г</span> холодного сливочного масла</li><li>листочки петрушки для подачи</li><li>соль, свежемолотый черный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Нарезать куриное мясо небольшими кубиками, примерно по 1,5 см. Слегка посолить. Панчетту нарезать мелкими кубиками. Зубчик чеснока натереть на мелкой терке или очень мелко порубить. Лук очень мелко порубить, чтобы он успел «разойтись» в ризотто. Горошек достать из морозилки, оставить оттаивать. Сыр натереть на мелкой терке. Бульон прогреть — к моменту добавления в ризотто он должен быть горячим.</li><li>Разогреть в глубокой сковородке или в сотейнике на средне-сильном огне оливковое масло, выложить кусочки курицы, обжаривать в течение 2–3 минут, до появления золотистого оттенка. На данном этапе курицу нужно лишь подрумянить, в середине она должна остаться сыроватой. Переложить щипцами или шумовкой (жир должен остаться в сковородке) в емкость, накрыть крышкой.</li><li>Софрито. В ту же сковородку выложить лук, обжарить на умеренном огне до прозрачности, затем добавить панчетту, чеснок и веточку тимьяна, обжаривать еще 30–40 секунд.</li><li>Тостатура. Всыпать к луку рис, продолжить обжаривать еще 30–40 секунд, помешивая, — он должен полностью пропитаться жиром, стать прозрачнее, но при этом оставаться белым, не подрумяниться.</li><li>Влить вино и дать ему выпариться.</li><li>Влить 1–2 половника бульона и готовить, постоянно помешивая, пока рис не впитает почти всю жидкость. Затем добавить еще половник бульона, продолжить готовить, помешивая. Повторять эти действия до тех пор, пока не уйдет почти весь бульон, через 10 минут добавив курицу. Общее время приготовления ризотто — 15–17 минут с момента начала вливания бульона. Добавить зеленый горошек, перемешать. Извлечь веточку тимьяна.</li><li>Мантекатура. Достать из холодильника сливочное масло. Влить последний половник бульона, добавить кусочек сливочного масла и перемешать. Всыпать пармезан, выключить огонь. Поперчить и перемешать ризотто. Накрыть крышкой на 1–2 минуты, дать ему отдохнуть.</li><li>Разложить по теплым тарелкам, украсить листочками петрушки. Можно дополнительно посыпать тертым пармезаном.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">✨</span>Вариации к ризотто</h2>
+          <p class="para">Грибы. Грибы (шампиньоны, белые или лисички) можно использовать вместо горошка вместе с курицей, а можно сами по себе. Их можно обжарить до пассерования лука, как и курицу, положив затем в отдельную емкость и накрыв, либо на отдельной сковородке за 10 минут до окончания готовки ризотто, на оливковом или сливочном масле, не забыв посолить и поперчить.</p><p class="para">Тыква и кедровые орешки. Тыкву нарезать небольшими кубиками (примерно 1 см). Добавлять тыкву лучше в момент закладки чеснока, чтобы она подрумянилась, а затем продолжила готовиться вместе с ризотто. Кедровые орешки подрумянить на отдельной сковородке на среднем огне в течение примерно 2–3 минут, посыпать ризотто при подаче вместе с дополнительной порцией пармезана.</p><p class="para">Креветки и горошек. Креветки лучше всего обжарить на отдельной сковородке на разогретом оливковом масле за 10 минут до окончания готовности ризотто. Не забудьте посолить и поперчить. Можно добавить немного кайенского перца.</p>
+        </div>
+</body>
+</html>

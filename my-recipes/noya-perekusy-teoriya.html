@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Про перекусы</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Про перекусы</h1>
+    <div class="meta">Theory</div>
+    
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Задумывая эту тему для клуба, я представляла себе, прежде всего, вкусные и полезные перекусы для детей, которые они могут брать с собой в школу. Но затем поняла, что в наше насыщенное событиями время взрослые не меньше детей нуждаются в том, чтобы взять собой и съесть на работе что-то получше, чем покупной «картонный» сэндвич.</p><p class="para">И главное, что я хочу подчеркнуть: неважно, идет ли речь о перекусах для детей или взрослых, — установка «я быстренько сделаю что-то простое, кину в сумку, и отлично» здесь не работает. Если вы хотите, чтобы перекус был не только вкусным, но и полезным, придется его специально готовить. Поэтому, если вы хотите сэкономить время и силы, на мой взгляд, самая верная стратегия — готовить обычную еду с запасом и брать с собой либо то, что можно разогреть, либо такую еду, которая хороша и в холодном виде.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Что можно взять с собой</h2>
+          <p class="para">Условно перекусы можно разделить на следующие группы: то, что осталось от ужина (котлеты, птица, запеченные овощи); сэндвичи или бутерброды с намазками, рыбой, птицей или мясом; то, что можно завернуть в лаваш или тортилью, положить в питу; то, что можно смешать (гранола + йогурт; салат + заправка); не текучие салаты типа картофельного, с фасолью, винегрета; специально приготовленные блюда (несладкие маффины, омлет, террин, фриттата, запеканка); свежие овощи или гриссини с дипом (хумус, мусс из баклажанов, овощной паштет).</p><p class="para">Приведу пример «конструктора» ланчбокса, который я собираю мужу на завтрак или обед: яйца вкрутую (я поливаю их оливковым маслом, чтобы не было запаха, и посыпаю заатаром); свежие овощи (разрезанные пополам помидоры черри, брусочки огурца, полоски сладкого перца — слегка солю и сбрызгиваю оливковым маслом); ломтики феты; омлет типа японского с соевым соусом — лично мой любимый перекус; котлеты (любые хорошо приготовленные котлеты прекрасны и в холодном виде); куриная грудка (правильно приготовленная, нежная и сочная — чудо как хороша с соевым соусом или любой заправкой в азиатском стиле).</p><p class="para">Своим детям в школу чаще всего я даю бутерброды. Стараюсь покупать цельнозерновой хлеб и обязательно класть лист салата. Нарезаю яблоко или кладу в ланчбокс горсть сухофруктов.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Что не рекомендуется брать с собой</h2>
+          <p class="para">Любые блюда с жидким соусом. Рыбные блюда, если вы собираетесь их разогревать — людям рядом может не понравиться рыбный запах. Супы, за исключением случая, если у вас есть специальный герметично закрывающийся контейнер или термос. Фрукты и ягоды с заправкой или подсластителем — любые подобные добавки вызывают выделение сока.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Выбор ланчбокса</h2>
+          <p class="para">Наиболее безвредны металлические, но у меня был с ними неудачный опыт — они не герметичны и часто протекают, поэтому годятся только для сухой еды. Та же проблема и с деревянными емкостями. Поэтому я пользуюсь пластиковыми контейнерами с герметично закрывающейся вакуумной крышкой с клапаном.</p><p class="para">Мне нравятся ланчбоксы французской фирмы Monbento. Мало того что эти контейнеры удобные, они еще и красивые. Компания постоянно выпускает на рынок новинки с интересными рисунками и дизайнами.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Несколько идей</h2>
+          <p class="para">Бейгл с копченым лососем по Найджелу Слейтеру: разрезать пополам мягкий бейгл или булочку, слегка подпечь со стороны разреза на сухой сковородке и очень тонким слоем смазать васаби. Смешать пару столовых ложек сливочного сыра с несколькими горошинами зеленого перца (он продается в рассоле) или каперсами и рубленым укропом по вкусу. Смазать сыром с добавками нижнюю часть бейгла или булочки, выложить сверху ломтики филе копченого лосося и накрыть верхней частью.</p><p class="para">Ореховые батончики с шоколадом и кокосом (на 12–15 штук): 10 фиников без косточек; 1 ч. л. тертого свежего имбиря; 2 ст. л. кокосового масла; 1 банка (200 г) ореховой пасты; 80 г тыквенных семечек; щепотка соли; 80 г воздушной киноа; маленькая горсть рубленого миндаля; 100 г темного шоколада; 50 г кокосовой стружки. Финики измельчить с имбирем и кокосовым маслом в кухонном комбайне. Переложить в кастрюлю, добавить ореховую пасту, готовить, помешивая, на слабом огне до однородной массы. Снять с огня, вмешать семечки, соль, киноа и рубленый миндаль. Шоколад растопить на паровой бане. Прямоугольную форму выложить бумагой для выпечки. Выложить смесь и утрамбовать руками. Залить шоколадом, посыпать кокосовой стружкой и положить в морозилку или холодильник до застывания. Затем разрезать на батончики.</p><p class="para">«Пирожки» из киноа с соусом из авокадо (на 10–12 штук): 200 г киноа; 100 г шпината; 3 яйца; 200 г феты или козьего/овечьего сыра; кокосовое масло для жарки; соль, свежемолотый черный перец. Для соуса: 1 спелое авокадо; сок 1 лайма; 100 г натурального жирного йогурта; 1 зубчик чеснока. Отварить киноа: залить 500 мл воды, посолить, довести до кипения, уменьшить огонь и варить 15 минут. Охладить. В миске смешать киноа, рубленый шпинат, яйца, размятую фету, соль и перец. Сформовать «пирожки» и либо обжарить по несколько минут с каждой стороны на кокосовом масле, либо выложить на смазанный маслом противень и выпекать 10 минут в духовке при 180 °С. Для соуса взбить все ингредиенты в блендере.</p><p class="para">Рисовые шарики (на 12–15 штук): 200 г круглозерного, желательно бурого риса; щепотка соли; 50 г кунжута; 50 г конопляных семечек или хлопьев миндаля (по желанию); несколько перьев зеленого лука (по желанию). Начинка по вкусу: авокадо, рыба, приготовленный фарш. Замочить рис на 1 час, если есть время. Слить воду, залить рис водой (400–500 мл), добавить соль, довести до кипения под крышкой, уменьшить огонь и варить до готовности, пока вся вода не впитается, примерно 40 минут. Дать остыть. Обжарить кунжут на сухой сковородке до золотистого цвета, всыпать в рис, перемешать. По желанию добавить мелко нарубленный зеленый лук, семена конопли или миндальные хлопья. Скатать шарики, используя чашечку и пищевую пленку: отрезать кусок пленки, положить в маленький стаканчик, выложить часть риса, внутрь положить начинку, закрыть небольшим количеством риса, завернуть пленку в кулечек, формируя шарик.</p>
+        </div>
+</body>
+</html>

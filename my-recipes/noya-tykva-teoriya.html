@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тыква</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Тыква</h1>
+    <div class="meta">Theory</div>
+    
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Осень, несомненно, сезон роскошной тыквы. Как же эффектно смотрятся эти красавицы разных форм, размеров и цветов на фермерских рынках, глаз не отвести. Но я нередко сталкиваюсь с тем, что тыкву, несмотря на все ее общеизвестные полезные качества, далеко не все любят и понимают. Хотя если пробуют правильно приготовленную, часто меняют свое мнение.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Как выбирать</h2>
+          <p class="para">Сортов тыквы существует огромное множество, и не думаю, что нужно подробно описывать каждый. Несколько самых популярных назвать нужно, потому что вы наверняка найдете их в продаже в любом месте, где бы ни жили. В России, кстати, тыквы принято делить на три группы: мускатные, твердокорые и крупноплодные.</p><p class="para">Баттернат (мускатная). Ее легко отличить внешне, она имеет вытянутую форму с округлой нижней частью. Ее характерные особенности — гладкая и тонкая корка, отсутствие семян в узкой части и небольшое количество в округлой. Мякоть этой тыквы ярко-оранжевая и сладкая, а английское название butternut прямо описывает вкус в готовом виде: маслянистый и ореховый. Универсальный сорт, который подойдет практически для любого блюда.</p><p class="para">Хоккайдо. Небольшая по размеру тыква с ярко-оранжевой коркой, округлой или слегка вытянутой грушевидной формы. Родственница тыквы баттернат (она тоже относится к мускатным сортам), с такой же тонкой коркой и сладкой мякотью с ореховым привкусом в готовом виде. Из-за компактного размера идеально подходит для фарширования целиком.</p><p class="para">Акорн (желудевая). Как явствует из названия, формой тыква напоминает желудь. У нее довольно жесткая корка (она относится к группе твердокорых тыкв), которая может быть разных цветов, от светлого, почти белого, до темно-зеленого. Мякоть у этой тыквы светло-желтая и плотная, а потому хорошо подходит для жарки; в готовом виде она чем-то напоминает батат или картошку.</p><p class="para">Крупноплодная. Та самая тыква, которая ассоциируется с Хэллоуином или каретой для Золушки, круглая или приплюснутая, обычно ребристая. Главный ее недостаток (или достоинство?) — огромный размер. Хорошо, что эту тыкву часто продают в разрезанном виде. Мякоть у крупноплодных тыкв средней плотности, сладкая, и это также универсальный выбор для многих блюд, от супов до каш и десертов. Кстати, именно из этих тыкв получают семечки.</p><p class="para">Есть и необычные, экзотические сорта, например тыква-спагетти, интересная тем, что ее волокнистая мякоть в готовом виде по текстуре действительно напоминает самый популярный вид пасты. Отличная здоровая альтернатива настоящим спагетти.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Как хранить</h2>
+          <p class="para">Тыква может храниться очень долго, поэтому считается одним из самых популярных «зимних» овощей. В целом виде и в сухом прохладном месте тыква спокойно продержится полгода, а то и дольше. Но после разрезания ее уже следует держать в холодильнике — примерно неделю, максимум дней десять.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Как готовить</h2>
+          <p class="para">Существует множество способов готовить тыкву: ее можно запекать, делать пюре, варить разнообразные супы, жарить, фаршировать целиком (это очень эффектно и вкусно!), использовать как начинку для хинкали и тартов, добавлять в каши и ризотто, делать из ее мякоти цукаты, и это далеко не полный список. Тыкву даже можно есть в сыром виде!</p><p class="para">Особенность тыквы как кулинарного ингредиента в том, что ее мякоть хоть и сладкая, но в целом нейтральная по вкусу, поэтому она прекрасно «дружит» с разными специями. Тыквенное пюре для начинки тарта, например, украсят ароматные корица, гвоздика и бадьян, а если вы готовите несладкое блюдо, это может быть перец чили, черный перец, мускатный орех, сумах, любые «твердые» ароматные травы (тимьян, розмарин, орегано) и многое другое.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Идеи от знаменитых поваров</h2>
+          <p class="para">Йотам Оттоленги готовит тыкву баттернат с апельсиновым маслом и жженым медом. Апельсиновое масло делается просто: нужно снять с апельсина очень тонкий слой оранжевой цедры, измельчить в блендере с 50 мл оливкового масла, дать настояться полчаса и процедить. Тыкву (чуть меньше килограмма) нарезать ломтиками, сложить в миску, добавить пару ложек оливкового масла, щепотку тертого мускатного ореха, посолить, поперчить, перемешать и запечь до мягкости, перевернув в середине процесса. В кастрюльке прогреть мед до темного оттенка, добавить вырезанные из апельсина сегменты мякоти и ложечку яблочного уксуса, перемешать. Разложить на блюде печеную тыкву, ломтики сыра пекорино и апельсин в медовой глазури, посыпать листочками свежего орегано и жареными тыквенными семечками, полить оставшимся медом и сбрызнуть ароматным апельсиновым маслом.</p><p class="para">Джейми Оливер предлагает простое в приготовлении блюдо из курицы с тыквой: приправить филе куриной грудки рубленым майораном или орегано, посолить, поперчить и выложить в смазанную маслом форму. Нарезать мякоть тыквы тонкими ломтиками и красиво выложить вокруг филе. Посолить, посыпать перцем чили, полить несколькими ложками сливок, сбрызнуть все оливковым маслом и запекать при 200 °С минут 20–25.</p><p class="para">Найджел Слейтер делится рецептом пряного тыквенного супа с беконом: обжарить на сливочном масле рубленую луковицу и пару зубчиков чеснока, крупно нарезать примерно 700 граммов мякоти тыквы и обжарить вместе с луком до золотистого цвета. Отдельно слегка обжарить на сухой сковородке пару щепоток семян кориандра и кумина и растереть в ступке, добавить к тыкве вместе со щепоткой сухого перца чили. Влить литр куриного или овощного бульона и варить до мягкости тыквы. Готовый суп измельчить блендером, добавить 100 мл сливок и прогреть. При подаче посыпать обжаренным до хруста и разломанным на кусочки подкопченным беконом.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Zero waste: лайфхаки</h2>
+          <p class="para">Мускатные тыквы (баттернат и хоккайдо) запекайте и варите вместе с кожурой. Она мягкая и полностью съедобная.</p><p class="para">Если все-таки хотите очистить мускатную тыкву, сделайте из очисток чипсы: нарежьте срезанную овощечисткой кожуру полосками, выложите в миску, сбрызните оливковым маслом, посолите, поперчите и добавьте любую сухую ароматную траву (тимьян, розмарин) или перец чили хлопьями. Разложите на выстеленном пергаментом противне и подсушите в духовке при 160 °С до хруста.</p><p class="para">Небольшие тыквы хоккайдо используйте как эффектную посуду для подачи. Срежьте крышечки, извлеките волокнистую мякоть с семечками, посолите, поперчите, положите внутрь ароматные травы. Накройте срезанными крышками и запекайте при 180 °С до мягкости. В запеченной тыкве можно подать плов с сухофруктами, мясное или овощное рагу, карри и, конечно, тыквенный суп.</p><p class="para">У крупной тыквы извлеките из волокнистой мякоти семечки, промойте, хорошенько промокните полотенцем, а затем дайте полностью высохнуть, разложив их на выстеленном пергаментом противне в один слой, от 30 минут до 1 часа в очень слабо нагретой духовке, при 60–80 °С. Можно перед сушкой еще влажные семечки присыпать каменной солью.</p>
+        </div>
+</body>
+</html>

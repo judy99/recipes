@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Овощной суп</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Овощной суп</h1>
+    <div class="meta">Soup</div>
+    <div class="info-bar"><span><b>Servings:</b> 4–6 порций</span>  ·  <span><b>Total Time:</b> 45 минут</span>  ·  <span><b>Active Time:</b> 30 минут</span></div>
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Смысл хорошего овощного супа в том, чтобы минимально варить овощи — так они сохранят свою текстуру. Поэтому это не тот вариант супа, который варится впрок и затем разогревается — при разогревании овощи будут продолжать готовиться и станут слишком мягкими.</p><p class="para">Сладкий перец для супа берите теплого цвета: красный, желтый или оранжевый (не зеленый). Если сельдерей у вас тонкий, возьмите два стебля, или один потолще.</p><p class="para">Зеленую фасоль для игры текстур можно взять двух видов: тонкую кенийскую и плоскую. Не в сезон можно использовать замороженную фасоль, но тогда добавьте ее в суп вместе с брокколи и зеленым горошком, потому что она варится гораздо быстрее, чем свежая.</p><p class="para">Набор овощей для супа можно варьировать в зависимости от того, что сейчас в сезоне или что есть у вас под рукой. Но ориентируйтесь на время варки овощей. Так, зеленые овощи типа брокколи и горошка варятся буквально пару минут, фасоли нужно больше времени, а если используется картошка, то ее нужно варить первой и добавлять остальные овощи, когда она будет уже практически готова.</p><p class="para">По желанию суп можно сделать мясным: возьмите любой фарш (говяжий, домашний — смесь говяжьего со свиным, куриный), смешайте с отваренным до полуготовности рисом, мелко порубленным обжаренным или сырым луком и любыми специями, скатайте маленькие шарики и добавьте их в горячий, но не кипящий суп незадолго до того, как будете класть зеленые овощи.</p><p class="para">Количество жидкости (воды или бульона) регулируйте в зависимости от того, какой густоты хотите получить суп.</p><p class="para">Я готовлю суп на индукционной плите и могу поделиться точными значениями нагрева: 10 из 14 для обжаривания, 8 — для варки.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>на 4–6 порций</li><li>1–2 стебля сельдерея</li><li>1 средняя луковица</li><li>2 средние моркови</li><li>1 небольшой сладкий перец</li><li><span class="qty">150 г</span> зеленой фасоли</li><li><span class="qty">250 г</span> (около 1/3 средней головки) цветной капусты</li><li>100–150 г брокколи</li><li><span class="qty">70 г</span> зеленого горошка</li><li>2 зубчика чеснока</li><li><span class="qty">1 ст. л.</span> оливкового масла</li><li><span class="qty">1 ч. л.</span> любимой смеси специй (по желанию)</li><li>1–1,2 л воды, овощного или куриного бульона</li><li><span class="qty">2 ст. л.</span> рубленой зелени петрушки и/или укропа</li><li>соль, свежемолотый черный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Сельдерей очистить от кожицы с жесткими прожилками, разрезать вдоль на несколько полосок, затем нарезать мелкими кубиками. Лук мелко порубить. Морковь нарезать мелкими кубиками. Сладкий перец нарезать кубиками немного крупнее, чем морковь. У фасоли отрезать жесткие кончики, нарезать кусочками длиной около 1 см. Цветную капусту нарезать кубиками, брокколи разделить на маленькие соцветия. Зеленый горошек достать из морозилки и выложить в миску. Чеснок мелко порубить.</li><li>В толстостенной кастрюле на средне-сильном огне разогреть оливковое масло, всыпать морковь и сельдерей, обжаривать 3–5 минут, до легкой карамелизации. Добавить лук, обжаривать еще минуты 3, затем выложить сладкий перец и обжаривать примерно 5 минут. Добавить цветную капусту, готовить 5 минут. Всыпать чеснок и специи (если используете), посолить и обжаривать еще 1 минуту. Выложить фасоль и готовить, помешивая, 5 минут.</li><li>Влить в кастрюлю воду, довести до кипения и варить на умеренном огне около 7 минут, до готовности фасоли (она должна сохранить зеленый цвет). Попробовать, при необходимости досолить, поперчить. Добавить в суп брокколи и зеленый горошек, варить, не доводя до кипения, 3 минуты.</li><li>Снять суп с огня, по желанию добавить зелень (можно посыпать суп зеленью в тарелках).</li></ol>
+        </div>
+</body>
+</html>

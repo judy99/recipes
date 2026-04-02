@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Печень по-берлински с идеальным картофельным пюре, жареным луком и яблоками</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Печень по-берлински с идеальным картофельным пюре, жареным луком и яблоками</h1>
+    <div class="meta">Main</div>
+    <div class="info-bar"><span><b>Servings:</b> 2 порции</span>  ·  <span><b>Total Time:</b> 1,5 часа</span>  ·  <span><b>Active Time:</b> 30 минут</span></div>
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Традиционно по этому рецепту готовят говяжью или телячью печень с жареным луком и яблоками, и подают в сопровождении картофельного пюре.</p><p class="para">Печень следует выбирать свежую, насыщенного темно-красного цвета, без потемнений, заветренных или бледных участков. Старайтесь ее покупать в проверенном месте или у «своего» мясника. Чем меньше протоков в куске, тем лучше.</p><p class="para">Перед приготовлением печень нужно очистить от внешней пленки: поддевая ее ножом, аккуратно снимать слой движением чуть вверх и в сторону, другой рукой прижимая мякоть. Небольшим острым ножом аккуратно вырезать протоки. Для рецепта лучше всего использовать стейки говяжьей печени толщиной 1,5–2 см и длиной 12–14 см. Или взять вместо одного большого стейка из говяжьей печени два куска телячьей печени по 200 граммов. Вообще, с точки зрения пользы, телячья печень предпочтительнее говяжьей, и вкус у нее нежнее.</p><p class="para">Печень готовится очень быстро. Стоит подержать ее на огне лишнюю минуту — и она уже жесткая. Не бойтесь, если она останется в середине немного сыроватой, розовой. Перед обжаркой можно обвалять печень в муке и тщательно стряхнуть остатки — тогда у нее получится более румяная корочка.</p><p class="para">Топленое масло можно заменить сливочным.</p><p class="para">Если хочется сделать яблочный гарнир интереснее, можно при обжарке добавить к яблокам листочки тимьяна или розмарина. Для сладости, если у вас кислые яблоки, обжарьте их на смеси сливочного масла и меда (2 ч. л. меда и 2 ч. л. масла). А для дополнительной глубины вкуса полейте готовые яблоки хорошим бальзамическим уксусом.</p><p class="para">Чтобы жареный лук и яблоки не остывали, включите духовку на минимальную температуру (60–70 °С) и держите тарелки с этими гарнирами в ней, пока готовите печень.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>на 2 порции</li><li>1 большая луковица</li><li>2 яблока</li><li><span class="qty">400 г</span> говяжьей или телячьей печени</li><li><span class="qty">4 ч. л.</span> топленого масла</li><li>мелкая морская соль, свежемолотый черный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Лук очистить, нарезать полукольцами. Яблоки, не очищая от кожуры, но вырезав жесткую сердцевину, нарезать дольками толщиной 5 мм.</li><li>Стейки печени посолить и поперчить.</li><li>Разогреть в сковородке на среднем огне 1 ч. л. топленого масла, выложить лук и обжарить до золотистого цвета. Переложить на тарелку.</li><li>В ту же сковородку добавить еще 2 ч. л. масла, выложить яблоки в один слой (если не поместятся, то готовить двумя партиями) и жарить по 2 минуты с каждой стороны. Яблоки должны стать золотистыми и мягкими, но сохранить форму. Переложить на тарелку.</li><li>В ту же сковородку добавить оставшееся масло, выложить печень и жарить на средне-сильном огне по 1,5–2 минуты с каждой стороны. Переложить на тарелку.</li><li>Выложить печень на тарелки с картофельным пюре (рецепт ниже), дополнить жареным луком и яблоками, сразу подавать.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Идеальное картофельное пюре</h2>
+          <p class="para">Что делает пюре идеальным? Правильная картошка. Хорошее сливочное масло в достаточно большом количестве. Картофельный пресс или сито. Запекание в мундире.</p><p class="para">Для пюре нужно выбирать крахмалистые сорта картофеля. На упаковках картофеля, который продается не россыпью, обычно написано, для чего годится тот или иной сорт (для варки — крахмалистый, для жарки — восковой).</p><p class="para">Делать пюре лучше всего при помощи специального пресса, ни одна толкушка не даст вам такого однородного результата. Профессиональные повара протирают картошку в пюре через сито, но это работа не для слабонервных. Ни в коем случае нельзя делать картофельное пюре в блендере — вместо него у вас получится клейстер. (Хотя для любых других пюре блендер прекрасно подходит.)</p><p class="para">Не секрет, что пюре тем вкуснее, чем больше в нем сливочного масла. Некоторые именитые повара кладут на килограмм картофеля килограмм масла — на такие крайности мы, конечно, не пойдем, но если у вас хорошее сливочное масло, 100–200 граммов вполне можно себе позволить.</p><p class="para">Важно: если картофель не варить, а запечь в мундире, пюре будет куда ароматнее. При варке картошки часть вкуса уходит в воду. А под кожурой — самая вкусная мякоть, и при запекании этот вкус остается в самой картошке.</p><p class="para">И последнее: когда добавляете в пюре молоко или сливки, нужно обязательно их прогреть, нельзя использовать из холодильника, иначе пюре приобретет некрасивый серый оттенок.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты для пюре</h2>
+          <ul class="ingr-list"><li>на 4–6 порций</li><li><span class="qty">1 кг</span> крахмалистого картофеля</li><li>100–200 г сливочного масла</li><li><span class="qty">100 мл</span> сливок или молока</li><li>соль, свежемолотый черный или белый перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод для пюре</h2>
+          <ol class="steps"><li>Картофель хорошо помыть, но не чистить.</li><li>Духовку разогреть до 180 °С.</li><li>Каждую картофелину завернуть в фольгу и запекать до готовности примерно 1 час. Готовая картошка должна легко протыкаться вилкой.</li><li>Разрезать картофелины пополам, положить по очереди в картофельный пресс срезом вниз, не снимая кожуру. Выдавить пюре.</li><li>Добавить в горячее пюре сливочное масло и подогретые сливки, приправить солью и перцем, перемешать.</li></ol>
+        </div>
+</body>
+</html>

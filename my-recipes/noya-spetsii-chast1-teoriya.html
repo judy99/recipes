@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Про специи. Часть 1</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Про специи. Часть 1</h1>
+    <div class="meta">Theory</div>
+    
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Современная кулинария без специй немыслима, потому что они волшебным образом способны превратить простые и пресные блюда в яркие и аппетитные. Неслучайно именно за этим драгоценным грузом отправлялись караваны судов, которые в итоге открывали новые земли в Азии и Америке. Специи и по сей день входят в число самых дорогостоящих продуктов, но так как используются в очень малых количествах, доступны абсолютно всем.</p><p class="para">Важный момент: давайте разберемся, что такое специи и приправы, чем они отличаются? Специи добавляют для аромата в очень малых количествах, а приправы — для вкуса и в больших количествах. Поэтому перец — это специя, а соль, сахар, уксус или горчица — приправы. Есть еще разряд пряных трав, которые часто относят к специям, но мы не будем смешивать эти понятия.</p><p class="para">Многие члены клуба попросили рассказать про соль. Вкратце расскажу, какую соль предпочитаю сама и рекомендую всем. Во-первых, соль должна быть качественной и натуральной, то есть морской или хорошей каменной. Во-вторых, в составе не должно быть ничего, кроме самой соли. В-третьих, соль должна быть не йодированной, так как добавление йода придает ей неприятный металлический привкус. Что же касается гурмэ-соли, типа малдонской, флер-де-сель, соли хлопьями, — это соль не для готовки, а для украшения и подачи.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Как выбирать специи</h2>
+          <p class="para">Многие почему-то считают специи второстепенным ингредиентом и не обращают внимания на их качество. А ведь именно в случае со специями качество невероятно важно! Поэтому здесь особенно актуальны проверенные производители, лучше такие, кто занимается только специями, и с безупречной репутацией.</p><p class="para">В области специй, как нигде, много подделок, так как это дорогостоящий продукт. Вот главные советы: покупать у проверенных производителей; приобретать небольшие количества; избегать подозрительно дешевых специй; не покупать специи на рынках и в развес; выбирать по возможности целые специи, а не молотые.</p><p class="para">Чрезвычайно важно найти проверенного поставщика, которому вы доверяете. Отличным местом для заказа качественных специй являются онлайн-магазины. В разных странах свои проверенные бренды. В Москве, например, смело могу рекомендовать Сергея Ежова и его компанию Kampot Pepper. В Германии и, скорее всего, во всей Европе, можно уверенно покупать специи таких двух прекраснейших немецких брендов, как SpiceBar и SoulSpice.</p><p class="para">Выбрав достойного поставщика, закажите небольшое количество специй и оцените их. Прежде всего, визуально: у качественных специй цвет должен быть равномерным и одинаковым. Если вы видите в одной упаковке частицы специй разного оттенка, это говорит о том, что либо сырье было собрано слишком рано, либо специю неправильно хранили.</p><p class="para">Сероватый налет и приглушенный, будто выцветший оттенок говорят о том, что нарушены сроки хранения, специя «старая». Например, у хорошего кардамона яркий салатовый цвет, который со временем бледнеет. Специи со временем лучше не становятся. Поэтому покупайте понемногу, на месяц-два, максимум на полгода.</p><p class="para">Покупая специи на развес, вы рискуете получить некачественный товар. Самые яркие примеры подделок: кассия, которую выдают за корицу, имеретинский шафран вместо настоящего. В молотый красный перец подсыпают толченый кирпич, в молотый черный — золу, измельченные косточки от маслин и даже землю. Поэтому фотографируйте всю эту красоту на здоровье, но покупайте специи фабрично упакованные, в герметичных емкостях.</p><p class="para">Выбирая целые специи, вы рискуете гораздо меньше, чем при покупке молотых. Во-первых, подделать бутончики гвоздики, звездочки бадьяна или коробочки кардамона невозможно. Во-вторых, целые специи хранятся заметно дольше молотых. В-третьих, молоть специи несложно — можно делать это в специальной мельнице, в кофемолке или растирать пестиком в небольшой ступке (самый простой и удобный вариант: каменная, тяжелая, с шероховатой внутренней поверхностью).</p><p class="para">Отдельно следует сказать о специях, которые можно и нужно покупать молотыми. Это куркума, паприка, сумах и имбирь.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Как хранить специи</h2>
+          <p class="para">Все сухие специи требуют одинаковых условий хранения: в плотно закрытой посуде (поэтому я никогда не храню их в пакетиках, а пересыпаю в герметично закрывающиеся банки), в сухом, темном и прохладном месте (чтобы не отсырели и не окислились).</p><p class="para">Емкости для специй могут быть стеклянными, пластиковыми, металлическими или деревянными. У каждого варианта свои плюсы и минусы. Стекло прозрачное, в нем хорошо видно специи, но через стекло проникает свет, поэтому стеклянные емкости со специями лучше хранить в шкафчике. Пластик неплохой вариант, он не бьется, защищает от света, но должен быть качественным, ВРА (без бисфенола-А). Металлические баночки — мои любимые, они сделаны из химически нейтрального металла, легко моются, вечные в эксплуатации, не бьются и не пропускают свет. Наименее удобны деревянные емкости: они «дышат», а потому через них могут проникать влага и посторонние запахи.</p><p class="para">Обычно хранить специи в холодильнике не рекомендуют, потому что велика вероятность, что они отсыреют. Сколько хранятся специи? Полгода — максимальный срок хранения молотых специй, а целые могут храниться дольше, до года. Как определить, что специя «состарилась»? Самый простой способ: разотрите немного пальцами и понюхайте. Если запах слабый, пора выбрасывать.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Базовый набор специй</h2>
+          <p class="para">Как правило, в повседневной готовке мы придерживаемся какого-то одного стиля, для которого достаточно базового набора специй. Дополнительные нужны тогда, когда вы экспериментируете с блюдами национальных кухонь, например, индийской или тайской.</p><p class="para">У меня на кухне чаще всего используются следующие специи: качественный черный перец горошком, молотый острый красный перец, хлопья перца чили, душистый перец, паприка (сладкая и копченая), мускатный орех, кумин, куркума, кориандр, молотый имбирь, сушеный чеснок, лавровый лист, гвоздика, кардамон, корица, бадьян.</p><p class="para">Из смесей я активно использую заатар, реже хмели-сунели и уцхо-сунели, и то только тогда, когда готовлю блюда грузинской кухни. Из необычных специй я постоянно использую копченый перец и перец, замоченный в виски. Нашла в Берлине волшебный черный кумин (узбекский), он намного круче обычного — я всегда добавляю его, когда готовлю баранину или плов.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Как отмерять специи</h2>
+          <p class="para">Так как специи добавляются в блюда в очень малых количествах, существует проблема с тем, как их правильно отмерить. Мой совет: добавляйте специи по щепотке, понемногу. Наблюдайте, оценивайте вкус и аромат, запоминайте идеальное именно для вас количество, и очень быстро придет «шестое чувство», которое подскажет, сколько нужно взять той или иной специи.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Замены специй, эксперименты со специями</h2>
+          <p class="para">У каждой специи свой характерный вкус и аромат, поэтому они не взаимозаменяемы. Если в рецепте вам встретилась специя, которой под рукой нет, лучше вообще исключить ее из списка. Но, как всегда, из правила есть исключения. Так, любой острый красный перец можно заменять аналогами. Схожий ароматический профиль имеют анис и бадьян.</p><p class="para">Если вы новичок в кулинарии или пока не особо используете специи, экспериментировать с их добавлением я бы не советовала. Велик риск испортить блюдо, на которое вы потратили время, силы и деньги.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Как использовать специи</h2>
+          <p class="para">Специи добавляются в блюда на разных этапах. Можно заранее замариновать с ними мясо или птицу. Или добавить специи в кастрюлю одновременно со всеми ингредиентами бульона. Или посыпать специями блюдо ближе к концу процесса тушения. Есть и другие варианты, например, обжарка специй для соуса, в котором затем тушатся ингредиенты, как в индийском карри. Момент добавления зависит не от вида специи, а исключительно от рецепта.</p><p class="para">Как подготовить специи для добавления в блюдо? В некоторых случаях достаточно просто положить их в целом виде. Если используете молотые специи, лучше не сыпать их прямо из баночки над кастрюлей, так как внутрь емкости может попасть пар. Я заранее открываю баночки, кладу рядом чайные ложки, но ставлю их чуть подальше от плиты.</p><p class="para">Если готовите блюдо в индийском или ближневосточном стиле, скорее всего, в рецепте вам будет предложено обжарить специи. Это делается на среднем огне в небольшой сухой сковородке. Внимательно следите за процессом: прогревайте, часто встряхивая сковородку, как только появился характерный аромат — снимайте с огня и тут же пересыпайте в миску. На горячей сковородке специи продолжают готовиться и могут быстро сгореть.</p><p class="para">Обжаривание специй имеет несколько причин: так из них лучше выделяются ароматические масла, они подсушиваются и их становится легче растирать в ступке.</p><p class="para">Когда речь идет о жарке, есть тонкий момент: специи легко сгорают, поэтому, например, перчить стейк мы рекомендуем уже после того, как он будет готов, иначе вы рискуете получить сгоревший горький перец, ведь стейки жарят на сильно разогретой поверхности.</p>
+        </div>
+</body>
+</html>

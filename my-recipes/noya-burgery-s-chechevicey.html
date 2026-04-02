@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бургеры с чечевицей</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Бургеры с чечевицей</h1>
+    <div class="meta">Main</div>
+    <div class="info-bar"><span><b>Servings:</b> 5 бургеров</span>  ·  <span><b>Total Time:</b> 1 час 20 минут</span>  ·  <span><b>Active Time:</b> 45 минут</span></div>
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">В этом рецепте мы используем зеленую чечевицу, она не требует вымачивания, но при этом не разваривается, как красная, благодаря чему котлеты получаются сочнее и фактурнее. А еще они очень похожи на мясные! Семечки усиливают «ореховость» вкуса чечевицы и также улучшают текстуру котлет. Можно использовать бурую (коричневую) чечевицу, но обратите внимание, что она варится несколько дольше, и ее нужно будет вымочить в течение как минимум 2–3 часов. А чтобы ускорить процесс, вы можете взять готовую, консервированную чечевицу.</p><p class="para">Со специями можно поэкспериментировать, например, добавить копченую паприку для придания дымной ноты вкуса или немного кайенского перца для легкой остроты.</p><p class="para">Яйца можно заменить болтушкой из измельченного льна с водой (flax egg) для веганского варианта, а панировочную смесь из пшеничного хлеба — измельченными сухарями из безглютенового хлеба.</p><p class="para">Если красный лук оказался несладким, горчит, его можно слегка замариновать: нарезать полукольцами, влить немного хорошего уксуса, оставить на 5–10 минут, затем отжать.</p><p class="para">В качестве соуса мы рекомендуем йогуртовый. Он идеален не только для шаурмы, но и для вегетарианских бургеров. Можно выбрать томатный соус или использовать в бургере оба соуса. Для бургеров соус потребуется не весь, но готовить из половины банки помидоров нет смысла, соус подойдет для множества других блюд.</p><p class="para">Для бургеров лучше делать плоские котлеты. Также можно подавать их в пите — в этом случае сделайте котлеты чуть потолще и меньшего диаметра.</p><p class="para">Бонусом к этому рецепту — рецепт булочек для бургеров. Но если не хотите возиться с выпечкой, возьмите качественные покупные.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>на 5 бургеров</li><li><span class="qty">100 г</span> зеленой чечевицы (или 200 г консервированной)</li><li>1/2 небольшой луковицы (60–70 г)</li><li>1 зубчик чеснока</li><li>1 маленькая морковь (50 г)</li><li>40–50 г семечек подсолнечника и/или тыквы</li><li>1 яйцо</li><li><span class="qty">1 ч. л.</span> томатной пасты</li><li><span class="qty">1,5 ст. л.</span> вустерского соуса</li><li><span class="qty">50 г</span> панировочных сухарей панко (или пшеничных)</li><li><span class="qty">1 ч. л.</span> орегано или майорана</li><li><span class="qty">2/3 ч. л.</span> соли</li><li><span class="qty">2 ст. л.</span> топленого или оливкового масла</li><li>свежемолотый черный перец</li></ul><p class="ingr-subheader">для томатного соуса:</p><ul class="ingr-list"><li>1 маленькая луковица или 1/2 средней</li><li><span class="qty">1 ст. л.</span> оливкового масла</li><li>1 зубчик чеснока</li><li><span class="qty">1/2 ч. л.</span> молотого кориандра</li><li><span class="qty">1/2 ч. л.</span> молотого кумина</li><li><span class="qty">1/2 ч. л.</span> копченой паприки</li><li>щепотка молотого душистого перца</li><li><span class="qty">2 ст. л.</span> томатной пасты</li><li>несколько капель острого соуса чили или табаско</li><li><span class="qty">400 г</span> консервированных помидоров</li><li>соль, свежемолотый черный перец</li></ul><p class="ingr-subheader">для йогуртового соуса:</p><ul class="ingr-list"><li>несколько веточек свежей зелени (петрушка, укроп, кинза)</li><li>1 маленький зубчик чеснока</li><li><span class="qty">150 г</span> густого натурального йогурта</li><li><span class="qty">1 ст. л.</span> оливкового масла</li><li>соль, свежемолотый черный перец</li></ul><p class="ingr-subheader">для подачи:</p><ul class="ingr-list"><li>1 крупный или 2 небольших помидора</li><li>сладкий красный лук</li><li>5 булочек для бургеров</li><li>йогуртовый или томатный соус (примерно по 2 ст. л. на порцию)</li><li>салатные листья</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Чечевицу промыть, залить водой в соотношении 1:2, довести до кипения на среднем огне, варить примерно 20 минут, при необходимости уменьшив огонь, чтобы не было сильного кипения. Готовую чечевицу откинуть в сито, чтобы просохла, остудить.</li><li>Порубить лук и чеснок. Морковь нарезать небольшими ломтиками. Все сложить в чашу кухонного комбайна, добавить семечки, измельчить в импульсном режиме. Затем добавить 2/3 чечевицы и еще раз все измельчить. В готовой смеси не должно оставаться крупных кусочков.</li><li>Слегка взбить яйцо с томатной пастой и вустерским соусом.</li><li>Переложить измельченные овощи с чечевицей в миску, добавить оставшуюся чечевицу, яйцо с томатной пастой, всыпать панко, рубленые травы и соль, поперчить, вымесить до однородности руками или силиконовой лопаткой.</li><li>Используя кулинарные кольца или специальные приспособления, сформировать 5 котлет.</li><li>Разогреть в сковородке половину масла (оставшееся добавить при необходимости при обжаривании следующей партии), выложить 2–3 котлеты, обжаривать на среднем огне примерно по 4 минуты с каждой стороны. Если сильно подрумяниваются, слегка убавить огонь.</li><li>Для приготовления томатного соуса мелко порубить лук, обжарить на оливковом масле до прозрачности. Мелко порубить чеснок, добавить к луку и готовить еще пару минут. Всыпать все сухие специи и прогреть до появления аромата. Добавить томатную пасту и острый соус, перемешать, готовить 1–2 минуты, затем влить консервированные помидоры, посолить, поперчить и готовить на средне-слабом огне 10–15 минут, до загустения. Измельчить погружным блендером. Остудить.</li><li>Для приготовления йогуртового соуса зелень мелко порубить, чеснок натереть на мелкой терке или очень мелко порубить. В миску выложить йогурт, добавить масло, чеснок, зелень, посолить и поперчить, перемешать, убрать в холодильник до подачи.</li><li>Для подачи нарезать помидор кружочками, лук — кольцами или полукольцами.</li><li>Разрезать булочки пополам, смазать нижнюю половинку соусом, выложить салатные листья, положить котлету, затем ломтики помидора, лук и еще немного соуса. Накрыть верхней половинкой и подавать.</li></ol>
+        </div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Про специи. Часть 2</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Про специи. Часть 2</h1>
+    <div class="meta">Theory</div>
+    
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (ноябрь)</div>
+  </div>
+  
+  
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Сочетания специй</h2>
+          <p class="para">Вот, на мой взгляд, удачные сочетания специй: перец (как и соль) подходит ко всему; кумин, кориандр, имбирь (если хочется более восточную нотку, добавить корицу); паприка, чеснок, кумин; тмин — специя с очень специфическим вкусом, его редко с чем-то смешивают, но с кориандром и чесноком он вполне неплохо сочетается; кардамон, бадьян, корица, гвоздика; шафран, кумин, корица, имбирь.</p><p class="para">Вариантов немало. Лучший способ понять и почувствовать сочетания — готовить по национальным рецептам, где используются яркие специи, например, именно такие рецепты марокканской или индийской кухни.</p><p class="para">Если вы не совсем чувствуете специи, лучше не положить их, чем переборщить.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">🧂</span>Использование специй с конкретными продуктами</h2>
+          <p class="para">С овощами: к свекле подходят кумин, тмин; к цветной капусте подходят все специи, так как она нейтральна по вкусу; к кабачкам и цукини подходят все специи; к помидорам подходит кумин; к фасоли подходят все специи; к картошке подходят все специи; к сладкому перцу подходят кумин, кориандр, тмин; к баклажанам — кумин, кориандр, корица; к топинамбуру — паприка, кориандр, кумин, корица.</p><p class="para">С мясом и птицей: говядина — тмин, кориандр, сухой чеснок, черный перец, душистый перец, паприка, копченый перец, гвоздика, бадьян; баранина — кумин, кориандр, корица, бадьян, кардамон, шафран, смеси карри, сухой чеснок, куркума, имбирь, черный перец, душистый перец; свинина — бадьян, гвоздика, можжевельник, кориандр, тмин, сушеный чеснок, паприка, черный перец, душистый перец; курица — к ней подходят любые специи, в зависимости от кухни и рецепта; утка — бадьян, гвоздика, кардамон, кориандр, душистый перец; рыба — я не люблю специи с рыбой, только если это не конкретный рецепт национальной кухни.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Экзотические и редкие специи</h2>
+          <p class="para">Иногда можно побаловать себя редкими специями, но в принципе готовить вкусно и ароматно можно и без них. Тем не менее, вы спросили — мы отвечаем.</p><p class="para">Шафран. Это не редкая, а, скорее, дорогостоящая специя, представляющая собой сухие рыльца крокусов. Готовить паэлью без шафрана — просто кощунство. Шафран, из-за дороговизны, часто подделывают. Не покупайте молотый шафран, это почти наверняка фальшивка. Найдите специю в виде тонких темно-красных нитей, которая продается в прозрачных баночках. Перед использованием замочите в очень малом количестве воды.</p><p class="para">Сумах. Сушеные ягоды одноименного растения, обычно продаются в молотом виде. У сумаха очень интересный и многогранный вкус, одновременно фруктовый, кисло-сладкий, вяжущий и ягодный. Он используется в блюдах с жирным мясом, так как его кислинка хорошо сглаживает жирный вкус. В Азербайджане принято лук, который подают к шашлыку из баранины, посыпать сумахом.</p><p class="para">Пажитник (фенугрек). Это семена растения, распространенного на Кавказе, в Средиземноморье, Турции и на Ближнем Востоке. В кулинарии семена пажитника используются только в обжаренном виде, так как в сыром они сильно горчат. Жареный пажитник имеет приятный ореховый вкус и аромат топленого масла. Смесь сушеных цветков, семян и стручков пажитника в грузинской кухне называется уцхо-сунели.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Специи и дети</h2>
+          <p class="para">Судя по информации, которую я слышала на лекциях диетологов и нутрициологов, специи в детский рацион можно вводить рано, буквально на стадии прикорма, потому что специи — такой же продукт питания, как любой другой, они не опасны для детского организма или пищеварения (за исключением, разумеется, острых и жгучих). Мало того, ранний ввод в рацион ребенка специй помогает быстрее и глубже развить его вкус и раньше приучить к разнообразной еде.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Рецепты смесей специй</h2>
+          <ol class="steps"><li>Рас-эль-ханут. Североафриканская, в особенности популярная в Марокко, смесь специй, которая подходит для широкой гаммы блюд: для рыбы, маринадов, баранины, говядины, курицы, супов, тушеных блюд, риса и кускуса. Название смеси переводится как «хозяин магазина», в нее традиционно входили самые лучшие специи из тех, что мог предложить торговец, от 10 до 50 разных видов.</li><li>на 1 баночку объемом 200 мл: 3 ст. л. семян кумина 2 ст. л. семян кориандра 1 ч. л. зеленых коробочек кардамона 1 ч. л. семян аниса 1 ч. л. горошин черного перца 1 ч. л. семян фенхеля 1 ст. л. сушеных розовых бутонов 1 ч. л. сушеной лаванды 1 ч. л. тертого мускатного ореха 2 ст. л. молотой паприки 1 ст. л. молотой куркумы 1 ч. л. молотой корицы 1 ч. л. молотого имбиря 1 ч. л. молотого кайенского перца или перца чили</li><li>В маленькой сухой сковородке на среднем огне обжарьте кумин, кориандр, кардамон, анис, черный перец и семена фенхеля до появления аромата, примерно 1 минуту. Сразу пересыпьте в миску, остудите и смелите в мельнице для специй или разотрите в ступке в грубоватый по текстуре порошок.</li><li>Слегка разотрите сушеную розу, лаванду и мускатный орех в ступке пестиком, не в порошок, а чтобы остались крупные частицы. Добавьте к обжаренным специям вместе со всеми оставшимися ингредиентами и перемешайте.</li><li>Пересыпьте в плотно закрывающуюся банку и храните до 6 месяцев.</li><li>Гарам масала. Универсальная смесь специй с теплым ароматом, характерная для севера Индии. Можно добавлять как в соусы или при тушении, так и приправлять ею готовые блюда, посыпая, будто молотым перцем.</li><li>1 ст. л. горошин черного перца 1,5 ч. л. зеленых коробочек кардамона 1 ч. л. семян кориандра 1 ч. л. семян кумина 10 бутончиков гвоздики 1 ч. л. молотой корицы 1 ч. л. молотого имбиря 1/4 ч. л. тертого мускатного ореха</li><li>Цельные специи растереть в ступке.</li><li>Добавить молотые специи, перемешать.</li><li>Пересыпать в банку с плотно закрывающейся крышкой и хранить до 6 месяцев.</li></ol>
+        </div>
+</body>
+</html>
