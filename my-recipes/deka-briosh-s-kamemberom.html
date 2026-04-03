@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бриошь с камамбером и вареньем из брусники</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .subsection-title { font-size: 15px; font-weight: 700; color: #3a2a1a;
+                       margin: 24px 0 10px; padding-bottom: 5px;
+                       border-bottom: 2px solid #e8d5b8; }
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  
+  <div class="header">
+    
+    <h1>Бриошь с камамбером и вареньем из брусники</h1>
+    <div class="meta">Bread</div>
+    <div class="info-bar"><span><b>Servings:</b> 10 булочек</span>  ·  <span><b>Total Time:</b> 2 часа + ночь в холодильнике</span>  ·  <span><b>Active Time:</b> 40 минут</span></div>
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (декабрь)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Невероятно воздушные булочки хороши сами по себе, например, для бранча, со сливочным маслом или джемом, но попробуйте подать их с плавленым камамбером, а внутрь булочек «спрячьте» орехи или ветчину, и это будет уже не просто завтрак, а полноценная праздничная закуска. Все сюрпризы, конечно, на ваше усмотрение, можно обойтись и без них.</p><p class="para">Варенье из брусники настоятельно рекомендуем выбрать лучшее из возможных: густое, с цельными ягодами, которые будут приятно лопаться на языке. Вместо брусничного варенья можно использовать джем из клюквы, инжира или айвы.</p><p class="para">Камамбер (бри тоже подойдет) можно купить в деревянной форме и прямо в ней запекать. В нашем рецепте используется сыр небольшого размера — если форма больше, можно увеличить объем теста в полтора или два раза.</p><p class="para">После запекания закуску лучше подавать сразу, иначе сыр может остыть и стать плотным.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>100 г сливочного масла</li><li>2 яйца</li><li>1 ст. л. молока</li><li>180 г пшеничной муки (в идеале «сильной») + на подпыл</li><li>3–4 г быстрорастворимых дрожжей</li><li>15 г мелкого сахара</li><li>2 г соли</li><li>125 г камамбера</li><li>5 ломтиков вяленой прошутто крудо, пармской ветчины или коппы (по желанию)</li><li>5 половинок грецких орехов (по желанию)</li><li>молодые веточки тимьяна или розмарина для подачи</li><li>варенье из брусники для подачи</li></ul><p class="ingr-subheader">для смазывания:</p><ul class="notes-list"><li>1 яичный желток</li><li>1 ч. л. молока</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Масло достать из холодильника и оставить согреваться: оно должно стать мягким. Яйца слегка взбить с молоком.</li><li>В чаше миксера смешать муку с дрожжами, добавить сахар, соль, влить яичную смесь, установить насадку для теста в виде крюка, начать вымешивать на малой скорости, затем увеличить до средней, вымесить до объединения ингредиентов. На этом этапе тесто будет очень липким.</li><li>Снять тесто с крюка. Включить миксер, продолжая вымешивать тесто на средней скорости, добавить масло 2–3 порциями. В итоге должно получиться влажное, мягкое, липковатое, но более воздушное и пластичное тесто.</li><li>Чистую миску подходящего размера слегка смазать маслом, переложить в нее тесто, накрыть и оставить на 30 минут, затем убрать в холодильник на ночь.</li><li>Утром достать тесто из холодильника и дать ему слегка согреться (30–40 минут).</li><li>Разогреть духовку до 160 °С (320 °F). Подготовить круглую форму с невысокими бортиками, при необходимости выстелить бумагой для выпечки, а также небольшую круглую керамическую формочку для сыра.</li><li>У камамбера срезать белую плесень с одной плоской стороны, снова завернуть и убрать в холодильник.</li><li>Рабочую поверхность слегка присыпать мукой, выложить тесто, разделить на 12 кусочков. Два кусочка отложить. Остальные скатать в шарики, по желанию вложив в центр части заготовок ломтик ветчины или половинку грецкого ореха.</li><li>В центр формы поставить керамическую формочку для сыра, вокруг нее выложить 10 булочек. Из оставшихся 2 кусочков сформовать 10 мелких шариков-помпончиков: в центре булочек сделать углубление пальцем и положить туда маленький шарик теста.</li><li>Дать булочкам расстояться 30–40 минут до увеличения вдвое, накрыв пакетом или полотенцем.</li><li>Смешать яичный желток с молоком и смазать этой смесью поверхность булочек.</li><li>Выпекать булочки с сыром 15–20 минут на среднем уровне духовки до уверенного золотистого оттенка булочек и мягкости сыра.</li><li>Посыпать сыр тимьяном или розмарином. Подавать с вареньем из брусники.</li></ol>
+        </div>
+</body>
+</html>
