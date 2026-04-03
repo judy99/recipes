@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Утилизируем остатки</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .subsection-title { font-size: 15px; font-weight: 700; color: #3a2a1a;
+                       margin: 24px 0 10px; padding-bottom: 5px;
+                       border-bottom: 2px solid #e8d5b8; }
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/yan-utiliziruem-ostatki-teoriya-001.jpg" alt="Утилизируем остатки"></div>
+  <div class="header">
+    
+    <h1>Утилизируем остатки</h1>
+    <div class="meta">Готовим ПРАвильно (январь)</div>
+    <div class="info-bar"><span><b>Servings:</b> теория</span></div>
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (январь)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Не секрет, что сейчас, когда в супермаркетах и на рынках глаза разбегаются от выбора, мы часто берем либо ненужные в принципе продукты, соблазнившись их внешним видом, либо слишком большой объем или количество, поддавшись на скидку. В итоге практически всегда, а особенно после праздников, у нас возникает ситуация с забитым холодильником, полным разных остатков.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Как избежать импульсивных покупок</h2>
+          <ol class="steps"><li>Всегда берите с собой в магазин список продуктов, которые нужно купить, и строго его придерживайтесь. Планируете ли вы застолье или просто покупаете продукты на несколько дней для семьи, заранее продумайте, что конкретно вы будете готовить. Не покупайте про запас — строго по списку!</li><li>Отправляйтесь в супермаркет сытыми. Простое правило, но оно работает!</li><li>Не обращайте внимания на скидки, покупая по скидкам, вы рискуете либо набрать слишком много, либо возьмете не привычный, проверенный товар.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Как не допустить «захламления» холодильника</h2>
+          <ul class="notes-list"><li>Старайтесь держать холодильник не полностью заполненным — чем больше в нем свободного места, тем лучше циркуляция воздуха, и тем дольше продукты сохраняют свою свежесть.</li><li>Храните в холодильнике только то, что действительно нуждается в низких температурах.</li><li>Не храните в холодильнике хлеб, картофель, помидоры, лук, чеснок, цитрусы, бананы, дыню, растительные масла, уксусы, кофе, шоколад, варенья, мед, сухие крупы, бобовые, специи.</li><li>То, что можно заморозить, поместите в соответствующую упаковку (желательно подписать) и уберите в морозильник.</li><li>Не кладите продукты в слишком большие контейнеры, используйте маленькие. Удобнее хранить продукты в прямоугольных и квадратных контейнерах, которые можно ставить один на другой.</li><li>Соблюдайте принцип «товарного соседства»: на верхней полке молочные и кисломолочные, сыры; на нижней — мясные и рыбные продукты; на средних — готовые блюда; овощи и фрукты по отдельности — в нижнем специальном ящике.</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Как произвести ревизию в холодильнике</h2>
+          <p class="para">Отведите для ревизии время, скажем, целый час, не делайте ее наспех. Проводите ревизию холодильника регулярно, например, раз в 2 недели.</p><p class="para">Начните с верхней полки, достаньте все и проверьте сроки хранения и состояние продуктов. Продукты, у которых срок хранения истек, выбросьте без жалости. Те продукты, дата окончания срока хранения которых уже близко, пусть будут на виду — вам нужно поскорее пустить их в дело.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Идеи блюд из остатков</h2>
+          <ul class="notes-list"><li>Пицца с остатками колбасной нарезки (ростбифом, ломтиками митлофа), луком и маслинами</li><li>Буррито (тортилья с жареным луком, готовой красной фасолью, томатным соусом, остатками готовой курицы и сыром)</li><li>Рагу или запеканка из овощей (картофель, морковь, сладкий перец, помидоры)</li><li>Тушеная капуста с копченостями</li><li>Котлеты из картофельного пюре со сметаной</li><li>Томатный соус для пасты с готовыми морепродуктами</li><li>Сырный соус на основе бешамеля с остатками сырной нарезки для мак-н-чиз</li><li>Овощной суп с зеленым горошком</li><li>Бульон из каркаса запеченной птицы</li><li>Солянка (соленые огурцы, лук, томатная паста, мясное ассорти, маслины, лимон)</li><li>Сэндвичи с ростбифом, запеченной птицей или слабосоленым лососем</li><li>Морс или компот из свежих фруктов и ягод</li><li>Хлебный пудинг с яблоками</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Несколько рецептов от звездных шеф-поваров</h2>
+          <h3 class="subsection-title">Чечевично-сырный суп от Массимо Боттуры</h3><p class="para">В 2,5 стакана кипящей воды положить корочки пармезана (около 200 г) и варить 1 час, затем процедить. Сварить до мягкости в отдельной кастрюльке 100 г коричневой чечевицы, обсушить и слегка обжарить на оливковом масле. Отдельно обжарить на оливковом масле, а потом потомить под крышкой до мягкости в течение примерно получаса смесь свежих овощей (цукини, спаржа, морковь, сладкий перец, брокколи — всего по 100–150 г). Измельчить овощи в блендере, добавив немного свежей зелени (мята, тимьян, орегано). Добавить овощное пюре и чечевицу в сырный бульон, перемешать и прогреть, приправить по вкусу.</p><h3 class="subsection-title">Пряный печеный картофель с йогуртом и мятой от Найджела Слейтера</h3><p class="para">Поджарить в форме для запекания на оливковом масле среднюю порубленную луковицу, добавить маленький рубленый перчик чили, пару измельченных зубчиков чеснока и щепотку кумина, слегка прогреть. Выложить в форму слегка размятый отварной картофель (350–400 г), всыпать пару щепоток куркумы и перемешать. Запекать до хрустящей золотистой корочки, около 30 минут. Готовую картошку посолить и подавать с натуральным йогуртом, посыпав рубленой свежей мятой.</p><h3 class="subsection-title">Запеченный виноград с сыром от Джейми Оливера</h3><p class="para">Выложить на противень 500–600 г темного винограда, положить сверху пару веточек тимьяна, посыпать ложкой тростникового сахара, сбрызнуть столовой ложкой оливкового масла и столовой ложкой качественного винного уксуса. Запекать 5–10 минут при 220 °С, пока виноград не начнет лопаться. Нарезать кубиками 50 г чеддера и 125 г камамбера. Достать противень с виноградом, разложить между ягодами кусочки сыра и 50 г крем-фреша. Посыпать горстью сбрызнутых оливковым маслом листьев шалфея и вернуть в духовку на 5 минут, чтобы сыр начал плавиться. Подавать с хлебом, грецкими орехами и красным вином.</p>
+        </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Солянка с птичьими потрошками</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .subsection-title { font-size: 15px; font-weight: 700; color: #3a2a1a;
+                       margin: 24px 0 10px; padding-bottom: 5px;
+                       border-bottom: 2px solid #e8d5b8; }
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/yan-solyanka-s-potroshkami-001.jpg" alt="Солянка с птичьими потрошками"></div>
+  <div class="header">
+    
+    <h1>Солянка с птичьими потрошками</h1>
+    <div class="meta">Готовим ПРАвильно (январь)</div>
+    <div class="info-bar"><span><b>Servings:</b> 6 порций</span>  ·  <span><b>Total Time:</b> 1 ч 30 мин</span>  ·  <span><b>Active Time:</b> 40 мин</span></div>
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (январь)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">В отличие от сборной солянки с добавлением ассорти колбас, почек и мяса, эта солянка готовится в основном из куриных потрошков.</p><p class="para">Куриная печень не требует длительного приготовления, поэтому ее добавляют в самом конце варки. Если вы не любите какой-то из субпродуктов, можно приготовить суп только из сердечек и желудочков, или из чего-то одного, увеличив общее количество.</p><p class="para">Добавление в солянку маслин считается непреложной классикой еще с советских времен. По возможности рекомендуем заменить качественными оливками, например, каламата.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="ingr-list"><li>2–3 средние луковицы</li><li>3 зубчика чеснока</li><li>8–10 горошин черного перца</li><li>2–3 лавровых листа</li><li><span class="qty">300 г</span> куриных желудочков</li><li><span class="qty">300 г</span> куриных сердечек</li><li><span class="qty">250 г</span> куриной печени</li><li>1 сладкий перец</li><li>2 помидора и 2 ст. л. томатной пасты (или 250 мл консервированных резаных томатов)</li><li>1 морковь</li><li>70–100 г вареного-копченого бекона или грудинки</li><li>2 крупных соленых огурца (около 300 г)</li><li><span class="qty">200 г</span> маслин без косточки</li><li><span class="qty">50 г</span> топленого масла</li><li><span class="qty">1 ч. л.</span> острой копченой паприки</li><li><span class="qty">1 ст. л.</span> сахара</li><li>3–4 ст. л. каперсов</li><li><span class="qty">1,5 л</span> бульона (куриного, овощного или говяжьего)</li><li>зелень (укроп, петрушка, зеленый лук) для подачи</li><li>ломтики лимона для подачи</li><li>сметана для подачи</li><li>соль, свежемолотый черный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">👩‍🍳</span>Приготовление</h2>
+          <ol class="steps"><li>Довести до кипения 1,5–2 л воды, положить 1 луковицу, 2 зубчика чеснока, 1 ч. л. соли, черный перец горошком, 1 лавровый лист, убавить огонь до средне-слабого, выложить желудочки. Варить 20 минут, при необходимости снять пену. Затем добавить сердечки. Готовить 20 минут, снять пену. Положить печень, готовить 1–2 минуты.</li><li>Достать потрошки шумовкой и слить ненужный бульон, удалив специи. Потрошки остудить и нарезать кусочками. Печень отложить отдельно.</li><li>Оставшийся лук, сладкий перец и помидоры нарезать кубиками, морковь натереть на средней терке. Мелко нарезать бекон или грудинку. Соленые огурцы нарезать тонкими брусочками, маслины — колечками.</li><li>На среднем огне разогреть глубокий сотейник, добавить топленое масло, пассеровать на нем лук и морковку до светло-золотистого оттенка, 5 минут. Затем добавить бекон и продолжать готовить. Через пару минут — кубики сладкого перца, еще через 5 минут — желудочки и сердечки. Посолить, поперчить, всыпать острую копченую паприку. Готовить, помешивая, 10 минут. Добавить помидоры, томатную пасту, сахар, огурцы, маслины и каперсы. Томить 10–15 минут.</li><li>Бульон с оставшимся лавровым листом довести до кипения. Влить бульон в сотейник. Поставить на средне-слабый огонь и готовить еще 15 минут. За 1–2 минуты до готовности добавить печень. Из готовой солянки удалить лавровый лист, поперчить по вкусу.</li><li>Порубить оставшийся зубчик чеснока с зеленью.</li><li>Порции горячей солянки посыпать зеленью с чесноком, украсить ломтиками лимона. Подавать со сметаной.</li></ol>
+        </div>
+</body>
+</html>

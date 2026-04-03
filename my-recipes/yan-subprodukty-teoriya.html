@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Субпродукты</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .subsection-title { font-size: 15px; font-weight: 700; color: #3a2a1a;
+                       margin: 24px 0 10px; padding-bottom: 5px;
+                       border-bottom: 2px solid #e8d5b8; }
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/yan-subprodukty-teoriya-001.jpg" alt="Субпродукты"></div>
+  <div class="header">
+    
+    <h1>Субпродукты</h1>
+    <div class="meta">Готовим ПРАвильно (январь)</div>
+    <div class="info-bar"><span><b>Servings:</b> теория</span></div>
+    
+    
+    <div class="source">Source: Кулинарный клуб "Готовим ПРАвильно" (январь)</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Отношение к субпродуктам противоречивое. С одной стороны, их великое множество, и иногда люди просто не знают, как их готовить. С другой, зачастую психологически субпродукты воспринимаются как какие-то «отходы». Нам хотелось бы рассказать о субпродуктах подробнее, чтобы развеять предубеждение, если оно у вас есть. Они ценны и как источники пользы для здоровья (большинство богаты железом и витаминами), и как великолепные ингредиенты потрясающих блюд.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Философия «от носа до хвоста»</h2>
+          <p class="para">Думается, действительно важно, чтобы животное содержалось в гуманных условиях, а раз уж его забили, то мы должны правильно относиться к нему, с уважением, и использовать все полностью. Нет «плохих» частей, есть неумение их правильно готовить.</p><p class="para">Особенно в использовании субпродуктов преуспели жители Азии. Азиатскую кухню отличает мастерство в приготовлении субпродуктов, во многом за счет соусов с яркими вкусами благодаря соевому соусу, имбирю, перцу чили, уксусу и специям.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">🧂</span>Как выбирать субпродукты</h2>
+          <p class="para">Когда речь идет о субпродуктах, важно искать качественные, лучше органические или фермерские. Всегда отдавайте предпочтение субпродуктам от молодых животных — они мягче, нежнее, быстрее готовятся, а еще в них меньше накапливающихся с возрастом вредных веществ.</p><p class="para">Правила выбора здесь те же, что и в случае с мясом: визуальная свежесть, красивый внешний вид, отсутствие неприятных запахов, темных пятен.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Печень</h2>
+          <p class="para">Печень невероятно полезна (содержит рекордное количество легко усваивающегося железа, витамины группы В) и при правильном приготовлении бесподобна на вкус. Из печени делают паштеты, колбасы, жарят в виде стейков, готовят с ней салаты.</p><p class="para">При приготовлении любой печени важно помнить, что буквально пара лишних минут термической обработки может безвозвратно испортить этот продукт. Печень готовят быстро, так, чтобы она оставалась розоватой внутри. Передержанная печень становится сухой и неприятной на вкус.</p><p class="para">Говяжья печень особенно пахучая, поэтому перед приготовлением ее традиционно вымачивают в молоке. Если вы и ваши близкие не любите этот характерный запах, рекомендуем заменять в рецептах говяжью печень телячьей или куриной.</p><p class="para">Идея блюда: разделите куриную печень пополам, удалив жесткие протоки, слегка поперчите и заверните каждый кусочек в половину длинного ломтика соленого подкопченного бекона. Пожарьте на гриле или на решетке под верхним грилем духовки недолго, лишь до светло-золотистого цвета бекона, подавайте с соусом наршараб.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Язык</h2>
+          <p class="para">Для нас это практически синоним праздника. Наиболее популярен в кулинарии говяжий язык, который традиционно отваривают и едят в холодном виде с горчицей или хреном или подают горячим с картофельным пюре. Нежнее и вкуснее, на наш взгляд, язык телячий.</p><p class="para">В отличие от премиального мяса, язык, как и другие части с высоким содержанием коллагена, только выигрывает от заморозки, потому что становится мягче.</p><p class="para">Идея блюда: замените в традиционном оливье говядину или колбасу отварным языком и наслаждайтесь новым изысканным вкусом!</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Сердце</h2>
+          <p class="para">По сути, сердце — это мышца, поэтому у него такой выраженный «мясной» вкус, к тому же совершенно нейтральный запах. Но так как сердце постоянно работает при жизни животного, мышца эта очень жесткая. Обработайте сердце, довольно крупно нарежьте и обжарьте вместе с луком, затем добавьте бульон или воду и тушите на самом слабом огне более часа, до полной мягкости.</p><p class="para">Куриные сердечки чудо как хороши в сметанном соусе. Мягкими они становятся после 35–40 минут тушения.</p><p class="para">Любое сердце — отличный белковый продукт для стир-фрая: отварите его до мягкости, нарежьте соломкой, быстро обжарьте с овощами и заправьте азиатским соусом.</p><p class="para">Идея блюда: нарежьте обжаренные и потушенные кусочки говяжьего или телячьего сердца соломкой и запеките в кокотницах, смешав с соусом бешамель и сметаной — получится оригинальный жюльен.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Почки</h2>
+          <p class="para">В случае с почками крайне важна правильная подготовка: во-первых, нужно брать только охлажденные, а не замороженные почки (заморозка непоправимо меняет их текстуру), и без зеленых пятен от желчи; а во-вторых, их нужно очень тщательно обработать, удалив абсолютно весь жир, внутреннюю капсулу, все протоки, затем вымочить в молоке не менее суток. Самые вкусные почки — бараньи и кроличьи, их даже не нужно вымачивать.</p><p class="para">Идея блюда: обработайте, отварите и обжарьте любые почки, пропустите их через мясорубку, смешайте с рубленым яйцом и зеленым луком. Используйте как начинку для пирожков из слоеного теста.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Куриные желудки</h2>
+          <p class="para">Куриные желудки очень плотные и жесткие, но становятся вкуснейшими, если их долго томить на достаточном количестве жира с луком, особенно когда в конце добавите сметану и подадите с отварной гречкой или рисом.</p><p class="para">Перед приготовлением желудки нужно тщательно промывать и удалять возможно оставшиеся кусочки жесткой темно-желтой «кожицы» с внутренней стороны.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Костный мозг</h2>
+          <p class="para">Не случайно французы называют его «фуа-гра для бедных». Без хорошей говяжьей мозговой косточки немыслим наваристый бульон, особенно для борща.</p><p class="para">Идея блюда: приготовить лук конфи, медленно потомив луковицы с солью на оливковом или сливочном масле на минимальном огне в течение 40–60 минут. Запечь мозговые кости в очень горячей духовке 3–4 минуты. Поджарить ломтики дрожжевого хлеба. Выложить лук конфи поверх костного мозга и подавать с тостами.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Говяжьи хвосты</h2>
+          <p class="para">Говяжьи (бычьи) хвосты продаются очищенными, нужно удалить весь жир и разрубить по суставам на кусочки. Костей в хвостах много, как и соединительной ткани, но от этого они только вкуснее. Готовятся хвосты путем длительного тушения — сначала куски хвостов обжариваются, затем долго, несколько часов, тушатся.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Рецепты от звездных шеф-поваров</h2>
+          <h3 class="subsection-title">Телячья печень с жареным луком (от Ричарда Тернера)</h3><p class="para">Замочить 500 г нарезанной стейками толщиной 1 см телячьей печени в молоке на полчаса. Обжарить на большой сковородке 100 г нарезанного «мясного» бекона с горстью листочков шалфея до хруста, переложить шкварки на бумажное полотенце. Обжарить на жире от бекона 3 луковицы, нарезанные полукольцами, до золотистого цвета, переложить в миску. Обвалять обсушенные ломтики печени в муке с солью и перцем и быстро обжарить на средне-сильном огне примерно по 2 минуты с каждой стороны, чтобы печень осталась розовой внутри. Подавать с картофельным пюре, выложив сверху жареный лук и посыпав беконом.</p><h3 class="subsection-title">Острые бараньи почки на тостах (от Энтони Пухарича)</h3><p class="para">Тщательно обработать 6 почек молодых барашков, разрезав их вдоль пополам. Смешать в миске 3 ст. л. муки с 1 ч. л. кайенского перца, 1 ч. л. горчичного порошка, солью и черным перцем по вкусу. Разогреть в большой сковородке сливочное или топленое масло. Обвалять половинки почек в муке со специями и жарить на очень горячем масле по 2 минуты с каждой стороны. Влить вустерский соус по вкусу и 1/2 стакана куриного бульона, все прогреть, помешивая. Переложить почки на поджаренные тосты, а соус в сковородке уварить до загустения. Полить почки горячим соусом и сразу подавать.</p><h3 class="subsection-title">Рагу из бычьих хвостов (от Джейми Оливера)</h3><p class="para">Обжарить на оливковом масле в большой чугунной кастрюле мелко нарезанные 2 луковицы, 2 стебля сельдерея и 4 морковки с добавлением пары лавровых листов и веточки розмарина до мягкости, 15–20 минут. Разогреть духовку с противнем до 220 °С, выложить на горячий противень 2,5 кг говяжьих хвостов, нарезанных на кусочки по позвонкам, посолить, сбрызнуть оливковым маслом и запекать до румяной корочки 20 минут, затем достать и убавить температуру до 170 °С. К овощам в кастрюле добавить 2 ст. л. с горкой муки, влить 2 банки (800 г) консервированных помидоров и 300 мл сухого красного вина. Выложить хвосты, перемешать, накрыть и тушить 4 часа. С готового рагу аккуратно снять лишний жир, выбрать кусочки хвостов, немного остудить и руками отделить мясо, кости выбросить. Мясо вернуть в кастрюлю с соусом, посолить по вкусу и подавать с полентой, посыпав рубленой зеленью петрушки и лимонной цедрой.</p>
+        </div>
+</body>
+</html>
