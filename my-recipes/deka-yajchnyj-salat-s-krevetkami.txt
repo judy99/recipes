@@ -5,7 +5,7 @@ Servings: 4
 Active Time: 20 минут
 Total Time: 30 минут
 Source: Кулинарный клуб "Готовим ПРАвильно" (декабрь)
-Image:
+Image: images/deka-yajchnyj-salat-s-krevetkami-001.jpg
 Rating:
 My Photo:
 Cooked:

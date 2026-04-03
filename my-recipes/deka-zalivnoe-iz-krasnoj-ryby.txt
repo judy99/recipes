@@ -5,7 +5,7 @@ Servings: 8
 Active Time: 40 минут
 Total Time: несколько часов + ночь
 Source: Кулинарный клуб "Готовим ПРАвильно" (декабрь)
-Image:
+Image: images/deka-zalivnoe-iz-krasnoj-ryby-001.jpg
 Rating:
 My Photo:
 Cooked:

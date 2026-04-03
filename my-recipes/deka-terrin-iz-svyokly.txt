@@ -5,7 +5,7 @@ Servings: 8
 Active Time: 40 минут
 Total Time: 2 часа + ночь
 Source: Кулинарный клуб "Готовим ПРАвильно" (декабрь)
-Image:
+Image: images/deka-terrin-iz-svyokly-001.jpg
 Rating:
 My Photo:
 Cooked:
