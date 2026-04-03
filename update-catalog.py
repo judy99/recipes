@@ -73,7 +73,7 @@ def load_txt_recipe(fpath):
     category_match = re.search(r"Category:\s*(.+)", text)
     display_category = category_match.group(1).strip() if category_match else ""
 
-    image_match = re.search(r"Image:\s*(.+)", text)
+    image_match = re.search(r"Image: *(.+)", text)
     image = image_match.group(1).strip() if image_match else ""
 
     # Fallback: check legacy photo/ directory if no Image: field
