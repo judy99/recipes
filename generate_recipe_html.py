@@ -120,7 +120,8 @@ def parse_recipe(text):
             is_ingredient_section = bool(re.search(r'Ингредиент', current_section or ""))
             is_step_start = bool(re.match(r'^\d+[.)]\s', stripped))
             is_bullet_start = bool(re.match(r'^[-•*]\s', stripped))
-            is_new_item = is_step_start or is_bullet_start or is_ingredient_section or next_is_new_para
+            is_inline_media = bool(re.match(r'^\!\[', stripped))
+            is_new_item = is_step_start or is_bullet_start or is_ingredient_section or next_is_new_para or is_inline_media
             next_is_new_para = False
             if not is_new_item and current_items:
                 current_items[-1] = current_items[-1] + " " + stripped
@@ -219,19 +220,26 @@ def render_section_items(items, base_dir=None):
             step_counter = 1
             i += 1
             continue
-        # Inline image: ![caption](path)
+        # Inline image or video: ![caption](path)
         m_img = re.match(r'^\!\[([^\]]*)\]\(([^)]+)\)$', item)
         if m_img:
             caption, src = m_img.group(1), m_img.group(2)
-            portrait = False
-            if base_dir:
-                abs_src = os.path.join(base_dir, src)
-                portrait = _is_portrait(abs_src)
-            cls = 'inline-photo portrait' if portrait else 'inline-photo'
-            fig = f'<figure class="{cls}"><img src="{src}" alt="{caption}">'
-            if caption:
-                fig += f'<figcaption>{caption}</figcaption>'
-            fig += '</figure>'
+            if src.lower().endswith(('.mp4', '.mov', '.webm')):
+                # Video element
+                fig = f'<figure class="inline-video"><video controls preload="metadata" src="{src}"></video>'
+                if caption:
+                    fig += f'<figcaption>{caption}</figcaption>'
+                fig += '</figure>'
+            else:
+                portrait = False
+                if base_dir:
+                    abs_src = os.path.join(base_dir, src)
+                    portrait = _is_portrait(abs_src)
+                cls = 'inline-photo portrait' if portrait else 'inline-photo'
+                fig = f'<figure class="{cls}"><img src="{src}" alt="{caption}">'
+                if caption:
+                    fig += f'<figcaption>{caption}</figcaption>'
+                fig += '</figure>'
             html += fig
             i += 1
         # Sub-header: short line ending with ":" (e.g. "для соуса:")
@@ -485,6 +493,10 @@ def generate_html(txt_path):
   .inline-photo.portrait img {{ width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }}
   .inline-photo.portrait figcaption {{ width: 55%; text-align: center; }}
   .inline-photo figcaption {{ font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }}
+  .inline-video {{ margin: 16px 0; border-radius: 10px; overflow: hidden; background: #000; }}
+  .inline-video video {{ width: 100%; max-height: 400px; display: block; }}
+  .inline-video figcaption {{ font-size: 12px; color: #9a8a80; padding: 6px 10px;
                                background: #f5f0eb; font-style: italic; }}
 
   .related-section {{ font-size: 13px; margin-top: 8px; color: #9a8a80; }}
