@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тефтельки Карлсона</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .subsection-title { font-size: 15px; font-weight: 700; color: #3a2a1a;
+                       margin: 24px 0 10px; padding-bottom: 5px;
+                       border-bottom: 2px solid #e8d5b8; }
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+  .inline-video { margin: 16px 0; border-radius: 10px; overflow: hidden; background: #000; }
+  .inline-video video { width: 100%; max-height: 400px; display: block; }
+  .inline-video figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/farsh-tefteli-karlsona-001.jpg" alt="Тефтельки Карлсона"></div>
+  <div class="header">
+    
+    <h1>Тефтельки Карлсона</h1>
+    <div class="meta">ПРАвильные блюда из фарша</div>
+    <div class="info-bar"><span><b>Servings:</b> 30–40 штук</span>  ·  <span><b>Total Time:</b> 45 минут</span>  ·  <span><b>Active Time:</b> 30 минут</span></div>
+    
+    
+    <div class="source">Source: ПРАвильные блюда из фарша</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Ох уж эти тефтельки. В детстве мы все зачитывались книгой, а потом с удовольствием ели те самые тефтельки в «Икее». Но домашние тефтельки, конечно, в сто раз вкуснее. Варенье проще всего купить готовое, оно продается в той же «Икее» и многих других магазинах. Но если покупного не нашлось, просто уварите замороженную клюкву или бруснику с сахаром, примерно 100 г сахара на 500 г ягод с соком. Можно обжарить тефтели на сковородке и допечь в разогретой до 180 °С духовке, но обычно просто жарят их до готовности. Если у вас нет бульона, используйте воду или овощной бульон. Ведь мы готовим соус на той же сковородке, где жарились тефтели, в ней останется достаточно прижарок, чтобы соус получился насыщенным и ароматным. Если вы не едите свинину, приготовьте тефтельки из говядины, но учтите, что в фарше должно быть не менее 30% жира. Соевый соус для шведской кухни не типичен, но с ним соус будет вкуснее.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>2 сухие белые булочки (100 г чистого веса без корок)</li><li>100 мл молока</li><li>700 г смешанного фарша из говядины и свинины</li><li>1 средняя луковица</li><li>1 ч. л. соли</li><li>1 ч. л. шведской или дижонской горчицы</li><li>по 1/3 ч. л. молотого черного перца, молотого душистого перца, молотого мускатного ореха</li><li>топленое масло для жарки</li></ul><p class="ingr-subheader">для соуса:</p><ul class="notes-list"><li>3 ст. л. сливочного масла</li><li>3 ст. л. муки</li><li>500 мл говяжьего или куриного бульона</li><li>1 ст. л. соевого соуса</li><li>1 ст. л. белого винного уксуса</li><li>соль, свежемолотый перец</li></ul><p class="ingr-subheader">для подачи:</p><ul class="notes-list"><li>картофельное пюре, брусничное или клюквенное варенье</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инструкции</h2>
+          <ol class="steps"><li>Срезать корки с булочек, нарезать мякиш кубиками, залить молоком, оставить на 10 минут, пока весь хлеб не намокнет.</li><li>Если вы сами готовите фарш, перемолоть фарш вместе с луком и хлебом, используя среднюю решетку мясорубки. Если у вас готовый фарш, очень мелко порубить лук и смешать его с фаршем и замоченным хлебом (молоко сливать не нужно).</li><li>Добавить соль, горчицу и специи. Убрать фарш в холодильник на 1 час.</li><li>Сформовать тефтели диаметром примерно 3 см. Постараться делать их одного размера, чтобы все тефтели были готовы одновременно.</li><li>Хорошо разогреть большую тяжелую сковородку, добавить 2 ст. л. топленого масла, выложить тефтели на расстоянии друг от друга и жарить до готовности, переворачивая, на умеренно сильном огне. Это займет 7–10 минут. Если нужно, добавить масла. В идеале тефтели стоит жарить в два захода: если сковородка будет перегружена, они начнут тушиться и не будут такими румяными.</li><li>Готовые тефтели выкладывать на тарелку или доску.</li><li>Когда все тефтели поджарятся, растопить в той же сковородке сливочное масло, добавить муку и готовить, помешивая, примерно 3 минуты, пока не пропадет мучной вкус.</li><li>Влить бульон, соевый соус и уксус, довести до кипения, убавить огонь и готовить до загустения соуса, примерно 3 минуты. Опустить тефтели в соус и слегка прогреть. Можно не класть тефтели в соус, а полить им картофельное пюре и выложить тефтели сверху.</li></ol>
+        </div>
+</body>
+</html>
