@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кукси</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .subsection-title { font-size: 15px; font-weight: 700; color: #3a2a1a;
+                       margin: 24px 0 10px; padding-bottom: 5px;
+                       border-bottom: 2px solid #e8d5b8; }
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+  .inline-video { margin: 16px 0; border-radius: 10px; overflow: hidden; background: #000; }
+  .inline-video video { width: 100%; max-height: 400px; display: block; }
+  .inline-video figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/sup-kuksi-001.jpg" alt="Кукси"></div>
+  <div class="header">
+    
+    <h1>Кукси</h1>
+    <div class="meta">ПРАвильные горячие супы</div>
+    <div class="info-bar"><span><b>Servings:</b> 6 порций</span>  ·  <span><b>Total Time:</b> 90 минут</span>  ·  <span><b>Active Time:</b> 60 минут</span></div>
+    
+    
+    <div class="source">Source: ПРАвильные горячие супы – теория и практика</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Один из самых знаменитых корейских супов. Как и многие азиатские супы, кукси – суп-конструктор, который собирают непосредственно в тарелке.</p><p class="para">Хороший бульон с добавлением помидоров (кукси мури), лапша, нарезанное соломкой отварное или обжаренное мясо, предварительно замаринованные овощи и нарезанные полосками яичные блинчики – вот основа кукси. При этом суп может быть как холодным, так и горячим, в зависимости от желания и сезона.</p><p class="para">В кукси важно не пожалеть кориандра и чеснока – их добавляют на каждом этапе, при подготовке овощей, мури и мяса. Нужно постоянно пробовать, балансировать вкус солью, сахаром, уксусом и перцем. Каждая составляющая супа по отдельности уже должна быть вкусной, тогда, встретившись в одной тарелке, они создадут тот самый умами – абсолютную гармонию.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <ul class="notes-list"><li>300 г капусты (белокочанной или пекинской)</li><li>1 ч. л. молотого красного перца</li><li>2–3 ст. л. рисового уксуса</li><li>50 г сахара</li><li>1 ч. л. паприки (по желанию)</li><li>2–3 ч. л. молотого кориандра</li><li>3–4 огурца</li><li>3–4 большие луковицы</li><li>300 г говядины для жарки (стейка, бедра, вырезки)</li><li>5–6 зубчиков чеснока</li><li>4–5 помидоров</li><li>пучок свежей кинзы или петрушки</li><li>300 г лапши (рисовой стеклянной, фунчозы, спагеттини №1)</li><li>150 мл растительного масла (оливкового, подсолнечного)</li><li>1,5–2 л говяжьего или овощного бульона</li><li>70–100 мл концентрированного соевого соуса</li><li>3 яйца</li><li>несколько столовых ложек масла из жареного кунжута</li><li>30 г кунжута (по желанию)</li><li>соль</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Инструкции</h2>
+          <ol class="steps"><li>Нашинковать капусту тонкой соломкой, добавить 0,5 ч. л. соли, помять руками, чтобы капуста дала сок. Оставить на 15 минут, отжать, слить выделившийся сок. Добавить к капусте щепотку молотого острого перца, 1–2 ст. л. уксуса, 1 ч. л. сахара, паприку и 0,5 ч. л. кориандра.</li><li>Огурцы нарезать полукружочками или соломкой, слегка посолить и помять руками, добавить перец, 0,5 ч. л. кориандра.</li><li>Лук нарезать полукольцами, мясо нарезать тонкой соломкой. Чеснок порубить.</li><li>Помидоры надрезать крестообразно, залить кипятком, оставить на 5 минут, затем очистить от кожицы, натереть на терке, мелко нарезать или измельчить блендером в пюре.</li><li>Порубить зелень.</li><li>Лапшу замочить в холодной воде (кроме спагеттини).</li><li>Разогреть сковороду, влить 100 мл масла и жарить лук до золотистого цвета на умеренно сильном огне 5–7 минут.</li><li>К огурцам добавить треть чеснока, треть горячего обжаренного лука с горячим маслом, перемешать. Так же поступить с капустой.</li><li>Оставшийся лук переложить из сковороды в отдельную тарелку. Нагреть в сковороде половину оставшегося масла, выложить мясо и жарить 5–7 минут на сильном огне, часто помешивая. Посолить, поперчить, переложить мясо к луку, добавить 0,5–1 ч. л. кориандра, оставшийся чеснок.</li><li>В ту же разогретую сковороду добавить оставшееся масло, положить капусту и жарить на сильном огне 5–7 минут, чтобы капуста размягчилась и изменила цвет.</li><li>Подогреть бульон. Влить помидоры в горячий бульон, добавить соевый соус, оставшийся уксус, сахар, кориандр, кунжутное масло, щепотку острого перца. Попробовать и сбалансировать вкус, при желании посолить. Добавить половину зелени.</li><li>При желании обжарить кунжут на сухой сковородке в течение 2–3 минут, до легкого потрескивания и золотистого оттенка.</li><li>Вскипятить 1,5 л воды, добавить 1 ч. л. соли, варить лапшу 3–5 минут (или по инструкции на упаковке). Откинуть лапшу на дуршлаг, при желании добавить масло, чтобы лапша не слиплась.</li><li>Яйца перемешать венчиком до однородного состояния. Разогреть сковороду диаметром 21–24 см, смазать тонким слоем масла, вылить треть яиц на сковороду, распределить тонким слоем, готовить по 2–3 минуты с каждой стороны до золотистого цвета. Готовые блинчики сложить стопкой, свернуть рулетом и нарезать полосками шириной 0,5–0,7 см.</li><li>Собрать в тарелке суп: на дно выложить лапшу, сверху – капусту, огурцы, мясо, полоски яичных блинчиков, залить горячим бульоном, посыпать оставшейся зеленью и кунжутом.</li></ol>
+        </div>
+</body>
+</html>

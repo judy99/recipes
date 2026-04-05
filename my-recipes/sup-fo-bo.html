@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Фо бо</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .subsection-title { font-size: 15px; font-weight: 700; color: #3a2a1a;
+                       margin: 24px 0 10px; padding-bottom: 5px;
+                       border-bottom: 2px solid #e8d5b8; }
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+  .inline-video { margin: 16px 0; border-radius: 10px; overflow: hidden; background: #000; }
+  .inline-video video { width: 100%; max-height: 400px; display: block; }
+  .inline-video figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/sup-fo-bo-001.jpg" alt="Фо бо"></div>
+  <div class="header">
+    
+    <h1>Фо бо</h1>
+    <div class="meta">ПРАвильные горячие супы</div>
+    <div class="info-bar"><span><b>Servings:</b> 8 порций</span>  ·  <span><b>Total Time:</b> 6 часов</span>  ·  <span><b>Active Time:</b> 60 минут</span></div>
+    
+    
+    <div class="source">Source: ПРАвильные горячие супы – теория и практика</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Этот суп стал символом Вьетнама. Рецепт в общем-то простой, но есть в нем и интересные моменты – например, обжаривание овощей перед добавлением бульона, типичный прием французской кухни. Из всех азиатских супов фо бо самый простой в смысле поиска ингредиентов. Единственная сложность – найти именно китайский черный кардамон, который используется в ханойском варианте супа. Вообще с фо бо как с борщом – версий много и играть с ним можно бесконечно.</p><p class="para">Главное – понять смысл фо бо. Этот суп про наслоение и идеальное сочетание вкусов: в нем густота от желатина из костей, сладость, кислинка, умами, соленость, острота, пряность. Фо бо готовить не сложно, но довольно долго, поэтому лучше разделить процесс на два этапа: с вечера сварить бульон, а собирать и подавать на следующий день.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Уксус с чили и чесноком</h2>
+          <ul class="notes-list"><li>100 г чили</li><li>6 больших зубчиков чеснока</li><li>150 мл рисового уксуса</li><li>2 ч. л. сахара</li><li>1 ч. л. соли</li></ul><ol class="steps"><li>Нарезать чили ломтиками, чеснок – пластинками. Положить их в чистую ошпаренную банку объемом 300–400 мл.</li><li>В маленькой кастрюле смешать уксус, сахар и соль, довести до кипения, перемешать, чтобы сахар и соль растворились.</li><li>Налить горячий уксус в банку, дать остыть, закрыть и оставить хотя бы на сутки, а лучше на трое.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Бульон</h2>
+          <ul class="notes-list"><li>3 куска говяжьего хвоста (примерно 600–800 г)</li><li>2 спила говяжьей голяшки (примерно 800 г)</li><li>1 кг костей (порубленных обычных и костей с костным мозгом)</li><li>4 луковицы шалота (можно заменить обычным репчатым луком)</li><li>кусок имбиря размером с ладонь (15 см)</li><li>1 головка чеснока</li><li>2 палочки корицы</li><li>1 ст. л. семян кориандра</li><li>1 ст. л. семян фенхеля</li><li>4 бутона гвоздики</li><li>3 звездочки бадьяна</li><li>2–3 коробочки черного китайского кардамона цаого (не обязательно), 2–3 коробочки индийского черного кардамона или 4 коробочки зеленого</li><li>1 ст. л. китайского желтого каменного сахара или кристаллического сахара</li><li>соль</li><li>50 мл рыбного соуса</li></ul><ol class="steps"><li>Залить кости и мясо фильтрованной водой практически до верха кастрюли. Поставить на средний огонь, довести почти до кипения и уменьшить огонь до минимума. Снимать пену первые 20 минут.</li><li>Пока закипает вода, разрезать вдоль пополам лук и имбирь, чеснок разрезать пополам поперек. Включить вытяжку, разогреть чугунную сковороду, положить в нее овощи срезом вниз и хорошо обжечь. Они должны сильно потемнеть и даже почернеть. Перевернуть и обжечь с другой стороны. Можно сделать это в разогретой до максимума духовке.</li><li>На сухой сковороде обжарить по очереди крупные и мелкие специи до появления характерного аромата. Если удалось раздобыть черный кардамон, лучше разбить его стручки молотком. Завязать специи в мешочек из нескольких слоев марли.</li><li>Когда в бульоне не останется пены, положить в него обжаренные овощи, специи, добавить 2 ч. л. соли, сахар, влить рыбный соус. Варить без крышки на минимальном огне 4–5 часов. Бульон получается очень насыщенный, поэтому можно иногда доливать горячей воды.</li><li>Когда мясо станет мягким, удалить из бульона специи и овощи, при желании процедить бульон.</li></ol>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">🍽️</span>Для подачи</h2>
+          <ul class="notes-list"><li>упаковка рисовой лапши для фо</li><li>проростки сои</li><li>ломтики лайма</li><li>листики мяты, кинзы, базилика</li><li>по желанию: тонкие ломтики сырого мяса, масло чили, сырой лук</li></ul><ol class="steps"><li>Рисовую лапшу можно просто опустить в кипящую подсоленную воду и варить до готовности 6–8 минут, или заранее замочить на 30 минут в холодной воде – тогда она сварится за 2–3 минуты и будет более тягучей.</li><li>Тонко нарезать вареное мясо. Выложить готовую лапшу в глубокие тарелки, добавить мясо.</li><li>Залить очень горячим бульоном, добавить горсть проростков, листья кинзы, мяты, базилика, чайную ложку уксуса с ломтиком-двумя перца чили и чеснока.</li><li>Если используется сырое мясо, его лучше заранее подморозить, чтобы было проще нарезать очень тонкими ломтиками. Класть прямо в тарелку: горячий бульон его заварит.</li></ol>
+        </div>
+</body>
+</html>
