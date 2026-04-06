@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 маринадов для запекания и приготовления на гриле</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .subsection-title { font-size: 15px; font-weight: 700; color: #3a2a1a;
+                       margin: 24px 0 10px; padding-bottom: 5px;
+                       border-bottom: 2px solid #e8d5b8; }
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+  .inline-video { margin: 16px 0; border-radius: 10px; overflow: hidden; background: #000; }
+  .inline-video video { width: 100%; max-height: 400px; display: block; }
+  .inline-video figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/kurica-marinady-001.jpg" alt="10 маринадов для запекания и приготовления на гриле"></div>
+  <div class="header">
+    
+    <h1>10 маринадов для запекания и приготовления на гриле</h1>
+    <div class="meta">ПРАктика. Почти всe о курице</div>
+    <div class="info-bar"><span><b>Servings:</b> из расчeта на целую курицу или 1–1,5 кг частей</span></div>
+    
+    <div class="related-section"><span class="related-label">Part of menu:</span> <a class="related-link" href="kurica-krylyshki-bourbon.html">Крылышки в глазури из бурбона с апельсиновым мармеладом</a> · <a class="related-link" href="kurica-krylya-buffalo.html">Крылья баффало запечeнные</a> · <a class="related-link" href="kurica-krylya-so-speciyami.html">Крылья со специями и глазурью</a></div>
+    <div class="source">Source: ПРАктика. Почти все о курице</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">10 проверенных маринадов для курицы. Идеальный маринад сочетает все 4 вкуса: солeный, сладкий, острый и кислый. Мариновать от 30 минут до ночи. Часть маринада можно оставить для глазирования при запекании.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <h3 class="subsection-title">Медово-горчичный</h3><ul class="notes-list"><li>1 ст. л. мeда</li><li>1 ст. л. дижонской горчицы</li><li>2–3 ст. л. соевого соуса</li><li>3 ст. л. белого сухого вина (или 2 ст. л. белого винного уксуса)</li></ul><ul class="ingr-list"><li>Все хорошо перемешать.</li></ul><h3 class="subsection-title">Терияки</h3><ul class="notes-list"><li>100 мл соевого соуса</li><li>50 мл мирина</li><li>50 мл саке</li><li>1 ст. л. сахара</li></ul><p class="para">Смешать в кастрюле, уварить до загустения (консистенция жидкой карамели).</p><h3 class="subsection-title">Ямайский</h3><ul class="notes-list"><li>2 перца чили</li><li>3 пера зелeного лука</li><li>1 см корня имбиря</li><li>2 зубчика чеснока</li><li>3 веточки тимьяна</li><li>1 ч. л. молотого душистого перца</li><li>1/3 ч. л. натeртого мускатного ореха</li><li>1 ст. л. коричневого сахара</li><li>50 мл соевого соуса</li><li>50 мл оливкового масла</li><li>цедра и сок 2 лаймов</li></ul><ul class="ingr-list"><li>Листья тимьяна снять со стеблей. Всe взбить в блендере.</li></ul><h3 class="subsection-title">Лимонно-травяной</h3><ul class="notes-list"><li>цедра и сок 1 лимона</li><li>2 зубчика чеснока</li><li>6 веточек тимьяна (или орегано) или 2 веточки розмарина</li><li>30 мл оливкового масла</li></ul><p class="para">Листья тимьяна или орегано снять и порубить. Чеснок порубить или натереть. Всe смешать.</p><h3 class="subsection-title">С пивом</h3><ul class="notes-list"><li>100 мл пива</li><li>25 мл оливкового масла</li><li>1 зубчик чеснока</li><li>1/2 ч. л. молотой паприки</li><li>1/2 ч. л. молотого кумина</li><li>щепотка острого перца</li><li>маленький пучок петрушки</li></ul><ul class="ingr-list"><li>Всe смешать.</li></ul><h3 class="subsection-title">Ананасовый</h3><ul class="notes-list"><li>150 г свежего ананаса</li><li>2 ст. л. соевого соуса</li><li>1 ст. л. мeда</li><li>2 ст. л. яблочного уксуса</li><li>1 см корня имбиря</li><li>1 зубчик чеснока</li><li>5 шт. гвоздики</li></ul><ul class="ingr-list"><li>Всe взбить в блендере.</li></ul><h3 class="subsection-title">Острый</h3><ul class="notes-list"><li>1/2–1 ч. л. молотого чили</li><li>2 см корня имбиря</li><li>2 ст. л. красного винного уксуса</li><li>2–3 ст. л. соевого соуса</li></ul><ul class="ingr-list"><li>Имбирь натереть. Всe смешать.</li></ul><h3 class="subsection-title">Пряный</h3><ul class="notes-list"><li>2 ч. л. порошка карри</li><li>1/2 ч. л. куркумы</li><li>1/2 ч. л. молотого чили</li><li>4 ст. л. оливкового масла</li><li>соль, перец</li><li>по желанию — 1 см натeртого имбиря</li></ul><ul class="ingr-list"><li>Всe смешать.</li></ul><h3 class="subsection-title">Остро-сладкий</h3><ul class="notes-list"><li>1 ст. л. аджики</li><li>1,5 ст. л. мeда</li><li>3–4 зубчика чеснока</li><li>1 ст. л. оливкового масла</li><li>соль, перец</li></ul><ul class="ingr-list"><li>Чеснок выдавить или натереть. Всe смешать.</li></ul><h3 class="subsection-title">Чесночно-горчичный</h3><ul class="notes-list"><li>3–5 зубчиков чеснока</li><li>2 ст. л. дижонской горчицы</li><li>4 ст. л. белого сухого вина (или 3 ст. л. белого винного уксуса)</li><li>3 ст. л. оливкового масла</li></ul><p class="para">Чеснок выдавить или натереть. Добавить остальные ингредиенты, хорошо перемешать.</p><h3 class="subsection-title">В азиатском стиле</h3><ul class="notes-list"><li>3 ст. л. соевого соуса</li><li>1 ч. л. мeда</li><li>1 ст. л. кунжутного масла</li><li>2 см корня имбиря</li><li>1 ст. л. рисового уксуса</li><li>1 ст. л. мирина</li></ul><p class="para">Чеснок (1 зубчик) выдавить или натереть. Добавить остальные ингредиенты, перемешать.</p><h3 class="subsection-title">Азиатский с хойсином</h3><ul class="notes-list"><li>50 мл соевого соуса</li><li>1 ст. л. мeда</li><li>50 мл соуса хойсин</li><li>1 зубчик чеснока</li><li>2 см корня имбиря</li><li>щедрая щепотка китайской смеси «пять специй»</li><li>1 ч. л. кунжутного масла</li></ul><ul class="ingr-list"><li>Всe смешать.</li></ul><h3 class="subsection-title">С паприкой и чили</h3><ul class="notes-list"><li>1 ч. л. паприки</li><li>щедрая щепотка чили или кайенского перца</li><li>1 ст. л. красного винного уксуса</li><li>2 ст. л. томатной пасты</li></ul><h3 class="subsection-title">Майонезно-чесночный</h3><ul class="notes-list"><li>4–6 зубчиков чеснока</li><li>2 ст. л. домашнего майонеза</li><li>сок и цедра 1/2 лимона</li><li>5 веточек петрушки</li><li>соль, перец</li></ul><ul class="ingr-list"><li>Петрушку порубить, чеснок натереть. Всe перемешать.</li></ul>
+        </div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Галета с тыквой и сыром с голубой плесенью</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #faf7f4; color: #2d2926; max-width: 680px; margin: 0 auto; padding-bottom: 40px; }
+
+  .photo-wrap img { width: 100%; max-height: 380px; object-fit: cover; object-position: center center; display: block; }
+
+  .header { padding: 24px 24px 16px; }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; color: #1a1714; }
+  .meta { font-size: 13px; color: #9a8a80; margin-bottom: 6px; }
+  .rating { display: inline-block; background: #fff3e6; color: #c05f2a;
+             font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .source { font-size: 12px; color: #b0a09a; margin-top: 4px; }
+
+  .info-bar { font-size: 13px; color: #5a4a3a; margin: 6px 0 4px; }
+
+  .section { padding: 0 24px; margin-bottom: 24px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #7a4f2a;
+                    text-transform: uppercase; letter-spacing: 0.6px;
+                    margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-icon { font-size: 17px; }
+
+  .subsection-title { font-size: 15px; font-weight: 700; color: #3a2a1a;
+                       margin: 24px 0 10px; padding-bottom: 5px;
+                       border-bottom: 2px solid #e8d5b8; }
+  .ingr-subheader { font-size: 13px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: 0.5px; color: #8a6a3a; margin: 14px 0 4px; }
+  .ingr-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .ingr-list li { font-size: 15px; line-height: 1.5; padding: 8px 12px;
+                   background: white; border-radius: 8px;
+                   border-left: 3px solid #f0c080; }
+  .qty { font-weight: 600; color: #c05f2a; }
+
+  .steps { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 12px; }
+  .steps li { font-size: 15px; line-height: 1.6; padding: 12px 14px 12px 48px;
+               background: white; border-radius: 10px; position: relative; }
+  .steps li::before { counter-increment: steps; content: counter(steps);
+                       position: absolute; left: 12px; top: 12px;
+                       width: 26px; height: 26px; background: #f0c080;
+                       border-radius: 50%; display: flex; align-items: center;
+                       justify-content: center; font-weight: 700; font-size: 13px; color: #7a4f2a; }
+
+  .notes-list { list-style: disc; padding-left: 20px; margin: 0; }
+  .notes-list li { font-size: 15px; line-height: 1.6; color: #2d2926; }
+
+  .my-notes-section { margin-top: 8px; }
+  .my-notes-box { background: #fffef5; border: 1.5px dashed #c8b870; border-radius: 12px;
+                  padding: 14px 18px; font-size: 14px; line-height: 1.7; color: #5a4a30; }
+  .my-notes-box p { margin-bottom: 6px; }
+  .my-notes-box p:last-child { margin-bottom: 0; }
+  .empty-note { color: #c0b090; font-style: italic; }
+
+  .recipe-table { width: 100%; border-collapse: collapse; margin: 4px 0 12px; font-size: 14px; }
+  .recipe-table th { background: #f5ede4; color: #7a4a28; padding: 8px 12px;
+                      text-align: left; border: 1px solid #e0cfc0; font-weight: 700; }
+  .recipe-table td { padding: 8px 12px; border: 1px solid #e8ddd5; vertical-align: top;
+                      line-height: 1.5; }
+  .recipe-table tr:nth-child(even) td { background: #fdf8f5; }
+
+  p.para { font-size: 15px; line-height: 1.65; color: #2d2926; margin-bottom: 12px; }
+  p.para:last-child { margin-bottom: 0; }
+
+  .inline-photo { margin: 16px 0; border-radius: 10px; overflow: hidden; }
+  .inline-photo img { width: 100%; max-height: 320px; object-fit: cover; object-position: center center; display: block; }
+  .inline-photo.portrait { display: flex; flex-direction: column; align-items: center; background: transparent; }
+  .inline-photo.portrait img { width: auto; max-width: 55%; max-height: none; object-fit: contain; border-radius: 10px; }
+  .inline-photo.portrait figcaption { width: 55%; text-align: center; }
+  .inline-photo figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+  .inline-video { margin: 16px 0; border-radius: 10px; overflow: hidden; background: #000; }
+  .inline-video video { width: 100%; max-height: 400px; display: block; }
+  .inline-video figcaption { font-size: 12px; color: #9a8a80; padding: 6px 10px;
+                               background: #f5f0eb; font-style: italic; }
+
+  .related-section { font-size: 13px; margin-top: 8px; color: #9a8a80; }
+  .related-label { font-weight: 600; color: #7a4f2a; }
+  .related-link { color: #c05f2a; text-decoration: none; font-weight: 500; }
+  .related-link:hover { text-decoration: underline; }
+
+  .cooked-bar { font-size: 13px; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .cooked-label { font-weight: 600; color: #7a4f2a; }
+  .cooked-chip { background: #f0ede6; color: #5a4a3a; padding: 3px 10px;
+                  border-radius: 20px; font-size: 13px; border: 1px solid #d8cfc4; }
+
+  .my-photo-wrap { margin: 24px 24px 0; border-radius: 12px; overflow: hidden;
+                    border: 2px solid #e8d9c8; }
+  .my-photo-label { background: #f5ede4; color: #7a4f2a; font-size: 12px; font-weight: 600;
+                     padding: 6px 14px; letter-spacing: 0.4px; }
+  .my-photo-wrap img { width: 100%; max-height: 420px; object-fit: cover;
+                        object-position: center; display: block; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 6px;
+               margin: 28px 24px 20px;
+               background: #c05f2a; color: white;
+               font-size: 14px; font-weight: 600;
+               padding: 8px 16px; border-radius: 20px;
+               text-decoration: none; }
+  .back-btn:hover { background: #a04e22; text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    .steps li { padding-left: 42px; }
+  }
+</style>
+</head>
+<body>
+  <a class="back-btn" href="../cookbook.html">← Catalog</a>
+  <div class="photo-wrap"><img src="images/ovoshi-galeta-s-tykvoj-i-syrom-001.jpg" alt="Галета с тыквой и сыром с голубой плесенью"></div>
+  <div class="header">
+    
+    <h1>Галета с тыквой и сыром с голубой плесенью</h1>
+    <div class="meta">ПРАктика. Овощи</div>
+    <div class="info-bar"><span><b>Total Time:</b> 1 час</span>  ·  <span><b>Active Time:</b> 20 минут</span></div>
+    
+    
+    <div class="source">Source: ПРАктика. Овощи</div>
+  </div>
+  
+  
+        <div class="section">
+          
+          <p class="para">Нежное рассыпчатое тесто и начинка с необычайно аппетитным сочетанием тыквы, карамелизованного лука и сыра с голубой плесенью. Рекомендую готовить двойную порцию, потому что на одной сложно остановиться.</p><p class="para">Готовая галета получается диаметром около 22 см. Не обязательно подравнивать края, достаточно относительно ровно раскатать корж, где-то можно срезать, где-то тесто добавить, оно отлично лепится и приятно в работе.</p><p class="para">Сладкий лук можно заменить репчатым, а вместо сыра с голубой плесенью использовать козий или другой мягкий сыр, желательно легкоплавкий.</p><p class="para">По желанию для теста можно взять 110 г пшеничной и 50 г цельнозерновой муки.</p><p class="para">Тыкву с тонкой кожурой, например баттернат, не обязательно очищать, достаточно тщательно ее помыть.</p>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Ингредиенты</h2>
+          <p class="ingr-subheader">для теста:</p><ul class="notes-list"><li>160 г пшеничной муки + на подпыл</li><li>1 ст. л. листочков тимьяна</li><li>1/2 ч. л. соли</li><li>115 г охлажденного сливочного масла</li><li>50 мл ледяной воды</li><li>1/2 яйца</li></ul><p class="ingr-subheader">для начинки:</p><ul class="notes-list"><li>350 г тыквы</li><li>1–2 сладкие луковицы</li><li>50 г оливкового масла</li><li>2–3 веточки тимьяна + для подачи</li><li>1 ст. л. бальзамического уксуса</li><li>1 ч. л. сахара</li><li>100 г сыра с голубой плесенью типа дор блю</li><li>соль, свежемолотый черный перец</li></ul>
+        </div>
+        <div class="section">
+          <h2 class="section-title"><span class="section-icon">📌</span>Метод</h2>
+          <ol class="steps"><li>Для теста всыпать в миску муку. Тимьян мелко порубить и добавить к муке вместе с солью. Хорошо охлажденное масло нарезать кубиками примерно по 2 см, добавить в муку и растереть руками в крошку или сложить в блендер и измельчить до состояния крошки. Небольшими порциями вливать ледяную воду и вымешивать, пока не образуется тесто. Долго месить не надо, лишь до объединения всех ингредиентов и получения эластичного, мягкого, податливого теста.</li><li>Собрать тесто в шар, слегка расплющить руками в толстый блин, завернуть в пищевую пленку. Поместить минимум на полчаса в холодильник, можно оставить на ночь.</li><li>Указанное количество тыквы очистить от семечек, при необходимости и от кожуры, если она толстая, нарезать ломтиками толщиной 5–7 мм. Лук нарезать полукольцами.</li><li>Разогреть сковородку на среднем огне, обжарить лук на половине оливкового масла в течение 5 минут, до полупрозрачности. Переложить в миску. В один слой обжарить ломтики тыквы, по 2–3 минуты с каждой стороны. Вернуть в сковородку лук. Посолить, поперчить, добавить веточки тимьяна, бальзамический уксус и сахар, перемешать и готовить 2 минуты, пока жидкость не выпарится. Начинку остудить.</li><li>Разогреть духовку до 200 °С.</li><li>Достать тесто из холодильника. Если оно слишком твердое, оставить полежать на 5–10 минут, чтобы легче было раскатывать. Выложить тесто на присыпанную мукой рабочую поверхность или сразу на бумагу для выпечки, раскатать в ровный круг диаметром около 26 см.</li><li>Переложить круг теста на противень, выстеленный бумагой для выпечки. Отступая от краев 4–5 см, выложить ровным слоем остывший лук, на него раскрошить кусочками сыр. Красиво разложить ломтики тыквы, посыпать листочками тимьяна, слегка посолить и поперчить. Частично накрыть начинку краями теста, завернув их к центру, чтобы получилась открытая в середине галета.</li><li>Отправить пирог в холодильник на 1 час перед выпечкой (можно держать его там до 6 часов).</li><li>Разогреть духовку до 200 °С в режиме «верх-низ» с конвекцией.</li><li>Яйцо взболтать и смазать края галеты из теста, чтобы при выпечке они покрылись красивой глянцевой корочкой.</li><li>Выпекать около 30 минут, до золотистого цвета теста, затем достать, сбрызнуть начинку оставшимся оливковым маслом, посыпать листочками свежего тимьяна. Дать остыть около 15 минут, после чего можно нарезать и подавать.</li></ol>
+        </div>
+</body>
+</html>
