@@ -1,6 +1,6 @@
 Title: Баклажаны
 Category: ПРАктика. Овощи
-Tags: баклажаны, овощи, статья
+Tags: баклажаны, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-baklazhany-001.jpg

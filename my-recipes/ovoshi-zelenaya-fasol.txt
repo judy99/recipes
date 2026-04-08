@@ -1,6 +1,6 @@
 Title: Зеленая фасоль
 Category: ПРАктика. Овощи
-Tags: зеленая фасоль, овощи, статья
+Tags: зеленая фасоль, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-zelenaya-fasol-001.jpg

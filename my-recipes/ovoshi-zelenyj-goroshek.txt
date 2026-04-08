@@ -1,6 +1,6 @@
 Title: Зеленый горошек
 Category: ПРАктика. Овощи
-Tags: зеленый горошек, овощи, статья
+Tags: зеленый горошек, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-zelenyj-goroshek-001.jpg

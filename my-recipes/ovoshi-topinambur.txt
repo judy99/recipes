@@ -1,6 +1,6 @@
 Title: Топинамбур
 Category: ПРАктика. Овощи
-Tags: топинамбур, земляная груша, овощи, статья
+Tags: топинамбур, земляная груша, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-topinambur-001.jpg

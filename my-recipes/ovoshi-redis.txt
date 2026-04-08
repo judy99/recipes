@@ -1,6 +1,6 @@
 Title: Редис
 Category: ПРАктика. Овощи
-Tags: редис, овощи, статья
+Tags: редис, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-redis-001.jpg

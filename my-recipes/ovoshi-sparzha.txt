@@ -1,6 +1,6 @@
 Title: Спаржа
 Category: ПРАктика. Овощи
-Tags: спаржа, овощи, статья
+Tags: спаржа, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-sparzha-001.jpg

@@ -1,6 +1,6 @@
 Title: Батат
 Category: ПРАктика. Овощи
-Tags: батат, овощи, статья
+Tags: батат, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-batat-001.jpg

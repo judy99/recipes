@@ -1,6 +1,6 @@
 Title: Репа, брюква, кольраби
 Category: ПРАктика. Овощи
-Tags: репа, брюква, кольраби, овощи, статья
+Tags: репа, брюква, кольраби, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-repa-bryukva-kolrabi-001.jpg

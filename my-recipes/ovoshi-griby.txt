@@ -1,6 +1,6 @@
 Title: Грибы
 Category: ПРАктика. Овощи
-Tags: грибы, овощи, статья
+Tags: грибы, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-griby-001.jpg

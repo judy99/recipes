@@ -1,6 +1,6 @@
 Title: Кабачки, цукини, патиссоны
 Category: ПРАктика. Овощи
-Tags: кабачки, цукини, патиссоны, овощи, статья
+Tags: кабачки, цукини, патиссоны, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-kabachki-cukini-patissony-001.jpg

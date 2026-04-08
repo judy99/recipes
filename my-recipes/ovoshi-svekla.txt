@@ -1,6 +1,6 @@
 Title: Свекла
 Category: ПРАктика. Овощи
-Tags: свекла, свёкла, овощи, статья
+Tags: свекла, свёкла, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-svekla-001.jpg

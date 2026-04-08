@@ -1,6 +1,6 @@
 Title: Помидоры
 Category: ПРАктика. Овощи
-Tags: помидоры, томаты, овощи, статья
+Tags: помидоры, томаты, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-pomidory-001.jpg

@@ -1,6 +1,6 @@
 Title: Брокколи и цветная капуста
 Category: ПРАктика. Овощи
-Tags: брокколи, цветная капуста, овощи, статья
+Tags: брокколи, цветная капуста, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-brokkoli-i-cvetnaya-kapusta-001.jpg

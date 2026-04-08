@@ -1,6 +1,6 @@
 Title: Редька
 Category: ПРАктика. Овощи
-Tags: редька, дайкон, овощи, статья
+Tags: редька, дайкон, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-redka-001.jpg

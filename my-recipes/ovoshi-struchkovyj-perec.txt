@@ -1,6 +1,6 @@
 Title: Стручковый перец
 Category: ПРАктика. Овощи
-Tags: стручковый перец, паприка, чили, овощи, статья
+Tags: стручковый перец, паприка, чили, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-struchkovyj-perec-001.jpg

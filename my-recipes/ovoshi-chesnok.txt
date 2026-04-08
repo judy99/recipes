@@ -1,6 +1,6 @@
 Title: Чеснок
 Category: ПРАктика. Овощи
-Tags: чеснок, овощи, статья
+Tags: чеснок, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-chesnok-001.jpg

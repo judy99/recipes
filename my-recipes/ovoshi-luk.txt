@@ -1,6 +1,6 @@
 Title: Лук
 Category: ПРАктика. Овощи
-Tags: лук, репчатый лук, овощи, статья
+Tags: лук, репчатый лук, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-luk-001.jpg

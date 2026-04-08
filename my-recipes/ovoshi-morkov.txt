@@ -1,6 +1,6 @@
 Title: Морковь
 Category: ПРАктика. Овощи
-Tags: морковь, овощи, статья
+Tags: морковь, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-morkov-001.jpg

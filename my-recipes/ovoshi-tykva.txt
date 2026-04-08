@@ -1,6 +1,6 @@
 Title: Тыква
 Category: ПРАктика. Овощи
-Tags: тыква, овощи, статья
+Tags: тыква, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-tykva-001.jpg

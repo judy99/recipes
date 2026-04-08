@@ -1,6 +1,6 @@
 Title: Артишоки
 Category: ПРАктика. Овощи
-Tags: артишоки, овощи, статья
+Tags: артишоки, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-artishoki-001.jpg

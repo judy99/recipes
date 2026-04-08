@@ -1,6 +1,6 @@
 Title: Имбирь
 Category: ПРАктика. Овощи
-Tags: имбирь, овощи, статья
+Tags: имбирь, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-imbir-001.jpg

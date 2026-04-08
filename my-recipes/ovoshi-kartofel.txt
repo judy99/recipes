@@ -1,6 +1,6 @@
 Title: Картофель
 Category: ПРАктика. Овощи
-Tags: картофель, картошка, овощи, статья
+Tags: картофель, картошка, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-kartofel-001.jpg

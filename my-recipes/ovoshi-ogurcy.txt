@@ -1,6 +1,6 @@
 Title: Огурцы
 Category: ПРАктика. Овощи
-Tags: огурцы, овощи, статья
+Tags: огурцы, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-ogurcy-001.jpg

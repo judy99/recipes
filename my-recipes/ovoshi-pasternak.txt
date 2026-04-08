@@ -1,6 +1,6 @@
 Title: Пастернак
 Category: ПРАктика. Овощи
-Tags: пастернак, овощи, статья
+Tags: пастернак, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-pasternak-001.jpg

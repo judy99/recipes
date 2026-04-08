@@ -1,6 +1,6 @@
 Title: Фенхель
 Category: ПРАктика. Овощи
-Tags: фенхель, овощи, статья
+Tags: фенхель, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-fenhel-001.jpg

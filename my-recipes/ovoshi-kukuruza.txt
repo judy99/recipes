@@ -1,6 +1,6 @@
 Title: Кукуруза
 Category: ПРАктика. Овощи
-Tags: кукуруза, овощи, статья
+Tags: кукуруза, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-kukuruza-001.jpg

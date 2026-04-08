@@ -1,6 +1,6 @@
 Title: Авокадо
 Category: ПРАктика. Овощи
-Tags: авокадо, овощи, статья
+Tags: авокадо, овощи, статья, теория
 Related:
 Source: ПРАктика. Овощи
 Image: images/ovoshi-avokado-001.jpg
