@@ -198,7 +198,7 @@ function cardHtml(entry, query, minfo) {
   const words = getWords(query);
 
   // Type badge — show Теория if type=theory OR tags include "theory"
-  const isTheory = entry.type === 'theory' || (entry.tags && (entry.tags.toLowerCase().includes('theory') || entry.tags.includes('Теория')));
+  const isTheory = entry.type === 'theory' || (entry.tags && (entry.tags.toLowerCase().includes('theory') || entry.tags.includes('Теория') || entry.tags.includes('теория')));
   const isRecipe = (entry.type === 'my_recipe' || entry.type === 'standalone');
   const isArticle = entry.tags && entry.tags.includes('статья');
   const typeLbl = {card:'Карточка', collection:'Сборник', theory:'Теория', standalone:'Рецепт', my_recipe:'Рецепт'};
