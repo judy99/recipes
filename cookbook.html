@@ -199,11 +199,19 @@ function cardHtml(entry, query, minfo) {
 
   // Type badge — show Теория if type=theory OR tags include "theory"
   const isTheory = entry.type === 'theory' || (entry.tags && (entry.tags.toLowerCase().includes('theory') || entry.tags.includes('Теория')));
+  const isRecipe = (entry.type === 'my_recipe' || entry.type === 'standalone');
   const typeLbl = {card:'Карточка', collection:'Сборник', theory:'Теория', standalone:'Рецепт', my_recipe:'Рецепт'};
   const typeCls = {card:'badge-card', collection:'badge-collection', theory:'badge-theory', standalone:'badge-standalone', my_recipe:'badge-my_recipe'};
-  const typeLabel = isTheory ? 'Теория' : (typeLbl[entry.type] || entry.type);
-  const typeClass = isTheory ? 'badge-theory' : (typeCls[entry.type] || 'badge-card');
-  const typeBadge = '<span class="badge ' + typeClass + '">' + typeLabel + '</span>';
+  let typeBadge;
+  if (isRecipe && isTheory) {
+    typeBadge = '<span class="badge badge-my_recipe">Рецепт</span><span class="badge badge-theory">Теория</span>';
+  } else if (isTheory) {
+    typeBadge = '<span class="badge badge-theory">Теория</span>';
+  } else {
+    const typeLabel = typeLbl[entry.type] || entry.type;
+    const typeClass = typeCls[entry.type] || 'badge-card';
+    typeBadge = '<span class="badge ' + typeClass + '">' + typeLabel + '</span>';
+  }
 
   // PraCooking badge
   const pracookingBadge = (entry.tags && entry.tags.toLowerCase().includes('pracooking'))
